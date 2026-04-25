@@ -3,165 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartMap | Public Map Application | Sai Teja Govind</title>
+    <title>SmartMap Case Study | Sai Teja Govind</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body id="top">
 
     <!-- Global Navigation -->
     <nav>
-        <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
-        <div class="nav-links">
-            <a href="index.html#work">Work</a>
-            <a href="index.html#process">Process</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#contact">Contact</a>
+        <div class="nav-header">
+            <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
+            <button class="hamburger" id="nav-toggle">☰</button>
+        </div>
+        <div class="nav-links" id="nav-menu">
+            <ul>
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- A: Hero -->
-    <section class="cs-header fade-up" style="padding-bottom: 2rem;">
-        <h1>SmartMap – Public Map Application</h1>
-        <p>Designing intuitive map-based services for everyday users in the UAE.</p>
-    </section>
+    <!-- SECTION 1: Cold Open (No Header) -->
+    <section class="cs-header fade-up">
+        <div class="cs-content-block" style="text-align: left; font-size: 1.25rem;">
+            <p>SmartMap is a deployed Spatial Data Infrastructure platform built for the UAE government's Smart City program. It does something most maps don't — it surfaces live service data. Residents can see not just where the nearest hospital is, but whether it has available beds. Government administrators use the same interface to manage spatial datasets across 100+ public entities.</p>
+            <p>I joined I Spatial Techno Solutions in November 2025 to redesign the map interaction layer. Five months later I handed off a product that both user types could actually use.</p>
+        </div>
 
-    <!-- Project Metrics Grid (Parallax Floating style) -->
-    <section class="cs-metrics-grid fade-up" style="max-width: 1400px; margin: 0 auto 5rem; padding: 0 5%;" id="impact-metrics-scene">
-        <div class="cs-metric scale-up diagram-node orbit" data-speed="0.5" style="position: relative; animation: none;">
-            <h4>↓ 30%</h4>
-            <p>Reduced map navigation confusion.</p>
-        </div>
-        <div class="cs-metric scale-up diagram-node orbit" data-speed="-0.5" style="transition-delay: 100ms; position: relative; animation: none;">
-            <h4>↑ Faster</h4>
-            <p>Accelerated public service discovery.</p>
-        </div>
-        <div class="cs-metric scale-up diagram-node orbit" data-speed="0.8" style="transition-delay: 200ms; position: relative; animation: none;">
-            <h4>↓ Load</h4>
-            <p>Reduced cognitive load.</p>
-        </div>
-        <div class="cs-metric scale-up diagram-node orbit" data-speed="-0.3" style="transition-delay: 300ms; position: relative; animation: none;">
-            <h4>↑ Usability</h4>
-            <p>Improved access for non-technical users.</p>
+        <div class="cs-meta">
+            <span>UX Designer</span> &middot; 
+            <span>I Spatial Techno Solutions</span> &middot; 
+            <span>Nov 2025–Mar 2026</span><br>
+            <span>5 months</span> &middot; 
+            <span>Team of 10</span> &middot; 
+            <span>Figma + FigJam</span> &middot; 
+            <span>UAE government</span><br>
+            <span>3-person design team</span> &middot; 
+            <span>I owned research, interaction design, and visual design</span>
         </div>
     </section>
 
-    <!-- What is SmartMap -->
-    <section class="cs-section fade-up">
-        <div class="cs-section-title">
-            <h2>What is SmartMap?</h2>
-        </div>
+    <!-- SECTION 2: The Problem -->
+    <section class="cs-section fade-up" style="padding-top: 0;">
+        <h2>The problem</h2>
         <div class="cs-content-block">
-            <p>SmartMap is a public-facing mapping platform that helps users:</p>
-            <ul>
-                <li>Find nearby services such as schools and hospitals.</li>
-                <li>Explore locations using map-based interactions.</li>
-                <li>Access spatial data in a simple and accessible way.</li>
-            </ul>
+            <p>The platform had a layer system that made sense to the engineers who built it and no one else. Nine ungrouped categories, all visible at once, with toggle states that looked identical whether active or not. Residents had no way to browse by intent. The live bed availability data — arguably the most valuable thing on the platform — was buried so deep that none of the 4 users in our research sessions found it without being told it existed.</p>
+            <p>We were watching people tap around a map hoping something useful would appear. On a platform designed to help them find healthcare.</p>
+            <p>The harder problem was that government administrators needed the opposite experience — full layer control, specialist data access, precision toggles. One interface. Two completely different mental models. That was the actual design challenge.</p>
         </div>
     </section>
 
-    <!-- How I Evaluated The Product -->
+    <!-- SECTION 3: What we changed -->
     <section class="cs-section fade-up">
-        <div class="cs-section-title">
-            <h2>How I Evaluated The Product</h2>
-        </div>
+        <h2>What we changed</h2>
         <div class="cs-content-block">
-            <p>To fundamentally understand the underlying usability challenges, I took a structured approach:</p>
-            <ul>
-                <li>Explored service discovery flows (e.g., finding local schools or hospitals).</li>
-                <li>Rigorously tested map interactions and active layer toggling logic.</li>
-                <li>Identified and mapped precise navigation friction points across the interface.</li>
-                <li>Evaluated baseline usability specifically for first-time general users.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- UX Problems -->
-    <section class="cs-section fade-up">
-        <div class="cs-section-title">
-            <h2>UX Problems</h2>
-        </div>
-        <div class="cs-content-block">
-            <ul>
-                <li><strong>Navigation overload</strong></li>
-                <li><strong>Layer complexity</strong></li>
-                <li><strong>Discoverability issues</strong></li>
-                <li><strong>High cognitive load</strong></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- UX Decisions (Core Section) -->
-    <section class="cs-section fade-up">
-        <div class="cs-section-title">
-            <h2>UX Decisions</h2>
-        </div>
-        <div class="cs-content-block">
-            <div style="margin-top: 1rem;">
-                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">1. Navigation Complexity</h4>
-                <p style="margin-bottom: 1.5rem;">→ Introduced structured toolbar<br>→ <em>Reduced confusion</em></p>
-
-                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">2. Layer Overload</h4>
-                <p style="margin-bottom: 1.5rem;">→ Grouped layers with strict hierarchy<br>→ <em>Improved clarity</em></p>
-
-                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">3. Service Discovery</h4>
-                <p style="margin-bottom: 1.5rem;">→ Added category-based filtering<br>→ <em>Faster task completion</em></p>
-
-                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">4. Cognitive Load</h4>
-                <p style="margin-bottom: 1.5rem;">→ Applied progressive disclosure<br>→ <em>Cleaner map experience</em></p>
-
-                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">5. First-Time Use</h4>
-                <p style="margin-bottom: 1.5rem;">→ Added onboarding cues & tooltips<br>→ <em>Easier learning curve</em></p>
+            <p>We tore down the nine flat layers and restructured them into three grouped categories with distinctly visible toggle states. The key insight was that residents think in intent categories like "I need healthcare," not database layer names. We split the primary toolbar to expose only five persistent actions, tucking specialist tools into a contextual secondary panel.</p>
+            <p>To fix service discovery, we bypassed the layer panel entirely for general users, adding a category filter directly over the map. This allowed the default map state to load entirely clean through progressive disclosure. Services only populate when a user actively clicks a category. Pushing this through required heavy alignment with the PM and the client to ensure performance wasn't compromised.</p>
+            
+            <div style="margin: 4rem 0;">
+                <img src="assets/real-layer-panel.png" alt="Restructured layer panel" onerror="this.style.display='none'">
+                <p class="caption">The restructured layer panel. Users can now instantly distinguish active layers from inactive ones without reading the labels.</p>
+                
+                <img src="assets/real-filter-ui.png" alt="Map filter overlay" onerror="this.style.display='none'">
+                <p class="caption">The new category filter. Bypassing the layer panel makes live bed availability data discoverable in one click.</p>
             </div>
+
+            <p>In follow-up testing with the same 4 participants, all of them found their target service without assistance — and all 4 found the bed availability data unprompted. In the original interface, none had.</p>
         </div>
     </section>
 
-    <!-- Visuals (Real Screenshots Only) -->
+    <!-- SECTION 4: What I took from this -->
     <section class="cs-section fade-up">
-        <div class="cs-section-title">
-            <h2>Visual Overhaul</h2>
-            <p style="font-size: 0.8rem; color: var(--text-tertiary); margin-top: 1rem;">(Drop your screenshots into the assets folder)</p>
-        </div>
+        <h2>What I took from this</h2>
         <div class="cs-content-block">
-            <div class="work-image-container" style="min-height: 400px; margin-bottom: 2rem;">
-                <img src="assets/real-map-view.png" alt="Map view" onerror="this.style.display='none'">
-                <span style="color: #94a3b8; font-family: monospace; position: absolute; z-index: 0;">assets/real-map-view.png</span>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                <div class="work-image-container" style="min-height: 250px;">
-                    <img src="assets/real-layer-panel.png" alt="Layer panel" style="position: relative; z-index: 1;" onerror="this.style.display='none'">
-                    <span style="color: #94a3b8; font-family: monospace; position: absolute; z-index: 0;">assets/real-layer-panel.png</span>
-                </div>
-                <div class="work-image-container" style="min-height: 250px;">
-                    <img src="assets/real-filter-ui.png" alt="Search filter interaction" style="position: relative; z-index: 1;" onerror="this.style.display='none'">
-                    <span style="color: #94a3b8; font-family: monospace; position: absolute; z-index: 0;">assets/real-filter-ui.png</span>
-                </div>
-            </div>
+            <p>I went in thinking the problem was visual clutter. The research showed the real failure was invisible system state — users had no idea what the map was currently showing them. That's a different problem entirely, and it changes what you design.</p>
+            <p>We locked the layer architecture before we properly tested with administrator users. Their needs were different enough that we made compromises I'd avoid if I ran it again — with earlier, more deliberate testing across both user types from week one. That's the version I'd build next time.</p>
         </div>
     </section>
 
-    <!-- Reflection -->
-    <section class="cs-section fade-up" style="border-bottom: none;">
-        <div class="cs-section-title">
-            <h2>Reflection</h2>
-        </div>
-        <div class="cs-content-block">
-            <ul>
-                <li>Learned to structurally simplify highly complex public systems.</li>
-                <li>Balanced usability demands strictly with necessary data richness.</li>
-                <li>Designed effectively for both everyday general users and analytical experts.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" style="background: var(--bg-secondary); text-align: center; border-top: 1px solid var(--border-color); width: 100%; border-bottom: none; padding-top: 6rem; padding-bottom: 6rem;">
-        <h2 class="section-title">Let’s build something impactful.</h2>
-        <p class="hero-prop" style="margin: 1rem auto 2.5rem; font-weight: 500;">I’m open to solving complex product challenges in SaaS and data-driven environments.</p>
-        <div class="hero-actions" style="justify-content: center;">
-            <a href="mailto:contact@example.com" class="btn btn-primary">Email Me</a>
-            <a href="https://www.linkedin.com/in/saaiteja/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border-color: var(--accent-color);">LinkedIn</a>
-            <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
+    <!-- CTA -->
+    <section id="contact" class="fade-up" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); width: 100%; padding-top: 6rem; padding-bottom: 6rem;">
+        <div class="cs-content-block" style="text-align: center;">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-weight: 500;">
+                <a href="mailto:govindusaiteja@gmail.com" style="min-height: auto; color: var(--accent-blue); justify-content: center;">govindusaiteja@gmail.com</a>
+                <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" style="min-height: auto; color: var(--accent-blue); justify-content: center;">linkedin.com/in/saaiteja</a>
+                <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="min-height: auto; color: var(--text-primary); justify-content: center; margin-top: 1rem; text-decoration: underline;">Resume</a>
+            </div>
         </div>
     </section>
 
@@ -173,20 +101,14 @@
                 }
             });
         }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.fade-up, .scale-up').forEach((el) => observer.observe(el));
+        document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 
-        // Lightweight Parallax on Metrics (Desktop Only)
-        const container = document.getElementById('impact-metrics-scene');
-        if(container && window.innerWidth > 1024) {
-            const layers = container.querySelectorAll('.diagram-node.orbit');
-            document.addEventListener('mousemove', (e) => {
-                const x = (e.clientX - window.innerWidth / 2) * -0.01;
-                const y = (e.clientY - window.innerHeight / 2) * -0.01;
-                layers.forEach(layer => {
-                    const speed = parseFloat(layer.getAttribute('data-speed') || 1);
-                    layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
-                });
+        // Mobile Nav Toggle
+        const toggle = document.getElementById('nav-toggle');
+        const menu = document.getElementById('nav-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                menu.classList.toggle('open');
             });
         }
     </script>

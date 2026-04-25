@@ -10,12 +10,17 @@
 
     <!-- Global Navigation -->
     <nav>
-        <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
-        <div class="nav-links">
-            <a href="index.html#work">Work</a>
-            <a href="index.html#process">Process</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#contact">Contact</a>
+        <div class="nav-header">
+            <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
+            <button class="hamburger" id="nav-toggle">☰</button>
+        </div>
+        <div class="nav-links" id="nav-menu">
+            <ul>
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -23,9 +28,8 @@
     <section class="hero fade-up">
         <div class="hero-content">
             <h1 class="hero-title">Designing systems that simplify complex decisions.</h1>
-            <p class="hero-prop">Improved task completion by 20% • Reduced onboarding friction across 40+ screens</p>
-            <p class="hero-statement">Most complex platforms fail not because of missing features, but because users can’t understand them.</p>
-            <div class="hero-actions">
+            <p class="hero-prop">I specialise in platforms where the data is complex and the user can't afford to be confused — mapping systems, B2B dashboards, and government-grade interfaces.</p>
+            <div class="cta-buttons">
                 <a href="#work" class="btn btn-primary">View Work</a>
                 <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
             </div>
@@ -69,159 +73,74 @@
         </div>
     </section>
 
-    <!-- Node Diagram Section -->
+    <!-- Process Narrative Section -->
     <section id="process" class="fade-up" style="padding-top: 2rem; padding-bottom: 2rem;">
-        <div class="section-header" style="text-align: center;">
-            <h2 class="section-title">How I Approach Complex Systems</h2>
-        </div>
-        <div class="system-diagram" id="diagram-scene">
-            <!-- Center Hub -->
-            <div class="diagram-node center">User-Centered Design</div>
-            
-            <!-- Orbiting Nodes -->
-            <div class="diagram-node orbit" data-speed="1">
-                UX Research
-                <div class="node-tooltip">Understanding real user behavior through testing and insights</div>
-            </div>
-            <div class="diagram-node orbit" data-speed="-1">
-                Product Thinking
-                <div class="node-tooltip">Aligning user needs with business outcomes</div>
-            </div>
-            <div class="diagram-node orbit" data-speed="1.5">
-                AI-Assisted UX
-                <div class="node-tooltip">Leveraging machine learning to accelerate workflows</div>
-            </div>
-            <div class="diagram-node orbit" data-speed="-0.5">
-                Prototyping
-                <div class="node-tooltip">Building high-fidelity interactive models</div>
-            </div>
-            <div class="diagram-node orbit" data-speed="2">
-                Accessibility
-                <div class="node-tooltip">Ensuring systems are usable by everyone</div>
-            </div>
-            <div class="diagram-node orbit" data-speed="-1.5">
-                Information Architecture
-                <div class="node-tooltip">Structuring complex data hierarchies intuitively</div>
-            </div>
+        <div class="narrative-block">
+            <p>I start with the system before I start with the screen. On SmartMap — a deployed UAE government spatial platform — mapping the full user journey first revealed that 80% of task failures came from three interaction patterns, not the interface as a whole. That kind of finding changes everything about where you spend your design time.</p>
         </div>
     </section>
 
-    <!-- Tools Section (New) -->
-    <section class="tools-section fade-up" style="padding-top: 4rem; padding-bottom: 4rem;">
-        <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
-            <h2 class="section-title">Tools I Use</h2>
-        </div>
-        <div class="tools-scroll-container">
-            <div class="tool-pill">Figma</div>
-            <div class="tool-pill">Adobe Suite</div>
-            <div class="tool-pill">ChatGPT</div>
-            <div class="tool-pill">Claude</div>
-            <div class="tool-pill">Antigravity</div>
-            <div class="tool-pill">Lovable</div>
-            <div class="tool-pill">Stitch</div>
-            <div class="tool-pill">SurveyMonkey</div>
-        </div>
-    </section>
-
-    <!-- Personal Parallax Interaction Section -->
-    <section class="fade-up" style="padding-top: 4rem; padding-bottom: 4rem;">
-        <div class="interaction-grid">
-            <div class="interaction-card">
-                <h3>Systems Thinking</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Architecting scalable platforms from the database logic to the pixel level.</p>
+    <!-- Tools Section -->
+    <section class="tools-section fade-up" style="padding-top: 4rem; padding-bottom: 4rem; background: var(--bg-primary); border: none;">
+        <div class="narrative-block">
+            <div class="tools-group">
+                <h4>Primary</h4>
+                <div class="tools-list">
+                    <div class="tool-item">Figma</div>
+                    <div class="tool-item">Adobe Suite</div>
+                    <div class="tool-item">FigJam</div>
+                </div>
             </div>
-            <div class="interaction-card">
-                <h3>Workflow Simplification</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Trimming redundant clicks through progressive disclosure.</p>
-            </div>
-            <div class="interaction-card">
-                <h3>Data Clarity</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Designing robust visual hierarchies that make dense numbers legible.</p>
+            <div class="tools-group">
+                <h4>AI in my workflow</h4>
+                <div class="tools-list">
+                    <div class="tool-item">ChatGPT</div>
+                    <div class="tool-item">Claude</div>
+                    <div class="tool-item">Antigravity</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Selected Work Section -->
-    <section id="work" class="work-section fade-up">
+    <section id="work" class="work-section fade-up" style="background: var(--bg-secondary);">
         <div class="section-header">
-            <h2 class="section-title">Selected Case Studies</h2>
+            <h2 class="section-title">Selected Work</h2>
         </div>
         
-        <div class="work-grid">
+        <div class="case-study-grid">
             <!-- Project 1: SmartMap -->
             <a href="smartmap-case-study.html" class="work-card">
                 <div class="work-image-container">
-                    <div class="ui-placeholder">[ Real Screenshot Placeholder ]</div>
+                    <div style="width:100%; height:100%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-family:monospace;">[ Case Study Thumbnail ]</div>
                 </div>
-                <div class="work-meta">
-                    <span class="tag">Public Service</span>
-                    <span class="tag">Maps & Navigation</span>
-                </div>
-                <h3 class="work-title">SmartMap – Public Map Application</h3>
-                <p class="work-impact">Helping users discover services like schools, hospitals, and locations easily.</p>
+                <h3 class="work-title">SmartMap</h3>
+                <p class="work-impact">A 5-month redesign of a deployed UAE government spatial data platform. Two opposite user types. One interface. The hardest kind of design problem.</p>
             </a>
-
-            <!-- Project 2: Abstract Placeholder -->
-            <a href="#" class="work-card">
-                <div class="work-image-container">
-                    <div class="ui-placeholder">[ Real Screenshot Placeholder ]</div>
-                </div>
-                <div class="work-meta">
-                    <span class="tag">Enterprise B2B</span>
-                    <span class="tag">Data Viz</span>
-                </div>
-                <h3 class="work-title">GlobalOps Command</h3>
-                <p class="work-impact">Consolidated 3 isolated tools into a unified platform view.</p>
-            </a>
-        </div>
-    </section>
-
-    <!-- Impact Visual Section -->
-    <section class="impact-section fade-up">
-        <h2 class="section-title" style="color: var(--text-primary); margin-bottom: 4rem;">Proven Enterprise Impact</h2>
-        <div class="impact-grid">
-            <div class="floating-metric">
-                <h3>↓ 30%</h3>
-                <p>Navigation Confusion</p>
-            </div>
-            <div class="floating-metric">
-                <h3>↑ Speed</h3>
-                <p>Faster Decisions</p>
-            </div>
-            <div class="floating-metric">
-                <h3>↓ Load</h3>
-                <p>Cognitive Friction</p>
-            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="fade-up">
-        <div class="cs-section" style="border: none;">
-            <div class="cs-section-title">
-                <h2 class="section-title">About Me</h2>
-            </div>
-            <div class="cs-content-block">
-                <h3>Problem-Solving First</h3>
-                <p>I am Sai Teja Govind, an enterprise UX/UI designer focused squarely on tackling complex logic, untangling messy workflows, and making dense platforms incredibly intuitive.</p>
-                <p>I thrive when bridging the gap between heavy, unyielding backend data and a user who just needs to make a fast, clear decision. Whether it's spatial data mapping, permissions architectures, or B2B SaaS workflows, I love finding exactly where the friction is masking value and ruthlessly trimming it down.</p>
-            </div>
+    <section id="about" class="fade-up" style="padding-top: 6rem; padding-bottom: 6rem;">
+        <div class="narrative-block">
+            <p>I'm Sai Teja Govind, a UX/UI designer based in the UAE.</p>
+            <p>I spend most of my time on products where getting lost has real consequences — mapping platforms, data dashboards, systems where a confused user isn't just frustrated, they're stuck.</p>
+            <p>My last project was a deployed UAE government geospatial platform serving residents finding hospitals and government administrators managing spatial data — on the same interface. That kind of tension between simplicity and power is exactly where I do my best work.</p>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" style="background: var(--bg-secondary); text-align: center; border-top: 1px solid var(--border-color); width: 100%; border-bottom: none; padding-top: 6rem; padding-bottom: 6rem;">
-        <h2 class="section-title">Let’s build something impactful.</h2>
-        <p class="hero-prop" style="margin: 1rem auto 2.5rem; font-weight: 500;">I’m open to solving complex product challenges in SaaS and data-driven environments.</p>
-        <div class="hero-actions" style="justify-content: center;">
-            <a href="mailto:contact@example.com" class="btn btn-primary">Email Me</a>
-            <a href="https://www.linkedin.com/in/saaiteja/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border-color: var(--accent-color);">LinkedIn</a>
-            <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
+    <section id="contact" class="fade-up" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); width: 100%; padding-top: 6rem; padding-bottom: 6rem;">
+        <div class="narrative-block">
+            <p style="font-weight: 500; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2rem;">If you're working on something complex that needs to feel simple — I'd like to hear about it.</p>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-weight: 500;">
+                <a href="mailto:govindusaiteja@gmail.com" style="min-height: auto; color: var(--accent-blue);">govindusaiteja@gmail.com</a>
+                <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" style="min-height: auto; color: var(--accent-blue);">linkedin.com/in/saaiteja</a>
+            </div>
         </div>
     </section>
 
     <script>
-        // Intersection Observer for scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -229,21 +148,26 @@
                 }
             });
         }, { threshold: 0.1 });
-        
         document.querySelectorAll('.fade-up, .scale-up').forEach((el) => observer.observe(el));
 
-        // Unified Advanced Parallax Function
+        // Mobile Nav Toggle
+        const toggle = document.getElementById('nav-toggle');
+        const menu = document.getElementById('nav-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                menu.classList.toggle('open');
+            });
+        }
+
+        // Lightweight Parallax 
         function applyParallax(containerId, layerClass) {
             const container = document.getElementById(containerId);
             if(!container) return;
             const layers = container.querySelectorAll(layerClass);
-            
-            // Only apply mouse parallax on desktop screens
             if (window.innerWidth > 1024) {
                 document.addEventListener('mousemove', (e) => {
                     const x = (e.clientX - window.innerWidth / 2) * -0.01;
                     const y = (e.clientY - window.innerHeight / 2) * -0.01;
-
                     layers.forEach(layer => {
                         const speed = parseFloat(layer.getAttribute('data-speed') || 1);
                         layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
@@ -251,9 +175,7 @@
                 });
             }
         }
-
         applyParallax('hero-scene', '.composition-layer');
-        applyParallax('diagram-scene', '.diagram-node.orbit');
     </script>
 </body>
 </html>
