@@ -28,11 +28,10 @@
     </nav>
 
     <!-- Animated Hero Section -->
-    <section class="hero fade-up">
+    <section class="hero fade-in">
         <div class="hero-content">
             <h1 class="hero-title">Designing systems that simplify complex decisions.</h1>
             <p class="hero-prop">UX designer focused on enterprise SaaS and data platforms — improving workflows, reducing friction, and enabling better decisions.</p>
-            <p class="hero-proof">Improved task completion by 20% • Reduced onboarding friction across 40+ screens</p>
             <div class="cta-buttons">
                 <a href="#work" class="btn btn-primary">View Work</a>
                 <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
@@ -40,22 +39,22 @@
         </div>
         <div class="hero-visual">
             <div class="hero-composition" id="hero-scene">
-                <div class="composition-layer comp-bg" data-speed="1"></div>
+                <div class="parallax comp-bg" data-speed="1"></div>
                 
-                <!-- Floating Metric Card (New) -->
-                <div class="composition-layer comp-card comp-metric" data-speed="-1">
+                <!-- Floating Metric Card -->
+                <div class="parallax card comp-metric" data-speed="6">
                     <h4>↓ 30%</h4>
                     <p>Confusion</p>
                 </div>
 
                 <!-- Floating Map Snippet -->
-                <div class="composition-layer comp-card comp-map" data-speed="-2">
+                <div class="parallax card comp-map" data-speed="2">
                     <div class="skel-circle" style="position: absolute; top: 30%; left: 40%;"></div>
                     <div class="skel-circle" style="position: absolute; top: 60%; left: 70%; width: 24px; height: 24px;"></div>
                 </div>
 
                 <!-- Floating Data Card -->
-                <div class="composition-layer comp-card comp-data" data-speed="3">
+                <div class="parallax card comp-data" data-speed="4">
                     <div class="skel-title" style="width: 40%;"></div>
                     <div class="skel-chart">
                         <div class="skel-bar" style="height: 40%;"></div>
@@ -67,7 +66,7 @@
                 </div>
 
                 <!-- Floating Filter Panel -->
-                <div class="composition-layer comp-card comp-filter" data-speed="-1.5">
+                <div class="parallax card comp-filter" data-speed="3">
                     <div class="skel-title"></div>
                     <div class="skel-line"></div>
                     <div class="skel-line short"></div>
@@ -84,93 +83,80 @@
     </section>
 
     <!-- Node Diagram Section -->
-    <section id="process" class="fade-up bg-sec">
+    <section id="process" class="fade-in bg-sec">
         <div class="section-wrapper">
             <div class="section-header" style="text-align: center;">
                 <h2 class="section-title">How I Approach Complex Systems</h2>
             </div>
             
-            <div class="node-diagram-organic">
-                <!-- SVG Connecting Lines -->
-                <svg class="node-svg-lines" viewBox="0 0 900 600" preserveAspectRatio="none">
-                    <line x1="450" y1="300" x2="180" y2="90" stroke="#e2e8f0" stroke-width="1.5" />
-                    <line x1="450" y1="300" x2="720" y2="120" stroke="#e2e8f0" stroke-width="1.5" />
-                    <line x1="450" y1="300" x2="135" y2="300" stroke="#e2e8f0" stroke-width="1.5" />
-                    <line x1="450" y1="300" x2="270" y2="510" stroke="#e2e8f0" stroke-width="1.5" />
-                    <line x1="450" y1="300" x2="675" y2="480" stroke="#e2e8f0" stroke-width="1.5" />
-                    <line x1="450" y1="300" x2="765" y2="270" stroke="#e2e8f0" stroke-width="1.5" />
-                </svg>
-
-                <!-- Central Node -->
-                <div class="diagram-node center">User-Centered Design</div>
+            <div class="node-container">
+                <!-- Center Node -->
+                <div class="node center">User-Centered Design</div>
                 
-                <!-- Satellite Nodes (6) -->
-                <div class="diagram-node n1">
-                    Product Thinking
-                    <div class="node-tooltip">Aligning user needs with business outcomes</div>
-                </div>
-                <div class="diagram-node n2">
+                <!-- Satellite Nodes with exact organic positions & floats -->
+                <div class="node float-1" style="top:20%; left:15%;">
                     UX Research
-                    <div class="node-tooltip">Understanding real user behavior through testing</div>
+                    <div class="tooltip">Understanding real user behavior through testing</div>
                 </div>
-                <div class="diagram-node n3">
-                    Visual Design
-                    <div class="node-tooltip">Structuring complex data hierarchies intuitively</div>
+                <div class="node float-2" style="top:10%; left:60%;">
+                    Product Thinking
+                    <div class="tooltip">Aligning user needs with business outcomes</div>
                 </div>
-                <div class="diagram-node n4">
-                    Accessibility
-                    <div class="node-tooltip">Ensuring systems are usable by everyone</div>
-                </div>
-                <div class="diagram-node n5">
-                    Information Architecture
-                    <div class="node-tooltip">Mapping intuitive structures for heavy data</div>
-                </div>
-                <div class="diagram-node n6">
+                <div class="node float-3" style="top:40%; left:80%;">
                     Prototyping
-                    <div class="node-tooltip">Building high-fidelity interactive models</div>
+                    <div class="tooltip">Building high-fidelity interactive models</div>
                 </div>
-            </div>
-            
-            <div class="narrative-block" style="margin: 0 auto; text-align: center;">
-                <p>I start with the system before I start with the screen. On SmartMap — a deployed UAE government spatial platform — mapping the full user journey first revealed that 80% of task failures came from three interaction patterns, not the interface as a whole. That kind of finding changes everything about where you spend your design time.</p>
+                <div class="node float-1" style="top:70%; left:20%;">
+                    Accessibility
+                    <div class="tooltip">Ensuring systems are usable by everyone</div>
+                </div>
+                <div class="node float-2" style="top:75%; left:65%;">
+                    Information Architecture
+                    <div class="tooltip">Mapping intuitive structures for heavy data</div>
+                </div>
+                <div class="node float-3" style="top:50%; left:10%;">
+                    Visual Design
+                    <div class="tooltip">Structuring complex data hierarchies intuitively</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Infinite Tools Marquee Section -->
-    <section id="tools" class="fade-up">
-        <div class="section-wrapper" style="width: 100vw; margin-left: calc(-50vw + 50%); overflow: hidden;">
+    <section id="tools" class="fade-in">
+        <div class="section-wrapper tools-section">
             <div class="section-header" style="text-align: center; max-width: 1100px; margin: 0 auto 3rem;">
                 <h2 class="section-title">Tools I Use</h2>
             </div>
             
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    <div class="tool-pill">Figma<div class="node-tooltip">Primary UI & Prototyping</div></div>
-                    <div class="tool-pill">Adobe Suite<div class="node-tooltip">Visual assets & vectors</div></div>
-                    <div class="tool-pill">ChatGPT<div class="node-tooltip">Research & structuring</div></div>
-                    <div class="tool-pill">Claude<div class="node-tooltip">Complex logic mapping</div></div>
-                    <div class="tool-pill">Antigravity<div class="node-tooltip">Advanced AI workflows</div></div>
-                    <div class="tool-pill">Lovable<div class="node-tooltip">Rapid ideation</div></div>
-                    <div class="tool-pill">Stitch<div class="node-tooltip">Data integration</div></div>
-                    <div class="tool-pill">SurveyMonkey<div class="node-tooltip">User surveys & testing</div></div>
-                </div>
-                <div class="marquee-content" aria-hidden="true">
-                    <div class="tool-pill">Figma<div class="node-tooltip">Primary UI & Prototyping</div></div>
-                    <div class="tool-pill">Adobe Suite<div class="node-tooltip">Visual assets & vectors</div></div>
-                    <div class="tool-pill">ChatGPT<div class="node-tooltip">Research & structuring</div></div>
-                    <div class="tool-pill">Claude<div class="node-tooltip">Complex logic mapping</div></div>
-                    <div class="tool-pill">Antigravity<div class="node-tooltip">Advanced AI workflows</div></div>
-                    <div class="tool-pill">Lovable<div class="node-tooltip">Rapid ideation</div></div>
-                    <div class="tool-pill">Stitch<div class="node-tooltip">Data integration</div></div>
-                    <div class="tool-pill">SurveyMonkey<div class="node-tooltip">User surveys & testing</div></div>
+            <div class="tools-container">
+                <div class="tools-track">
+                    <!-- Tool Set 1 -->
+                    <div class="tool">Figma<div class="tooltip">Primary UI & Prototyping</div></div>
+                    <div class="tool">Adobe Suite<div class="tooltip">Visual assets & vectors</div></div>
+                    <div class="tool">ChatGPT<div class="tooltip">Research & structuring</div></div>
+                    <div class="tool">Claude<div class="tooltip">Complex logic mapping</div></div>
+                    <div class="tool">Antigravity<div class="tooltip">Advanced AI workflows</div></div>
+                    <div class="tool">Lovable<div class="tooltip">Rapid ideation</div></div>
+                    <div class="tool">Stitch<div class="tooltip">Data integration</div></div>
+                    <div class="tool">SurveyMonkey<div class="tooltip">User surveys & testing</div></div>
+                    
+                    <!-- Tool Set 2 (Duplicate for Loop) -->
+                    <div class="tool">Figma<div class="tooltip">Primary UI & Prototyping</div></div>
+                    <div class="tool">Adobe Suite<div class="tooltip">Visual assets & vectors</div></div>
+                    <div class="tool">ChatGPT<div class="tooltip">Research & structuring</div></div>
+                    <div class="tool">Claude<div class="tooltip">Complex logic mapping</div></div>
+                    <div class="tool">Antigravity<div class="tooltip">Advanced AI workflows</div></div>
+                    <div class="tool">Lovable<div class="tooltip">Rapid ideation</div></div>
+                    <div class="tool">Stitch<div class="tooltip">Data integration</div></div>
+                    <div class="tool">SurveyMonkey<div class="tooltip">User surveys & testing</div></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Featured Work Section -->
-    <section id="work" class="fade-up bg-sec">
+    <section id="work" class="fade-in bg-sec">
         <div class="section-wrapper">
             <div class="section-header">
                 <h2 class="section-title">Featured Work</h2>
@@ -178,7 +164,7 @@
             
             <div class="case-study-grid">
                 <!-- Project 1: SmartMap -->
-                <a href="smartmap-case-study.html" class="work-card">
+                <a href="smartmap-case-study.html" class="work-card card">
                     <div class="work-image-container">
                         <img src="assets/real-layer-panel.png" alt="SmartMap Preview" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/></svg>'">
                     </div>
@@ -195,9 +181,30 @@
         </div>
     </section>
 
+    <!-- Selected Screens Section (Visual Proof) -->
+    <section class="fade-in">
+        <div class="section-wrapper">
+            <div class="section-header" style="text-align: center;">
+                <h2 class="section-title">Selected Screens</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                <div class="card" style="padding: 1rem;">
+                    <img src="assets/real-map-view.png" alt="Map Interface" style="width: 100%; border-radius: 8px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/></svg>'">
+                </div>
+                <div class="card" style="padding: 1rem;">
+                    <img src="assets/real-layer-panel.png" alt="Layer Controls" style="width: 100%; border-radius: 8px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/></svg>'">
+                </div>
+                <div class="card" style="padding: 1rem;">
+                    <img src="assets/real-filter-ui.png" alt="Search Interface" style="width: 100%; border-radius: 8px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/></svg>'">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
-    <section id="about" class="fade-up">
-        <div class="narrative-block">
+    <section id="about" class="fade-in bg-sec">
+        <div class="narrative-block" style="margin: 0 auto;">
             <h2 class="section-title">About Me</h2>
             <br>
             <p>I'm Sai Teja Govind, a UX/UI designer based in the UAE.</p>
@@ -207,11 +214,12 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="fade-up bg-sec" style="border-bottom: none;">
-        <div class="narrative-block">
+    <section id="contact" class="fade-in" style="border-bottom: none;">
+        <div class="narrative-block" style="margin: 0 auto; text-align: center;">
+            <h2 class="section-title" style="margin-bottom: 2rem;">Let's Connect</h2>
             <p style="font-weight: 500; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2rem;">I’m open to solving complex product challenges in SaaS and data-driven environments.</p>
             
-            <div class="cta-buttons">
+            <div class="cta-buttons" style="justify-content: center;">
                 <a href="mailto:govindusaiteja@gmail.com" class="btn btn-primary">Email Me</a>
                 <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
                 <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Resume</a>
@@ -220,14 +228,34 @@
     </section>
 
     <script>
+        // Hero Parallax Interaction
+        const hero = document.querySelector(".hero");
+        const parallaxLayers = document.querySelectorAll(".parallax");
+
+        if(hero && window.innerWidth > 1024) {
+            hero.addEventListener("mousemove", (e) => {
+                const x = (window.innerWidth / 2 - e.pageX) / 40;
+                const y = (window.innerHeight / 2 - e.pageY) / 40;
+
+                parallaxLayers.forEach((layer) => {
+                    const speed = layer.getAttribute("data-speed") || 2;
+                    layer.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+                });
+            });
+        }
+
+        // Scroll Intersection Animation
+        const fadeElements = document.querySelectorAll(".fade-in");
+
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add("visible");
                 }
             });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-up, .scroll-scale').forEach((el) => observer.observe(el));
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
 
         // Mobile Nav Toggle
         const toggle = document.getElementById('nav-toggle');
@@ -235,46 +263,6 @@
         if (toggle && menu) {
             toggle.addEventListener('click', () => {
                 menu.classList.toggle('open');
-            });
-        }
-
-        // Lightweight Parallax 
-        function applyParallax(containerId, layerClass) {
-            const container = document.getElementById(containerId);
-            if(!container) return;
-            const layers = container.querySelectorAll(layerClass);
-            if (window.innerWidth > 1024) {
-                document.addEventListener('mousemove', (e) => {
-                    const x = (e.clientX - window.innerWidth / 2) * -0.01;
-                    const y = (e.clientY - window.innerHeight / 2) * -0.01;
-                    layers.forEach(layer => {
-                        const speed = parseFloat(layer.getAttribute('data-speed') || 1);
-                        layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
-                    });
-                });
-            }
-        }
-        applyParallax('hero-scene', '.composition-layer');
-
-        // Allow manual scrolling of infinite marquee
-        const marquee = document.querySelector('.marquee-container');
-        if(marquee) {
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-            marquee.addEventListener('mousedown', (e) => {
-                isDown = true;
-                startX = e.pageX - marquee.offsetLeft;
-                scrollLeft = marquee.scrollLeft;
-            });
-            marquee.addEventListener('mouseleave', () => { isDown = false; });
-            marquee.addEventListener('mouseup', () => { isDown = false; });
-            marquee.addEventListener('mousemove', (e) => {
-                if(!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - marquee.offsetLeft;
-                const walk = (x - startX) * 2;
-                marquee.scrollLeft = scrollLeft - walk;
             });
         }
     </script>
