@@ -6,24 +6,25 @@
     <title>Sai Teja Govind | Enterprise UX/UI Designer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
 
-    <!-- Navigation -->
+    <!-- Global Navigation -->
     <nav>
-        <div class="logo">Sai Teja Govind</div>
+        <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
         <div class="nav-links">
-            <a href="#work">Work</a>
-            <a href="#process">Process</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html#work">Work</a>
+            <a href="index.html#process">Process</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero fade-up">
         <div class="hero-content">
-            <span class="hero-subtitle">UX/UI Designer | Enterprise SaaS & Data Platforms</span>
-            <h1 class="hero-title">Designing data-heavy platforms that simplify complex workflows into intuitive decisions.</h1>
+            <span class="hero-subtitle">UX/UI Designer</span>
+            <h1 class="hero-title">Designing systems that simplify complex decisions.</h1>
+            <p class="hero-prop">Specialized in enterprise SaaS and data-heavy platforms.</p>
             <div class="hero-actions">
                 <a href="#work" class="btn btn-primary">View Work</a>
                 <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" class="btn btn-secondary">View Resume</a>
@@ -31,30 +32,39 @@
         </div>
         <div class="hero-visual">
             <div class="hero-parallax-container" id="parallax-scene">
-                <!-- Parallax Depth UI Elements -->
-                <div class="parallax-layer bg-layer" data-speed="2"></div>
-                <div class="parallax-layer fg-layer" data-speed="-3">[ Dashboard View ]</div>
+                <!-- Multi-layer Map UI Parallax -->
+                <div class="parallax-layer bg-layer" data-speed="1.5"></div>
+                <div class="parallax-layer mid-layer" data-speed="-2">
+                    <div style="padding: 1rem;">
+                        <span style="display: block; color: var(--accent-color); margin-bottom: 0.5rem;">Filter Panel Active</span>
+                        <div style="height: 4px; width: 40px; background: #e5e7eb; margin-bottom: 4px;"></div>
+                        <div style="height: 4px; width: 60px; background: #e5e7eb;"></div>
+                    </div>
+                </div>
+                <div class="parallax-layer fg-layer" data-speed="3">
+                    <div style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Data Overlay Map</h4>
+                        <p style="font-weight: 400; font-size: 0.8rem;">Rendering 10,000+ points</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Proof / Achievements / Metrics Section -->
-    <section class="proof-section fade-up">
-        <div class="section-header">
-            <h2 class="section-title">Measurable Impact</h2>
-        </div>
-        <div class="cs-metrics-grid">
-            <div class="cs-metric scale-up">
-                <h4>+20%</h4>
-                <p>Improved average task completion rates across highly technical enterprise workflows.</p>
+    <!-- Personal Parallax Interaction Section -->
+    <section class="fade-up" style="padding-top: 2rem;">
+        <div class="interaction-grid">
+            <div class="interaction-card">
+                <h3>Systems Thinking</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Architecting scalable platforms from the database architecture to the pixel level.</p>
             </div>
-            <div class="cs-metric scale-up" style="transition-delay: 100ms;">
-                <h4>40+</h4>
-                <p>Screens optimized to aggressively reduce onboarding friction for B2B platforms.</p>
+            <div class="interaction-card">
+                <h3>Workflow Simplification</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Trimming redundant clicks and aggressive progressive disclosure.</p>
             </div>
-            <div class="cs-metric scale-up" style="transition-delay: 200ms;">
-                <h4>20+</h4>
-                <p>Stakeholders rigorously tested in structured usability sessions to ensure product-market fit.</p>
+            <div class="interaction-card">
+                <h3>Data Clarity</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Designing robust visual hierarchies that make dense numbers immediately legible.</p>
             </div>
         </div>
     </section>
@@ -68,19 +78,24 @@
         <div class="work-grid">
             <!-- Project 1: SmartMap -->
             <a href="smartmap-case-study.html" class="work-card">
-                <div class="ui-placeholder" style="min-height: 300px; margin-bottom: 1.5rem;">[ Placeholder: SmartMap Dashboard ]</div>
+                <div class="work-image-container">
+                    <!-- Real screenshots will be injected here via <img src="assets/..."> by user later -->
+                    <div style="width:100%; height:100%; background:#f3f4f6; display:flex; align-items:center; justify-content:center; color:#9ca3af; font-family:monospace;">[ Real Screenshot Placeholder ]</div>
+                </div>
                 <div class="work-meta">
-                    <span class="tag">SaaS</span>
-                    <span class="tag">Dashboard</span>
+                    <span class="tag">Public Service</span>
+                    <span class="tag">Maps & Navigation</span>
                     <span class="tag">UX Research</span>
                 </div>
-                <h3 class="work-title">SmartMap – UX Analysis</h3>
-                <p class="work-impact">Reduced navigation confusion in geospatial analytics.</p>
+                <h3 class="work-title">SmartMap – Public Map Application</h3>
+                <p class="work-impact">Helping users discover services like schools, hospitals, and locations easily.</p>
             </a>
 
-            <!-- Project 2: Abstract Placeholder -->
+            <!-- Project 2: GlobalOps -->
             <a href="#" class="work-card">
-                <div class="ui-placeholder" style="min-height: 300px; margin-bottom: 1.5rem;">[ Placeholder: Financial UI ]</div>
+                <div class="work-image-container">
+                    <div style="width:100%; height:100%; background:#f3f4f6; display:flex; align-items:center; justify-content:center; color:#9ca3af; font-family:monospace;">[ Real Screenshot Placeholder ]</div>
+                </div>
                 <div class="work-meta">
                     <span class="tag">Enterprise B2B</span>
                     <span class="tag">Data Viz</span>
@@ -91,31 +106,50 @@
         </div>
     </section>
 
-    <!-- Process Section -->
+    <!-- New Process Section -->
     <section id="process" class="process-section fade-up">
         <div class="section-header" style="text-align: center;">
-            <h2 class="section-title">Design Engineering Process</h2>
+            <h2 class="section-title">How I Approach Complex Systems</h2>
         </div>
         <div class="process-grid">
             <div class="process-step">
                 <div class="step-num">01 /</div>
-                <h4>Discover</h4>
-                <p>Deep-diving into complex workflows, mapping out the true system architecture and technical pain points.</p>
+                <h4>Understand the System</h4>
+                <p>Breaking down workflows, roles, and data relationships.</p>
             </div>
             <div class="process-step">
                 <div class="step-num">02 /</div>
-                <h4>Define</h4>
-                <p>Establishing clear UX metrics, defining exact roles, progressive disclosure models, and wireflows.</p>
+                <h4>Identify Friction</h4>
+                <p>Finding where users struggle — navigation, clarity, or overload.</p>
             </div>
             <div class="process-step">
                 <div class="step-num">03 /</div>
-                <h4>Design</h4>
-                <p>Translating rough logic into scalable UI component systems ready for engineering integration.</p>
+                <h4>Simplify the Experience</h4>
+                <p>Reducing steps, structuring information, improving flow.</p>
             </div>
             <div class="process-step">
                 <div class="step-num">04 /</div>
-                <h4>Validate</h4>
-                <p>Closing the loop via high-fidelity stakeholder usability mapping and prototype stress-testing.</p>
+                <h4>Validate with Real Use</h4>
+                <p>Testing with users and refining based on behavior.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Visual Section -->
+    <section class="impact-section fade-up">
+        <h2 class="section-title" style="color: white; margin-bottom: 4rem;">Proven Enterprise Impact</h2>
+        <div class="impact-grid">
+            <div class="floating-metric">
+                <h3>↓ 30%</h3>
+                <p>Navigation Confusion</p>
+            </div>
+            <div class="floating-metric">
+                <h3>↑ Speed</h3>
+                <p>Faster Decisions</p>
+            </div>
+            <div class="floating-metric">
+                <h3>↓ Load</h3>
+                <p>Cognitive Friction</p>
             </div>
         </div>
     </section>
@@ -164,7 +198,7 @@
 
             layers.forEach(layer => {
                 const speed = layer.getAttribute('data-speed');
-                layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px) ${layer.classList.contains('fg-layer') ? 'translateZ(50px)' : 'scale(0.9)'}`;
+                layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
             });
         });
     </script>

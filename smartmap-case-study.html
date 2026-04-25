@@ -3,57 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartMap | UX Analysis | Sai Teja Govind</title>
+    <title>SmartMap | Public Map Application | Sai Teja Govind</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
 
-    <!-- Navigation -->
+    <!-- Global Navigation -->
     <nav>
-        <div class="logo">Sai Teja Govind</div>
+        <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
         <div class="nav-links">
-            <a href="index.html#work">← Back to Work</a>
+            <a href="index.html#work">Work</a>
+            <a href="index.html#process">Process</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
         </div>
     </nav>
 
     <!-- A: Hero -->
     <section class="cs-header fade-up" style="padding-bottom: 2rem;">
-        <h1>SmartMap – UX Analysis</h1>
-        <p>Improving usability in complex spatial data systems.</p>
-        <span class="tag" style="background: var(--text-primary); color: white; border: none; margin-bottom: 3rem; display: inline-block;">UX evaluation based on a live platform used in the UAE</span>
+        <h1>SmartMap – Public Map Application</h1>
+        <p>Designing intuitive map-based services for everyday users in the UAE.</p>
     </section>
 
     <!-- Project Metrics Grid -->
     <section class="cs-metrics-grid fade-up" style="max-width: 1400px; margin: 0 auto 5rem; padding: 0 5%;">
         <div class="cs-metric scale-up">
-            <h4>↓ 35%</h4>
-            <p>Reduced navigation confusion across spatial analytics layers.</p>
+            <h4>↓ 30%</h4>
+            <p>Reduced map navigation confusion.</p>
         </div>
         <div class="cs-metric scale-up" style="transition-delay: 100ms;">
-            <h4>Data Clarity</h4>
-            <p>Improved overall data interpretation and layer visibility.</p>
+            <h4>↑ Faster</h4>
+            <p>Accelerated public service discovery.</p>
         </div>
         <div class="cs-metric scale-up" style="transition-delay: 200ms;">
-            <h4>Load ↓</h4>
-            <p>Drastically reduced cognitive load during critical workflows.</p>
+            <h4>↓ Load</h4>
+            <p>Reduced cognitive load.</p>
+        </div>
+        <div class="cs-metric scale-up" style="transition-delay: 300ms;">
+            <h4>↑ Usability</h4>
+            <p>Improved access for non-technical users.</p>
         </div>
     </section>
 
-    <!-- B & C: Project Context & Objective -->
+    <!-- What is SmartMap -->
     <section class="cs-section fade-up">
         <div class="cs-section-title">
-            <h2>Context & Objective</h2>
+            <h2>What is SmartMap?</h2>
         </div>
         <div class="cs-content-block">
-            <h3>The Platform</h3>
-            <p>SmartMap is utilized natively for viewing intense geospatial data, managing layer-based mapping infrastructures, and extracting high-level environmental insights.</p>
-            
-            <h3 style="margin-top: 3rem;">UX Analysis Objective</h3>
-            <p>The core objective of this project was to analyze the usability of the existing system, scientifically identify UX friction points, and structurally suggest actionable improvements for platform clarity and workflow efficiency.</p>
+            <p>SmartMap is a public-facing mapping platform that helps users in the UAE:</p>
+            <ul>
+                <li>Find nearby services such as schools and hospitals.</li>
+                <li>Explore locations through seamless map-based interactions.</li>
+                <li>Access spatial data in a simple and accessible way.</li>
+            </ul>
+            <p>It acts as a digital bridge, serving both the general public seeking everyday information and professionals working deeply with location-based data infrastructure.</p>
         </div>
     </section>
 
-    <!-- D: User Types -->
+    <!-- Objective & Key UX Problems -->
+    <section class="cs-section fade-up">
+        <div class="cs-section-title">
+            <h2>Objective & Problems</h2>
+        </div>
+        <div class="cs-content-block">
+            <h3>The Objective</h3>
+            <p>The core objective of this project was to evaluate the usability of the existing platform, identify friction points in navigation and service discovery, and ultimately improve structural clarity and usability for a massively wide audience.</p>
+            
+            <h3 style="margin-top: 3rem;">Key UX Problems</h3>
+            <ul>
+                <li><strong>Navigation overload:</strong> Too many unprioritized controls exposed simultaneously.</li>
+                <li><strong>Layer complexity:</strong> Data overlaps causing visual noise and confusion.</li>
+                <li><strong>Poor discoverability:</strong> Everyday users struggled to find basic public services.</li>
+                <li><strong>High cognitive load:</strong> The interface catered exclusively to expert analysts, alienating general users.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- User Types -->
     <section class="cs-section fade-up">
         <div class="cs-section-title">
             <h2>User Types</h2>
@@ -61,114 +88,97 @@
         <div class="cs-content-block">
             <div class="user-types-grid">
                 <div class="user-card scale-up">
-                    <h4>Analyst</h4>
-                    <span>Behavior: Explores raw data.</span>
-                    <p>Struggles with unstructured overlays.</p>
+                    <h4>1. General Users</h4>
+                    <span>Goal: Find nearby services quickly.</span>
+                    <p>Pain: Complex interface.</p>
                 </div>
                 <div class="user-card scale-up" style="transition-delay: 100ms;">
-                    <h4>Decision Maker</h4>
-                    <span>Behavior: Seeks quick insights.</span>
-                    <p>Struggles with visual clarity.</p>
+                    <h4>2. Analysts / Planners</h4>
+                    <span>Goal: Explore layered spatial data.</span>
+                    <p>Pain: Data overlap confusion.</p>
                 </div>
                 <div class="user-card scale-up" style="transition-delay: 200ms;">
-                    <h4>Operator</h4>
-                    <span>Behavior: Manages active layers.</span>
-                    <p>Struggles with system navigation.</p>
+                    <h4>3. Operators</h4>
+                    <span>Goal: Manage map layers.</span>
+                    <p>Pain: Lack of structure.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- E: UX Analysis -->
+    <!-- UX Decisions (Core Section) -->
     <section class="cs-section fade-up">
         <div class="cs-section-title">
-            <h2>Friction Analysis</h2>
+            <h2>UX Decisions</h2>
         </div>
         <div class="cs-content-block">
-            <h3>Navigation Complexity</h3>
-            <div class="ui-placeholder" style="margin-top: 1rem; margin-bottom: 2rem;">[ Placeholder: Toolbar UI Analysis ]</div>
-            
-            <h3>Layer Management Overload</h3>
-            <div class="ui-placeholder" style="margin-top: 1rem; margin-bottom: 2rem;">[ Placeholder: Active Layer Panel Audit ]</div>
-            
-            <h3>Data Interpretation Friction</h3>
-            <div class="ui-placeholder" style="margin-top: 1rem; margin-bottom: 2rem;">[ Placeholder: Map Overlay View Breakdowns ]</div>
-            
-            <h3>Discoverability Issues</h3>
-            <p>Critical functions and contextual insights are consistently buried under multiple nested menus, forcing users to memorize click paths rather than relying on intuitive progressive disclosure maps.</p>
+            <h3>Architecting the Solution</h3>
+            <p>Every design decision was focused on resolving friction. We utilized a strict Problem → Decision → Impact framework:</p>
+
+            <div style="margin-top: 2rem;">
+                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">1. Navigation Complexity</h4>
+                <p style="margin-bottom: 1.5rem;">→ <strong>Decision:</strong> Introduced a structured, unified toolbar.<br>→ <strong>Impact:</strong> Noticeably reduced user confusion during basic tasks.</p>
+
+                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">2. Layer Management Overload</h4>
+                <p style="margin-bottom: 1.5rem;">→ <strong>Decision:</strong> Grouped layers using a strict visual hierarchy.<br>→ <strong>Impact:</strong> Improved clarity and map legibility for Planners.</p>
+
+                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">3. Service Discovery Friction</h4>
+                <p style="margin-bottom: 1.5rem;">→ <strong>Decision:</strong> Added prominent category-based search chips (e.g., Schools, Hospitals).<br>→ <strong>Impact:</strong> Drastically faster query results for General Users.</p>
+
+                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">4. High Cognitive Load</h4>
+                <p style="margin-bottom: 1.5rem;">→ <strong>Decision:</strong> Applied aggressive progressive disclosure principles.<br>→ <strong>Impact:</strong> A vastly cleaner, less intimidating map experience.</p>
+
+                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">5. Steep First-Time Use Curve</h4>
+                <p style="margin-bottom: 1.5rem;">→ <strong>Decision:</strong> Added lightweight onboarding cues and contextual tooltips.<br>→ <strong>Impact:</strong> An immediately easier learning curve for non-technical residents.</p>
+            </div>
         </div>
     </section>
 
-    <!-- F: Opportunities & G: Improvements -->
-    <section class="cs-section fade-up">
-        <div class="cs-section-title">
-            <h2>Opportunities & Solutions</h2>
-        </div>
-        <div class="cs-content-block">
-            <h3>Core Opportunity Areas</h3>
-            <ul>
-                <li>Simplify layer grouping and hierarchy.</li>
-                <li>Improve structural prioritization in the UI.</li>
-                <li>Reduce task steps for advanced querying.</li>
-                <li>Add explicit contextual guidance during map interactions.</li>
-            </ul>
-
-            <h3 style="margin-top: 4rem;">Implementation Focus</h3>
-            <p><strong>Layer overload</strong><br>
-            → <em>Solution:</em> Introduced a grouped, logical layer syntax system.<br>
-            → <em>Impact:</em> Massively reduced cognitive load.</p>
-
-            <p style="margin-top: 1.5rem;"><strong>Confusing spatial filters</strong><br>
-            → <em>Solution:</em> Contextual filtering UI attached to the active map state.<br>
-            → <em>Impact:</em> Noticeably faster task completion and confidence.</p>
-        </div>
-    </section>
-
-    <!-- H: Visual Section (No Stock Images) -->
+    <!-- Visuals (Real Screenshots Only) -->
     <section class="cs-section fade-up">
         <div class="cs-section-title">
             <h2>Visual Overhaul</h2>
+            <p style="font-size: 0.9rem; color: var(--text-tertiary); margin-top: 1rem;">(Drop your real Atlas screenshots into the assets folder to render them here)</p>
         </div>
         <div class="cs-content-block">
-            <div class="ui-placeholder" style="margin-bottom: 2.5rem; min-height: 500px;">[ Placeholder: High-Fidelity Map View Rendering ]</div>
+            <div style="margin-bottom: 2.5rem; width: 100%; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-md); background: #f3f4f6; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                <!-- User: Replace this image src with your actual map interface screenshot -->
+                <img src="assets/real-map-interface.png" alt="SmartMap Map Interface" style="width: 100%; display: block;" onerror="this.style.display='none'">
+                <span style="color: #9ca3af; font-family: monospace; position: absolute; z-index: 0;">assets/real-map-interface.png</span>
+            </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                <div class="ui-placeholder" style="min-height: 350px;">[ Placeholder: Layer Panel UI Redesign ]</div>
-                <div class="ui-placeholder" style="min-height: 350px;">[ Placeholder: Filtering Interaction State ]</div>
+                <div style="width: 100%; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-md); background: #f3f4f6; min-height: 250px; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <!-- User: Replace this image src with your actual layer panel screenshot -->
+                    <img src="assets/real-layer-panel.png" alt="SmartMap Layer Panel" style="width: 100%; display: block; position: relative; z-index: 1;" onerror="this.style.display='none'">
+                    <span style="color: #9ca3af; font-family: monospace; position: absolute; z-index: 0;">assets/real-layer-panel.png</span>
+                </div>
+                <div style="width: 100%; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-md); background: #f3f4f6; min-height: 250px; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <!-- User: Replace this image src with your actual filter UI screenshot -->
+                    <img src="assets/real-filter-ui.png" alt="SmartMap Filtering UI" style="width: 100%; display: block; position: relative; z-index: 1;" onerror="this.style.display='none'">
+                    <span style="color: #9ca3af; font-family: monospace; position: absolute; z-index: 0;">assets/real-filter-ui.png</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- I: Impact & J: Reflection -->
+    <!-- Reflection -->
     <section class="cs-section fade-up" style="border-bottom: none;">
         <div class="cs-section-title">
-            <h2>Impact & Reflection</h2>
+            <h2>Reflection</h2>
         </div>
         <div class="cs-content-block">
-            <div style="display: flex; gap: 3rem; margin-bottom: 4rem;">
-                <div>
-                    <h3 style="font-size: 3rem; margin-bottom: 0.5rem; font-weight: 800;" class="scale-up">↓ 30%</h3>
-                    <p>Reduction in user intent confusion.</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 3rem; margin-bottom: 0.5rem; font-weight: 800;" class="scale-up" style="transition-delay: 150ms;">↑ Speed</h3>
-                    <p>Radically faster analytical insights.</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 3rem; margin-bottom: 0.5rem; font-weight: 800;" class="scale-up" style="transition-delay: 300ms;">↓ Support</h3>
-                    <p>Reduced dependency on technical teams.</p>
-                </div>
-            </div>
-            
-            <h3>Reflection</h3>
-            <p>This analysis drastically refined my ability to dissect and actively simplify massively complex, logic-heavy systems without diluting their analytical power. It heavily highlighted the strict necessity of usability testing within data-heavy platforms, especially when designing for distinctly opposed user roles (Analysts vs. Operators) simultaneously.</p>
+            <p>This project was a masterclass in learning how to aggressively simplify incredibly complex, data-dense public systems. The primary challenge was successfully balancing raw usability with data richness.</p>
+            <p>By forcing ourselves to design for both the everyday general user (who just needs a hospital) and the expert planner (who needs localized spatial analytics), we constructed a platform that scales smoothly across both ends of the technical spectrum without alienating either.</p>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" style="background: var(--bg-secondary); text-align: center; border-top: 1px solid var(--border-color); width: 100%; border-bottom: none; padding-top: 6rem; padding-bottom: 6rem;">
         <h2 class="section-title">Let’s build something impactful.</h2>
-        <div class="hero-actions" style="justify-content: center; margin-top: 2rem;">
+        <div class="hero-actions" style="justify-content: center; margin-top: 2.5rem;">
             <a href="mailto:contact@example.com" class="btn btn-primary">Email Me</a>
             <a href="https://www.linkedin.com/in/saaiteja/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border-color: var(--accent-color);">LinkedIn</a>
+            <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
         </div>
     </section>
 
