@@ -10,25 +10,32 @@
 
     <!-- Global Navigation -->
     <nav>
-        <div class="nav-header">
-            <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
-            <button class="hamburger" id="nav-toggle">☰</button>
-        </div>
-        <div class="nav-links" id="nav-menu">
-            <ul>
-                <li><a href="index.html#work">Work</a></li>
-                <li><a href="index.html#process">Process</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
+        <div class="nav-content">
+            <div class="nav-header">
+                <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
+                <button class="hamburger" id="nav-toggle">☰</button>
+            </div>
+            <div class="nav-links" id="nav-menu">
+                <ul>
+                    <li><a href="index.html#work">Work</a></li>
+                    <li><a href="index.html#process">Process</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <!-- SECTION 1: Cold Open (No Header) -->
     <section class="cs-header fade-up">
         <div class="cs-content-block" style="text-align: left; font-size: 1.25rem;">
-            <p>SmartMap is a deployed Spatial Data Infrastructure platform built for the UAE government's Smart City program. It does something most maps don't — it surfaces live service data. Residents can see not just where the nearest hospital is, but whether it has available beds. Government administrators use the same interface to manage spatial datasets across 100+ public entities.</p>
-            <p>I joined I Spatial Techno Solutions in November 2025 to redesign the map interaction layer. Five months later I handed off a product that both user types could actually use.</p>
+            <p>SmartMap is a deployed UAE government spatial platform used by two very different user groups:</p>
+            <ul>
+                <li>Residents finding essential services</li>
+                <li>Government administrators managing spatial data</li>
+            </ul>
+            <p>Both rely on the same interface, creating a challenge of balancing simplicity with complexity.</p>
         </div>
 
         <div class="cs-meta">
@@ -61,12 +68,23 @@
             <p>We tore down the nine flat layers and restructured them into three grouped categories with distinctly visible toggle states. The key insight was that residents think in intent categories like "I need healthcare," not database layer names. We split the primary toolbar to expose only five persistent actions, tucking specialist tools into a contextual secondary panel.</p>
             <p>To fix service discovery, we bypassed the layer panel entirely for general users, adding a category filter directly over the map. This allowed the default map state to load entirely clean through progressive disclosure. Services only populate when a user actively clicks a category. Pushing this through required heavy alignment with the PM and the client to ensure performance wasn't compromised.</p>
             
-            <div style="margin: 4rem 0;">
-                <img src="assets/real-layer-panel.png" alt="Restructured layer panel" onerror="this.style.display='none'">
-                <p class="caption">The restructured layer panel. Users can now instantly distinguish active layers from inactive ones without reading the labels.</p>
-                
-                <img src="assets/real-filter-ui.png" alt="Map filter overlay" onerror="this.style.display='none'">
-                <p class="caption">The new category filter. Bypassing the layer panel makes live bed availability data discoverable in one click.</p>
+            <!-- VISUAL SHOWCASE SECTIONS -->
+            <div class="visual-section fade-up">
+                <h3>Map Interface</h3>
+                <img src="assets/real-map-view.png" alt="SmartMap Map Interface" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/><text x=\'50%\' y=\'50%\' font-family=\'monospace\' font-size=\'16\' fill=\'%2394a3b8\' text-anchor=\'middle\'>[ assets/real-map-view.png ]</text></svg>'">
+                <p>The default map state is now entirely clean. We utilized progressive disclosure to ensure services only populate when a user actively selects an intent category, reducing cognitive load.</p>
+            </div>
+
+            <div class="visual-section fade-up">
+                <h3>Layer Controls</h3>
+                <img src="assets/real-layer-panel.png" alt="Restructured layer panel" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/><text x=\'50%\' y=\'50%\' font-family=\'monospace\' font-size=\'16\' fill=\'%2394a3b8\' text-anchor=\'middle\'>[ assets/real-layer-panel.png ]</text></svg>'">
+                <p>The restructured layer panel groups nine flat categories into three semantic sets. Users can now instantly distinguish active layers from inactive ones without reading every label.</p>
+            </div>
+
+            <div class="visual-section fade-up">
+                <h3>Search & Discovery</h3>
+                <img src="assets/real-filter-ui.png" alt="Map filter overlay" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/><text x=\'50%\' y=\'50%\' font-family=\'monospace\' font-size=\'16\' fill=\'%2394a3b8\' text-anchor=\'middle\'>[ assets/real-filter-ui.png ]</text></svg>'">
+                <p>Bypassing the standard layer panel with a dedicated category filter overlay. This makes critical live data, such as hospital bed availability, discoverable in a single click.</p>
             </div>
 
             <p>In follow-up testing with the same 4 participants, all of them found their target service without assistance — and all 4 found the bed availability data unprompted. In the original interface, none had.</p>
@@ -95,13 +113,15 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <section id="contact" class="fade-up" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); width: 100%; padding-top: 6rem; padding-bottom: 6rem;">
-        <div class="cs-content-block" style="text-align: center;">
-            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-weight: 500;">
-                <a href="mailto:govindusaiteja@gmail.com" style="min-height: auto; color: var(--accent-blue); justify-content: center;">govindusaiteja@gmail.com</a>
-                <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" style="min-height: auto; color: var(--accent-blue); justify-content: center;">linkedin.com/in/saaiteja</a>
-                <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="min-height: auto; color: var(--text-primary); justify-content: center; margin-top: 1rem; text-decoration: underline;">Resume</a>
+    <!-- Contact CTA Section -->
+    <section id="contact" class="fade-up bg-sec" style="border-bottom: none;">
+        <div class="narrative-block" style="margin: 0 auto; text-align: center;">
+            <p style="font-weight: 500; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2rem;">If you're working on something complex that needs to feel simple — I'd like to hear about it.</p>
+            
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="mailto:govindusaiteja@gmail.com" class="btn btn-primary">Email Me</a>
+                <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+                <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Resume</a>
             </div>
         </div>
     </section>
