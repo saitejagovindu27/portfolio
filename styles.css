@@ -13,7 +13,11 @@
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --radius-md: 12px;
     --radius-lg: 20px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Apple-style pseudo-spring curves */
+    --transition-spring: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition: var(--transition-spring);
 }
 
 * {
@@ -96,7 +100,7 @@ nav ul {
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-secondary);
-    transition: var(--transition);
+    transition: var(--transition-fast);
 }
 
 .nav-links a:hover {
@@ -112,7 +116,7 @@ nav ul {
     color: var(--text-primary);
 }
 
-/* Buttons */
+/* Magnetic Buttons (Apple Style) */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -121,9 +125,15 @@ nav ul {
     font-weight: 600;
     border-radius: 8px;
     font-size: 0.95rem;
-    transition: var(--transition);
+    transition: var(--transition-fast);
     cursor: pointer;
     min-height: 48px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:active {
+    transform: scale(0.96) !important; /* Signature squish click */
 }
 
 .btn-primary {
@@ -176,14 +186,14 @@ section {
 .card {
   border-radius: 16px;
   background: white;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid var(--border-color);
+  transition: var(--transition-spring);
+  border: none;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.4);
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.12), inset 0 0 0 1px rgba(255,255,255,0.8);
 }
 
 /* Narrative Text Block */
@@ -311,7 +321,7 @@ section {
   border-radius: 999px;
   background: #fff;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   cursor: pointer;
   font-weight: 600;
   font-size: 0.95rem;
@@ -374,7 +384,7 @@ section {
     border-radius: 8px;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     pointer-events: none;
     text-align: center;
     z-index: 100;
@@ -432,50 +442,80 @@ section {
 }
 
 .tool:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) scale(1.02);
     box-shadow: 0 18px 40px rgba(0,0,0,0.15);
     border-color: var(--accent-blue);
     z-index: 10;
 }
 
 
-/* Featured Work Section */
+/* FEATURED WORK SECTION (TOP 1% PREMIUM) */
 .case-study-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 4rem;
 }
 
-.work-card { 
-    display: grid; 
-    grid-template-columns: 7fr 3fr; /* 70% image */
-    overflow: hidden; 
+.work-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Image dominates more */
+  background: var(--bg-primary);
+  border-radius: 24px; /* Slightly softer corners like Apple hardware */
+  overflow: hidden;
+  border: none; /* Rely on inset shadow for border */
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.4);
+  transition: var(--transition-spring);
 }
 
+.work-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.12), inset 0 0 0 1px rgba(255,255,255,0.8);
+}
+
+/* The Image Container */
 .work-image-container {
-    background: var(--bg-secondary);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-right: 1px solid var(--border-color);
-}
-.work-image-container img {
-    border-radius: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.work-card:hover .work-image-container img {
-    transform: scale(1.03);
+  position: relative;
+  overflow: hidden;
+  background: #f1f5f9;
 }
 
+/* Smooth Image Scale */
+.work-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+}
+
+/* Premium Dark Overlay that fades in on hover */
+.work-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
+  transition: var(--transition-spring);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.work-card:hover .work-image-container img {
+  transform: scale(1.05); /* Slower, deeper zoom */
+}
+
+.work-card:hover .work-image-container::after {
+  opacity: 1;
+}
+
+/* Premium Text Area */
 .work-card-content {
-    padding: 3rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px); /* Glassmorphism */
 }
 
 .work-meta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
@@ -483,6 +523,7 @@ section {
     font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
     background: var(--bg-secondary); border: 1px solid var(--border-color);
     padding: 0.35rem 0.75rem; border-radius: 40px; color: var(--text-secondary);
+    box-shadow: var(--shadow-sm);
 }
 
 .work-title { font-size: 2.25rem; margin-bottom: 1rem; letter-spacing: -0.5px; }
@@ -503,6 +544,13 @@ section {
     width: 100%;
     height: auto;
     margin-bottom: 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.4);
+    transition: var(--transition-spring);
+}
+.visual-section img:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.12), inset 0 0 0 1px rgba(255,255,255,0.8);
 }
 .visual-section p {
     font-size: 1.05rem;
