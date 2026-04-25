@@ -10,17 +10,20 @@
 
     <!-- Global Navigation -->
     <nav>
-        <div class="nav-header">
-            <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
-            <button class="hamburger" id="nav-toggle">☰</button>
-        </div>
-        <div class="nav-links" id="nav-menu">
-            <ul>
-                <li><a href="index.html#work">Work</a></li>
-                <li><a href="index.html#process">Process</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
+        <div class="nav-content">
+            <div class="nav-header">
+                <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
+                <button class="hamburger" id="nav-toggle">☰</button>
+            </div>
+            <div class="nav-links" id="nav-menu">
+                <ul>
+                    <li><a href="index.html#work">Work</a></li>
+                    <li><a href="index.html#process">Process</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -73,56 +76,109 @@
         </div>
     </section>
 
-    <!-- Process Narrative Section -->
-    <section id="process" class="fade-up" style="padding-top: 2rem; padding-bottom: 2rem;">
-        <div class="narrative-block">
-            <p>I start with the system before I start with the screen. On SmartMap — a deployed UAE government spatial platform — mapping the full user journey first revealed that 80% of task failures came from three interaction patterns, not the interface as a whole. That kind of finding changes everything about where you spend your design time.</p>
+    <!-- Node Diagram Section -->
+    <section id="process" class="fade-up bg-sec">
+        <div class="section-wrapper">
+            <div class="section-header" style="text-align: center;">
+                <h2 class="section-title">How I Approach Complex Systems</h2>
+            </div>
+            
+            <div class="node-diagram">
+                <!-- Connecting Lines -->
+                <div class="node-line-h"></div>
+                <div class="node-line-v"></div>
+
+                <!-- Central Node -->
+                <div class="diagram-node center">User-Centered Design</div>
+                
+                <!-- Satellite Nodes -->
+                <div class="diagram-node top">
+                    Product Thinking
+                    <div class="node-tooltip">Aligning user needs with business outcomes</div>
+                </div>
+                <div class="diagram-node left">
+                    UX Research
+                    <div class="node-tooltip">Understanding real user behavior through testing</div>
+                </div>
+                <div class="diagram-node right">
+                    Visual Design
+                    <div class="node-tooltip">Structuring complex data hierarchies intuitively</div>
+                </div>
+                <div class="diagram-node bottom">
+                    Accessibility
+                    <div class="node-tooltip">Ensuring systems are usable by everyone</div>
+                </div>
+            </div>
+            
+            <div class="narrative-block" style="margin: 0 auto; text-align: center;">
+                <p>I start with the system before I start with the screen. On SmartMap — a deployed UAE government spatial platform — mapping the full user journey first revealed that 80% of task failures came from three interaction patterns, not the interface as a whole. That kind of finding changes everything about where you spend your design time.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Tools Section -->
-    <section class="tools-section fade-up" style="padding-top: 4rem; padding-bottom: 4rem; background: var(--bg-primary); border: none;">
-        <div class="narrative-block">
-            <div class="tools-group">
-                <h4>Primary</h4>
-                <div class="tools-list">
-                    <div class="tool-item">Figma</div>
-                    <div class="tool-item">Adobe Suite</div>
-                    <div class="tool-item">FigJam</div>
-                </div>
+    <!-- Infinite Tools Marquee Section -->
+    <section id="tools" class="fade-up">
+        <div class="section-wrapper" style="width: 100vw; margin-left: calc(-50vw + 50%); overflow: hidden;">
+            <div class="section-header" style="text-align: center; max-width: 1100px; margin: 0 auto 3rem;">
+                <h2 class="section-title">Tools I Use</h2>
             </div>
-            <div class="tools-group">
-                <h4>AI in my workflow</h4>
-                <div class="tools-list">
-                    <div class="tool-item">ChatGPT</div>
-                    <div class="tool-item">Claude</div>
-                    <div class="tool-item">Antigravity</div>
+            
+            <div class="marquee-container">
+                <!-- Track 1 -->
+                <div class="marquee-content">
+                    <div class="tool-pill">Figma</div>
+                    <div class="tool-pill">Adobe Suite</div>
+                    <div class="tool-pill">ChatGPT</div>
+                    <div class="tool-pill">Claude</div>
+                    <div class="tool-pill">Antigravity</div>
+                    <div class="tool-pill">Lovable</div>
+                    <div class="tool-pill">Stitch</div>
+                    <div class="tool-pill">SurveyMonkey</div>
+                </div>
+                <!-- Track 2 (Duplicate for infinite loop) -->
+                <div class="marquee-content" aria-hidden="true">
+                    <div class="tool-pill">Figma</div>
+                    <div class="tool-pill">Adobe Suite</div>
+                    <div class="tool-pill">ChatGPT</div>
+                    <div class="tool-pill">Claude</div>
+                    <div class="tool-pill">Antigravity</div>
+                    <div class="tool-pill">Lovable</div>
+                    <div class="tool-pill">Stitch</div>
+                    <div class="tool-pill">SurveyMonkey</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Selected Work Section -->
-    <section id="work" class="work-section fade-up" style="background: var(--bg-secondary);">
-        <div class="section-header">
-            <h2 class="section-title">Selected Work</h2>
-        </div>
-        
-        <div class="case-study-grid">
-            <!-- Project 1: SmartMap -->
-            <a href="smartmap-case-study.html" class="work-card">
-                <div class="work-image-container">
-                    <div style="width:100%; height:100%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-family:monospace;">[ Case Study Thumbnail ]</div>
-                </div>
-                <h3 class="work-title">SmartMap</h3>
-                <p class="work-impact">A 5-month redesign of a deployed UAE government spatial data platform. Two opposite user types. One interface. The hardest kind of design problem.</p>
-            </a>
+    <section id="work" class="fade-up bg-sec">
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">Selected Work</h2>
+            </div>
+            
+            <div class="case-study-grid">
+                <!-- Project 1: SmartMap -->
+                <a href="smartmap-case-study.html" class="work-card">
+                    <div class="work-image-container">
+                        <div style="width:100%; height:100%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-family:monospace;">[ Case Study Thumbnail ]</div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="tag">Public Service</span>
+                        <span class="tag">Maps & Navigation</span>
+                    </div>
+                    <h3 class="work-title">SmartMap</h3>
+                    <p class="work-impact">A 5-month redesign of a deployed UAE government spatial data platform. Two opposite user types. One interface. The hardest kind of design problem.</p>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="fade-up" style="padding-top: 6rem; padding-bottom: 6rem;">
+    <section id="about" class="fade-up">
         <div class="narrative-block">
+            <h2 class="section-title">About Me</h2>
+            <br>
             <p>I'm Sai Teja Govind, a UX/UI designer based in the UAE.</p>
             <p>I spend most of my time on products where getting lost has real consequences — mapping platforms, data dashboards, systems where a confused user isn't just frustrated, they're stuck.</p>
             <p>My last project was a deployed UAE government geospatial platform serving residents finding hospitals and government administrators managing spatial data — on the same interface. That kind of tension between simplicity and power is exactly where I do my best work.</p>
@@ -130,7 +186,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="fade-up" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); width: 100%; padding-top: 6rem; padding-bottom: 6rem;">
+    <section id="contact" class="fade-up bg-sec" style="border-bottom: none;">
         <div class="narrative-block">
             <p style="font-weight: 500; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2rem;">If you're working on something complex that needs to feel simple — I'd like to hear about it.</p>
             <div style="display: flex; flex-direction: column; gap: 0.5rem; font-weight: 500;">
@@ -176,6 +232,28 @@
             }
         }
         applyParallax('hero-scene', '.composition-layer');
+
+        // Allow manual scrolling of infinite marquee
+        const marquee = document.querySelector('.marquee-container');
+        if(marquee) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            marquee.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - marquee.offsetLeft;
+                scrollLeft = marquee.scrollLeft;
+            });
+            marquee.addEventListener('mouseleave', () => { isDown = false; });
+            marquee.addEventListener('mouseup', () => { isDown = false; });
+            marquee.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - marquee.offsetLeft;
+                const walk = (x - startX) * 2; // scroll speed
+                marquee.scrollLeft = scrollLeft - walk;
+            });
+        }
     </script>
 </body>
 </html>
