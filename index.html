@@ -19,52 +19,106 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Animated Hero Section -->
     <section class="hero fade-up">
         <div class="hero-content">
-            <span class="hero-subtitle">UX/UI Designer</span>
             <h1 class="hero-title">Designing systems that simplify complex decisions.</h1>
-            <p class="hero-prop">Specialized in enterprise SaaS and data-heavy platforms.</p>
+            <p class="hero-prop">Improved task completion by 20% • Reduced onboarding friction across 40+ screens</p>
             <div class="hero-actions">
                 <a href="#work" class="btn btn-primary">View Work</a>
-                <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" class="btn btn-secondary">View Resume</a>
+                <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
             </div>
         </div>
         <div class="hero-visual">
-            <div class="hero-parallax-container" id="parallax-scene">
-                <!-- Multi-layer Map UI Parallax -->
-                <div class="parallax-layer bg-layer" data-speed="1.5"></div>
-                <div class="parallax-layer mid-layer" data-speed="-2">
-                    <div style="padding: 1rem;">
-                        <span style="display: block; color: var(--accent-color); margin-bottom: 0.5rem;">Filter Panel Active</span>
-                        <div style="height: 4px; width: 40px; background: #e5e7eb; margin-bottom: 4px;"></div>
-                        <div style="height: 4px; width: 60px; background: #e5e7eb;"></div>
+            <div class="hero-composition" id="hero-scene">
+                <div class="composition-layer comp-bg" data-speed="1"></div>
+                
+                <!-- Floating Map Snippet -->
+                <div class="composition-layer comp-card comp-map" data-speed="-2">
+                    <div class="skel-circle" style="position: absolute; top: 30%; left: 40%;"></div>
+                    <div class="skel-circle" style="position: absolute; top: 60%; left: 70%; width: 24px; height: 24px;"></div>
+                </div>
+
+                <!-- Floating Data Card -->
+                <div class="composition-layer comp-card comp-data" data-speed="3">
+                    <div class="skel-title" style="width: 40%;"></div>
+                    <div class="skel-chart">
+                        <div class="skel-bar" style="height: 40%;"></div>
+                        <div class="skel-bar" style="height: 70%;"></div>
+                        <div class="skel-bar" style="height: 50%;"></div>
+                        <div class="skel-bar" style="height: 90%;"></div>
+                        <div class="skel-bar" style="height: 30%;"></div>
                     </div>
                 </div>
-                <div class="parallax-layer fg-layer" data-speed="3">
-                    <div style="padding: 1.5rem;">
-                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Data Overlay Map</h4>
-                        <p style="font-weight: 400; font-size: 0.8rem;">Rendering 10,000+ points</p>
+
+                <!-- Floating Filter Panel -->
+                <div class="composition-layer comp-card comp-filter" data-speed="-1.5">
+                    <div class="skel-title"></div>
+                    <div class="skel-line"></div>
+                    <div class="skel-line short"></div>
+                    <div class="skel-line" style="margin-top: 1.5rem;"></div>
+                    <div class="skel-line"></div>
+                    <div class="skel-line short" style="margin-bottom: 2rem;"></div>
+                    <div style="display: flex; gap: 8px;">
+                        <div class="skel-line short" style="height: 24px; border-radius: 12px; width: 40px; background: var(--border-color);"></div>
+                        <div class="skel-line short" style="height: 24px; border-radius: 12px; width: 60px; background: var(--border-color);"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Node Diagram Section -->
+    <section id="process" class="fade-up" style="padding-top: 2rem; padding-bottom: 2rem;">
+        <div class="section-header" style="text-align: center;">
+            <h2 class="section-title">How I Approach Complex Systems</h2>
+        </div>
+        <div class="system-diagram" id="diagram-scene">
+            <!-- Center Hub -->
+            <div class="diagram-node center">User-Centered Design</div>
+            
+            <!-- Orbiting Nodes -->
+            <div class="diagram-node orbit" data-speed="1">
+                UX Research
+                <div class="node-tooltip">Understanding real user behavior through testing and insights</div>
+            </div>
+            <div class="diagram-node orbit" data-speed="-1">
+                Product Thinking
+                <div class="node-tooltip">Aligning user needs with business outcomes</div>
+            </div>
+            <div class="diagram-node orbit" data-speed="1.5">
+                AI-Assisted UX
+                <div class="node-tooltip">Leveraging machine learning to accelerate workflows</div>
+            </div>
+            <div class="diagram-node orbit" data-speed="-0.5">
+                Prototyping
+                <div class="node-tooltip">Building high-fidelity interactive models</div>
+            </div>
+            <div class="diagram-node orbit" data-speed="2">
+                Accessibility
+                <div class="node-tooltip">Ensuring systems are usable by everyone</div>
+            </div>
+            <div class="diagram-node orbit" data-speed="-1.5">
+                Information Architecture
+                <div class="node-tooltip">Structuring complex data hierarchies intuitively</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Personal Parallax Interaction Section -->
-    <section class="fade-up" style="padding-top: 2rem;">
+    <section class="fade-up" style="padding-top: 0; padding-bottom: 4rem;">
         <div class="interaction-grid">
             <div class="interaction-card">
                 <h3>Systems Thinking</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Architecting scalable platforms from the database architecture to the pixel level.</p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Architecting scalable platforms from the database logic to the pixel level.</p>
             </div>
             <div class="interaction-card">
                 <h3>Workflow Simplification</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Trimming redundant clicks and aggressive progressive disclosure.</p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Trimming redundant clicks through progressive disclosure.</p>
             </div>
             <div class="interaction-card">
                 <h3>Data Clarity</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Designing robust visual hierarchies that make dense numbers immediately legible.</p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Designing robust visual hierarchies that make dense numbers legible.</p>
             </div>
         </div>
     </section>
@@ -79,8 +133,7 @@
             <!-- Project 1: SmartMap -->
             <a href="smartmap-case-study.html" class="work-card">
                 <div class="work-image-container">
-                    <!-- Real screenshots will be injected here via <img src="assets/..."> by user later -->
-                    <div style="width:100%; height:100%; background:#f3f4f6; display:flex; align-items:center; justify-content:center; color:#9ca3af; font-family:monospace;">[ Real Screenshot Placeholder ]</div>
+                    <div class="ui-placeholder">[ Real Screenshot Placeholder ]</div>
                 </div>
                 <div class="work-meta">
                     <span class="tag">Public Service</span>
@@ -91,10 +144,10 @@
                 <p class="work-impact">Helping users discover services like schools, hospitals, and locations easily.</p>
             </a>
 
-            <!-- Project 2: GlobalOps -->
+            <!-- Project 2: Abstract Placeholder -->
             <a href="#" class="work-card">
                 <div class="work-image-container">
-                    <div style="width:100%; height:100%; background:#f3f4f6; display:flex; align-items:center; justify-content:center; color:#9ca3af; font-family:monospace;">[ Real Screenshot Placeholder ]</div>
+                    <div class="ui-placeholder">[ Real Screenshot Placeholder ]</div>
                 </div>
                 <div class="work-meta">
                     <span class="tag">Enterprise B2B</span>
@@ -103,35 +156,6 @@
                 <h3 class="work-title">GlobalOps Command</h3>
                 <p class="work-impact">Consolidated 3 isolated tools into a unified platform view.</p>
             </a>
-        </div>
-    </section>
-
-    <!-- New Process Section -->
-    <section id="process" class="process-section fade-up">
-        <div class="section-header" style="text-align: center;">
-            <h2 class="section-title">How I Approach Complex Systems</h2>
-        </div>
-        <div class="process-grid">
-            <div class="process-step">
-                <div class="step-num">01 /</div>
-                <h4>Understand the System</h4>
-                <p>Breaking down workflows, roles, and data relationships.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-num">02 /</div>
-                <h4>Identify Friction</h4>
-                <p>Finding where users struggle — navigation, clarity, or overload.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-num">03 /</div>
-                <h4>Simplify the Experience</h4>
-                <p>Reducing steps, structuring information, improving flow.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-num">04 /</div>
-                <h4>Validate with Real Use</h4>
-                <p>Testing with users and refining based on behavior.</p>
-            </div>
         </div>
     </section>
 
@@ -155,7 +179,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section fade-up">
+    <section id="about" class="fade-up">
         <div class="cs-section" style="border: none;">
             <div class="cs-section-title">
                 <h2 class="section-title">About Me</h2>
@@ -169,9 +193,10 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" style="background: var(--bg-secondary); text-align: center; border-top: 1px solid var(--border-color); width: 100%; border-bottom: none;">
+    <section id="contact" style="background: var(--bg-secondary); text-align: center; border-top: 1px solid var(--border-color); width: 100%; border-bottom: none; padding-top: 6rem; padding-bottom: 6rem;">
         <h2 class="section-title">Let’s build something impactful.</h2>
-        <div class="hero-actions" style="justify-content: center; margin-top: 2.5rem;">
+        <p class="hero-prop" style="margin: 1rem auto 2.5rem; font-weight: 500;">I’m open to solving complex product challenges in SaaS and data-driven environments.</p>
+        <div class="hero-actions" style="justify-content: center;">
             <a href="mailto:contact@example.com" class="btn btn-primary">Email Me</a>
             <a href="https://www.linkedin.com/in/saaiteja/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border-color: var(--accent-color);">LinkedIn</a>
             <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
@@ -179,7 +204,7 @@
     </section>
 
     <script>
-        // Intersection Observer
+        // Intersection Observer for scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -190,17 +215,25 @@
         
         document.querySelectorAll('.fade-up, .scale-up').forEach((el) => observer.observe(el));
 
-        // Basic Light Parallax (Hero)
-        document.addEventListener('mousemove', (e) => {
-            const layers = document.querySelectorAll('.parallax-layer');
-            const x = (e.clientX * -1) / 100;
-            const y = (e.clientY * -1) / 100;
+        // Unified Advanced Parallax Function
+        function applyParallax(containerId, layerClass) {
+            const container = document.getElementById(containerId);
+            if(!container) return;
+            const layers = container.querySelectorAll(layerClass);
+            
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX - window.innerWidth / 2) * -0.01;
+                const y = (e.clientY - window.innerHeight / 2) * -0.01;
 
-            layers.forEach(layer => {
-                const speed = layer.getAttribute('data-speed');
-                layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+                layers.forEach(layer => {
+                    const speed = parseFloat(layer.getAttribute('data-speed') || 1);
+                    layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+                });
             });
-        });
+        }
+
+        applyParallax('hero-scene', '.composition-layer');
+        applyParallax('diagram-scene', '.diagram-node.orbit');
     </script>
 </body>
 </html>
