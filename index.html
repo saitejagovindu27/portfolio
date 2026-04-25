@@ -40,17 +40,9 @@
         </div>
 
         <div class="hero-visual">
-          <div class="card parallax c1" data-speed="2">
-            Reduced steps
-          </div>
-
-          <div class="card parallax c2" data-speed="4">
-            Clear navigation
-          </div>
-
-          <div class="card parallax c3" data-speed="6">
-            Faster decisions
-          </div>
+          <div class="layer l1"></div>
+          <div class="layer l2"></div>
+          <div class="layer l3"></div>
         </div>
 
       </div>
@@ -87,7 +79,7 @@
       </div>
     </section>
 
-    <!-- TOOLS WITH MARQUEE (CDN) -->
+    <!-- TOOLS WITH MARQUEE (MONOCHROME ICONS) -->
     <section id="tools" class="tools-section reveal">
       <h2>Tools I Use</h2>
       <p class="tools-intro">Tools I use to design, validate, and ship real-world products.</p>
@@ -97,73 +89,73 @@
 
           <!-- TOOL -->
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"/>
+            <div class="icon">F</div>
             <span>Figma</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg"/>
+            <div class="icon">A</div>
             <span>Adobe Suite</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
+            <div class="icon">C</div>
             <span>ChatGPT</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>
+            <div class="icon">CL</div>
             <span>Claude</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
+            <div class="icon">AG</div>
             <span>Antigravity</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/>
+            <div class="icon">L</div>
             <span>Lovable</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/>
+            <div class="icon">S</div>
             <span>Stitch</span>
           </div>
 
           <!-- DUPLICATE FOR LOOP -->
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"/>
+            <div class="icon">F</div>
             <span>Figma</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg"/>
+            <div class="icon">A</div>
             <span>Adobe Suite</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
+            <div class="icon">C</div>
             <span>ChatGPT</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>
+            <div class="icon">CL</div>
             <span>Claude</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
+            <div class="icon">AG</div>
             <span>Antigravity</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/>
+            <div class="icon">L</div>
             <span>Lovable</span>
           </div>
 
           <div class="tool-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/>
+            <div class="icon">S</div>
             <span>Stitch</span>
           </div>
 
@@ -202,17 +194,17 @@
         });
         elements.forEach(el => observer.observe(el));
 
-        // Strong Parallax
-        const layers = document.querySelectorAll(".parallax");
+        // Stacked Product UI Parallax
         if(window.innerWidth > 1024) {
-            window.addEventListener("mousemove", (e) => {
-              const x = (e.clientX / window.innerWidth - 0.5) * 30;
-              const y = (e.clientY / window.innerHeight - 0.5) * 30;
+            document.addEventListener("mousemove", (e) => {
+              const x = (e.clientX / window.innerWidth - 0.5) * 20;
+              const y = (e.clientY / window.innerHeight - 0.5) * 20;
 
-              layers.forEach(layer => {
-                const speed = layer.getAttribute("data-speed");
-                layer.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-              });
+              const l2 = document.querySelector(".l2");
+              if(l2) l2.style.transform = `rotate(4deg) translate(${x}px, ${y}px)`;
+
+              const l3 = document.querySelector(".l3");
+              if(l3) l3.style.transform = `translate(${x * 1.5}px, ${y * 1.5}px)`;
             });
         }
 
