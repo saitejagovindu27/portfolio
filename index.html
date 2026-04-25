@@ -27,22 +27,30 @@
     </nav>
 
     <!-- HERO -->
-    <section class="hero section reveal">
+    <section class="hero">
       <div class="hero-container">
 
         <div class="hero-text">
           <h1>Designing systems that simplify complexity</h1>
           <p>Enterprise UX • Data Platforms • Product Thinking</p>
-          <div class="cta-buttons" style="justify-content: flex-start;">
+          <div class="cta-buttons" style="justify-content: flex-start; margin-top: 2rem;">
               <a href="#work" class="btn btn-primary">View Work</a>
               <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
           </div>
         </div>
 
         <div class="hero-visual">
-          <div class="parallax blob blob1" data-speed="2"></div>
-          <div class="parallax blob blob2" data-speed="4"></div>
-          <div class="parallax blob blob3" data-speed="6"></div>
+          <div class="card parallax c1" data-speed="2">
+            Filters
+          </div>
+
+          <div class="card parallax c2" data-speed="4">
+            Data Insights
+          </div>
+
+          <div class="card parallax c3" data-speed="6">
+            ↓ 30% confusion
+          </div>
         </div>
 
       </div>
@@ -78,29 +86,45 @@
       </div>
     </section>
 
-    <!-- TOOLS -->
-    <section id="tools" class="tools-section reveal">
-        <h2>Tools I Use</h2>
-        <div class="tools">
-            <div class="tools-track">
-                <!-- Set 1 -->
-                <div class="tool">Figma<div class="tooltip">Primary UI & Prototyping</div></div>
-                <div class="tool">Adobe Suite<div class="tooltip">Visual assets & vectors</div></div>
-                <div class="tool">ChatGPT<div class="tooltip">Research & structuring</div></div>
-                <div class="tool">Claude<div class="tooltip">Complex logic mapping</div></div>
-                <div class="tool">Antigravity<div class="tooltip">Advanced AI workflows</div></div>
-                <div class="tool">Lovable<div class="tooltip">Rapid ideation</div></div>
-                <div class="tool">Stitch<div class="tooltip">Data integration</div></div>
-                <!-- Duplicate Set -->
-                <div class="tool">Figma<div class="tooltip">Primary UI & Prototyping</div></div>
-                <div class="tool">Adobe Suite<div class="tooltip">Visual assets & vectors</div></div>
-                <div class="tool">ChatGPT<div class="tooltip">Research & structuring</div></div>
-                <div class="tool">Claude<div class="tooltip">Complex logic mapping</div></div>
-                <div class="tool">Antigravity<div class="tooltip">Advanced AI workflows</div></div>
-                <div class="tool">Lovable<div class="tooltip">Rapid ideation</div></div>
-                <div class="tool">Stitch<div class="tooltip">Data integration</div></div>
-            </div>
+    <!-- TOOLS GRID -->
+    <section id="tools" class="tools section reveal">
+      <h2>Tools I Use</h2>
+
+      <div class="tools-grid">
+
+        <div class="tool-card">
+          <img src="assets/figma.png" onerror="this.src='data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'20\' cy=\'20\' r=\'20\' fill=\'%23e2e8f0\'/></svg>'"/>
+          <div>
+            <h4>Figma</h4>
+            <p>UI UX Design & prototyping</p>
+          </div>
         </div>
+
+        <div class="tool-card">
+          <img src="assets/adobe.png" onerror="this.src='data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'40\' height=\'40\' rx=\'8\' fill=\'%23e2e8f0\'/></svg>'"/>
+          <div>
+            <h4>Adobe Suite</h4>
+            <p>Visual design & assets</p>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <img src="assets/chatgpt.png" onerror="this.src='data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'20\' cy=\'20\' r=\'20\' fill=\'%23e2e8f0\'/></svg>'"/>
+          <div>
+            <h4>ChatGPT</h4>
+            <p>UX ideation & workflows</p>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <img src="assets/claude.png" onerror="this.src='data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'40\' height=\'40\' rx=\'8\' fill=\'%23e2e8f0\'/></svg>'"/>
+          <div>
+            <h4>Claude</h4>
+            <p>Long-form reasoning</p>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <!-- CONTACT -->
@@ -138,10 +162,10 @@
         const layers = document.querySelectorAll(".parallax");
         if(window.innerWidth > 1024) {
             window.addEventListener("mousemove", (e) => {
-              const x = (e.clientX / window.innerWidth - 0.5) * 40;
-              const y = (e.clientY / window.innerHeight - 0.5) * 40;
+              const x = (e.clientX / window.innerWidth - 0.5) * 30;
+              const y = (e.clientY / window.innerHeight - 0.5) * 30;
 
-              layers.forEach((layer) => {
+              layers.forEach(layer => {
                 const speed = layer.getAttribute("data-speed");
                 layer.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
               });
