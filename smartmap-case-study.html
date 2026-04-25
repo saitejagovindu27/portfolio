@@ -176,9 +176,9 @@
         
         document.querySelectorAll('.fade-up, .scale-up').forEach((el) => observer.observe(el));
 
-        // Lightweight Parallax on Metrics
+        // Lightweight Parallax on Metrics (Desktop Only)
         const container = document.getElementById('impact-metrics-scene');
-        if(container) {
+        if(container && window.innerWidth > 1024) {
             const layers = container.querySelectorAll('.diagram-node.orbit');
             document.addEventListener('mousemove', (e) => {
                 const x = (e.clientX - window.innerWidth / 2) * -0.01;

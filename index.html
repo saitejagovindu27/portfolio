@@ -24,6 +24,7 @@
         <div class="hero-content">
             <h1 class="hero-title">Designing systems that simplify complex decisions.</h1>
             <p class="hero-prop">Improved task completion by 20% • Reduced onboarding friction across 40+ screens</p>
+            <p class="hero-statement">Most complex platforms fail not because of missing features, but because users can’t understand them.</p>
             <div class="hero-actions">
                 <a href="#work" class="btn btn-primary">View Work</a>
                 <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
@@ -105,8 +106,25 @@
         </div>
     </section>
 
+    <!-- Tools Section (New) -->
+    <section class="tools-section fade-up" style="padding-top: 4rem; padding-bottom: 4rem;">
+        <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+            <h2 class="section-title">Tools I Use</h2>
+        </div>
+        <div class="tools-scroll-container">
+            <div class="tool-pill">Figma</div>
+            <div class="tool-pill">Adobe Suite</div>
+            <div class="tool-pill">ChatGPT</div>
+            <div class="tool-pill">Claude</div>
+            <div class="tool-pill">Antigravity</div>
+            <div class="tool-pill">Lovable</div>
+            <div class="tool-pill">Stitch</div>
+            <div class="tool-pill">SurveyMonkey</div>
+        </div>
+    </section>
+
     <!-- Personal Parallax Interaction Section -->
-    <section class="fade-up" style="padding-top: 0; padding-bottom: 4rem;">
+    <section class="fade-up" style="padding-top: 4rem; padding-bottom: 4rem;">
         <div class="interaction-grid">
             <div class="interaction-card">
                 <h3>Systems Thinking</h3>
@@ -138,7 +156,6 @@
                 <div class="work-meta">
                     <span class="tag">Public Service</span>
                     <span class="tag">Maps & Navigation</span>
-                    <span class="tag">UX Research</span>
                 </div>
                 <h3 class="work-title">SmartMap – Public Map Application</h3>
                 <p class="work-impact">Helping users discover services like schools, hospitals, and locations easily.</p>
@@ -161,7 +178,7 @@
 
     <!-- Impact Visual Section -->
     <section class="impact-section fade-up">
-        <h2 class="section-title" style="color: white; margin-bottom: 4rem;">Proven Enterprise Impact</h2>
+        <h2 class="section-title" style="color: var(--text-primary); margin-bottom: 4rem;">Proven Enterprise Impact</h2>
         <div class="impact-grid">
             <div class="floating-metric">
                 <h3>↓ 30%</h3>
@@ -221,15 +238,18 @@
             if(!container) return;
             const layers = container.querySelectorAll(layerClass);
             
-            document.addEventListener('mousemove', (e) => {
-                const x = (e.clientX - window.innerWidth / 2) * -0.01;
-                const y = (e.clientY - window.innerHeight / 2) * -0.01;
+            // Only apply mouse parallax on desktop screens
+            if (window.innerWidth > 1024) {
+                document.addEventListener('mousemove', (e) => {
+                    const x = (e.clientX - window.innerWidth / 2) * -0.01;
+                    const y = (e.clientY - window.innerHeight / 2) * -0.01;
 
-                layers.forEach(layer => {
-                    const speed = parseFloat(layer.getAttribute('data-speed') || 1);
-                    layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+                    layers.forEach(layer => {
+                        const speed = parseFloat(layer.getAttribute('data-speed') || 1);
+                        layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+                    });
                 });
-            });
+            }
         }
 
         applyParallax('hero-scene', '.composition-layer');
