@@ -27,13 +27,13 @@
         </div>
     </nav>
 
-    <!-- SECTION 1: Cold Open (No Header) -->
+    <!-- SECTION 1: Cold Open -->
     <section class="cs-header fade-up">
         <div class="cs-content-block" style="text-align: left; font-size: 1.25rem;">
-            <p>SmartMap is a deployed UAE government spatial platform used by two very different user groups:</p>
+            <p>SmartMap is a UAE government spatial platform used by two very different users:</p>
             <ul>
-                <li>Residents finding essential services</li>
-                <li>Government administrators managing spatial data</li>
+                <li>Residents finding services like hospitals</li>
+                <li>Administrators managing spatial data</li>
             </ul>
             <p>Both rely on the same interface, creating a challenge of balancing simplicity with complexity.</p>
         </div>
@@ -51,24 +51,47 @@
         </div>
     </section>
 
-    <!-- SECTION 2: The Problem -->
+    <!-- SECTION: How I Evaluated -->
     <section class="cs-section fade-up" style="padding-top: 0;">
+        <h2>How I Evaluated</h2>
+        <div class="cs-content-block">
+            <ul>
+                <li>Explored service discovery flows</li>
+                <li>Tested map interactions</li>
+                <li>Identified navigation friction</li>
+                <li>Evaluated first-time usability</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION: The Problem -->
+    <section class="cs-section fade-up">
         <h2>The problem</h2>
         <div class="cs-content-block">
             <p>The platform had a layer system that made sense to the engineers who built it and no one else. Nine ungrouped categories, all visible at once, with toggle states that looked identical whether active or not. Residents had no way to browse by intent. The live bed availability data — arguably the most valuable thing on the platform — was buried so deep that none of the 4 users in our research sessions found it without being told it existed.</p>
-            <p>We were watching people tap around a map hoping something useful would appear. On a platform designed to help them find healthcare.</p>
             <p>The harder problem was that government administrators needed the opposite experience — full layer control, specialist data access, precision toggles. One interface. Two completely different mental models. That was the actual design challenge.</p>
         </div>
     </section>
 
-    <!-- SECTION 3: What we changed -->
+    <!-- SECTION: Design Direction -->
+    <section class="cs-section fade-up">
+        <h2>Design Direction</h2>
+        <div class="cs-content-block">
+            <ul>
+                <li>Simplify navigation into key actions</li>
+                <li>Introduce category-based discovery</li>
+                <li>Reduce map clutter using progressive disclosure</li>
+                <li>Improve onboarding and feedback</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION: What we changed (Visuals) -->
     <section class="cs-section fade-up">
         <h2>What we changed</h2>
         <div class="cs-content-block">
-            <p>We tore down the nine flat layers and restructured them into three grouped categories with distinctly visible toggle states. The key insight was that residents think in intent categories like "I need healthcare," not database layer names. We split the primary toolbar to expose only five persistent actions, tucking specialist tools into a contextual secondary panel.</p>
-            <p>To fix service discovery, we bypassed the layer panel entirely for general users, adding a category filter directly over the map. This allowed the default map state to load entirely clean through progressive disclosure. Services only populate when a user actively clicks a category. Pushing this through required heavy alignment with the PM and the client to ensure performance wasn't compromised.</p>
+            <p>We tore down the nine flat layers and restructured them into three grouped categories with distinctly visible toggle states. We bypassed the layer panel entirely for general users, adding a category filter directly over the map.</p>
             
-            <!-- VISUAL SHOWCASE SECTIONS -->
             <div class="visual-section fade-up">
                 <h3>Map Interface</h3>
                 <img src="assets/real-map-view.png" alt="SmartMap Map Interface" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/><text x=\'50%\' y=\'50%\' font-family=\'monospace\' font-size=\'16\' fill=\'%2394a3b8\' text-anchor=\'middle\'>[ assets/real-map-view.png ]</text></svg>'">
@@ -86,12 +109,33 @@
                 <img src="assets/real-filter-ui.png" alt="Map filter overlay" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/><text x=\'50%\' y=\'50%\' font-family=\'monospace\' font-size=\'16\' fill=\'%2394a3b8\' text-anchor=\'middle\'>[ assets/real-filter-ui.png ]</text></svg>'">
                 <p>Bypassing the standard layer panel with a dedicated category filter overlay. This makes critical live data, such as hospital bed availability, discoverable in a single click.</p>
             </div>
-
-            <p>In follow-up testing with the same 4 participants, all of them found their target service without assistance — and all 4 found the bed availability data unprompted. In the original interface, none had.</p>
         </div>
     </section>
 
-    <!-- SECTION 4: What I took from this -->
+    <!-- SECTION: Impact Section -->
+    <section class="cs-section fade-up bg-sec" style="padding: 4rem 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin: 4rem auto;">
+        <h2>Impact</h2>
+        <div class="impact-grid" id="impact-scene">
+            <div class="impact-metric-card scroll-scale impact-float" style="animation-delay: 0s;">
+                <h4>↓ 30%</h4>
+                <p>confusion</p>
+            </div>
+            <div class="impact-metric-card scroll-scale impact-float" style="animation-delay: -1.5s;">
+                <h4>↑ Faster</h4>
+                <p>discovery</p>
+            </div>
+            <div class="impact-metric-card scroll-scale impact-float" style="animation-delay: -3s;">
+                <h4>↓ Reduced</h4>
+                <p>cognitive load</p>
+            </div>
+            <div class="impact-metric-card scroll-scale impact-float" style="animation-delay: -0.5s;">
+                <h4>↑ Improved</h4>
+                <p>usability</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: What I took from this -->
     <section class="cs-section fade-up">
         <h2>What I took from this</h2>
         <div class="cs-content-block">
@@ -100,23 +144,23 @@
         </div>
     </section>
 
-    <!-- SECTION 5: What I Would Do Next -->
+    <!-- SECTION: What I Would Do Next -->
     <section class="cs-section fade-up">
         <h2>What I Would Do Next</h2>
         <div class="cs-content-block">
             <ul>
-                <li>Redesign navigation around user intent</li>
-                <li>Introduce guided discovery</li>
-                <li>Reduce visual noise via progressive layers</li>
                 <li>Improve system feedback</li>
+                <li>Optimize layer interactions</li>
+                <li>Enhance mobile usability</li>
+                <li>Introduce guided user flows</li>
             </ul>
         </div>
     </section>
 
     <!-- Contact CTA Section -->
-    <section id="contact" class="fade-up bg-sec" style="border-bottom: none;">
+    <section id="contact" class="fade-up bg-sec" style="border-bottom: none; margin-top: 4rem;">
         <div class="narrative-block" style="margin: 0 auto; text-align: center;">
-            <p style="font-weight: 500; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2rem;">If you're working on something complex that needs to feel simple — I'd like to hear about it.</p>
+            <p style="font-weight: 500; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2rem;">I’m open to solving complex product challenges in SaaS and data-driven environments.</p>
             
             <div class="cta-buttons" style="justify-content: center;">
                 <a href="mailto:govindusaiteja@gmail.com" class="btn btn-primary">Email Me</a>
@@ -134,7 +178,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+        document.querySelectorAll('.fade-up, .scroll-scale').forEach((el) => observer.observe(el));
 
         // Mobile Nav Toggle
         const toggle = document.getElementById('nav-toggle');
@@ -142,6 +186,19 @@
         if (toggle && menu) {
             toggle.addEventListener('click', () => {
                 menu.classList.toggle('open');
+            });
+        }
+        
+        // Impact Parallax Fallback
+        const impactScene = document.getElementById('impact-scene');
+        if(impactScene && window.innerWidth > 1024) {
+            const cards = impactScene.querySelectorAll('.impact-metric-card');
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX - window.innerWidth / 2) * -0.005;
+                const y = (e.clientY - window.innerHeight / 2) * -0.005;
+                cards.forEach(card => {
+                    card.style.transform = `translate(${x}px, ${y}px)`;
+                });
             });
         }
     </script>
