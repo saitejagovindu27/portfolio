@@ -10,16 +10,91 @@
         max-width: 900px;
         margin: 120px auto 100px;
         padding: 0 24px;
-        text-align: center;
+        text-align: left;
       }
       .case-study h2 {
-        text-align: center;
+        font-family: 'Satoshi', sans-serif;
+        font-size: 32px;
+        margin-bottom: 24px;
+        margin-top: 80px;
+        color: white;
+      }
+      .case-study h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+        margin-top: 40px;
+        color: white;
+      }
+      .case-study p, .case-study ul, .case-study li {
+        font-size: 18px;
+        color: #94a3b8;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .case-study ul {
+        padding-left: 20px;
       }
       .case-study img {
         width: 100%;
         border-radius: 12px;
-        margin: 24px 0;
+        margin: 40px 0;
         display: block;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .cs-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 24px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #64748b;
+        margin-top: 40px;
+      }
+      .cs-meta span {
+        display: flex;
+        align-items: center;
+      }
+      .cs-meta span::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #3b82f6;
+        margin-right: 10px;
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+      }
+      .impact {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 40px 0;
+      }
+      .impact-card {
+        background: rgba(255,255,255,0.05);
+        padding: 30px;
+        border-radius: 16px;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .impact-card h4 {
+        font-size: 32px;
+        color: white;
+        margin-bottom: 8px;
+      }
+      .impact-card p {
+        margin: 0;
+        font-size: 16px;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -33,33 +108,101 @@
 </head>
 <body>
 
-    <!-- GLOBAL FLUID CURSOR -->
   <div id="beams-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none;"></div>
   <canvas id="fluid"></canvas>
 
   <!-- HEADER -->
   <header class="header">
-    <div class="header-content">
-      <div class="logo">
-        <a href="index.html" style="color: inherit; text-decoration: none;">SG</a>
-      </div>
-      <nav class="nav">
-        <a href="index.html#work">Work</a>
-        <a href="index.html#process">Process</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
-    </div>
+    <div class="logo">Sai Teja Govind</div>
+    <nav>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
   </header>
-    <a href="index.html">Back</a>
-  </div>
 
-  <div class="case-study container">
-    <section class="section" style="padding: 0;">
-      <h2 class="fade-in">Smart MRV – Sustainability Platform Landing</h2>
-      <p class="fade-in" style="color: #94a3b8; font-size: 18px;">Storytelling, clarity, conversion, and product communication.</p>
-      
-      <img src="assets/mrv/screen1.png" alt="Smart MRV screen 1" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
-      <img src="assets/mrv/screen2.png" alt="Smart MRV screen 2" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+  <div class="case-study container fade-in visible">
+    <section class="cs-header">
+        <h1 style="font-size: 48px; font-family: 'Satoshi', sans-serif; margin-bottom: 24px;">Smart MRV Platform</h1>
+        <div class="cs-content-block">
+            <p>Smart MRV is a sustainability monitoring platform for tracking carbon emissions, energy usage, and environmental compliance. The challenge was translating deeply technical environmental data into a landing experience that could convince both technical buyers and executive decision-makers in under 60 seconds.</p>
+        </div>
+
+        <div class="cs-meta">
+            <span>UX Designer</span>
+            <span>I Spatial Techno Solutions</span>
+            <span>Jun 2025–Sep 2025</span>
+            <span>3 months</span>
+            <span>Figma</span>
+            <span>Sustainability / GovTech</span>
+            <span>Owned landing page UX and visual design</span>
+        </div>
+    </section>
+
+    <section class="cs-section fade-in">
+        <h2>The Problem</h2>
+        <div class="cs-content-block">
+            <p>The existing landing page read like a technical specification document. It listed features — "real-time emissions tracking," "automated compliance reporting," "IoT sensor integration" — without ever explaining why someone should care. The bounce rate was high, and qualified leads weren't converting because they couldn't understand what the product actually did for them.</p>
+            <p>The deeper issue: sustainability platforms serve two audiences with fundamentally different motivations. Technical users want depth and credibility. Executives want ROI and risk reduction. The page was speaking to neither effectively.</p>
+        </div>
+    </section>
+
+    <img data-parallax="0.1" src="assets/mrv/screen1.png" alt="Smart MRV landing overview" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+
+    <section class="cs-section fade-in">
+        <h2>How I Approached It</h2>
+        <div class="cs-content-block">
+            <ul>
+                <li>Analyzed competitor landing pages across 8 sustainability platforms to identify messaging patterns</li>
+                <li>Mapped the decision journey — who visits, what questions they have, what makes them leave</li>
+                <li>Rewrote the content hierarchy: outcome first, feature second, technical detail on demand</li>
+                <li>Designed a visual narrative that uses data visualization as a storytelling device, not decoration</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cs-section fade-in">
+        <h2>Design Direction</h2>
+        <div class="cs-content-block">
+            <p>I restructured the page around a single narrative arc: "See the problem → Understand the solution → Trust the proof." Every section answers a specific objection in the buying process.</p>
+            <ul>
+                <li>Hero that communicates value, not features — "Track, reduce, and report emissions with confidence"</li>
+                <li>Visual proof sections using real dashboard screenshots instead of abstract illustrations</li>
+                <li>Social proof integrated naturally — client logos, compliance certifications, measurable outcomes</li>
+                <li>Clear CTA hierarchy — primary conversion path for executives, secondary for technical evaluation</li>
+            </ul>
+        </div>
+    </section>
+
+    <img data-parallax="0.1" src="assets/mrv/screen2.png" alt="Smart MRV detail sections" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+
+    <section class="cs-section fade-in">
+        <h2>Impact</h2>
+        <div class="impact">
+            <div class="impact-card">
+                <h4>↑ Clarity</h4>
+                <p>value proposition in 5 seconds</p>
+            </div>
+            <div class="impact-card">
+                <h4>↓ Bounce</h4>
+                <p>structured narrative flow</p>
+            </div>
+            <div class="impact-card">
+                <h4>↑ Trust</h4>
+                <p>real data, real proof</p>
+            </div>
+            <div class="impact-card">
+                <h4>↑ Conversion</h4>
+                <p>clear CTA hierarchy</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-section fade-in">
+        <h2>What I Learned</h2>
+        <div class="cs-content-block">
+            <p>Landing page design for enterprise products isn't about being clever — it's about removing every reason someone has to leave. The best conversion optimization I did wasn't a button color or headline test. It was restructuring the information architecture so that each scroll answered the next logical question a buyer would have. When the page thinks the way the buyer thinks, you don't need to "sell" — you just need to not get in the way.</p>
+        </div>
     </section>
   </div>
 
@@ -77,5 +220,3 @@
   <script type="module" src="js/beams.js"></script>
 </body>
 </html>
-
-

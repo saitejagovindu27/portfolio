@@ -6,20 +6,79 @@
     <title>Bananaz | Case Study</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-      .case-study.container {
+      .coming-soon-container {
         max-width: 900px;
-        margin: 120px auto 100px;
+        margin: 0 auto;
         padding: 0 24px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         text-align: center;
       }
-      .case-study h2 {
-        text-align: center;
+      .coming-soon-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 20px;
+        border-radius: 99px;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.25);
+        color: #3b82f6;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 40px;
       }
-      .case-study img {
-        width: 100%;
+      .coming-soon-badge::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #3b82f6;
+        animation: pulse-dot 2s ease-in-out infinite;
+      }
+      @keyframes pulse-dot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.8); }
+      }
+      .coming-soon-title {
+        font-size: clamp(48px, 6vw, 72px);
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        background: linear-gradient(180deg, #ffffff 0%, #64748b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .coming-soon-sub {
+        font-size: 20px;
+        color: #64748b;
+        line-height: 1.6;
+        max-width: 560px;
+        margin-bottom: 48px;
+      }
+      .coming-soon-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
         border-radius: 12px;
-        margin: 24px 0;
-        display: block;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: #e2e8f0;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+      .coming-soon-back:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.2);
+        transform: translateY(-2px);
       }
     </style>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -33,49 +92,27 @@
 </head>
 <body>
 
-    <!-- GLOBAL FLUID CURSOR -->
   <div id="beams-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none;"></div>
   <canvas id="fluid"></canvas>
 
   <!-- HEADER -->
   <header class="header">
-    <div class="header-content">
-      <div class="logo">
-        <a href="index.html" style="color: inherit; text-decoration: none;">SG</a>
-      </div>
-      <nav class="nav">
-        <a href="index.html#work">Work</a>
-        <a href="index.html#process">Process</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
-    </div>
+    <div class="logo">Sai Teja Govind</div>
+    <nav>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
   </header>
-    <a href="index.html">Back</a>
+
+  <div class="coming-soon-container">
+    <div class="coming-soon-badge">In Progress</div>
+    <h1 class="coming-soon-title">Bananaz</h1>
+    <p class="coming-soon-sub">Brand identity & digital experience case study. Currently being documented — check back soon for the full story behind the visual system, packaging design, and digital presence.</p>
+    <a href="index.html" class="coming-soon-back">← Back to Portfolio</a>
   </div>
 
-  <div class="case-study container">
-    <section class="section" style="padding: 0;">
-      <h2 class="fade-in">Bananaz – Brand Identity & Digital Experience</h2>
-      <p class="fade-in" style="color: #94a3b8; font-size: 18px;">Branding, visual system, and digital consistency.</p>
-      
-      <img src="assets/bananaz/screen1.png" alt="Bananaz screen 1" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
-      <img src="assets/bananaz/screen2.png" alt="Bananaz screen 2" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
-    </section>
-  </div>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-  </script>
   <script src="js/splashCursor.js"></script>
   <script type="module" src="js/beams.js"></script>
 </body>
 </html>
-
-
