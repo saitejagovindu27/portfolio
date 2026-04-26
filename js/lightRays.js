@@ -21,16 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const config = {
     raysOrigin: 'top-center',
-    raysColor: '#00ffff',
+    raysColor: '#7a94f6',
     raysSpeed: 1.5,
-    lightSpread: 0.8,
-    rayLength: 1.2,
-    pulsating: false,
-    fadeDistance: 1.0,
+    lightSpread: 0.6,
+    rayLength: 2.4,
+    pulsating: true,
+    fadeDistance: 1.1,
     saturation: 1.0,
     followMouse: true,
-    mouseInfluence: 0.1,
-    noiseAmount: 0.1,
+    mouseInfluence: 0.2,
+    noiseAmount: 0.08,
     distortion: 0.05
   };
 
