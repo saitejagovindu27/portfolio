@@ -9,6 +9,9 @@
 </head>
 <body id="top">
 
+    <!-- SPLASH CURSOR OVERLAY (Full Screen) -->
+    <canvas id="splash-canvas"></canvas>
+
     <!-- Global Navigation -->
     <nav>
         <div class="nav-content">
@@ -27,10 +30,14 @@
         </div>
     </nav>
 
-    <!-- HERO WITH WEBGL -->
-    <section class="hero reveal">
-      <!-- WebGL Background -->
-      <canvas id="fluid-canvas"></canvas>
+    <!-- HERO WITH WEBGL, LIGHT RAYS & 3D LAYERS -->
+    <section class="hero">
+      
+      <!-- OGL Light Rays container -->
+      <div id="light-rays-container"></div>
+
+      <!-- WebGL Fluid Canvas (Legacy from prev prompt, though splash is global now) -->
+      <!-- <canvas id="fluid-canvas"></canvas> -->
 
       <!-- Soft Gradient Waves -->
       <div class="gradient-wave"></div>
@@ -63,7 +70,7 @@
 
     <!-- NODE SYSTEM -->
     <section id="process" class="section">
-        <h2 style="text-align: center; margin-bottom: 2rem;">How I Approach Complex Systems</h2>
+        <h2>How I Approach Complex Systems</h2>
         <div class="node-container reveal">
           <div class="node main">User-Centered Design</div>
 
@@ -76,11 +83,11 @@
         </div>
     </section>
 
-    <!-- FEATURED WORK (ABOVE TOOLS) -->
-    <section class="featured section reveal" id="work">
+    <!-- FEATURED WORK -->
+    <section class="section" id="work">
       <h2>Featured Work</h2>
 
-      <div class="featured-card">
+      <div class="featured-card reveal">
         <img src="assets/real-layer-panel.png" alt="SmartMap" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/></svg>'"/>
 
         <div>
@@ -92,10 +99,10 @@
       </div>
     </section>
 
-    <!-- TOOLS GRID WITH REAL SVGS -->
-    <section id="tools" class="tools reveal">
+    <!-- TOOLS GRID -->
+    <section id="tools" class="section">
       <h2>Tools I Use</h2>
-      <div class="tools-grid">
+      <div class="tools-grid reveal">
 
         <div class="tool-card">
           <img src="https://cdn.simpleicons.org/figma/000000" alt="Figma"/>
@@ -104,7 +111,7 @@
 
         <div class="tool-card">
           <img src="https://cdn.simpleicons.org/adobe/000000" alt="Adobe Suite"/>
-          <span>Adobe Suite</span>
+          <span>Adobe</span>
         </div>
 
         <div class="tool-card">
@@ -117,31 +124,16 @@
           <span>Claude</span>
         </div>
 
-        <div class="tool-card">
-          <img src="https://cdn.simpleicons.org/github/000000" alt="Antigravity"/>
-          <span>Antigravity</span>
-        </div>
-
-        <div class="tool-card">
-          <img src="https://cdn.simpleicons.org/html5/000000" alt="Lovable"/>
-          <span>Lovable</span>
-        </div>
-
-        <div class="tool-card">
-          <img src="https://cdn.simpleicons.org/git/000000" alt="Stitch"/>
-          <span>Stitch</span>
-        </div>
-
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section reveal">
+    <section id="contact" class="section">
         <div class="narrative-block">
             <h2>Let's Connect</h2>
             <p>I’m open to solving complex product challenges in SaaS and data-driven environments.</p>
             
-            <div class="cta-buttons">
+            <div class="cta" style="margin-top: 2rem;">
                 <a href="mailto:govindusaiteja@gmail.com" class="btn primary">Email Me</a>
                 <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" class="btn secondary">LinkedIn</a>
                 <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn secondary">Resume</a>
@@ -155,16 +147,30 @@
           window.scrollTo(0, 0);
         };
 
-        // Reveal Animation
+        // All Headings Animation (h2 fade up on scroll)
+        const headings = document.querySelectorAll("h2");
+        const headingObserver = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add("show");
+            }
+          });
+        });
+        headings.forEach(h => {
+          h.classList.add("hidden");
+          headingObserver.observe(h);
+        });
+
+        // General Reveal Animation for containers
         const elements = document.querySelectorAll(".reveal");
-        const observer = new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible");
             }
           });
         });
-        elements.forEach(el => observer.observe(el));
+        elements.forEach(el => revealObserver.observe(el));
 
         // Parallax for 3D Layers
         if(window.innerWidth > 1024) {
@@ -180,79 +186,6 @@
             });
         }
 
-        // WebGL Fluid Wave Logic
-        const canvas = document.getElementById('fluid-canvas');
-        if(canvas) {
-            const renderer = new ogl.Renderer({ canvas, alpha: true });
-            const gl = renderer.gl;
-            gl.clearColor(0, 0, 0, 0);
-
-            const program = new ogl.Program(gl, {
-              vertex: `
-                attribute vec2 position;
-                void main() {
-                  gl_Position = vec4(position, 0, 1);
-                }
-              `,
-              fragment: `
-                precision highp float;
-                uniform float time;
-                uniform vec2 resolution;
-                uniform vec2 mouse;
-
-                void main() {
-                  vec2 uv = gl_FragCoord.xy / resolution.xy;
-
-                  float wave = sin(uv.x * 8.0 + time) * 0.02;
-                  uv.y += wave;
-
-                  float dist = distance(uv, mouse);
-
-                  vec3 color = vec3(
-                    0.4 + 0.3 * sin(time + uv.x * 3.0),
-                    0.5 + 0.3 * sin(time + uv.y * 3.0),
-                    0.8
-                  );
-
-                  color += 0.15 / dist;
-
-                  gl_FragColor = vec4(color, 0.25);
-                }
-              `,
-              uniforms: {
-                time: { value: 0 },
-                resolution: { value: new ogl.Vec2() },
-                mouse: { value: new ogl.Vec2(0.5, 0.5) }
-              }
-            });
-
-            const geometry = new ogl.Triangle(gl);
-            const mesh = new ogl.Mesh(gl, { geometry, program });
-
-            function resize() {
-              renderer.setSize(window.innerWidth, window.innerHeight);
-              program.uniforms.resolution.value.set(gl.canvas.width, gl.canvas.height);
-            }
-
-            window.addEventListener('resize', resize);
-            resize();
-
-            window.addEventListener('mousemove', (e) => {
-              program.uniforms.mouse.value.set(
-                e.clientX / window.innerWidth,
-                1 - e.clientY / window.innerHeight
-              );
-            });
-
-            function update(t) {
-              requestAnimationFrame(update);
-              program.uniforms.time.value = t * 0.001;
-              renderer.render({ scene: mesh });
-            }
-
-            requestAnimationFrame(update);
-        }
-
         // Mobile Nav Toggle
         const toggle = document.getElementById('nav-toggle');
         const menu = document.getElementById('nav-menu');
@@ -262,5 +195,9 @@
             });
         }
     </script>
+    
+    <!-- Load WebGL Effects -->
+    <script src="js/lightRays.js"></script>
+    <script src="js/splashCursor.js"></script>
 </body>
 </html>
