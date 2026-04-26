@@ -3,201 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Teja Govind | Enterprise UX/UI Designer</title>
+    <title>Sai Teja Govind | Senior UX Designer</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- OGL for Light Rays -->
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
 </head>
 <body id="top">
 
-    <!-- SPLASH CURSOR OVERLAY (Full Screen) -->
-    <canvas id="splash-canvas"></canvas>
+  <!-- HERO -->
+  <section class="hero">
+    <!-- WebGL Fluid Canvas (Lightweight Version) -->
+    <canvas id="fluid"></canvas>
+    
+    <!-- Light Rays (Using OGL behind text) -->
+    <div id="light-rays-container"></div>
 
-    <!-- Global Navigation -->
-    <nav>
-        <div class="nav-content">
-            <div class="nav-header">
-                <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
-                <button class="hamburger" id="nav-toggle">☰</button>
-            </div>
-            <div class="nav-links" id="nav-menu">
-                <ul>
-                    <li><a href="index.html#process">Process</a></li>
-                    <li><a href="index.html#work">Work</a></li>
-                    <li><a href="index.html#tools">Tools</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div class="hero-content">
+      <div class="badge">UX Portfolio</div>
 
-    <!-- HERO WITH WEBGL, LIGHT RAYS & 3D LAYERS -->
-    <section class="hero">
-      
-      <!-- OGL Light Rays container -->
-      <div id="light-rays-container"></div>
+      <h1 id="hero-title">
+        <span class="split-word">Simplifying</span> <span class="split-word">complex</span> <span class="split-word">systems</span><br/>
+        <span class="split-word">into</span> <span class="split-word">intuitive</span> <span class="split-word">experiences</span>
+      </h1>
 
-      <!-- WebGL Fluid Canvas (Legacy from prev prompt, though splash is global now) -->
-      <!-- <canvas id="fluid-canvas"></canvas> -->
+      <p class="hero-sub">
+        UX Designer focused on enterprise platforms, spatial systems, and real-world usability.
+      </p>
 
-      <!-- Soft Gradient Waves -->
-      <div class="gradient-wave"></div>
-      <div class="gradient-wave wave-2"></div>
-
-      <!-- HERO CONTENT -->
-      <div class="hero-content">
-        <h1>
-          Simplifying complex systems into intuitive user experiences
-        </h1>
-
-        <p>
-          UX Designer focused on enterprise platforms, spatial systems, and real-world usability.
-        </p>
-
-        <div class="cta">
-          <a href="#work" class="btn primary">View Work</a>
-          <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn secondary">View Resume</a>
-          <a href="https://www.behance.net/saiteja83" target="_blank" rel="noopener noreferrer" class="btn link">Behance ↗</a>
-        </div>
+      <div class="cta">
+        <button class="primary" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'})">View Work</button>
+        <button class="secondary" onclick="window.open('https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing', '_blank')">View Resume</button>
       </div>
+    </div>
 
-      <!-- 3D ABSTRACT DESIGN VISUAL -->
-      <div class="design-visual">
-        <div class="layer layer-1"></div>
-        <div class="layer layer-2"></div>
-        <div class="layer layer-3"></div>
+    <!-- 3D Layered Glass Cards -->
+    <div class="hero-visual">
+      <div class="card back">
+         <!-- Subtle internal structure so it's NOT empty -->
+         <div class="ux-line" style="width: 70%; margin-bottom: 20px;"></div>
+         <div class="ux-line" style="width: 100%;"></div>
+         <div class="ux-line" style="width: 100%;"></div>
+         <div class="ux-line" style="width: 40%;"></div>
       </div>
-    </section>
-
-    <!-- NODE SYSTEM -->
-    <section id="process" class="section">
-        <h2>How I Approach Complex Systems</h2>
-        <div class="node-container reveal">
-          <div class="node main">User-Centered Design</div>
-
-          <div class="node float1" style="top:12%; left:18%">UX Research</div>
-          <div class="node float2" style="top:18%; left:70%">Product Thinking</div>
-          <div class="node float3" style="top:48%; left:85%">Prototyping</div>
-          <div class="node float1" style="top:75%; left:60%">Information Architecture</div>
-          <div class="node float2" style="top:70%; left:20%">Accessibility</div>
-          <div class="node float3" style="top:50%; left:5%">Visual Design</div>
-        </div>
-    </section>
-
-    <!-- FEATURED WORK -->
-    <section class="section" id="work">
-      <h2>Featured Work</h2>
-
-      <div class="featured-card reveal">
-        <img src="assets/real-layer-panel.png" alt="SmartMap" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/></svg>'"/>
-
-        <div>
-          <h3>SmartMap</h3>
-          <p>Designing a public map platform for real-world usability and complex administrative workflows.</p>
-          <a href="smartmap-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
-          <span class="hint">5 min read • UX case study</span>
-        </div>
+      <div class="card main">
+         <div class="ux-line" style="width: 50%; height: 24px; margin-bottom: 10px;"></div>
+         <div class="ux-line" style="width: 100%;"></div>
+         <div class="ux-line" style="width: 100%;"></div>
+         <div class="ux-line" style="width: 80%;"></div>
+         <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <div class="ux-line" style="flex: 1; height: 30px;"></div>
+            <div class="ux-line" style="flex: 1; height: 30px;"></div>
+         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TOOLS GRID -->
-    <section id="tools" class="section">
-      <h2>Tools I Use</h2>
-      <div class="tools-grid reveal">
+  <!-- FEATURED WORK -->
+  <section id="work" class="section">
+    <h2 class="fade-in">Featured Work</h2>
+    <div class="featured-card fade-in">
+      <div class="featured-content">
+        <h3>SmartMap</h3>
+        <p>Designing a public map platform for real-world usability and complex administrative workflows.</p>
+        <button class="primary" style="align-self: flex-start;" onclick="document.getElementById('case-study').scrollIntoView({behavior: 'smooth'})">View Case Study →</button>
+      </div>
+      <div class="featured-image">
+         <img src="assets/real-layer-panel.png" alt="SmartMap Preview" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%231e293b\'/></svg>'">
+      </div>
+    </div>
+  </section>
 
-        <div class="tool-card">
-          <img src="https://cdn.simpleicons.org/figma/000000" alt="Figma"/>
+  <!-- APPROACH -->
+  <section id="approach" class="section">
+    <h2 class="fade-in">How I Approach Complex Systems</h2>
+    <div class="approach-container fade-in">
+      <div class="approach-center">User-Centered Design</div>
+      <div class="approach-float f1">UX Research</div>
+      <div class="approach-float f2">Product Thinking</div>
+      <div class="approach-float f3">Visual Design</div>
+      <div class="approach-float f4">Accessibility</div>
+      <div class="approach-float f5">Prototyping</div>
+      <div class="approach-float f6">Information Architecture</div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools" class="section">
+    <h2 class="fade-in">Tools I Use</h2>
+    <div class="tools-marquee fade-in">
+      <div class="tools-track">
+        
+        <!-- INITIAL SET -->
+        <div class="tool-card tooltip" data-tooltip="UI Design & Prototyping">
+          <img src="https://cdn.simpleicons.org/figma/ffffff" alt="Figma">
           <span>Figma</span>
         </div>
-
-        <div class="tool-card">
-          <img src="https://cdn.simpleicons.org/adobe/000000" alt="Adobe Suite"/>
-          <span>Adobe</span>
+        <div class="tool-card tooltip" data-tooltip="Graphic Design">
+          <img src="https://cdn.simpleicons.org/adobe/ffffff" alt="Adobe">
+          <span>Adobe Suite</span>
         </div>
-
-        <div class="tool-card">
-          <img src="https://cdn.simpleicons.org/openai/000000" alt="ChatGPT"/>
+        <div class="tool-card tooltip" data-tooltip="Ideation & Logic">
+          <img src="https://cdn.simpleicons.org/openai/ffffff" alt="ChatGPT">
           <span>ChatGPT</span>
         </div>
-
-        <div class="tool-card">
-          <img src="https://cdn.simpleicons.org/anthropic/000000" alt="Claude"/>
+        <div class="tool-card tooltip" data-tooltip="AI Assistance">
+          <img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude">
           <span>Claude</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="Workflow automation">
+          <img src="https://cdn.simpleicons.org/google/ffffff" alt="Antigravity">
+          <span>Antigravity</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="Prototyping">
+          <img src="https://cdn.simpleicons.org/react/ffffff" alt="Lovable">
+          <span>Lovable</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="Data/Git">
+          <img src="https://cdn.simpleicons.org/github/ffffff" alt="Stitch">
+          <span>Stitch</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="User Research">
+          <img src="https://cdn.simpleicons.org/surveymonkey/ffffff" alt="SurveyMonkey">
+          <span>SurveyMonkey</span>
+        </div>
+
+        <!-- DUPLICATE FOR INFINITE SCROLL -->
+        <div class="tool-card tooltip" data-tooltip="UI Design & Prototyping">
+          <img src="https://cdn.simpleicons.org/figma/ffffff" alt="Figma">
+          <span>Figma</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="Graphic Design">
+          <img src="https://cdn.simpleicons.org/adobe/ffffff" alt="Adobe">
+          <span>Adobe Suite</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="Ideation & Logic">
+          <img src="https://cdn.simpleicons.org/openai/ffffff" alt="ChatGPT">
+          <span>ChatGPT</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="AI Assistance">
+          <img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude">
+          <span>Claude</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="Workflow automation">
+          <img src="https://cdn.simpleicons.org/google/ffffff" alt="Antigravity">
+          <span>Antigravity</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="Prototyping">
+          <img src="https://cdn.simpleicons.org/react/ffffff" alt="Lovable">
+          <span>Lovable</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="Data/Git">
+          <img src="https://cdn.simpleicons.org/github/ffffff" alt="Stitch">
+          <span>Stitch</span>
+        </div>
+        <div class="tool-card tooltip" data-tooltip="User Research">
+          <img src="https://cdn.simpleicons.org/surveymonkey/ffffff" alt="SurveyMonkey">
+          <span>SurveyMonkey</span>
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-        <div class="narrative-block">
-            <h2>Let's Connect</h2>
-            <p>I’m open to solving complex product challenges in SaaS and data-driven environments.</p>
-            
-            <div class="cta" style="margin-top: 2rem;">
-                <a href="mailto:govindusaiteja@gmail.com" class="btn primary">Email Me</a>
-                <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" class="btn secondary">LinkedIn</a>
-                <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn secondary">Resume</a>
-            </div>
-        </div>
-    </section>
+  <!-- CASE STUDY INLINE -->
+  <section id="case-study" class="section">
+    <h2 class="fade-in">SmartMap – Public Map Application</h2>
+    <div class="case-grid">
+      <div class="case-block fade-in">
+        <h4>Problem</h4>
+        <p>Current mapping solutions lacked the necessary tools for complex administrative workflows, making real-world usability difficult.</p>
+      </div>
+      <div class="case-block fade-in">
+        <h4>Users</h4>
+        <p>Public sector administrators and on-the-ground field workers requiring accurate, real-time spatial data.</p>
+      </div>
+      <div class="case-block fade-in">
+        <h4>UX Decisions</h4>
+        <p>Implemented a highly contextual side-panel architecture and a robust filtering system to reduce cognitive load by 40%.</p>
+      </div>
+      <div class="case-block fade-in">
+        <h4>Outcome</h4>
+        <p>Accelerated workflow completion rates and created a scalable map platform adopted by 5+ regional departments.</p>
+      </div>
+    </div>
+    <div class="case-images">
+      <img src="assets/smartmap/screen1.png" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'">
+      <img src="assets/smartmap/screen2.png" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'">
+      <img src="assets/smartmap/screen3.png" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'">
+    </div>
+  </section>
 
-    <script>
-        // Scroll to top on load
-        window.onload = function() {
-          window.scrollTo(0, 0);
-        };
+  <!-- CONTACT -->
+  <section id="contact" class="section fade-in">
+    <h2>Let's Connect</h2>
+    <div class="cta">
+      <a href="mailto:govindusaiteja@gmail.com" class="btn primary">Email Me</a>
+      <a href="https://linkedin.com/in/saaiteja" target="_blank" class="btn secondary">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" class="btn secondary">Resume (PDF)</a>
+      <a href="https://www.behance.net/saiteja83" target="_blank" class="btn secondary">Behance ↗</a>
+    </div>
+  </section>
 
-        // All Headings Animation (h2 fade up on scroll)
-        const headings = document.querySelectorAll("h2");
-        const headingObserver = new IntersectionObserver((entries) => {
-          entries.forEach(e => {
-            if (e.isIntersecting) {
-              e.target.classList.add("show");
-            }
-          });
-        });
-        headings.forEach(h => {
-          h.classList.add("hidden");
-          headingObserver.observe(h);
-        });
+  <!-- SCRIPTS -->
+  <script>
+    // Scroll to top on load
+    window.onload = function() {
+      window.scrollTo(0, 0);
+    };
 
-        // General Reveal Animation for containers
-        const elements = document.querySelectorAll(".reveal");
-        const revealObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        });
-        elements.forEach(el => revealObserver.observe(el));
-
-        // Parallax for 3D Layers
-        if(window.innerWidth > 1024) {
-            document.addEventListener("mousemove", (e) => {
-              const x = (e.clientX / window.innerWidth - 0.5) * 20;
-              const y = (e.clientY / window.innerHeight - 0.5) * 20;
-
-              const l2 = document.querySelector(".layer-2");
-              if(l2) l2.style.transform = `rotate(6deg) translate(${x}px, ${y}px)`;
-
-              const l3 = document.querySelector(".layer-3");
-              if(l3) l3.style.transform = `translate(${x * 1.5}px, ${y * 1.5}px)`;
-            });
+    // Fade-in Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
         }
+      });
+    }, { threshold: 0.1 });
 
-        // Mobile Nav Toggle
-        const toggle = document.getElementById('nav-toggle');
-        const menu = document.getElementById('nav-menu');
-        if (toggle && menu) {
-            toggle.addEventListener('click', () => {
-                menu.classList.toggle('open');
-            });
+    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+    // Lightweight Fluid Canvas
+    const canvas = document.getElementById("fluid");
+    if(canvas) {
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let mouse = { x: window.innerWidth/2, y: window.innerHeight/2 };
+
+        window.addEventListener("mousemove", (e) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+        });
+        window.addEventListener("resize", () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        });
+
+        function draw() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          const gradient = ctx.createRadialGradient(
+            mouse.x, mouse.y, 50,
+            mouse.x, mouse.y, 400
+          );
+
+          gradient.addColorStop(0, "rgba(59,130,246,0.15)");
+          gradient.addColorStop(1, "transparent");
+
+          ctx.fillStyle = gradient;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          requestAnimationFrame(draw);
         }
-    </script>
-    
-    <!-- Load WebGL Effects -->
-    <script src="js/lightRays.js"></script>
-    <script src="js/splashCursor.js"></script>
+        draw();
+    }
+  </script>
+
+  <!-- Load Light Rays -->
+  <script src="js/lightRays.js"></script>
+
 </body>
 </html>
