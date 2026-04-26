@@ -22,11 +22,26 @@
         display: block;
       }
     </style>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 </head>
 <body>
 
-  <div class="case-header">
-    <div>Case Study</div>
+    <!-- GLOBAL FLUID CURSOR -->
+  <canvas id="fluid"></canvas>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <a href="index.html" style="color: inherit; text-decoration: none;">SG</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
     <a href="index.html">Back</a>
   </div>
 
@@ -50,6 +65,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
   </script>
+  <script src="js/splashCursor.js"></script>
 </body>
 </html>
 

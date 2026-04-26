@@ -293,8 +293,11 @@ body {
   border: 1px solid rgba(255,255,255,0.05);
   text-decoration: none;
   color: white;
-  /* transition removed for scroll stability */
   overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: none !important;
 }
 /* hover border removed to fix animation blinking */
 .card-content {
@@ -322,6 +325,7 @@ body {
   mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
   -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 /* APPROACH */
@@ -458,4 +462,50 @@ body {
   height: 100vh;
   z-index: 9999;
   pointer-events: none;
+}
+
+
+/* Pro-Max Case Study Typography & Layout */
+.cs-header {
+  margin-bottom: 80px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 40px;
+}
+.cs-header h1 {
+  font-size: clamp(40px, 5vw, 64px) !important;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cs-content-block {
+  max-width: 720px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+.cs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-top: 40px;
+}
+.cs-meta span {
+  display: flex;
+  align-items: center;
+}
+.cs-meta span::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3b82f6;
+  margin-right: 10px;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
