@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <!-- OGL for Light Rays -->
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
+    <!-- Lenis for Smooth Scroll Stack -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 </head>
 <body id="top">
 
@@ -23,10 +25,10 @@
 
   <!-- HERO -->
   <section class="hero">
-    <!-- WebGL Fluid Canvas (Using SplashCursor logic) -->
+    <!-- WebGL Fluid Canvas -->
     <canvas id="fluid"></canvas>
     
-    <!-- Light Rays (Using OGL behind text) -->
+    <!-- Light Rays -->
     <div id="light-rays-container"></div>
 
     <div class="hero-content">
@@ -42,7 +44,7 @@
       </p>
 
       <div class="cta">
-        <button class="primary" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'})">View Work</button>
+        <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'})">View Work</button>
         <button class="secondary" onclick="window.open('https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing', '_blank')">View Resume</button>
       </div>
     </div>
@@ -53,50 +55,58 @@
     </div>
   </section>
 
-  <!-- FEATURED WORK (LANDSCAPE PREMIUM) -->
+  <!-- FEATURED WORK (SCROLL STACK) -->
   <section id="work" class="featured fade-in">
     <h2>Featured Work</h2>
 
-    <div class="work-list">
+    <div class="scroll-stack-scroller" id="scroll-stack">
+      <div class="scroll-stack-inner">
 
-      <a href="smartmap-case-study.html" class="work-card">
-        <img src="assets/smartmap/screen1.png" alt="SmartMap" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
-        <div class="work-content">
-          <h3>Smart Map</h3>
-          <p>Mapping & Workflow System</p>
+        <div class="scroll-stack-card card">
+          <div class="card-content">
+            <h3>Smart Map</h3>
+            <p>Mapping & Workflow System</p>
+            <a href="smartmap-case-study.html" class="btn-primary">View Case Study →</a>
+          </div>
+          <img src="assets/smartmap/screen1.png" class="card-bg" alt="SmartMap" onerror="this.style.display='none'" />
         </div>
-      </a>
 
-      <a href="data-platform-case-study.html" class="work-card">
-        <img src="assets/data-platform/screen1.png" alt="Data Intelligence" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
-        <div class="work-content">
-          <h3>Data Intelligence Platform</h3>
-          <p>Dashboard UX</p>
+        <div class="scroll-stack-card card">
+          <div class="card-content">
+            <h3>Data Intelligence Platform</h3>
+            <p>Dashboard UX</p>
+            <a href="data-platform-case-study.html" class="btn-primary">View Case Study →</a>
+          </div>
+          <img src="assets/data-platform/screen1.png" class="card-bg" alt="Data Intelligence" onerror="this.style.display='none'" />
         </div>
-      </a>
 
-      <a href="mrv-case-study.html" class="work-card">
-        <img src="assets/mrv/screen1.png" alt="Smart MRV" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
-        <div class="work-content">
-          <h3>Smart MRV</h3>
-          <p>Sustainability Platform</p>
+        <div class="scroll-stack-card card">
+          <div class="card-content">
+            <h3>Smart MRV</h3>
+            <p>Sustainability Platform Landing</p>
+            <a href="mrv-case-study.html" class="btn-primary">View Case Study →</a>
+          </div>
+          <img src="assets/mrv/screen1.png" class="card-bg" alt="Smart MRV" onerror="this.style.display='none'" />
         </div>
-      </a>
 
-      <a href="bananaz-case-study.html" class="work-card">
-        <img src="assets/bananaz/screen1.png" alt="Bananaz" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
-        <div class="work-content">
-          <h3>Bananaz</h3>
-          <p>Brand Identity & Digital Experience</p>
+        <div class="scroll-stack-card card">
+          <div class="card-content">
+            <h3>Bananaz</h3>
+            <p>Brand Identity & Digital Experience</p>
+            <a href="bananaz-case-study.html" class="btn-primary">View Case Study →</a>
+          </div>
+          <img src="assets/bananaz/screen1.png" class="card-bg" alt="Bananaz" onerror="this.style.display='none'" />
         </div>
-      </a>
 
+        <div class="scroll-stack-end"></div>
+      </div>
     </div>
+
   </section>
 
   <!-- APPROACH -->
-  <section id="process" class="section">
-    <h2 class="fade-in">How I Approach Complex Systems</h2>
+  <section id="process" class="approach fade-in">
+    <h2>How I Approach Complex Systems</h2>
     <div class="approach-container fade-in">
       <div class="approach-center">User-Centered Design</div>
       <div class="approach-float f1">UX Research</div>
@@ -109,46 +119,26 @@
   </section>
 
   <!-- TOOLS -->
-  <section id="tools" class="section">
-    <h2 class="fade-in">Tools I Use</h2>
-    <div class="tools-row fade-in">
-
-      <div class="tool" data-tooltip="UI Design & Prototyping">
-        <img src="https://cdn.simpleicons.org/figma/ffffff" alt="Figma"/>
-        <span>Figma</span>
-      </div>
-
-      <div class="tool" data-tooltip="Graphic Design">
-        <img src="https://cdn.simpleicons.org/adobe/ffffff" alt="Adobe"/>
-        <span>Adobe Suite</span>
-      </div>
-
-      <div class="tool" data-tooltip="Ideation & Logic">
-        <img src="https://cdn.simpleicons.org/openai/ffffff" alt="ChatGPT"/>
-        <span>ChatGPT</span>
-      </div>
-
-      <div class="tool" data-tooltip="AI Assistance">
-        <img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude"/>
-        <span>Claude</span>
-      </div>
-
-      <div class="tool" data-tooltip="Workflow automation">
-        <img src="https://cdn.simpleicons.org/google/ffffff" alt="Antigravity"/>
-        <span>Antigravity</span>
-      </div>
-
-      <div class="tool" data-tooltip="Prototyping">
-        <img src="https://cdn.simpleicons.org/react/ffffff" alt="Lovable"/>
-        <span>Lovable</span>
-      </div>
-
-      <div class="tool" data-tooltip="Data/Git">
-        <img src="https://cdn.simpleicons.org/github/ffffff" alt="Stitch"/>
-        <span>Stitch</span>
-      </div>
-
+  <section id="tools" class="section fade-in">
+    <h2>Tools I Use</h2>
+    
+    <div class="tools-scroll fade-in">
+      <div class="tool">Figma</div>
+      <div class="tool">Adobe Suite</div>
+      <div class="tool">ChatGPT</div>
+      <div class="tool">Claude</div>
+      <div class="tool">Antigravity</div>
+      <div class="tool">Lovable</div>
+      <div class="tool">Stitch</div>
+      <div class="tool">Figma</div>
+      <div class="tool">Adobe Suite</div>
+      <div class="tool">ChatGPT</div>
+      <div class="tool">Claude</div>
+      <div class="tool">Antigravity</div>
+      <div class="tool">Lovable</div>
+      <div class="tool">Stitch</div>
     </div>
+
   </section>
 
   <!-- CONTACT -->
@@ -157,7 +147,7 @@
     <p style="color: #94a3b8; font-size: 18px;">Open to solving complex product challenges in SaaS and data systems.</p>
 
     <div class="contact-actions">
-      <a href="mailto:govindusaiteja@gmail.com" class="primary">Email Me</a>
+      <a href="mailto:govindusaiteja@gmail.com" class="btn-primary">Email Me</a>
       <a href="https://linkedin.com/in/saaiteja" target="_blank">LinkedIn</a>
       <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank">Resume</a>
       <a href="https://www.behance.net/saiteja83" target="_blank">Behance ↗</a>
@@ -166,6 +156,14 @@
 
   <!-- SCRIPTS -->
   <script>
+    // Scroll Reset
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+    window.onload = function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     // Fade-in Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -181,6 +179,7 @@
   <!-- Load Effects -->
   <script src="js/lightRays.js"></script>
   <script src="js/splashCursor.js"></script>
+  <script src="js/scrollStack.js"></script>
 
 </body>
 </html>
