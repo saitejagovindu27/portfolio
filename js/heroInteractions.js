@@ -13,44 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. 3D Hero Card Tilt
-  const card = document.getElementById('tiltCard');
-  if (card) {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+  // 2. Hero Orbit — Cursor 3D Parallax
+  const orbit = document.getElementById('heroOrbit');
 
-      const rotateX = -(y / rect.height - 0.5) * 20;
-      const rotateY = (x / rect.width - 0.5) * 20;
-
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-      card.style.setProperty('--x', `${x}px`);
-      card.style.setProperty('--y', `${y}px`);
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = `rotateX(0) rotateY(0)`;
-      // optional: reset glow to center
-      card.style.setProperty('--x', `50%`);
-      card.style.setProperty('--y', `50%`);
-    });
-  }
-
-  // 3. Parallax Depth on Hero Content and Visual
+  // 3. Parallax Depth on Hero Content and Orbit
   document.addEventListener("mousemove", (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    const x = (e.clientX / window.innerWidth - 0.5);
+    const y = (e.clientY / window.innerHeight - 0.5);
 
     const heroContent = document.querySelector(".hero-content");
     if (heroContent) {
-      heroContent.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      heroContent.style.transform = `translate(${x * 6}px, ${y * 6}px)`;
     }
 
-    const heroVisual = document.querySelector(".hero-visual");
-    if (heroVisual) {
-      heroVisual.style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
+    if (orbit) {
+      orbit.style.transform = `rotateX(${y * -8}deg) rotateY(${x * 8}deg)`;
     }
   });
 });

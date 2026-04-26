@@ -121,15 +121,21 @@ h1, h2, h3, h4 {
 .hero {
   position: relative;
   min-height: 100vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
   align-items: center;
-  justify-content: space-between;
+  gap: 60px;
   padding: 0 10%;
   background: transparent;
   overflow: hidden;
 }
-
-100% { transform: rotate(360deg) scale(1.2); }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 #fluid {
@@ -250,50 +256,93 @@ h1, h2, h3, h4 {
 
 
 
-
-/* PROFILE CARD */
-.profile-card {
+/* HERO ORBITAL SYSTEM */
+.hero-orbit {
   position: relative;
-  width: 320px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  width: 420px;
+  height: 420px;
+  margin: auto;
   transform-style: preserve-3d;
-  transition: transform 0.1s ease-out;
+  perspective: 800px;
 }
-.profile-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.profile-card::before {
-  content: "";
+.orbit-glow {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.1), transparent);
-  z-index: 1;
+  inset: -40px;
+  background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.orbit-ring {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 50%;
   pointer-events: none;
 }
-.profile-overlay {
-  position: absolute;
-  top: 20px;
+.ring-1 {
+  width: 260px;
+  height: 260px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 2;
+  transform: translate(-50%, -50%);
 }
-.profile-overlay h2 {
-  font-size: 22px;
+.ring-2 {
+  width: 380px;
+  height: 380px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.orbit-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 16px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  font-size: 15px;
   font-weight: 600;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: 0 0 40px rgba(59,130,246,0.4);
+  z-index: 3;
 }
-.profile-overlay p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.7);
-  margin-top: 4px;
+.orbit-container {
+  position: absolute;
+  inset: 0;
+  animation: rotateOrbit 40s linear infinite;
 }
+.orbit-node {
+  position: absolute;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  white-space: nowrap;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+.orbit-node:hover {
+  background: rgba(255,255,255,0.12);
+}
+.n1 { top: 5%;  left: 50%; transform: translateX(-50%); }
+.n2 { top: 22%; left: 5%; }
+.n3 { top: 55%; left: 2%; }
+.n4 { bottom: 5%; left: 50%; transform: translateX(-50%); }
+.n5 { top: 55%; right: 2%; }
+.n6 { top: 22%; right: 5%; }
+.n7 { top: 5%;  right: 15%; }
+
+@keyframes rotateOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 
 /* SECTIONS */
 .section, .featured {
@@ -763,6 +812,14 @@ h1, h2, h3, h4 {
     padding-top: 150px;
     gap: 40px;
   }
+  .hero-orbit {
+    width: 320px;
+    height: 320px;
+  }
+  .ring-2 {
+    width: 300px;
+    height: 300px;
+  }
   .hero-title {
     font-size: clamp(40px, 6vw, 64px);
     margin: 0 auto 24px;
@@ -776,8 +833,20 @@ h1, h2, h3, h4 {
   .hero-visual {
     margin: 0 auto;
   }
-  .approach-container {
-    transform: scale(0.8);
+  .hero-orbit {
+    width: 280px;
+    height: 280px;
+  }
+  .orbit-node {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+  .orbit-center {
+    font-size: 12px;
+    padding: 12px 20px;
+  }
+  .process-container {
+    height: 400px;
   }
   .card-inner {
     padding: 36px;
