@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Teja Govind | Enterprise UX/UI Designer</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
 </head>
 <body id="top">
 
@@ -26,25 +27,37 @@
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-container">
+    <!-- HERO WITH WEBGL -->
+    <section class="hero reveal">
+      <!-- WebGL Background -->
+      <canvas id="fluid-canvas"></canvas>
 
-        <div class="hero-text">
-          <h1>Simplifying complex systems into intuitive user experiences</h1>
-          <p class="sub">UX Designer focused on enterprise platforms, spatial systems, and real-world usability.</p>
-          <div class="cta-buttons" style="justify-content: flex-start; margin-top: 2rem;">
-              <a href="#work" class="btn btn-primary">View Work</a>
-              <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume</a>
-          </div>
+      <!-- Soft Gradient Waves -->
+      <div class="gradient-wave"></div>
+      <div class="gradient-wave wave-2"></div>
+
+      <!-- HERO CONTENT -->
+      <div class="hero-content">
+        <h1>
+          Simplifying complex systems into intuitive user experiences
+        </h1>
+
+        <p>
+          UX Designer focused on enterprise platforms, spatial systems, and real-world usability.
+        </p>
+
+        <div class="cta">
+          <a href="#work" class="btn primary">View Work</a>
+          <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn secondary">View Resume</a>
+          <a href="https://www.behance.net/saiteja83" target="_blank" rel="noopener noreferrer" class="btn link">Behance ↗</a>
         </div>
+      </div>
 
-        <div class="hero-visual">
-          <div class="layer l1"></div>
-          <div class="layer l2"></div>
-          <div class="layer l3"></div>
-        </div>
-
+      <!-- 3D ABSTRACT DESIGN VISUAL -->
+      <div class="design-visual">
+        <div class="layer layer-1"></div>
+        <div class="layer layer-2"></div>
+        <div class="layer layer-3"></div>
       </div>
     </section>
 
@@ -73,93 +86,52 @@
         <div>
           <h3>SmartMap</h3>
           <p>Designing a public map platform for real-world usability and complex administrative workflows.</p>
-          <a href="smartmap-case-study.html" class="btn btn-primary" style="align-self: flex-start;">View Case Study →</a>
+          <a href="smartmap-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
           <span class="hint">5 min read • UX case study</span>
         </div>
       </div>
     </section>
 
-    <!-- TOOLS WITH MARQUEE (MONOCHROME ICONS) -->
-    <section id="tools" class="tools-section reveal">
+    <!-- TOOLS GRID WITH REAL SVGS -->
+    <section id="tools" class="tools reveal">
       <h2>Tools I Use</h2>
-      <p class="tools-intro">Tools I use to design, validate, and ship real-world products.</p>
+      <div class="tools-grid">
 
-      <div class="tools-wrapper">
-        <div class="tools-track">
-
-          <!-- TOOL -->
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/figma" class="icon-img" alt="Figma"/>
-            <span>Figma</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/adobecreativecloud" class="icon-img" alt="Adobe"/>
-            <span>Adobe Suite</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/openai" class="icon-img" alt="ChatGPT"/>
-            <span>ChatGPT</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/anthropic" class="icon-img" alt="Claude"/>
-            <span>Claude</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/google" class="icon-img" alt="Antigravity"/>
-            <span>Antigravity</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/react" class="icon-img" alt="Lovable"/>
-            <span>Lovable</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/github" class="icon-img" alt="Stitch"/>
-            <span>Stitch</span>
-          </div>
-
-          <!-- DUPLICATE FOR LOOP -->
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/figma" class="icon-img" alt="Figma"/>
-            <span>Figma</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/adobecreativecloud" class="icon-img" alt="Adobe"/>
-            <span>Adobe Suite</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/openai" class="icon-img" alt="ChatGPT"/>
-            <span>ChatGPT</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/anthropic" class="icon-img" alt="Claude"/>
-            <span>Claude</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/google" class="icon-img" alt="Antigravity"/>
-            <span>Antigravity</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/react" class="icon-img" alt="Lovable"/>
-            <span>Lovable</span>
-          </div>
-
-          <div class="tool-card">
-            <img src="https://cdn.simpleicons.org/github" class="icon-img" alt="Stitch"/>
-            <span>Stitch</span>
-          </div>
-
+        <div class="tool-card">
+          <img src="https://cdn.simpleicons.org/figma/000000" alt="Figma"/>
+          <span>Figma</span>
         </div>
+
+        <div class="tool-card">
+          <img src="https://cdn.simpleicons.org/adobe/000000" alt="Adobe Suite"/>
+          <span>Adobe Suite</span>
+        </div>
+
+        <div class="tool-card">
+          <img src="https://cdn.simpleicons.org/openai/000000" alt="ChatGPT"/>
+          <span>ChatGPT</span>
+        </div>
+
+        <div class="tool-card">
+          <img src="https://cdn.simpleicons.org/anthropic/000000" alt="Claude"/>
+          <span>Claude</span>
+        </div>
+
+        <div class="tool-card">
+          <img src="https://cdn.simpleicons.org/github/000000" alt="Antigravity"/>
+          <span>Antigravity</span>
+        </div>
+
+        <div class="tool-card">
+          <img src="https://cdn.simpleicons.org/html5/000000" alt="Lovable"/>
+          <span>Lovable</span>
+        </div>
+
+        <div class="tool-card">
+          <img src="https://cdn.simpleicons.org/git/000000" alt="Stitch"/>
+          <span>Stitch</span>
+        </div>
+
       </div>
     </section>
 
@@ -170,9 +142,9 @@
             <p>I’m open to solving complex product challenges in SaaS and data-driven environments.</p>
             
             <div class="cta-buttons">
-                <a href="mailto:govindusaiteja@gmail.com" class="btn btn-primary">Email Me</a>
-                <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
-                <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Resume</a>
+                <a href="mailto:govindusaiteja@gmail.com" class="btn primary">Email Me</a>
+                <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" class="btn secondary">LinkedIn</a>
+                <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn secondary">Resume</a>
             </div>
         </div>
     </section>
@@ -194,18 +166,91 @@
         });
         elements.forEach(el => observer.observe(el));
 
-        // Stacked Product UI Parallax
+        // Parallax for 3D Layers
         if(window.innerWidth > 1024) {
             document.addEventListener("mousemove", (e) => {
               const x = (e.clientX / window.innerWidth - 0.5) * 20;
               const y = (e.clientY / window.innerHeight - 0.5) * 20;
 
-              const l2 = document.querySelector(".l2");
-              if(l2) l2.style.transform = `rotate(4deg) translate(${x}px, ${y}px)`;
+              const l2 = document.querySelector(".layer-2");
+              if(l2) l2.style.transform = `rotate(6deg) translate(${x}px, ${y}px)`;
 
-              const l3 = document.querySelector(".l3");
+              const l3 = document.querySelector(".layer-3");
               if(l3) l3.style.transform = `translate(${x * 1.5}px, ${y * 1.5}px)`;
             });
+        }
+
+        // WebGL Fluid Wave Logic
+        const canvas = document.getElementById('fluid-canvas');
+        if(canvas) {
+            const renderer = new ogl.Renderer({ canvas, alpha: true });
+            const gl = renderer.gl;
+            gl.clearColor(0, 0, 0, 0);
+
+            const program = new ogl.Program(gl, {
+              vertex: `
+                attribute vec2 position;
+                void main() {
+                  gl_Position = vec4(position, 0, 1);
+                }
+              `,
+              fragment: `
+                precision highp float;
+                uniform float time;
+                uniform vec2 resolution;
+                uniform vec2 mouse;
+
+                void main() {
+                  vec2 uv = gl_FragCoord.xy / resolution.xy;
+
+                  float wave = sin(uv.x * 8.0 + time) * 0.02;
+                  uv.y += wave;
+
+                  float dist = distance(uv, mouse);
+
+                  vec3 color = vec3(
+                    0.4 + 0.3 * sin(time + uv.x * 3.0),
+                    0.5 + 0.3 * sin(time + uv.y * 3.0),
+                    0.8
+                  );
+
+                  color += 0.15 / dist;
+
+                  gl_FragColor = vec4(color, 0.25);
+                }
+              `,
+              uniforms: {
+                time: { value: 0 },
+                resolution: { value: new ogl.Vec2() },
+                mouse: { value: new ogl.Vec2(0.5, 0.5) }
+              }
+            });
+
+            const geometry = new ogl.Triangle(gl);
+            const mesh = new ogl.Mesh(gl, { geometry, program });
+
+            function resize() {
+              renderer.setSize(window.innerWidth, window.innerHeight);
+              program.uniforms.resolution.value.set(gl.canvas.width, gl.canvas.height);
+            }
+
+            window.addEventListener('resize', resize);
+            resize();
+
+            window.addEventListener('mousemove', (e) => {
+              program.uniforms.mouse.value.set(
+                e.clientX / window.innerWidth,
+                1 - e.clientY / window.innerHeight
+              );
+            });
+
+            function update(t) {
+              requestAnimationFrame(update);
+              program.uniforms.time.value = t * 0.001;
+              renderer.render({ scene: mesh });
+            }
+
+            requestAnimationFrame(update);
         }
 
         // Mobile Nav Toggle
