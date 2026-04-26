@@ -24,34 +24,37 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <!-- WebGL Fluid Canvas -->
+  <section class="hero" id="home">
     <canvas id="fluid"></canvas>
     
-    <!-- Light Rays -->
-    <div id="light-rays-container"></div>
+    <div class="light-rays"></div>
+    <div class="hero-noise"></div>
 
     <div class="hero-content">
-      <div class="badge">UX Portfolio</div>
-
-      <h1 id="hero-title">
-        <span class="split-word">Simplifying</span> <span class="split-word">complex</span> <span class="split-word">systems</span><br/>
-        <span class="split-word">into</span> <span class="split-word">intuitive</span> <span class="split-word">experiences</span>
+      <div class="badge fade-in">UX Portfolio</div>
+      
+      <h1 class="hero-title">
+        Simplifying complex systems into intuitive experiences
       </h1>
 
       <p class="hero-sub">
         UX Designer focused on enterprise platforms, spatial systems, and real-world usability.
       </p>
 
-      <div class="cta">
-        <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'})">View Work</button>
-        <button class="secondary" onclick="window.open('https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing', '_blank')">View Resume</button>
+      <div class="hero-cta">
+        <button class="btn-primary magnetic" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'})">View Work</button>
+        <button class="btn-secondary magnetic" onclick="window.open('https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing', '_blank')">View Resume</button>
       </div>
     </div>
 
-    <!-- 3D HERO VISUAL IMAGE -->
     <div class="hero-visual">
-      <img src="assets/real-map-view.png" alt="Dashboard UI preview" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%231e293b\'/></svg>'" />
+      <div class="hero-card" id="tiltCard">
+        <div class="card-inner">
+          <h3>Sai Teja</h3>
+          <p>Senior UI/UX Designer</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -180,6 +183,7 @@
   <script src="js/lightRays.js"></script>
   <script src="js/splashCursor.js"></script>
   <script src="js/scrollStack.js"></script>
+  <script src="js/heroInteractions.js"></script>
 
 </body>
 </html>
