@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
-  // 1. MAGNETIC BUTTONS
+  // 1. Magnetic Buttons
   document.querySelectorAll('.magnetic').forEach(btn => {
     btn.addEventListener('mousemove', e => {
       const rect = btn.getBoundingClientRect();
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. 3D HERO CARD TILT
+  // 2. 3D Hero Card Tilt
   const card = document.getElementById('tiltCard');
   if (card) {
     card.addEventListener('mousemove', (e) => {
@@ -33,26 +32,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     card.addEventListener('mouseleave', () => {
       card.style.transform = `rotateX(0) rotateY(0)`;
-      // Optionally reset glow center when mouse leaves
+      // optional: reset glow to center
       card.style.setProperty('--x', `50%`);
       card.style.setProperty('--y', `50%`);
     });
   }
 
-  // 3. PARALLAX DEPTH
+  // 3. Parallax Depth on Hero Content and Visual
   document.addEventListener("mousemove", (e) => {
     const x = (e.clientX / window.innerWidth - 0.5) * 20;
     const y = (e.clientY / window.innerHeight - 0.5) * 20;
 
     const heroContent = document.querySelector(".hero-content");
-    const heroVisual = document.querySelector(".hero-visual");
-
     if (heroContent) {
       heroContent.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
     }
+
+    const heroVisual = document.querySelector(".hero-visual");
     if (heroVisual) {
       heroVisual.style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
     }
   });
-
 });

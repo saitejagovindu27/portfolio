@@ -24,15 +24,12 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="home">
+  <section class="hero">
     <canvas id="fluid"></canvas>
-    
-    <!-- LightRays WebGL - mounted by lightRays.js -->
+    <div class="light-rays"></div>
     <div class="hero-noise"></div>
 
     <div class="hero-content">
-      <div class="badge fade-in">UX Portfolio</div>
-      
       <h1 class="hero-title">
         Simplifying complex systems into intuitive experiences
       </h1>
@@ -41,7 +38,7 @@
         UX Designer focused on enterprise platforms, spatial systems, and real-world usability.
       </p>
 
-      <div class="hero-cta">
+      <div class="hero-cta cta">
         <button class="btn-primary magnetic" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'})">View Work</button>
         <button class="btn-secondary magnetic" onclick="window.open('https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing', '_blank')">View Resume</button>
       </div>
@@ -50,8 +47,8 @@
     <div class="hero-visual">
       <div class="hero-card" id="tiltCard">
         <div class="card-inner">
-          <h3>Sai Teja</h3>
-          <p>Senior UI/UX Designer</p>
+          <h3 style="font-size: 32px; font-family: 'Outfit', sans-serif; margin-bottom: 8px; font-weight: 700;">Sai Teja</h3>
+          <p style="color: #94a3b8;">UI/UX Designer</p>
           <div class="card-glow"></div>
         </div>
       </div>
@@ -124,7 +121,24 @@
   <!-- TOOLS -->
   <section id="tools" class="section fade-in">
     <h2>Tools I Use</h2>
-    <!-- LogoLoop mounted by logoLoop.js -->
+    
+    <div class="tools-scroll fade-in">
+      <div class="tool">Figma</div>
+      <div class="tool">Adobe Suite</div>
+      <div class="tool">ChatGPT</div>
+      <div class="tool">Claude</div>
+      <div class="tool">Antigravity</div>
+      <div class="tool">Lovable</div>
+      <div class="tool">Stitch</div>
+      <div class="tool">Figma</div>
+      <div class="tool">Adobe Suite</div>
+      <div class="tool">ChatGPT</div>
+      <div class="tool">Claude</div>
+      <div class="tool">Antigravity</div>
+      <div class="tool">Lovable</div>
+      <div class="tool">Stitch</div>
+    </div>
+
   </section>
 
   <!-- CONTACT -->
@@ -163,11 +177,9 @@
   </script>
 
   <!-- Load Effects -->
-  <script src="js/lightRays.js"></script>
   <script src="js/splashCursor.js"></script>
   <script src="js/scrollStack.js"></script>
   <script src="js/heroInteractions.js"></script>
-  <script src="js/logoLoop.js"></script>
 
 </body>
 </html>

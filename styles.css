@@ -73,27 +73,44 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 80px;
+  padding: 0 10%;
   background: radial-gradient(circle at 20% 20%, #0b1225, #050a19 80%);
   overflow: hidden;
+}
+
+.light-rays {
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(
+    from 180deg at 50% 0%,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.12)
+  );
+  filter: blur(100px);
+  animation: rotateRays 20s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes rotateRays {
+  0% { transform: rotate(0deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1.2); }
+}
+
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 3;
 }
 
 #fluid {
   position: absolute;
   inset: 0;
   z-index: 1;
-}
-
-/* LIGHT RAYS */
-.light-rays {
-/* NOISE TEXTURE */
-.hero-noise {
-  position: absolute;
-  inset: 0;
-  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-  opacity: 0.05;
-  z-index: 3;
-  pointer-events: none;
 }
 
 .hero-content {
@@ -113,16 +130,14 @@ body {
   margin-bottom: 20px;
 }
 
-/* TEXT REVEAL */
 .hero-title {
   font-size: 64px;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   color: white;
   max-width: 700px;
   line-height: 1.1;
-  font-family: 'Outfit', sans-serif;
   letter-spacing: -1px;
-
   opacity: 0;
   transform: translateY(40px);
   animation: revealText 1s ease forwards;
@@ -130,9 +145,8 @@ body {
 
 .hero-sub {
   margin-top: 20px;
-  color: #9ca3af;
   font-size: 18px;
-
+  color: #9ca3af;
   opacity: 0;
   transform: translateY(30px);
   animation: revealText 1s ease forwards 0.3s;
@@ -145,50 +159,53 @@ body {
   }
 }
 
-.hero-cta {
+.cta {
   margin-top: 30px;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
 }
 
-/* MAGNETIC BUTTONS */
+.btn-primary.magnetic, .btn-secondary.magnetic {
+  will-change: transform;
+}
+
 .btn-primary {
+  display: inline-block;
   background: white;
   color: black;
   padding: 14px 28px;
   border-radius: 10px;
+  font-weight: 500;
   transition: 0.2s;
   text-decoration: none;
   font-family: Inter, sans-serif;
   cursor: pointer;
   border: none;
-  font-weight: 500;
-  font-size: 16px;
-  display: inline-block;
-  will-change: transform;
+}
+.btn-primary:hover {
+  box-shadow: 0 10px 30px rgba(255,255,255,0.2);
 }
 
 .btn-secondary {
+  display: inline-block;
+  background: transparent;
   border: 1px solid rgba(255,255,255,0.2);
-  color: white;
   padding: 14px 28px;
   border-radius: 10px;
-  background: transparent;
+  color: white;
+  font-weight: 500;
   transition: 0.2s;
   text-decoration: none;
   font-family: Inter, sans-serif;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 16px;
-  display: inline-block;
-  will-change: transform;
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
 }
 
-/* 3D HERO CARD */
 .hero-visual {
   perspective: 1000px;
-  position: relative;
   z-index: 5;
 }
 
@@ -198,7 +215,7 @@ body {
   border-radius: 24px;
   background: linear-gradient(145deg, #0f172a, #1e293b);
   transform-style: preserve-3d;
-  transition: transform 0.1s;
+  transition: transform 0.1s ease-out;
   box-shadow: 0 40px 80px rgba(0,0,0,0.6);
   position: relative;
   overflow: hidden;
@@ -211,18 +228,9 @@ body {
   z-index: 2;
   height: 100%;
   box-sizing: border-box;
-}
-
-.card-inner h3 {
-  font-size: 32px;
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-family: 'Outfit', sans-serif;
-}
-
-.card-inner p {
-  color: #94a3b8;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .card-glow {
@@ -267,7 +275,6 @@ body {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   position: relative;
-  isolation: isolate; /* Added to fix hover blink without dismantling layout */
 }
 .scroll-stack-end {
   width: 100%;
@@ -368,68 +375,29 @@ body {
   to { transform: translateY(-15px) rotate(2deg); }
 }
 
-/* LOGOLOOP - Tools I Use */
-.logoloop {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  --logoloop-gap: 16px;
-  --logoloop-logoHeight: 28px;
-  --logoloop-fadeColorAuto: #020617;
-}
-.logoloop__track {
+/* TOOLS */
+.tools-scroll {
   display: flex;
-  width: max-content;
-  will-change: transform;
-  user-select: none;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: none;
 }
-.logoloop__list {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.tools-scroll::-webkit-scrollbar {
+  display: none;
 }
-.logoloop__item {
-  flex: 0 0 auto;
-  margin-right: var(--logoloop-gap);
-}
-.logoloop__item:last-child {
-  margin-right: var(--logoloop-gap);
-}
-.logoloop-tool-pill {
-  padding: 12px 24px;
+
+.tool {
+  padding: 12px 20px;
   background: rgba(255,255,255,0.05);
   border-radius: 999px;
   white-space: nowrap;
+  transition: 0.3s;
   font-weight: 500;
   font-size: 16px;
-  color: white;
-  display: block;
-  transition: background 0.3s;
 }
-.logoloop-tool-pill:hover {
+.tool:hover {
   background: rgba(255,255,255,0.15);
-}
-.logoloop--fade::before,
-.logoloop--fade::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 80px;
-  pointer-events: none;
-  z-index: 10;
-}
-.logoloop--fade::before {
-  left: 0;
-  background: linear-gradient(to right, #020617 0%, transparent 100%);
-}
-.logoloop--fade::after {
-  right: 0;
-  background: linear-gradient(to left, #020617 0%, transparent 100%);
-}
-@media (prefers-reduced-motion: reduce) {
-  .logoloop__track { transform: translate3d(0,0,0) !important; }
 }
 
 /* CONTACT */
