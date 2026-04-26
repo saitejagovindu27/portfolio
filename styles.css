@@ -79,14 +79,9 @@ body {
 }
 
 #fluid {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 50;
-  pointer-events: none;
-  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 /* LIGHT RAYS */
@@ -262,12 +257,17 @@ body {
 }
 .scroll-stack-card {
   transform-origin: top center;
-  will-change: transform;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
   width: 100%;
   margin-bottom: 40px;
   box-sizing: border-box;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   position: relative;
-  isolation: isolate;
+  isolation: isolate; /* Added to fix hover blink without dismantling layout */
 }
 .scroll-stack-end {
   width: 100%;
@@ -286,17 +286,14 @@ body {
   border: 1px solid rgba(255,255,255,0.05);
   text-decoration: none;
   color: white;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease;
   overflow: hidden;
-  position: relative;
 }
 .card:hover {
   border-color: rgba(59,130,246,0.3);
-  box-shadow: 0 0 40px rgba(59,130,246,0.1);
 }
 .card-content {
   flex: 1;
-  position: relative;
   z-index: 2;
 }
 .card-content h3 {
@@ -320,7 +317,6 @@ body {
   mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
   -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
   z-index: 1;
-  pointer-events: none;
 }
 
 /* APPROACH */
