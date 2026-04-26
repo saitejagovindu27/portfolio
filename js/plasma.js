@@ -40,7 +40,7 @@
   var color = '#3b82f6';
   var speed = 0.4;
   var scale = 1.2;
-  var opacity = 0.25;
+  var opacity = 0.6; // TEMP DEBUG — reduce to 0.25 after confirming render
   var mouseInteractive = true;
 
   var customColorRgb = hexToRgb(color);
