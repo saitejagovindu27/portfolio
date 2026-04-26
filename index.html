@@ -25,9 +25,10 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <canvas id="fluid"></canvas>
+    <!-- SplashCursor - fixed full-screen fluid overlay -->
+    <canvas id="fluid" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:50;pointer-events:none;"></canvas>
     
-    <div class="light-rays"></div>
+    <!-- LightRays WebGL - mounted by lightRays.js -->
     <div class="hero-noise"></div>
 
     <div class="hero-content">
@@ -124,24 +125,7 @@
   <!-- TOOLS -->
   <section id="tools" class="section fade-in">
     <h2>Tools I Use</h2>
-    
-    <div class="tools-scroll fade-in">
-      <div class="tool">Figma</div>
-      <div class="tool">Adobe Suite</div>
-      <div class="tool">ChatGPT</div>
-      <div class="tool">Claude</div>
-      <div class="tool">Antigravity</div>
-      <div class="tool">Lovable</div>
-      <div class="tool">Stitch</div>
-      <div class="tool">Figma</div>
-      <div class="tool">Adobe Suite</div>
-      <div class="tool">ChatGPT</div>
-      <div class="tool">Claude</div>
-      <div class="tool">Antigravity</div>
-      <div class="tool">Lovable</div>
-      <div class="tool">Stitch</div>
-    </div>
-
+    <!-- LogoLoop mounted by logoLoop.js -->
   </section>
 
   <!-- CONTACT -->
@@ -184,6 +168,7 @@
   <script src="js/splashCursor.js"></script>
   <script src="js/scrollStack.js"></script>
   <script src="js/heroInteractions.js"></script>
+  <script src="js/logoLoop.js"></script>
 
 </body>
 </html>

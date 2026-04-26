@@ -79,32 +79,18 @@ body {
 }
 
 #fluid {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  pointer-events: none;
+  display: block;
 }
 
 /* LIGHT RAYS */
 .light-rays {
-  position: absolute;
-  inset: 0;
-  background: conic-gradient(
-    from 180deg at 50% 0%,
-    rgba(255,255,255,0.12),
-    rgba(255,255,255,0.02),
-    rgba(255,255,255,0.12)
-  );
-  filter: blur(100px);
-  animation: rotateRays 20s linear infinite;
-  z-index: 2;
-  pointer-events: none;
-}
-
-@keyframes rotateRays {
-  0% { transform: rotate(0deg) scale(1.2); }
-  100% { transform: rotate(360deg) scale(1.2); }
-}
-
 /* NOISE TEXTURE */
 .hero-noise {
   position: absolute;
@@ -276,16 +262,12 @@ body {
 }
 .scroll-stack-card {
   transform-origin: top center;
-  will-change: transform, filter;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  will-change: transform;
   width: 100%;
   margin-bottom: 40px;
   box-sizing: border-box;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
   position: relative;
+  isolation: isolate;
 }
 .scroll-stack-end {
   width: 100%;
@@ -304,14 +286,17 @@ body {
   border: 1px solid rgba(255,255,255,0.05);
   text-decoration: none;
   color: white;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+  position: relative;
 }
 .card:hover {
   border-color: rgba(59,130,246,0.3);
+  box-shadow: 0 0 40px rgba(59,130,246,0.1);
 }
 .card-content {
   flex: 1;
+  position: relative;
   z-index: 2;
 }
 .card-content h3 {
@@ -335,6 +320,7 @@ body {
   mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
   -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 /* APPROACH */
@@ -386,29 +372,68 @@ body {
   to { transform: translateY(-15px) rotate(2deg); }
 }
 
-/* TOOLS */
-.tools-scroll {
+/* LOGOLOOP - Tools I Use */
+.logoloop {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  --logoloop-gap: 16px;
+  --logoloop-logoHeight: 28px;
+  --logoloop-fadeColorAuto: #020617;
+}
+.logoloop__track {
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding: 20px 0;
-  scrollbar-width: none;
+  width: max-content;
+  will-change: transform;
+  user-select: none;
 }
-.tools-scroll::-webkit-scrollbar {
-  display: none;
+.logoloop__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
-.tool {
-  padding: 12px 20px;
+.logoloop__item {
+  flex: 0 0 auto;
+  margin-right: var(--logoloop-gap);
+}
+.logoloop__item:last-child {
+  margin-right: var(--logoloop-gap);
+}
+.logoloop-tool-pill {
+  padding: 12px 24px;
   background: rgba(255,255,255,0.05);
   border-radius: 999px;
   white-space: nowrap;
-  transition: 0.3s;
   font-weight: 500;
   font-size: 16px;
+  color: white;
+  display: block;
+  transition: background 0.3s;
 }
-.tool:hover {
+.logoloop-tool-pill:hover {
   background: rgba(255,255,255,0.15);
+}
+.logoloop--fade::before,
+.logoloop--fade::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 10;
+}
+.logoloop--fade::before {
+  left: 0;
+  background: linear-gradient(to right, #020617 0%, transparent 100%);
+}
+.logoloop--fade::after {
+  right: 0;
+  background: linear-gradient(to left, #020617 0%, transparent 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .logoloop__track { transform: translate3d(0,0,0) !important; }
 }
 
 /* CONTACT */
