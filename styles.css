@@ -292,51 +292,95 @@ body {
   height: 1px;
 }
 
-.card {
-  height: 380px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #0b1225, #111a35);
-  padding: 40px;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid rgba(255,255,255,0.05);
-  text-decoration: none;
-  color: white;
+/* WORK CARDS */
+.work-card {
+  position: relative;
+  border-radius: 28px;
   overflow: hidden;
+  background: linear-gradient(to bottom right, rgba(15, 25, 50, 0.7), rgba(10, 20, 40, 0.4));
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform: translateZ(0);
+  color: white;
+  text-decoration: none;
+}
+.work-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.9);
+}
+.work-card,
+.card-inner {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  transition: none !important;
+  transform-style: preserve-3d;
 }
-/* hover border removed to fix animation blinking */
+
+.card-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 48px;
+  animation: card-float 6s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes card-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
 .card-content {
-  flex: 1;
+  width: 50%;
   z-index: 2;
 }
-.card-content h3 {
-  font-size: 40px;
-  margin-bottom: 12px;
+.card-content h2 {
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   font-family: 'Satoshi', sans-serif;
+  margin-bottom: 16px;
 }
 .card-content p {
-  color: #94a3b8;
-  font-size: 20px;
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
   margin-bottom: 24px;
 }
-.card img.card-bg {
-  position: absolute;
-  right: -5%;
-  top: 10%;
-  height: 120%;
-  width: 60%;
+
+.card-visual {
+  width: 50%;
+  height: 320px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 14px;
+  overflow: hidden;
+  position: relative;
+}
+.card-visual img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  opacity: 0.8;
-  mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-  z-index: 1;
-  pointer-events: none;
+  border-radius: 20px;
+}
+
+.coming-soon-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 99px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.25);
+  color: #3b82f6;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 /* APPROACH */
@@ -550,16 +594,15 @@ body {
   .approach-container {
     transform: scale(0.8);
   }
-  .card {
-    padding: 30px;
-    height: auto;
-    min-height: 350px;
+  .card-inner {
+    padding: 36px;
+    gap: 24px;
   }
-  .card-content h3 {
-    font-size: 32px;
+  .card-content h2 {
+    font-size: 36px;
   }
-  .card img.card-bg {
-    width: 80%;
+  .card-visual {
+    height: 260px;
   }
 }
 
@@ -582,28 +625,20 @@ body {
   .hero-sub {
     font-size: 18px;
   }
-  .card {
+  .card-inner {
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 24px;
-    min-height: 400px;
+    padding: 28px;
+    gap: 24px;
   }
-  .card-content {
-    margin-bottom: 24px;
+  .card-content,
+  .card-visual {
     width: 100%;
-    z-index: 2;
   }
-  .card img.card-bg {
-    position: absolute;
-    width: 100%;
-    height: 60%;
-    bottom: 0;
-    top: auto;
-    right: 0;
-    left: 0;
-    mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+  .card-content h2 {
+    font-size: 32px;
+  }
+  .card-visual {
+    height: 220px;
   }
   .approach-container {
     transform: scale(0.6);
