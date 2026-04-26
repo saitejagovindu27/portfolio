@@ -5,40 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Teja Govind | Senior UX Designer</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="profileCard.css">
     <!-- OGL for Light Rays -->
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
-    <style>
-      .header {
-        padding: 24px 10%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-      }
-      .header a {
-        font-family: 'Outfit', sans-serif;
-        font-weight: 700;
-        font-size: 20px;
-        color: white;
-        text-decoration: none;
-        cursor: pointer;
-      }
-    </style>
 </head>
 <body id="top">
 
   <!-- HEADER -->
   <header class="header">
-    <a href="#" onclick="window.scrollTo(0, 0); return false;">Sai Teja Govind</a>
+    <div class="logo">Sai Teja Govind</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <!-- WebGL Fluid Canvas (Lightweight Version) -->
+    <!-- WebGL Fluid Canvas (Using SplashCursor logic) -->
     <canvas id="fluid"></canvas>
     
     <!-- Light Rays (Using OGL behind text) -->
@@ -62,91 +47,55 @@
       </div>
     </div>
 
-    <!-- PROFILE CARD (Translated from React Bits) -->
-    <div class="hero-visual pc-card-wrapper" id="profile-card" style="--icon: none; --grain: none; --inner-gradient: linear-gradient(145deg,#1e293b 0%,#0f172a 100%); --behind-glow-color: rgba(59,130,246,0.3); --behind-glow-size: 50%;">
-      <div class="pc-behind"></div>
-      <div class="pc-card-shell">
-        <section class="pc-card">
-          <div class="pc-inside">
-            <div class="pc-shine"></div>
-            <div class="pc-glare"></div>
-            <div class="pc-content pc-avatar-content">
-              <img class="avatar" src="https://ui-avatars.com/api/?name=Sai+Teja&background=0D8ABC&color=fff&size=200" alt="Sai Teja avatar" loading="lazy" onerror="this.style.display='none'">
-              <div class="pc-user-info">
-                <div class="pc-user-details">
-                  <div class="pc-mini-avatar">
-                    <img src="https://ui-avatars.com/api/?name=ST&background=0D8ABC&color=fff&size=50" alt="Sai Teja mini avatar" loading="lazy">
-                  </div>
-                  <div class="pc-user-text">
-                    <div class="pc-handle">@saaiteja</div>
-                    <div class="pc-status">Online</div>
-                  </div>
-                </div>
-                <button class="pc-contact-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" type="button" aria-label="Contact">Contact</button>
-              </div>
-            </div>
-            <div class="pc-content">
-              <div class="pc-details">
-                <h3>Sai Teja</h3>
-                <p>UI UX Designer</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+    <!-- 3D HERO VISUAL IMAGE -->
+    <div class="hero-visual">
+      <img src="assets/real-map-view.png" alt="Dashboard UI preview" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%231e293b\'/></svg>'" />
     </div>
   </section>
 
-  <!-- FEATURED WORK (2x2 Grid) -->
-  <section id="work" class="section">
-    <h2 class="fade-in">Featured Work</h2>
-    <div class="featured-grid">
-      
-      <!-- Project 1 -->
-      <div class="featured-card fade-in">
-        <div class="featured-content">
+  <!-- FEATURED WORK (LANDSCAPE PREMIUM) -->
+  <section id="work" class="featured fade-in">
+    <h2>Featured Work</h2>
+
+    <div class="work-list">
+
+      <a href="smartmap-case-study.html" class="work-card">
+        <img src="assets/smartmap/screen1.png" alt="SmartMap" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+        <div class="work-content">
           <h3>Smart Map</h3>
           <p>Mapping & Workflow System</p>
-          <span class="focus-line">Focus: complex workflows, geospatial UX, clarity in data-heavy interfaces</span>
-          <a href="smartmap-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
         </div>
-      </div>
+      </a>
 
-      <!-- Project 2 -->
-      <div class="featured-card fade-in">
-        <div class="featured-content">
+      <a href="data-platform-case-study.html" class="work-card">
+        <img src="assets/data-platform/screen1.png" alt="Data Intelligence" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+        <div class="work-content">
           <h3>Data Intelligence Platform</h3>
           <p>Dashboard UX</p>
-          <span class="focus-line">Focus: simplifying dense data, improving decision-making</span>
-          <a href="data-platform-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
         </div>
-      </div>
+      </a>
 
-      <!-- Project 3 -->
-      <div class="featured-card fade-in">
-        <div class="featured-content">
+      <a href="mrv-case-study.html" class="work-card">
+        <img src="assets/mrv/screen1.png" alt="Smart MRV" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+        <div class="work-content">
           <h3>Smart MRV</h3>
-          <p>Sustainability Platform Landing</p>
-          <span class="focus-line">Focus: storytelling, clarity, conversion, product communication</span>
-          <a href="mrv-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
+          <p>Sustainability Platform</p>
         </div>
-      </div>
+      </a>
 
-      <!-- Project 4 -->
-      <div class="featured-card fade-in">
-        <div class="featured-content">
+      <a href="bananaz-case-study.html" class="work-card">
+        <img src="assets/bananaz/screen1.png" alt="Bananaz" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+        <div class="work-content">
           <h3>Bananaz</h3>
           <p>Brand Identity & Digital Experience</p>
-          <span class="focus-line">Focus: branding, visual system, digital consistency</span>
-          <a href="bananaz-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
 
   <!-- APPROACH -->
-  <section id="approach" class="section">
+  <section id="process" class="section">
     <h2 class="fade-in">How I Approach Complex Systems</h2>
     <div class="approach-container fade-in">
       <div class="approach-center">User-Centered Design</div>
@@ -162,89 +111,56 @@
   <!-- TOOLS -->
   <section id="tools" class="section">
     <h2 class="fade-in">Tools I Use</h2>
-    <div class="tools-marquee fade-in">
-      <div class="tools-track">
-        
-        <!-- INITIAL SET -->
-        <div class="tool-card tooltip" data-tooltip="UI Design & Prototyping">
-          <img src="https://cdn.simpleicons.org/figma/ffffff" alt="Figma">
-          <span>Figma</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Graphic Design">
-          <img src="https://cdn.simpleicons.org/adobe/ffffff" alt="Adobe">
-          <span>Adobe Suite</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Ideation & Logic">
-          <img src="https://cdn.simpleicons.org/openai/ffffff" alt="ChatGPT">
-          <span>ChatGPT</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="AI Assistance">
-          <img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude">
-          <span>Claude</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Workflow automation">
-          <img src="https://cdn.simpleicons.org/google/ffffff" alt="Antigravity">
-          <span>Antigravity</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Prototyping">
-          <img src="https://cdn.simpleicons.org/react/ffffff" alt="Lovable">
-          <span>Lovable</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Data/Git">
-          <img src="https://cdn.simpleicons.org/github/ffffff" alt="Stitch">
-          <span>Stitch</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="User Research">
-          <img src="https://cdn.simpleicons.org/surveymonkey/ffffff" alt="SurveyMonkey">
-          <span>SurveyMonkey</span>
-        </div>
+    <div class="tools-row fade-in">
 
-        <!-- DUPLICATE FOR INFINITE SCROLL -->
-        <div class="tool-card tooltip" data-tooltip="UI Design & Prototyping">
-          <img src="https://cdn.simpleicons.org/figma/ffffff" alt="Figma">
-          <span>Figma</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Graphic Design">
-          <img src="https://cdn.simpleicons.org/adobe/ffffff" alt="Adobe">
-          <span>Adobe Suite</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Ideation & Logic">
-          <img src="https://cdn.simpleicons.org/openai/ffffff" alt="ChatGPT">
-          <span>ChatGPT</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="AI Assistance">
-          <img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude">
-          <span>Claude</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Workflow automation">
-          <img src="https://cdn.simpleicons.org/google/ffffff" alt="Antigravity">
-          <span>Antigravity</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Prototyping">
-          <img src="https://cdn.simpleicons.org/react/ffffff" alt="Lovable">
-          <span>Lovable</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="Data/Git">
-          <img src="https://cdn.simpleicons.org/github/ffffff" alt="Stitch">
-          <span>Stitch</span>
-        </div>
-        <div class="tool-card tooltip" data-tooltip="User Research">
-          <img src="https://cdn.simpleicons.org/surveymonkey/ffffff" alt="SurveyMonkey">
-          <span>SurveyMonkey</span>
-        </div>
-
+      <div class="tool" data-tooltip="UI Design & Prototyping">
+        <img src="https://cdn.simpleicons.org/figma/ffffff" alt="Figma"/>
+        <span>Figma</span>
       </div>
+
+      <div class="tool" data-tooltip="Graphic Design">
+        <img src="https://cdn.simpleicons.org/adobe/ffffff" alt="Adobe"/>
+        <span>Adobe Suite</span>
+      </div>
+
+      <div class="tool" data-tooltip="Ideation & Logic">
+        <img src="https://cdn.simpleicons.org/openai/ffffff" alt="ChatGPT"/>
+        <span>ChatGPT</span>
+      </div>
+
+      <div class="tool" data-tooltip="AI Assistance">
+        <img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude"/>
+        <span>Claude</span>
+      </div>
+
+      <div class="tool" data-tooltip="Workflow automation">
+        <img src="https://cdn.simpleicons.org/google/ffffff" alt="Antigravity"/>
+        <span>Antigravity</span>
+      </div>
+
+      <div class="tool" data-tooltip="Prototyping">
+        <img src="https://cdn.simpleicons.org/react/ffffff" alt="Lovable"/>
+        <span>Lovable</span>
+      </div>
+
+      <div class="tool" data-tooltip="Data/Git">
+        <img src="https://cdn.simpleicons.org/github/ffffff" alt="Stitch"/>
+        <span>Stitch</span>
+      </div>
+
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section fade-in">
-    <h2>Let's Connect</h2>
-    <div class="cta">
-      <a href="mailto:govindusaiteja@gmail.com" class="btn primary">Email Me</a>
-      <a href="https://linkedin.com/in/saaiteja" target="_blank" class="btn secondary">LinkedIn</a>
-      <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" class="btn secondary">Resume (PDF)</a>
-      <a href="https://www.behance.net/saiteja83" target="_blank" class="btn secondary">Behance ↗</a>
+  <section id="contact" class="contact fade-in">
+    <h2>Let’s Connect</h2>
+    <p style="color: #94a3b8; font-size: 18px;">Open to solving complex product challenges in SaaS and data systems.</p>
+
+    <div class="contact-actions">
+      <a href="mailto:govindusaiteja@gmail.com" class="primary">Email Me</a>
+      <a href="https://linkedin.com/in/saaiteja" target="_blank">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank">Resume</a>
+      <a href="https://www.behance.net/saiteja83" target="_blank">Behance ↗</a>
     </div>
   </section>
 
@@ -260,48 +176,11 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-
-    // Lightweight Fluid Canvas
-    const canvas = document.getElementById("fluid");
-    if(canvas) {
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let mouse = { x: window.innerWidth/2, y: window.innerHeight/2 };
-
-        window.addEventListener("mousemove", (e) => {
-          mouse.x = e.clientX;
-          mouse.y = e.clientY;
-        });
-        window.addEventListener("resize", () => {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-        });
-
-        function draw() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-          const gradient = ctx.createRadialGradient(
-            mouse.x, mouse.y, 50,
-            mouse.x, mouse.y, 400
-          );
-
-          gradient.addColorStop(0, "rgba(59,130,246,0.15)");
-          gradient.addColorStop(1, "transparent");
-
-          ctx.fillStyle = gradient;
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-          requestAnimationFrame(draw);
-        }
-        draw();
-    }
   </script>
 
   <!-- Load Effects -->
   <script src="js/lightRays.js"></script>
-  <script src="js/profileCard.js"></script>
+  <script src="js/splashCursor.js"></script>
 
 </body>
 </html>
