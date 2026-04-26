@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartMap Case Study | Sai Teja Govind</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- OGL for Plasma -->
+    <script>var exports = {};</script>
+    <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
     <style>
       .case-study.container {
         max-width: 900px;
@@ -85,6 +88,7 @@
 <body>
 
   <!-- BACKGROUND SYSTEM -->
+  <div id="plasma-layer" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-grid-micro" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
@@ -254,6 +258,7 @@
     document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
   </script>
   <script src="js/splashCursor.js"></script>
+  <script src="js/plasma.js"></script>
 </body>
 </html>
 
