@@ -10,8 +10,17 @@
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
     <!-- Lenis for Smooth Scroll Stack -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        }
+      }
+    </script>
 </head>
 <body id="top">
+  <div id="beams-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none;"></div>
+  
   <!-- GLOBAL FLUID CURSOR -->
   <canvas id="fluid"></canvas>
 
@@ -110,13 +119,13 @@
   <section id="process" class="section approach fade-in">
     <h2>How I Approach Complex Systems</h2>
     <div class="approach-container fade-in">
-      <div class="approach-center">User-Centered Design</div>
-      <div class="approach-float f1">UX Research</div>
-      <div class="approach-float f2">Product Thinking</div>
-      <div class="approach-float f3">Visual Design</div>
-      <div class="approach-float f4">Accessibility</div>
-      <div class="approach-float f5">Prototyping</div>
-      <div class="approach-float f6">Information Architecture</div>
+      <div class="approach-center" data-parallax="0.05">User-Centered Design</div>
+      <div class="approach-float f1" data-parallax="0.3">UX Research</div>
+      <div class="approach-float f2" data-parallax="0.15">Product Thinking</div>
+      <div class="approach-float f3" data-parallax="0.4">Visual Design</div>
+      <div class="approach-float f4" data-parallax="0.25">Accessibility</div>
+      <div class="approach-float f5" data-parallax="0.35">Prototyping</div>
+      <div class="approach-float f6" data-parallax="0.2">Information Architecture</div>
     </div>
   </section>
 
@@ -185,6 +194,6 @@
   <script src="js/heroInteractions.js"></script>
   <script src="js/logoLoop.js"></script>
   <script src="js/variableProximity.js"></script>
-
+  <script type="module" src="js/beams.js"></script>
 </body>
 </html>

@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const speed = parseFloat(el.getAttribute('data-parallax')) || 0.15;
       const rect = el.parentElement.getBoundingClientRect();
       
-      // Calculate offset based on scroll position relative to viewport
-      const offset = (rect.top - windowHeight / 2) * speed;
-      
-      el.style.transform = `translate3d(0, ${offset}px, 0)`;
+      // Set as CSS variable so CSS animations (like float) can combine with it
+      el.style.setProperty('--parallax-y', `${offset}px`);
+      // Fallback for elements without CSS animations taking advantage of --parallax-y
+      if (!el.classList.contains('approach-float') && !el.classList.contains('approach-center')) {
+        el.style.transform = `translate3d(0, ${offset}px, 0)`;
+      }
     });
   }
 
