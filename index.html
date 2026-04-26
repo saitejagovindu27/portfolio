@@ -5,10 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Teja Govind | Senior UX Designer</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profileCard.css">
     <!-- OGL for Light Rays -->
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
+    <style>
+      .header {
+        padding: 24px 10%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+      }
+      .header a {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
 </head>
 <body id="top">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="#" onclick="window.scrollTo(0, 0); return false;">Sai Teja Govind</a>
+  </header>
 
   <!-- HERO -->
   <section class="hero">
@@ -36,40 +62,86 @@
       </div>
     </div>
 
-    <!-- 3D Layered Glass Cards -->
-    <div class="hero-visual">
-      <div class="card back">
-         <!-- Subtle internal structure so it's NOT empty -->
-         <div class="ux-line" style="width: 70%; margin-bottom: 20px;"></div>
-         <div class="ux-line" style="width: 100%;"></div>
-         <div class="ux-line" style="width: 100%;"></div>
-         <div class="ux-line" style="width: 40%;"></div>
-      </div>
-      <div class="card main">
-         <div class="ux-line" style="width: 50%; height: 24px; margin-bottom: 10px;"></div>
-         <div class="ux-line" style="width: 100%;"></div>
-         <div class="ux-line" style="width: 100%;"></div>
-         <div class="ux-line" style="width: 80%;"></div>
-         <div style="display: flex; gap: 10px; margin-top: 20px;">
-            <div class="ux-line" style="flex: 1; height: 30px;"></div>
-            <div class="ux-line" style="flex: 1; height: 30px;"></div>
-         </div>
+    <!-- PROFILE CARD (Translated from React Bits) -->
+    <div class="hero-visual pc-card-wrapper" id="profile-card" style="--icon: none; --grain: none; --inner-gradient: linear-gradient(145deg,#1e293b 0%,#0f172a 100%); --behind-glow-color: rgba(59,130,246,0.3); --behind-glow-size: 50%;">
+      <div class="pc-behind"></div>
+      <div class="pc-card-shell">
+        <section class="pc-card">
+          <div class="pc-inside">
+            <div class="pc-shine"></div>
+            <div class="pc-glare"></div>
+            <div class="pc-content pc-avatar-content">
+              <img class="avatar" src="https://ui-avatars.com/api/?name=Sai+Teja&background=0D8ABC&color=fff&size=200" alt="Sai Teja avatar" loading="lazy" onerror="this.style.display='none'">
+              <div class="pc-user-info">
+                <div class="pc-user-details">
+                  <div class="pc-mini-avatar">
+                    <img src="https://ui-avatars.com/api/?name=ST&background=0D8ABC&color=fff&size=50" alt="Sai Teja mini avatar" loading="lazy">
+                  </div>
+                  <div class="pc-user-text">
+                    <div class="pc-handle">@saaiteja</div>
+                    <div class="pc-status">Online</div>
+                  </div>
+                </div>
+                <button class="pc-contact-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" type="button" aria-label="Contact">Contact</button>
+              </div>
+            </div>
+            <div class="pc-content">
+              <div class="pc-details">
+                <h3>Sai Teja</h3>
+                <p>UI UX Designer</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED WORK -->
+  <!-- FEATURED WORK (2x2 Grid) -->
   <section id="work" class="section">
     <h2 class="fade-in">Featured Work</h2>
-    <div class="featured-card fade-in">
-      <div class="featured-content">
-        <h3>SmartMap</h3>
-        <p>Designing a public map platform for real-world usability and complex administrative workflows.</p>
-        <button class="primary" style="align-self: flex-start;" onclick="document.getElementById('case-study').scrollIntoView({behavior: 'smooth'})">View Case Study →</button>
+    <div class="featured-grid">
+      
+      <!-- Project 1 -->
+      <div class="featured-card fade-in">
+        <div class="featured-content">
+          <h3>Smart Map</h3>
+          <p>Mapping & Workflow System</p>
+          <span class="focus-line">Focus: complex workflows, geospatial UX, clarity in data-heavy interfaces</span>
+          <a href="smartmap-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
+        </div>
       </div>
-      <div class="featured-image">
-         <img src="assets/real-layer-panel.png" alt="SmartMap Preview" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%231e293b\'/></svg>'">
+
+      <!-- Project 2 -->
+      <div class="featured-card fade-in">
+        <div class="featured-content">
+          <h3>Data Intelligence Platform</h3>
+          <p>Dashboard UX</p>
+          <span class="focus-line">Focus: simplifying dense data, improving decision-making</span>
+          <a href="data-platform-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
+        </div>
       </div>
+
+      <!-- Project 3 -->
+      <div class="featured-card fade-in">
+        <div class="featured-content">
+          <h3>Smart MRV</h3>
+          <p>Sustainability Platform Landing</p>
+          <span class="focus-line">Focus: storytelling, clarity, conversion, product communication</span>
+          <a href="mrv-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="featured-card fade-in">
+        <div class="featured-content">
+          <h3>Bananaz</h3>
+          <p>Brand Identity & Digital Experience</p>
+          <span class="focus-line">Focus: branding, visual system, digital consistency</span>
+          <a href="bananaz-case-study.html" class="btn primary" style="align-self: flex-start;">View Case Study →</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -165,34 +237,6 @@
     </div>
   </section>
 
-  <!-- CASE STUDY INLINE -->
-  <section id="case-study" class="section">
-    <h2 class="fade-in">SmartMap – Public Map Application</h2>
-    <div class="case-grid">
-      <div class="case-block fade-in">
-        <h4>Problem</h4>
-        <p>Current mapping solutions lacked the necessary tools for complex administrative workflows, making real-world usability difficult.</p>
-      </div>
-      <div class="case-block fade-in">
-        <h4>Users</h4>
-        <p>Public sector administrators and on-the-ground field workers requiring accurate, real-time spatial data.</p>
-      </div>
-      <div class="case-block fade-in">
-        <h4>UX Decisions</h4>
-        <p>Implemented a highly contextual side-panel architecture and a robust filtering system to reduce cognitive load by 40%.</p>
-      </div>
-      <div class="case-block fade-in">
-        <h4>Outcome</h4>
-        <p>Accelerated workflow completion rates and created a scalable map platform adopted by 5+ regional departments.</p>
-      </div>
-    </div>
-    <div class="case-images">
-      <img src="assets/smartmap/screen1.png" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'">
-      <img src="assets/smartmap/screen2.png" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'">
-      <img src="assets/smartmap/screen3.png" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'">
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section id="contact" class="section fade-in">
     <h2>Let's Connect</h2>
@@ -206,11 +250,6 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Scroll to top on load
-    window.onload = function() {
-      window.scrollTo(0, 0);
-    };
-
     // Fade-in Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -260,8 +299,9 @@
     }
   </script>
 
-  <!-- Load Light Rays -->
+  <!-- Load Effects -->
   <script src="js/lightRays.js"></script>
+  <script src="js/profileCard.js"></script>
 
 </body>
 </html>

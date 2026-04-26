@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart MRV | Case Study</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .header {
+        padding: 24px 10%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+      }
+      .header a {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+      }
+      .case-study.container {
+        max-width: 900px;
+        margin: 120px auto 100px;
+        padding: 0 24px;
+        text-align: center;
+      }
+      .case-study h2 {
+        text-align: center;
+      }
+      .case-study img {
+        width: 100%;
+        border-radius: 12px;
+        margin: 24px 0;
+        display: block;
+      }
+    </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html">Sai Teja Govind</a>
+  </header>
+
+  <div class="case-study container">
+    <section class="section" style="padding: 0;">
+      <h2 class="fade-in">Smart MRV – Sustainability Platform Landing</h2>
+      <p class="fade-in" style="color: #94a3b8; font-size: 18px;">Storytelling, clarity, conversion, and product communication.</p>
+      
+      <img src="assets/mrv/screen1.png" alt="Smart MRV screen 1" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+      <img src="assets/mrv/screen2.png" alt="Smart MRV screen 2" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+    </section>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
