@@ -10,14 +10,14 @@ function initSplashCursor(canvasId = "fluid") {
   const PRESSURE = 0.1;
   const PRESSURE_ITERATIONS = 20;
   const CURL = 3;
-  const SPLAT_RADIUS = 0.18;
-  const SPLAT_FORCE = 5000;
+  const SPLAT_RADIUS = 0.05;
+  const SPLAT_FORCE = 2000;
   const SHADING = true;
   const COLOR_UPDATE_SPEED = 8;
-  const BACK_COLOR = { r: 0.5, g: 0, b: 0 };
+  const BACK_COLOR = { r: 0, g: 0, b: 0 };
   const TRANSPARENT = true;
-  const RAINBOW_MODE = true;
-  const COLOR = '#ff0000';
+  const RAINBOW_MODE = false;
+  const COLOR = '#3b82f6';
 
   let isActive = true;
 
@@ -83,7 +83,7 @@ function initSplashCursor(canvasId = "fluid") {
       halfFloat = gl.getExtension('OES_texture_half_float');
       supportLinearFiltering = gl.getExtension('OES_texture_half_float_linear');
     }
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
 
     const halfFloatTexType = isWebGL2 ? gl.HALF_FLOAT : halfFloat && halfFloat.HALF_FLOAT_OES;
     let formatRGBA;
