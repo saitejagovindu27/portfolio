@@ -81,18 +81,15 @@
       }
     </style>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
-        }
-      }
-    </script>
 </head>
 <body>
 
+  <!-- BACKGROUND SYSTEM -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-grid-micro" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
     <!-- GLOBAL FLUID CURSOR -->
-  <div id="beams-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none;"></div>
   <canvas id="fluid"></canvas>
 
   <!-- HEADER -->
@@ -257,7 +254,6 @@
     document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
   </script>
   <script src="js/splashCursor.js"></script>
-  <script type="module" src="js/beams.js"></script>
 </body>
 </html>
 

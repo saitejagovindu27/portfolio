@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Teja Govind | Senior UX Designer</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- OGL for Light Rays -->
-    <script>var exports = {};</script>
-    <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
     <!-- Lenis for Smooth Scroll Stack -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
-        }
-      }
-    </script>
 </head>
 <body id="top">
-  <div id="beams-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none;"></div>
+
+  <!-- BACKGROUND SYSTEM -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-grid-micro" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
   
   <!-- GLOBAL FLUID CURSOR -->
   <canvas id="fluid"></canvas>
@@ -37,8 +31,6 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="light-rays"></div>
-    <div class="hero-noise"></div>
 
     <div class="hero-content">
       <h1 class="hero-title">
@@ -194,12 +186,10 @@
   </script>
 
   <!-- Load Effects -->
-  <script src="js/lightRays.js"></script>
   <script src="js/splashCursor.js"></script>
   <script src="js/scrollStack.js"></script>
   <script src="js/heroInteractions.js"></script>
   <script src="js/logoLoop.js"></script>
   <script src="js/variableProximity.js"></script>
-  <script type="module" src="js/beams.js"></script>
 </body>
 </html>
