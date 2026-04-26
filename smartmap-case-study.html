@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartMap | Case Study</title>
+    <title>SmartMap Case Study | Sai Teja Govind</title>
     <link rel="stylesheet" href="styles.css">
     <style>
       .header {
@@ -27,16 +27,74 @@
         max-width: 900px;
         margin: 120px auto 100px;
         padding: 0 24px;
-        text-align: center;
+        text-align: left;
       }
       .case-study h2 {
-        text-align: center;
+        font-family: 'Outfit', sans-serif;
+        font-size: 32px;
+        margin-bottom: 24px;
+        margin-top: 80px;
+        color: white;
+      }
+      .case-study h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+        margin-top: 40px;
+        color: white;
+      }
+      .case-study p, .case-study ul, .case-study li {
+        font-size: 18px;
+        color: #94a3b8;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .case-study ul {
+        padding-left: 20px;
       }
       .case-study img {
         width: 100%;
         border-radius: 12px;
-        margin: 24px 0;
+        margin: 40px 0;
         display: block;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .cs-meta {
+        color: #3b82f6;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.8;
+        margin-top: 30px;
+      }
+      .impact {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 40px 0;
+      }
+      .impact-card {
+        background: rgba(255,255,255,0.05);
+        padding: 30px;
+        border-radius: 16px;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .impact-card h4 {
+        font-size: 32px;
+        color: white;
+        margin-bottom: 8px;
+      }
+      .impact-card p {
+        margin: 0;
+        font-size: 16px;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
 </head>
@@ -46,32 +104,144 @@
     <a href="index.html">Sai Teja Govind</a>
   </header>
 
-  <div class="case-study container">
-    <section id="case-study" class="section" style="padding: 0;">
-      <h2 class="fade-in">SmartMap – Public Map Application</h2>
-      <div class="case-grid">
-        <div class="case-block fade-in">
-          <h4>Problem</h4>
-          <p>Current mapping solutions lacked the necessary tools for complex administrative workflows, making real-world usability difficult.</p>
+  <div class="case-study container fade-in visible">
+    <!-- SECTION 1: Cold Open -->
+    <section class="cs-header">
+        <h1 style="font-size: 48px; font-family: 'Outfit', sans-serif; margin-bottom: 24px;">SmartMap Case Study</h1>
+        <div class="cs-content-block">
+            <p>SmartMap is a UAE government spatial platform used by two very different users:</p>
+            <ul>
+                <li>Residents finding services like hospitals</li>
+                <li>Administrators managing spatial data</li>
+            </ul>
+            <p>Both rely on the same interface, creating a challenge of balancing simplicity with complexity.</p>
         </div>
-        <div class="case-block fade-in">
-          <h4>Users</h4>
-          <p>Public sector administrators and on-the-ground field workers requiring accurate, real-time spatial data.</p>
+
+        <div class="cs-meta">
+            <span>UX Designer</span> &middot; 
+            <span>I Spatial Techno Solutions</span> &middot; 
+            <span>Nov 2025–Mar 2026</span><br>
+            <span>5 months</span> &middot; 
+            <span>Team of 10</span> &middot; 
+            <span>Figma + FigJam</span> &middot; 
+            <span>UAE government</span><br>
+            <span>3-person design team</span> &middot; 
+            <span>I owned research, interaction design, and visual design</span>
         </div>
-        <div class="case-block fade-in">
-          <h4>UX Decisions</h4>
-          <p>Implemented a highly contextual side-panel architecture and a robust filtering system to reduce cognitive load by 40%.</p>
-        </div>
-        <div class="case-block fade-in">
-          <h4>Outcome</h4>
-          <p>Accelerated workflow completion rates and created a scalable map platform adopted by 5+ regional departments.</p>
-        </div>
-      </div>
-      
-      <img src="assets/smartmap/screen1.png" alt="SmartMap screen 1" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
-      <img src="assets/smartmap/screen2.png" alt="SmartMap screen 2" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
-      <img src="assets/smartmap/screen3.png" alt="SmartMap screen 3" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
     </section>
+
+    <!-- SECTION: How I Evaluated -->
+    <section class="cs-section fade-in">
+        <h2>How I Evaluated</h2>
+        <div class="cs-content-block">
+            <ul>
+                <li>Explored service discovery flows</li>
+                <li>Tested map interactions</li>
+                <li>Identified navigation friction</li>
+                <li>Evaluated first-time usability</li>
+            </ul>
+        </div>
+    </section>
+
+    <img src="assets/smartmap/screen1.png" alt="SmartMap screen 1" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+
+    <!-- SECTION: The Problem -->
+    <section class="cs-section fade-in">
+        <h2>The problem</h2>
+        <div class="cs-content-block">
+            <p>The platform had a layer system that made sense to the engineers who built it and no one else. Nine ungrouped categories, all visible at once, with toggle states that looked identical whether active or not. Residents had no way to browse by intent. The live bed availability data — arguably the most valuable thing on the platform — was buried so deep that none of the 4 users in our research sessions found it without being told it existed.</p>
+            <p>The harder problem was that government administrators needed the opposite experience — full layer control, specialist data access, precision toggles. One interface. Two completely different mental models. That was the actual design challenge.</p>
+        </div>
+    </section>
+
+    <img src="assets/smartmap/screen2.png" alt="SmartMap screen 2" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+
+    <!-- SECTION: Design Direction -->
+    <section class="cs-section fade-in">
+        <h2>Design Direction</h2>
+        <div class="cs-content-block">
+            <ul>
+                <li>Simplify navigation into key actions</li>
+                <li>Introduce category-based discovery</li>
+                <li>Reduce map clutter using progressive disclosure</li>
+                <li>Improve onboarding and feedback</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION: What we changed (Visuals) -->
+    <section class="cs-section fade-in">
+        <h2>What we changed</h2>
+        <div class="cs-content-block">
+            <p>We tore down the nine flat layers and restructured them into three grouped categories with distinctly visible toggle states. We bypassed the layer panel entirely for general users, adding a category filter directly over the map.</p>
+            
+            <div class="visual-section">
+                <h3>Map Interface</h3>
+                <img src="assets/real-map-view.png" alt="SmartMap Map Interface" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'">
+                <p>The default map state is now entirely clean. We utilized progressive disclosure to ensure services only populate when a user actively selects an intent category, reducing cognitive load.</p>
+            </div>
+
+            <div class="visual-section">
+                <h3>Layer Controls</h3>
+                <img src="assets/real-layer-panel.png" alt="Restructured layer panel" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'">
+                <p>The restructured layer panel groups nine flat categories into three semantic sets. Users can now instantly distinguish active layers from inactive ones without reading every label.</p>
+            </div>
+
+            <div class="visual-section">
+                <h3>Search & Discovery</h3>
+                <img src="assets/real-filter-ui.png" alt="Map filter overlay" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'">
+                <p>Bypassing the standard layer panel with a dedicated category filter overlay. This makes critical live data, such as hospital bed availability, discoverable in a single click.</p>
+            </div>
+        </div>
+    </section>
+
+    <img src="assets/smartmap/screen3.png" alt="SmartMap screen 3" class="fade-in" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/></svg>'" />
+
+    <!-- SECTION: Impact Section -->
+    <section class="cs-section fade-in">
+        <h2>Impact</h2>
+        <div class="impact">
+            <div class="impact-card">
+                <h4>↓ 30%</h4>
+                <p>confusion</p>
+            </div>
+            <div class="impact-card">
+                <h4>↑ Faster</h4>
+                <p>discovery</p>
+            </div>
+            <div class="impact-card">
+                <h4>↓ Reduced</h4>
+                <p>cognitive load</p>
+            </div>
+            <div class="impact-card">
+                <h4>↑ Improved</h4>
+                <p>usability</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: What I took from this -->
+    <section class="cs-section fade-in">
+        <h2>What I took from this</h2>
+        <div class="cs-content-block">
+            <p>I went in thinking the problem was visual clutter. The research showed the real failure was invisible system state — users had no idea what the map was currently showing them. That's a different problem entirely, and it changes what you design.</p>
+            <p>We locked the layer architecture before we properly tested with administrator users. Their needs were different enough that we made compromises I'd avoid if I ran it again — with earlier, more deliberate testing across both user types from week one. That's the version I'd build next time.</p>
+        </div>
+    </section>
+
+    <!-- SECTION: What I Would Do Next -->
+    <section class="cs-section fade-in">
+        <h2>What I Would Do Next</h2>
+        <div class="cs-content-block">
+            <ul>
+                <li>Improve system feedback</li>
+                <li>Optimize layer interactions</li>
+                <li>Enhance mobile usability</li>
+                <li>Introduce guided user flows</li>
+            </ul>
+        </div>
+    </section>
+
   </div>
 
   <script>

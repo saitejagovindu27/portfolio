@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMap Case Study | Sai Teja Govind</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+
+    <!-- Global Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-header">
+                <div class="logo"><a href="index.html#top">Sai Teja Govind</a></div>
+                <button class="hamburger" id="nav-toggle">Γÿ░</button>
+            </div>
+            <div class="nav-links" id="nav-menu">
+                <ul>
+                    <li><a href="index.html#process">Process</a></li>
+                    <li><a href="index.html#work">Work</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Cold Open -->
+    <section class="cs-header reveal">
+        <div class="cs-content-block" style="text-align: left; font-size: 1.25rem;">
+            <p>SmartMap is a UAE government spatial platform used by two very different users:</p>
+            <ul>
+                <li>Residents finding services like hospitals</li>
+                <li>Administrators managing spatial data</li>
+            </ul>
+            <p>Both rely on the same interface, creating a challenge of balancing simplicity with complexity.</p>
+        </div>
+
+        <div class="cs-meta">
+            <span>UX Designer</span> &middot; 
+            <span>I Spatial Techno Solutions</span> &middot; 
+            <span>Nov 2025ΓÇôMar 2026</span><br>
+            <span>5 months</span> &middot; 
+            <span>Team of 10</span> &middot; 
+            <span>Figma + FigJam</span> &middot; 
+            <span>UAE government</span><br>
+            <span>3-person design team</span> &middot; 
+            <span>I owned research, interaction design, and visual design</span>
+        </div>
+    </section>
+
+    <!-- SECTION: How I Evaluated -->
+    <section class="cs-section reveal" style="padding-top: 0;">
+        <h2>How I Evaluated</h2>
+        <div class="cs-content-block">
+            <ul>
+                <li>Explored service discovery flows</li>
+                <li>Tested map interactions</li>
+                <li>Identified navigation friction</li>
+                <li>Evaluated first-time usability</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION: The Problem -->
+    <section class="cs-section reveal">
+        <h2>The problem</h2>
+        <div class="cs-content-block">
+            <p>The platform had a layer system that made sense to the engineers who built it and no one else. Nine ungrouped categories, all visible at once, with toggle states that looked identical whether active or not. Residents had no way to browse by intent. The live bed availability data ΓÇö arguably the most valuable thing on the platform ΓÇö was buried so deep that none of the 4 users in our research sessions found it without being told it existed.</p>
+            <p>The harder problem was that government administrators needed the opposite experience ΓÇö full layer control, specialist data access, precision toggles. One interface. Two completely different mental models. That was the actual design challenge.</p>
+        </div>
+    </section>
+
+    <!-- SECTION: Design Direction -->
+    <section class="cs-section reveal">
+        <h2>Design Direction</h2>
+        <div class="cs-content-block">
+            <ul>
+                <li>Simplify navigation into key actions</li>
+                <li>Introduce category-based discovery</li>
+                <li>Reduce map clutter using progressive disclosure</li>
+                <li>Improve onboarding and feedback</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION: What we changed (Visuals) -->
+    <section class="cs-section reveal">
+        <h2>What we changed</h2>
+        <div class="cs-content-block">
+            <p>We tore down the nine flat layers and restructured them into three grouped categories with distinctly visible toggle states. We bypassed the layer panel entirely for general users, adding a category filter directly over the map.</p>
+            
+            <div class="visual-section reveal">
+                <h3>Map Interface</h3>
+                <img src="assets/real-map-view.png" alt="SmartMap Map Interface" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/></svg>'">
+                <p>The default map state is now entirely clean. We utilized progressive disclosure to ensure services only populate when a user actively selects an intent category, reducing cognitive load.</p>
+            </div>
+
+            <div class="visual-section reveal">
+                <h3>Layer Controls</h3>
+                <img src="assets/real-layer-panel.png" alt="Restructured layer panel" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/></svg>'">
+                <p>The restructured layer panel groups nine flat categories into three semantic sets. Users can now instantly distinguish active layers from inactive ones without reading every label.</p>
+            </div>
+
+            <div class="visual-section reveal">
+                <h3>Search & Discovery</h3>
+                <img src="assets/real-filter-ui.png" alt="Map filter overlay" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e8f0\'/></svg>'">
+                <p>Bypassing the standard layer panel with a dedicated category filter overlay. This makes critical live data, such as hospital bed availability, discoverable in a single click.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Impact Section -->
+    <section class="cs-section reveal bg-sec" style="padding: 4rem 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin: 4rem auto;">
+        <h2>Impact</h2>
+        <div class="impact">
+            <div class="impact-card">
+                <h4>Γåô 30%</h4>
+                <p>confusion</p>
+            </div>
+            <div class="impact-card">
+                <h4>Γåæ Faster</h4>
+                <p>discovery</p>
+            </div>
+            <div class="impact-card">
+                <h4>Γåô Reduced</h4>
+                <p>cognitive load</p>
+            </div>
+            <div class="impact-card">
+                <h4>Γåæ Improved</h4>
+                <p>usability</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: What I took from this -->
+    <section class="cs-section reveal">
+        <h2>What I took from this</h2>
+        <div class="cs-content-block">
+            <p>I went in thinking the problem was visual clutter. The research showed the real failure was invisible system state ΓÇö users had no idea what the map was currently showing them. That's a different problem entirely, and it changes what you design.</p>
+            <p>We locked the layer architecture before we properly tested with administrator users. Their needs were different enough that we made compromises I'd avoid if I ran it again ΓÇö with earlier, more deliberate testing across both user types from week one. That's the version I'd build next time.</p>
+        </div>
+    </section>
+
+    <!-- SECTION: What I Would Do Next -->
+    <section class="cs-section reveal">
+        <h2>What I Would Do Next</h2>
+        <div class="cs-content-block">
+            <ul>
+                <li>Improve system feedback</li>
+                <li>Optimize layer interactions</li>
+                <li>Enhance mobile usability</li>
+                <li>Introduce guided user flows</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section id="contact" class="reveal bg-sec" style="border-bottom: none; margin-top: 4rem;">
+        <div class="narrative-block" style="margin: 0 auto; text-align: center;">
+            <h2 class="section-title" style="margin-bottom: 2rem;">Let's Connect</h2>
+            <p style="font-weight: 500; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2rem;">IΓÇÖm open to solving complex product challenges in SaaS and data-driven environments.</p>
+            
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="mailto:govindusaiteja@gmail.com" class="btn btn-primary">Email Me</a>
+                <a href="https://linkedin.com/in/saaiteja" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+                <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll to top on load
+        window.onload = function() {
+          window.scrollTo(0, 0);
+        };
+
+        const fadeElements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Mobile Nav Toggle
+        const toggle = document.getElementById('nav-toggle');
+        const menu = document.getElementById('nav-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                menu.classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>
