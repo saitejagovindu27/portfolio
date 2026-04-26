@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Wait for OGL to be available
   const checkOGL = setInterval(() => {
-    if (window.ogl) {
+    if (window.exports && window.exports.Renderer) {
+      window.ogl = window.exports;
       clearInterval(checkOGL);
       initWebGL();
     }
