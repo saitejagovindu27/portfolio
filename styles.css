@@ -74,7 +74,7 @@ body {
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 10%;
 }
 
