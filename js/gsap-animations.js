@@ -147,6 +147,53 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================================
   var bgGrid = document.querySelector(".bg-grid");
   var bgGlow = document.querySelector(".bg-glow");
+  var plasmaLayer = document.getElementById("plasma-layer");
+
   if (bgGrid) gsap.to(bgGrid, { y: 120, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 1 } });
   if (bgGlow) gsap.to(bgGlow, { y: 60, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 2 } });
+  if (plasmaLayer) gsap.to(plasmaLayer, { y: 80, scale: 1.05, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 1.5 } });
+
+  // =========================================
+  //  ORBIT — Parallax on scroll (depth feel)
+  // =========================================
+  var heroOrbit = document.querySelector(".hero-orbit");
+  if (heroOrbit) {
+    gsap.to(heroOrbit, {
+      y: -60, scale: 0.9, opacity: 0.3,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+  }
+
+  // =========================================
+  //  HERO CONTENT — Parallax out on scroll
+  // =========================================
+  var heroContent = document.querySelector(".hero-content");
+  if (heroContent) {
+    gsap.to(heroContent, {
+      y: -40, opacity: 0.2,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "center center",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+  }
+
+  // =========================================
+  //  CARD TAGS — Reveal
+  // =========================================
+  gsap.utils.toArray(".card-tag").forEach(function (tag) {
+    gsap.from(tag, {
+      x: -20, opacity: 0, duration: 0.5,
+      scrollTrigger: { trigger: tag, start: "top 85%", toggleActions: "play none none reverse" },
+    });
+  });
 });
