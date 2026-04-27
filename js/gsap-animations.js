@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  gsap.from(".hero-sub", { y: 20, opacity: 0, duration: 0.8, delay: 0.4, ease: "power3.out" });
-  gsap.from(".hero-cta", { y: 15, opacity: 0, duration: 0.6, delay: 0.7, ease: "power3.out" });
+  gsap.from(".hero-sub", { y: 20, opacity: 0, duration: 0.8, delay: 0.4, ease: "power3.out", clearProps: "all" });
+  gsap.from(".hero-cta", { y: 15, opacity: 0, duration: 0.6, delay: 0.7, ease: "power3.out", clearProps: "all" });
 
   // Orbit entrance — NO parallax-out on scroll (keeps it stable)
   gsap.from(".hero-orbit", { scale: 0.5, opacity: 0, duration: 1.2, delay: 0.3, ease: "back.out(1.2)" });
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: card,
         start: "top 88%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
     });
   });
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.utils.toArray(".section-block h2").forEach(function (h2) {
     gsap.from(h2, {
       y: 25, opacity: 0, duration: 0.6, ease: "power2.out",
-      scrollTrigger: { trigger: h2, start: "top 88%", toggleActions: "play none none reverse" },
+      scrollTrigger: { trigger: h2, start: "top 90%", toggleActions: "play none none none" },
     });
   });
 
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (connectEl) {
     gsap.from(connectEl.children, {
       y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out",
-      scrollTrigger: { trigger: connectEl, start: "top 85%", toggleActions: "play none none reverse" },
+      scrollTrigger: { trigger: connectEl, start: "top 90%", toggleActions: "play none none none" },
     });
   }
 
