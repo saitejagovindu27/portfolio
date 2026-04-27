@@ -347,7 +347,16 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px;
   color: #A0AEC0;
   line-height: 1.5;
+  margin-bottom: 10px;
+}
+.card-outcome {
+  display: block;
+  font-size: 13px;
+  color: #10b981;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   margin-bottom: 16px;
+  opacity: 0.85;
 }
 .card-cta {
   font-size: 14px;
