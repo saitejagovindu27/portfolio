@@ -4,30 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Teja Govind | Senior UX Designer</title>
+    <meta name="description" content="Senior UX Designer focused on enterprise platforms, spatial systems, and real-world usability.">
     <link rel="stylesheet" href="styles.css">
-    <!-- OGL for Plasma -->
     <script>var exports = {};</script>
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
-    <!-- Lenis for Smooth Scroll -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <!-- GSAP + ScrollTrigger -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
 <body id="top">
 
-  <!-- BACKGROUND SYSTEM -->
+  <!-- BACKGROUND -->
   <div id="plasma-layer" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-grid-micro" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
-
-  <!-- GLOBAL FLUID CURSOR -->
   <canvas id="fluid"></canvas>
 
   <!-- HEADER -->
   <header class="header">
-    <div class="logo"><a href="index.html" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" style="color:inherit; text-decoration:none;">Sai Teja Govind</a></div>
+    <div class="logo"><a href="#top">Sai Teja Govind</a></div>
     <nav>
       <a href="#work">Work</a>
       <a href="#tools">Tools</a>
@@ -36,96 +31,97 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title" id="hero-title">
-        Simplifying complex systems into intuitive experiences
-      </h1>
-      <p class="hero-sub">
-        UX Designer focused on enterprise platforms, spatial systems, and real-world usability.
-      </p>
-      <div class="hero-cta cta">
-        <button class="btn-primary magnetic" data-glow data-glow-color="220 80 60" data-glow-colors="#3b82f6,#6366f1,#38bdf8" data-glow-radius="12" data-glow-padding="20" data-glow-bg="transparent" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'})">View Work</button>
-        <button class="btn-secondary magnetic" data-glow data-glow-color="220 20 90" data-glow-colors="#94a3b8,#64748b,#94a3b8" data-glow-radius="12" data-glow-padding="16" data-glow-bg="transparent" data-glow-intensity="0.6" onclick="window.open('https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing', '_blank')">View Resume</button>
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title" id="hero-title">Simplifying complex systems into intuitive experiences</h1>
+        <p class="hero-sub">UX Designer focused on enterprise platforms, spatial systems, and real-world usability.</p>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Work</button>
+          <button class="btn-secondary" onclick="window.open('https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing','_blank')">View Resume</button>
+        </div>
       </div>
-    </div>
-
-    <div class="hero-visual">
-      <div class="hero-orbit" id="heroOrbit">
-        <div class="orbit-glow"></div>
-        <div class="orbit-ring ring-1"></div>
-        <div class="orbit-ring ring-2"></div>
-        <div class="orbit-center">User-Centered Design</div>
-        <div class="orbit-node n1">UX Research</div>
-        <div class="orbit-node n2">Wireframing</div>
-        <div class="orbit-node n3">Prototyping</div>
-        <div class="orbit-node n4">IA</div>
-        <div class="orbit-node n5">Design Systems</div>
-        <div class="orbit-node n6">Accessibility</div>
-        <div class="orbit-node n7">Data UX</div>
+      <div class="hero-visual">
+        <div class="hero-orbit" id="heroOrbit">
+          <div class="orbit-glow"></div>
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
+          <div class="orbit-center">User-Centered Design</div>
+          <div class="orbit-node n1">UX Research</div>
+          <div class="orbit-node n2">Wireframing</div>
+          <div class="orbit-node n3">Prototyping</div>
+          <div class="orbit-node n4">IA</div>
+          <div class="orbit-node n5">Design Systems</div>
+          <div class="orbit-node n6">Accessibility</div>
+          <div class="orbit-node n7">Data UX</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FEATURED WORK -->
-  <section id="work" class="featured">
-    <h2>Featured Work</h2>
-    <div class="work-grid">
+  <section id="work" class="section-block">
+    <div class="container">
+      <h2>Featured Work</h2>
+      <div class="work-grid">
 
-      <a href="smartmap-case-study.html" class="work-card scroll-card" data-glow data-glow-color="220 70 55" data-glow-colors="#3b82f6,#6366f1,#38bdf8" data-glow-radius="24" data-glow-padding="30" data-glow-bg="rgba(10,20,40,0.85)">
-        <div class="card-content">
-          <span class="card-tag">Enterprise GIS</span>
-          <h3>Smart Map</h3>
-          <p>Mapping & Workflow System — UAE government spatial platform redesign.</p>
-          <span class="card-cta">View Case Study →</span>
-        </div>
-        <div class="card-visual">
-          <img src="assets/smartmap/screen1.png" alt="SmartMap" onerror="this.style.display='none'" />
-        </div>
-      </a>
+        <a href="smartmap-case-study.html" class="work-card">
+          <div class="card-content">
+            <span class="card-tag">Enterprise GIS</span>
+            <h3>Smart Map</h3>
+            <p>Mapping & Workflow System — UAE government spatial platform redesign.</p>
+            <span class="card-cta">View Case Study →</span>
+          </div>
+          <div class="card-visual">
+            <img src="assets/smartmap/screen1.png" alt="SmartMap" loading="lazy" onerror="this.style.display='none'" />
+          </div>
+        </a>
 
-      <a href="data-platform-case-study.html" class="work-card scroll-card" data-glow data-glow-color="260 70 60" data-glow-colors="#6366f1,#a855f7,#3b82f6" data-glow-radius="24" data-glow-padding="30" data-glow-bg="rgba(10,20,40,0.85)">
-        <div class="card-content">
-          <span class="card-tag">Data Analytics</span>
-          <h3>Data Intelligence</h3>
-          <p>Dashboard UX — Consolidating 14 dashboards into one platform.</p>
-          <span class="card-cta">View Case Study →</span>
-        </div>
-        <div class="card-visual">
-          <img src="assets/data-platform/screen1.png" alt="Data Intelligence" onerror="this.style.display='none'" />
-        </div>
-      </a>
+        <a href="data-platform-case-study.html" class="work-card">
+          <div class="card-content">
+            <span class="card-tag">Data Analytics</span>
+            <h3>Data Intelligence</h3>
+            <p>Dashboard UX — Consolidating 14 dashboards into one platform.</p>
+            <span class="card-cta">View Case Study →</span>
+          </div>
+          <div class="card-visual">
+            <img src="assets/data-platform/screen1.png" alt="Data Intelligence" loading="lazy" onerror="this.style.display='none'" />
+          </div>
+        </a>
 
-      <a href="mrv-case-study.html" class="work-card scroll-card" data-glow data-glow-color="160 60 50" data-glow-colors="#10b981,#34d399,#3b82f6" data-glow-radius="24" data-glow-padding="30" data-glow-bg="rgba(10,20,40,0.85)">
-        <div class="card-content">
-          <span class="card-tag">Sustainability</span>
-          <h3>Smart MRV</h3>
-          <p>Sustainability Platform — Translating environmental data into clarity.</p>
-          <span class="card-cta">View Case Study →</span>
-        </div>
-        <div class="card-visual">
-          <img src="assets/mrv/screen1.png" alt="Smart MRV" onerror="this.style.display='none'" />
-        </div>
-      </a>
+        <a href="mrv-case-study.html" class="work-card">
+          <div class="card-content">
+            <span class="card-tag">Sustainability</span>
+            <h3>Smart MRV</h3>
+            <p>Sustainability Platform — Translating environmental data into clarity.</p>
+            <span class="card-cta">View Case Study →</span>
+          </div>
+          <div class="card-visual">
+            <img src="assets/mrv/screen1.png" alt="Smart MRV" loading="lazy" onerror="this.style.display='none'" />
+          </div>
+        </a>
 
-      <a href="bananaz-case-study.html" class="work-card scroll-card" data-glow data-glow-color="45 80 60" data-glow-colors="#f59e0b,#f472b6,#fbbf24" data-glow-radius="24" data-glow-padding="30" data-glow-bg="rgba(10,20,40,0.85)">
-        <div class="card-content">
-          <span class="card-tag">Brand Identity</span>
-          <h3>Bananaz</h3>
-          <p>Brand Identity & Digital Experience — Visual system and packaging.</p>
-          <span class="card-status">Coming Soon</span>
-        </div>
-        <div class="card-visual">
-          <img src="assets/bananaz/screen1.png" alt="Bananaz" onerror="this.style.display='none'" />
-        </div>
-      </a>
+        <a href="bananaz-case-study.html" class="work-card">
+          <div class="card-content">
+            <span class="card-tag">Brand Identity</span>
+            <h3>Bananaz</h3>
+            <p>Brand Identity & Digital Experience — Visual system and packaging.</p>
+            <span class="card-status">Coming Soon</span>
+          </div>
+          <div class="card-visual">
+            <img src="assets/bananaz/screen1.png" alt="Bananaz" loading="lazy" onerror="this.style.display='none'" />
+          </div>
+        </a>
 
+      </div>
     </div>
   </section>
 
-  <!-- TOOLS (MARQUEE) -->
-  <section id="tools" class="section">
-    <h2>Tools I Use</h2>
+  <!-- TOOLS -->
+  <section id="tools" class="section-block">
+    <div class="container">
+      <h2>Tools I Use</h2>
+    </div>
     <div class="marquee-wrapper">
       <div class="marquee-track">
         <div class="tool">Figma</div>
@@ -135,7 +131,6 @@
         <div class="tool">Antigravity</div>
         <div class="tool">Lovable</div>
         <div class="tool">Stitch</div>
-        <div class="tool">Miro</div>
         <div class="tool">Figma</div>
         <div class="tool">Adobe Suite</div>
         <div class="tool">ChatGPT</div>
@@ -143,30 +138,31 @@
         <div class="tool">Antigravity</div>
         <div class="tool">Lovable</div>
         <div class="tool">Stitch</div>
-        <div class="tool">Miro</div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="connect-section">
-    <h2>Let's Connect</h2>
-    <p>Open to solving complex product challenges in SaaS and data systems.</p>
-    <div class="connect-actions">
-      <a href="https://linkedin.com/in/saaiteja" target="_blank" class="primary-btn" data-glow data-glow-color="220 80 60" data-glow-colors="#3b82f6,#6366f1,#38bdf8" data-glow-radius="10" data-glow-padding="16" data-glow-bg="transparent">LinkedIn</a>
-      <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" class="secondary-btn">Resume</a>
-      <a href="mailto:govindusaiteja@gmail.com" class="secondary-btn">Get in touch</a>
-      <a href="https://www.behance.net/saiteja83" target="_blank" class="secondary-btn">Behance ↗</a>
+  <section id="contact" class="section-block">
+    <div class="container">
+      <h2>Let's Connect</h2>
+      <p class="connect-sub">Open to solving complex product challenges in SaaS and data systems.</p>
+      <div class="connect-actions">
+        <a href="https://linkedin.com/in/saaiteja" target="_blank" class="btn-primary">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1LGX02i3yq-JSN4P4GGxipDK1RtpTfTCP/view?usp=sharing" target="_blank" class="btn-secondary">Resume</a>
+        <a href="mailto:govindusaiteja@gmail.com" class="btn-secondary">Get in touch</a>
+        <a href="https://www.behance.net/saiteja83" target="_blank" class="btn-secondary">Behance ↗</a>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <p>© 2026 Sai Teja Govind. Designed with intention.</p>
+    <div class="container">
+      <p>© 2026 Sai Teja Govind. Designed with intention.</p>
+    </div>
   </footer>
 
-  <!-- Load Effects -->
-  <script src="js/borderGlow.js"></script>
   <script src="js/splashCursor.js"></script>
   <script src="js/heroInteractions.js"></script>
   <script src="js/plasma.js"></script>

@@ -1,18 +1,17 @@
 /**
- * GSAP Scroll Animations — Inspired by gsap.com/scroll
- * Scroll-scrubbed reveals, parallax depth, text split, marquee
+ * GSAP Scroll Animations — Production
+ * Smooth, stable, no jitter
  */
 document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
   // =========================================
-  //  LENIS SMOOTH SCROLL — synced with GSAP
+  //  LENIS SMOOTH SCROLL
   // =========================================
   if (typeof Lenis !== "undefined") {
     var lenis = new Lenis({
       duration: 1.2,
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-      smooth: true,
     });
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =========================================
-  //  HERO — Word-by-word 3D text reveal
+  //  HERO — Word split entrance
   // =========================================
   var heroTitle = document.getElementById("hero-title");
   if (heroTitle) {
@@ -33,100 +32,78 @@ document.addEventListener("DOMContentLoaded", function () {
       span.style.cssText = "display:inline-block;margin-right:10px;";
       heroTitle.appendChild(span);
     });
-
     gsap.from(".hero-title .word", {
-      y: 60, opacity: 0, rotateX: -30,
-      duration: 0.9, stagger: 0.06, ease: "power3.out",
+      y: 50, opacity: 0, duration: 0.8, stagger: 0.06, ease: "power3.out",
     });
   }
 
-  gsap.from(".hero-sub", { y: 30, opacity: 0, duration: 0.9, delay: 0.5, ease: "power3.out" });
-  gsap.from(".hero-cta", { y: 20, opacity: 0, duration: 0.7, delay: 0.8, ease: "power3.out" });
+  gsap.from(".hero-sub", { y: 20, opacity: 0, duration: 0.8, delay: 0.4, ease: "power3.out" });
+  gsap.from(".hero-cta", { y: 15, opacity: 0, duration: 0.6, delay: 0.7, ease: "power3.out" });
 
-  // Orbit entrance
-  gsap.from(".hero-orbit", { scale: 0.4, opacity: 0, duration: 1.2, delay: 0.3, ease: "back.out(1.2)" });
+  // Orbit entrance — NO parallax-out on scroll (keeps it stable)
+  gsap.from(".hero-orbit", { scale: 0.5, opacity: 0, duration: 1.2, delay: 0.3, ease: "back.out(1.2)" });
   gsap.from(".orbit-node", { scale: 0, opacity: 0, duration: 0.5, stagger: 0.08, delay: 0.8, ease: "back.out(2)" });
-  gsap.from(".orbit-ring", { scale: 0.2, opacity: 0, duration: 0.8, stagger: 0.15, delay: 0.5 });
+  gsap.from(".orbit-ring", { scale: 0.3, opacity: 0, duration: 0.8, stagger: 0.15, delay: 0.5 });
 
-  // =========================================
-  //  ORBIT — Subtle floating animation
-  // =========================================
+  // Orbit — Gentle float
   gsap.utils.toArray(".orbit-node").forEach(function (node, i) {
     gsap.to(node, {
-      y: -8 + (i % 3) * 4,
-      duration: 3 + i * 0.5,
-      repeat: -1,
-      yoyo: true,
+      y: (i % 2 === 0) ? -6 : 6,
+      duration: 3 + i * 0.4,
+      repeat: -1, yoyo: true,
       ease: "sine.inOut",
-      delay: i * 0.3,
+      delay: i * 0.2,
     });
   });
 
   // =========================================
-  //  FEATURED WORK — Scroll-scrubbed cards
-  //  Inspired by gsap.com/scroll stacking
+  //  WORK CARDS — Scroll reveal (no scrub)
   // =========================================
-  gsap.utils.toArray(".scroll-card").forEach(function (card, i) {
-    // Scroll-scrubbed parallax entrance
+  gsap.utils.toArray(".work-card").forEach(function (card, i) {
     gsap.from(card, {
-      y: 100,
-      opacity: 0,
-      scale: 0.95,
+      y: 60, opacity: 0, duration: 0.7,
+      delay: i * 0.1,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: card,
-        start: "top 90%",
-        end: "top 40%",
-        scrub: 1,
+        start: "top 88%",
+        toggleActions: "play none none reverse",
       },
     });
-
-    // Subtle parallax on the card-visual (image moves slower)
-    var visual = card.querySelector(".card-visual");
-    if (visual) {
-      gsap.to(visual, {
-        y: -30,
-        scrollTrigger: {
-          trigger: card,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-      });
-    }
   });
 
   // =========================================
-  //  SECTION HEADINGS — Reveal
+  //  SECTION HEADINGS
   // =========================================
-  gsap.utils.toArray("section h2").forEach(function (h2) {
+  gsap.utils.toArray(".section-block h2").forEach(function (h2) {
     gsap.from(h2, {
-      scrollTrigger: { trigger: h2, start: "top 85%", toggleActions: "play none none reverse" },
-      y: 30, opacity: 0, duration: 0.7, ease: "power2.out",
+      y: 25, opacity: 0, duration: 0.6, ease: "power2.out",
+      scrollTrigger: { trigger: h2, start: "top 88%", toggleActions: "play none none reverse" },
     });
   });
 
   // =========================================
-  //  TOOLS MARQUEE — GSAP powered
+  //  TOOLS MARQUEE
   // =========================================
   var marqueeTrack = document.querySelector(".marquee-track");
   if (marqueeTrack) {
     var totalWidth = marqueeTrack.scrollWidth / 2;
     gsap.to(marqueeTrack, {
       x: -totalWidth,
-      duration: 25,
+      duration: 30,
       repeat: -1,
       ease: "none",
     });
   }
 
   // =========================================
-  //  CONTACT — Staggered reveal
+  //  CONTACT
   // =========================================
-  var connectEl = document.querySelector(".connect-section");
+  var connectEl = document.querySelector("#contact .container");
   if (connectEl) {
     gsap.from(connectEl.children, {
-      scrollTrigger: { trigger: connectEl, start: "top 80%", toggleActions: "play none none reverse" },
-      y: 40, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power2.out",
+      y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out",
+      scrollTrigger: { trigger: connectEl, start: "top 85%", toggleActions: "play none none reverse" },
     });
   }
 
@@ -134,66 +111,18 @@ document.addEventListener("DOMContentLoaded", function () {
   //  SCROLL PROGRESS BAR
   // =========================================
   var bar = document.createElement("div");
-  bar.style.cssText = "position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,#3b82f6,#2563eb);z-index:10001;transform-origin:left;transform:scaleX(0);pointer-events:none;";
+  bar.style.cssText = "position:fixed;top:0;left:0;height:2px;width:100%;background:linear-gradient(90deg,#3b82f6,#2563eb);z-index:10001;transform-origin:left;transform:scaleX(0);pointer-events:none;";
   document.body.prepend(bar);
-
   gsap.to(bar, {
     scaleX: 1, ease: "none",
     scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.3 },
   });
 
   // =========================================
-  //  BACKGROUND PARALLAX — Scrubbed depth
+  //  BACKGROUND PARALLAX (subtle)
   // =========================================
   var bgGrid = document.querySelector(".bg-grid");
   var bgGlow = document.querySelector(".bg-glow");
-  var plasmaLayer = document.getElementById("plasma-layer");
-
-  if (bgGrid) gsap.to(bgGrid, { y: 120, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 1 } });
-  if (bgGlow) gsap.to(bgGlow, { y: 60, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 2 } });
-  if (plasmaLayer) gsap.to(plasmaLayer, { y: 80, scale: 1.05, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 1.5 } });
-
-  // =========================================
-  //  ORBIT — Parallax on scroll (depth feel)
-  // =========================================
-  var heroOrbit = document.querySelector(".hero-orbit");
-  if (heroOrbit) {
-    gsap.to(heroOrbit, {
-      y: -60, scale: 0.9, opacity: 0.3,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
-  }
-
-  // =========================================
-  //  HERO CONTENT — Parallax out on scroll
-  // =========================================
-  var heroContent = document.querySelector(".hero-content");
-  if (heroContent) {
-    gsap.to(heroContent, {
-      y: -40, opacity: 0.2,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "center center",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
-  }
-
-  // =========================================
-  //  CARD TAGS — Reveal
-  // =========================================
-  gsap.utils.toArray(".card-tag").forEach(function (tag) {
-    gsap.from(tag, {
-      x: -20, opacity: 0, duration: 0.5,
-      scrollTrigger: { trigger: tag, start: "top 85%", toggleActions: "play none none reverse" },
-    });
-  });
+  if (bgGrid) gsap.to(bgGrid, { y: 80, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 1 } });
+  if (bgGlow) gsap.to(bgGlow, { y: 40, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 2 } });
 });
