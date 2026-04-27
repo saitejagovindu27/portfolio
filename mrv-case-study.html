@@ -378,6 +378,21 @@
     </div>
     <p class="cs-caption">Key screens from the final shipped platform</p>
 
+    <!-- ===== KEY DECISION ===== -->
+    <section class="cs-section fade">
+      <h2>Key Decision</h2>
+      <p>The most consequential decision was replacing the existing free-form data entry for compliance reports with a guided 4-step wizard. The team initially resisted — they felt a wizard was "too simple" for sophisticated compliance officers.</p>
+      <p>I ran a task completion test with 3 compliance managers using both approaches. With free-form entry, the average completion time was 8+ minutes with 2 errors per report. With the wizard, it dropped to under 3 minutes with zero errors. The data ended the debate.</p>
+      <p>The wizard wasn't a UX opinion — it was a measured response to observed failure patterns.</p>
+    </section>
+
+    <!-- ===== CONSTRAINT ===== -->
+    <section class="cs-section fade">
+      <h2>Constraint</h2>
+      <p>The platform had to support both international reporting frameworks (GHG Protocol, IPCC guidelines) and UAE-specific regulatory requirements simultaneously. These frameworks use different calculation methodologies, different emission categories, and different reporting formats.</p>
+      <p>Rather than forcing users to choose a framework upfront, I designed the data input to be framework-agnostic — users enter raw operational data (fuel consumption, electricity usage, waste volumes) and the system generates reports in whichever format is required. This meant the UX stays simple while the complexity lives in the backend calculation engine.</p>
+    </section>
+
     <!-- ===== REFLECTION ===== -->
     <section class="cs-section fade">
       <h2>What I Learned</h2>

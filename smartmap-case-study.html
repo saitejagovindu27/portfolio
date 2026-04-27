@@ -391,6 +391,21 @@
     </div>
     <p class="cs-caption">Key screens from the shipped platform — landing grid, map interface, detail panel, and layer management</p>
 
+    <!-- ===== KEY DECISION ===== -->
+    <section class="cs-section fade">
+      <h2>Key Decision</h2>
+      <p>The single most impactful decision was splitting the platform into two distinct modes — Discovery for residents and Professional for administrators — rather than trying to progressively disclose complexity within one interface.</p>
+      <p>The alternative was a "power user toggle" that would reveal advanced controls. We prototyped this and tested it with 3 users. Every single one toggled it on, got confused by the additional controls, and couldn't toggle it back off. The toggle created a worse version of the original problem.</p>
+      <p>The dual-mode approach doubled our design surface but made both experiences dramatically simpler. It was the right call.</p>
+    </section>
+
+    <!-- ===== CONSTRAINT ===== -->
+    <section class="cs-section fade">
+      <h2>Constraint</h2>
+      <p>We couldn't change the data pipeline. All 40+ spatial datasets were served through a legacy GIS backend with fixed schemas and update intervals. This meant the information architecture had to be designed around existing data structures — we couldn't rename fields, merge datasets, or change update frequencies.</p>
+      <p>This constraint actually improved the design. Instead of reorganizing the data, we reorganized the access patterns. The category-based entry and NLQ search layer sits on top of the existing data without modifying it — a presentation layer that translates engineering-grade data into human-grade experiences.</p>
+    </section>
+
     <!-- ===== REFLECTION ===== -->
     <section class="cs-section fade">
       <h2>What I Learned</h2>
