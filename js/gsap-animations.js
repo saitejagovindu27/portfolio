@@ -146,21 +146,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // =========================================
-  //  BACKGROUND PARALLAX (subtle)
+  //  BACKGROUND PARALLAX & FLOW
   // =========================================
   var bgGrid = document.querySelector(".bg-grid");
   var bgGlow = document.querySelector(".bg-glow");
-  if (bgGrid) gsap.to(bgGrid, { y: 150, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: true } });
-  if (bgGlow) gsap.to(bgGlow, { y: 80, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: true } });
+  
+  if (bgGrid) {
+    gsap.to(bgGrid, { 
+      y: 200, 
+      ease: "none", 
+      scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: true } 
+    });
+  }
+  
+  if (bgGlow) {
+    gsap.to(bgGlow, { 
+      y: 100, 
+      opacity: 0.8,
+      background: "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), transparent 70%)",
+      ease: "none", 
+      scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: true } 
+    });
+  }
 
   // =========================================
   //  SCROLL PARALLAX — MEMORABLE DEPTH
   // =========================================
-  // Hero Image Parallax
+  // Hero Image Parallax (Fast Drift)
   var heroImg = document.querySelector(".hero-img-float");
   if (heroImg) {
     gsap.to(heroImg, {
-      y: 120,
+      y: 180,
+      rotate: 5,
       ease: "none",
       scrollTrigger: {
         trigger: ".hero",
@@ -171,11 +188,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // About Orbit Parallax
+  // About Orbit Parallax (Slow Drift)
   var aboutOrbit = document.querySelector(".about-visual #heroOrbit");
   if (aboutOrbit) {
     gsap.to(aboutOrbit, {
-      y: 140,
+      y: 150,
+      scale: 1.1,
       ease: "none",
       scrollTrigger: {
         trigger: ".about-section",
@@ -185,4 +203,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // Section Content Floating Effect
+  gsap.utils.toArray(".section-block").forEach(function(section, i) {
+    var content = section.querySelector(".container");
+    if (content && i > 0) {
+      gsap.to(content, {
+        y: -40,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+    }
+  });
 });
