@@ -1,0 +1,79 @@
+/* =========================================
+   CASE STUDY — SHARED STYLES
+========================================= */
+.cs-page { max-width: 860px; margin: 0 auto; padding: 120px 80px 100px; }
+.cs-hero { margin-bottom: 48px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.cs-hero h1 { font-size: clamp(36px, 5vw, 52px); font-family: 'Satoshi', sans-serif; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 18px; }
+.cs-hero-sub { font-size: 17px; color: #94a3b8; line-height: 1.7; max-width: 640px; }
+.cs-meta { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 24px; }
+.cs-meta-item { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; display: flex; align-items: center; gap: 8px; }
+.cs-meta-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #3b82f6; box-shadow: 0 0 8px rgba(59,130,246,0.4); }
+
+/* Sections */
+.cs-section { margin-bottom: 48px; }
+.cs-section h2 { font-size: 24px; font-family: 'Satoshi', sans-serif; margin-bottom: 14px; color: white; }
+.cs-section h3 { font-size: 18px; margin: 20px 0 8px; color: #e2e8f0; }
+.cs-section p { font-size: 16px; color: #94a3b8; line-height: 1.7; margin-bottom: 10px; max-width: 700px; }
+.cs-section ul { padding-left: 20px; margin-bottom: 10px; }
+.cs-section li { font-size: 15px; color: #94a3b8; line-height: 1.6; margin-bottom: 6px; }
+
+/* Images */
+.cs-img { width: 100%; max-width: 900px; margin: 28px auto; border-radius: 16px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.06); }
+.cs-img-full { height: auto; background: linear-gradient(135deg, #0a1628 0%, #111a35 100%); }
+.cs-img-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px auto; max-width: 900px; }
+.cs-img-half { height: auto; border-radius: 16px; background: linear-gradient(135deg, #0a1628 0%, #111a35 100%); border: 1px solid rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+.cs-img::after, .cs-img-half::after { content: attr(data-label); position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,0.2); font-size: 13px; font-weight: 500; letter-spacing: 0.05em; pointer-events: none; z-index: 1; }
+.cs-img img, .cs-img-half img { width: 100%; height: auto; display: block; position: relative; z-index: 2; opacity: 0; transition: opacity 0.4s ease; border-radius: 16px; max-height: 420px; object-fit: cover; }
+.cs-img img.loaded, .cs-img-half img.loaded { opacity: 1; }
+.cs-caption { font-size: 13px; color: #475569; margin-top: -16px; margin-bottom: 28px; font-style: italic; max-width: 900px; margin-left: auto; margin-right: auto; }
+
+/* Module Grid */
+.cs-modules { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+.cs-module { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 20px; border-radius: 14px; }
+.cs-module h4 { font-size: 15px; color: #e2e8f0; margin-bottom: 6px; font-weight: 600; }
+.cs-module p { font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.5; }
+
+/* Decisions */
+.cs-decisions { display: flex; flex-direction: column; gap: 16px; margin: 16px 0; }
+.cs-decision { background: rgba(255,255,255,0.02); border-left: 3px solid rgba(59,130,246,0.3); padding: 16px 20px; border-radius: 0 12px 12px 0; }
+.cs-decision strong { font-size: 15px; color: #e2e8f0; display: block; margin-bottom: 4px; }
+.cs-decision p { font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6; }
+
+/* Impact Grid */
+.impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 20px 0; }
+.impact-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 20px 16px; border-radius: 14px; text-align: center; }
+.impact-card h4 { font-size: 22px; color: white; margin-bottom: 4px; font-weight: 700; }
+.impact-card p { font-size: 13px; color: #64748b; margin: 0; line-height: 1.4; }
+
+/* Callout */
+.cs-callout { background: rgba(59,130,246,0.05); border-left: 3px solid #3b82f6; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 20px 0; }
+.cs-callout p { color: #cbd5e1; font-size: 15px; line-height: 1.6; margin: 0; }
+
+/* Highlight Card */
+.highlight-card { background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(59,130,246,0.03)); border: 1px solid rgba(99,102,241,0.1); border-radius: 16px; padding: 24px 28px; margin: 24px 0; }
+.highlight-card h3 { font-size: 17px; color: #c7d2fe; margin: 0 0 8px; }
+.highlight-card p { font-size: 15px; color: #94a3b8; margin: 0; line-height: 1.6; }
+
+/* System Diagram */
+.system-diagram { display: flex; align-items: center; justify-content: center; gap: 0; margin: 24px 0; flex-wrap: wrap; }
+.sys-node { background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.15); padding: 12px 18px; border-radius: 12px; font-size: 13px; font-weight: 600; color: #94a3b8; text-align: center; min-width: 110px; }
+.sys-arrow { color: #3b82f6; font-size: 18px; padding: 0 6px; opacity: 0.4; }
+.sys-node.active { background: rgba(59,130,246,0.1); border-color: #3b82f6; color: white; box-shadow: 0 0 16px rgba(59,130,246,0.12); }
+
+/* Back Link */
+.cs-back { display: inline-flex; align-items: center; gap: 8px; color: #3b82f6; font-size: 14px; font-weight: 500; margin-top: 32px; transition: gap 0.3s; }
+.cs-back:hover { gap: 12px; }
+
+/* Fade */
+.fade { opacity: 0; transform: translateY(16px); transition: .5s cubic-bezier(0.22,1,0.36,1); }
+.fade.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cs-page { padding: 100px 24px 60px; }
+  .cs-img-split { grid-template-columns: 1fr; }
+  .cs-modules { grid-template-columns: 1fr; }
+  .cs-hero h1 { font-size: clamp(28px, 7vw, 40px); }
+  .system-diagram { flex-direction: column; gap: 6px; }
+  .sys-arrow { transform: rotate(90deg); }
+}

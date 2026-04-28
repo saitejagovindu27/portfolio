@@ -4,224 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Map — Case Study | Sai Teja Govind</title>
-    <meta name="description" content="UX case study: Redesigning Smart Map — a UAE government spatial platform serving 2M+ residents and government administrators.">
+    <meta name="description" content="UX case study: Redesigning SmartMap — UAE government spatial platform for 2M+ residents.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/case-study.css">
     <script>var exports = {};</script>
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <style>
-      /* Case Study Layout */
-      .cs-page { max-width: 860px; margin: 0 auto; padding: 120px 80px 100px; }
-      .cs-hero { margin-bottom: 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .cs-hero h1 {
-        font-size: clamp(36px, 5vw, 52px);
-        font-family: 'Satoshi', sans-serif;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-bottom: 20px;
-      }
-      .cs-hero-sub {
-        font-size: 19px;
-        color: #94a3b8;
-        line-height: 1.6;
-        max-width: 640px;
-      }
-      .cs-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px 28px;
-        margin-top: 36px;
-      }
-      .cs-meta-item {
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: #64748b;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .cs-meta-item::before {
-        content: '';
-        width: 5px; height: 5px;
-        border-radius: 50%;
-        background: #3b82f6;
-        box-shadow: 0 0 8px rgba(59,130,246,0.5);
-      }
-
-      /* Sections */
-      .cs-section { margin-bottom: 72px; }
-      .cs-section h2 {
-        font-size: 28px;
-        font-family: 'Satoshi', sans-serif;
-        margin-bottom: 20px;
-        color: white;
-      }
-      .cs-section p {
-        font-size: 17px;
-        color: #94a3b8;
-        line-height: 1.7;
-        margin-bottom: 16px;
-        max-width: 700px;
-      }
-      .cs-section ul {
-        padding-left: 20px;
-        margin-bottom: 16px;
-      }
-      .cs-section li {
-        font-size: 17px;
-        color: #94a3b8;
-        line-height: 1.7;
-        margin-bottom: 10px;
-      }
-
-      /* Image Containers */
-      .cs-img {
-        width: 100%;
-        max-width: 900px;
-        margin: 32px auto;
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-        border: 1px solid rgba(255,255,255,0.06);
-      }
-      .cs-img-full {
-        height: auto;
-        background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
-      }
-      .cs-img-split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        border: none;
-      }
-      .cs-img-split .cs-img-half {
-        height: auto;
-        border-radius: 12px;
-        background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
-        border: 1px solid rgba(255,255,255,0.06);
-        position: relative;
-        overflow: hidden;
-      }
-      .cs-img::after,
-      .cs-img-half::after {
-        content: attr(data-label);
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        color: rgba(255,255,255,0.2);
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 0.05em;
-        pointer-events: none;
-      }
-      .cs-img img,
-      .cs-img-half img {
-        width: 100%;
-        height: auto;
-        display: block;
-        position: relative;
-        z-index: 2;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        border-radius: 16px;
-      }
-      .cs-img img.loaded,
-      .cs-img-half img.loaded {
-        opacity: 1;
-      }
-      .cs-caption {
-        font-size: 13px;
-        color: #475569;
-        margin-top: -20px;
-        margin-bottom: 32px;
-        font-style: italic;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* Impact Grid */
-      .impact-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 16px;
-        margin: 32px 0;
-      }
-      .impact-card {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.06);
-        padding: 28px 24px;
-        border-radius: 16px;
-        text-align: center;
-      }
-      .impact-card h4 {
-        font-size: 28px;
-        color: white;
-        margin-bottom: 6px;
-        font-weight: 700;
-      }
-      .impact-card p {
-        font-size: 14px;
-        color: #64748b;
-        margin: 0;
-        line-height: 1.4;
-      }
-
-      /* Callout */
-      .cs-callout {
-        background: rgba(59,130,246,0.06);
-        border-left: 3px solid #3b82f6;
-        padding: 24px 28px;
-        border-radius: 0 12px 12px 0;
-        margin: 32px 0;
-      }
-      .cs-callout p {
-        color: #cbd5e1;
-        font-size: 16px;
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      /* Back Link */
-      .cs-back {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: #3b82f6;
-        font-size: 14px;
-        font-weight: 500;
-        margin-top: 40px;
-        transition: gap 0.3s;
-      }
-      .cs-back:hover { gap: 12px; }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .cs-page { padding: 100px 24px 60px; }
-        .cs-img-full { min-height: 220px; }
-        .cs-img-split { grid-template-columns: 1fr; }
-        .cs-img-split .cs-img-half { min-height: 200px; }
-        .cs-hero h1 { font-size: clamp(28px, 7vw, 40px); }
-      }
-
-      /* Fade */
-      .fade { opacity: 0; transform: translateY(20px); transition: .6s cubic-bezier(0.22,1,0.36,1); }
-      .fade.visible { opacity: 1; transform: translateY(0); }
-    </style>
 </head>
 <body>
-
-  <!-- Background -->
   <div id="plasma-layer" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
   <canvas id="fluid"></canvas>
 
-  <!-- Header -->
   <header class="header">
     <div class="logo"><a href="index.html">Sai Teja Govind</a></div>
     <nav>
@@ -233,208 +30,145 @@
 
   <main class="cs-page">
 
-    <!-- ===== HERO ===== -->
+    <!-- 1. OVERVIEW -->
     <section class="cs-hero fade">
       <h1>Smart Map</h1>
-      <p class="cs-hero-sub">Redesigning a UAE government spatial platform that serves two fundamentally different users — residents discovering city services, and administrators managing complex geospatial datasets — through a single, unified interface.</p>
+      <p class="cs-hero-sub">UAE government spatial platform serving 2M+ residents. I redesigned the layer architecture and built a dual-mode interface — one for public exploration, one for government administrators.</p>
       <div class="cs-meta">
         <span class="cs-meta-item">Lead UX Designer</span>
-        <span class="cs-meta-item">I Spatial Techno Solutions</span>
-        <span class="cs-meta-item">Nov 2025–Mar 2026</span>
-        <span class="cs-meta-item">5 Months</span>
-        <span class="cs-meta-item">Team of 10 (3 Designers)</span>
-        <span class="cs-meta-item">Enterprise GIS / GovTech</span>
+        <span class="cs-meta-item">Sharjah Government</span>
+        <span class="cs-meta-item">2024–2025</span>
+        <span class="cs-meta-item">GIS System</span>
       </div>
     </section>
 
-    <!-- ===== CONTEXT ===== -->
-    <section class="cs-section fade">
-      <h2>Context</h2>
-      <p>SDI Smart Map is Abu Dhabi's official spatial data infrastructure portal. It consolidates government spatial datasets — healthcare facilities, schools, transport networks, utilities, land use — into a single interactive map application used by over 2 million residents and thousands of government employees.</p>
-      <p>The platform has two core surfaces: a <strong style="color:#e2e8f0">public-facing discovery interface</strong> where residents search for hospitals, schools, and services by proximity and category — and an <strong style="color:#e2e8f0">administrative GIS dashboard</strong> where government data officers manage layers, configure spatial datasets, run analytics, and generate reports.</p>
-      <p>I owned research, interaction design, and visual design across both experiences — from the initial category landing to the deep layer management system.</p>
-    </section>
-
-    <!-- ===== PROBLEM ===== -->
-    <section class="cs-section fade">
-      <h2>The Problem</h2>
-      <p>One interface, two completely different mental models. That was the core design challenge.</p>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">For Residents</h3>
-      <ul>
-        <li>The layer system made sense to engineers but confused everyone else — 9 ungrouped categories, all visible at once, with toggle states that looked identical whether active or not</li>
-        <li>No intent-based navigation. A resident looking for "nearest hospital with available beds" had no path to that answer</li>
-        <li>The most valuable data — live bed availability, real-time service status — was buried so deep that none of the 4 users in our research sessions found it without being told it existed</li>
-        <li>Zero progressive disclosure. Full-density interface on first load created immediate cognitive overload</li>
-      </ul>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">For Administrators</h3>
-      <ul>
-        <li>Layer management required navigating between 3 separate panels to configure a single dataset</li>
-        <li>No visual distinction between published/draft/archived layers</li>
-        <li>Spatial analytics tools were hidden behind nested menus with no keyboard shortcuts or workflow memory</li>
-        <li>The same simplified controls designed for residents were frustrating professionals who needed precision and speed</li>
-      </ul>
-    </section>
-
-    <!-- ===== IMAGE 1: Landing — Category Grid ===== -->
-    <div class="cs-img cs-img-full fade" data-label="Landing — Category Grid">
-      <img src="assets/smartmap/landing.png" alt="SmartMap Landing Page with category grid" loading="lazy" onload="this.classList.add('loaded')" />
+    <!-- IMAGE: Hero -->
+    <div class="cs-img cs-img-full fade" data-label="SmartMap — Landing & Map Interface">
+      <img src="assets/smartmap/screen1.png" alt="SmartMap Landing" loading="lazy" onload="this.classList.add('loaded')" />
     </div>
-    <p class="cs-caption">Intent-based category entry: Education, Healthcare, Transport, Business — residents start with purpose, not tools</p>
 
-    <!-- ===== RESEARCH ===== -->
+    <!-- 2. PROBLEM -->
     <section class="cs-section fade">
-      <h2>Research & Discovery</h2>
-      <p>Before touching any design tool, I spent the first three weeks in deep research:</p>
+      <h2>Problem</h2>
       <ul>
-        <li><strong style="color:#cbd5e1">User observation sessions</strong> — Watched 4 residents and 3 administrators use the existing platform. Documented where they paused, backtracked, and gave up</li>
-        <li><strong style="color:#cbd5e1">Competitive analysis</strong> — Audited 6 government spatial platforms (Singapore OneMap, UK OS Maps, Dubai REST, Abu Dhabi Open Data) to map interaction patterns and information architectures</li>
-        <li><strong style="color:#cbd5e1">Heuristic evaluation</strong> — Systematically scored the existing interface against Nielsen's 10 heuristics. Scored 3.2/10 on "Recognition over recall" and 2.8/10 on "Visibility of system status"</li>
-        <li><strong style="color:#cbd5e1">Journey mapping</strong> — Created separate journeys for residents (service discovery) and administrators (data management), identifying 7 friction points where the two experiences collided</li>
-        <li><strong style="color:#cbd5e1">Data layer audit</strong> — Catalogued all 40+ spatial datasets, their update frequencies, access patterns, and user expectations to inform the information architecture</li>
-      </ul>
-
-      <div class="cs-callout">
-        <p>Key insight: The real failure wasn't visual clutter — it was invisible system state. Users had no idea what the map was currently showing them. A layer could be active or inactive and look identical. That's not a visual problem — it's an architectural one.</p>
-      </div>
-    </section>
-
-    <!-- ===== DESIGN PROCESS ===== -->
-    <section class="cs-section fade">
-      <h2>Design Process</h2>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Architecture Decisions</h3>
-      <p>The first and most critical decision: split the experience into two modes. Not two separate apps — two <em>modes</em> within the same platform, sharing the same map engine but surfacing fundamentally different tools.</p>
-      <ul>
-        <li><strong style="color:#cbd5e1">Discovery Mode (Residents)</strong> — Intent-based category navigation, NLQ (Natural Language Query) search, "Recommended for You" results, simplified controls</li>
-        <li><strong style="color:#cbd5e1">Professional Mode (Administrators)</strong> — Full layer management, spatial analytics, measurement tools, dataset configuration, and report generation</li>
-      </ul>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Public Interface Redesign</h3>
-      <ul>
-        <li>Replaced 9 ungrouped layers with intent-based category cards (Healthcare, Education, Transport, Business, etc.) — users start with purpose, not tools</li>
-        <li>Added Natural Language Query search — residents can type "nearest hospital with emergency" instead of navigating layer trees</li>
-        <li>Built a "Recommended for You" sidebar that surfaces contextual results based on location and selected category</li>
-        <li>Designed hierarchical filtering: category → sub-category (Public/Private Schools) → individual entity — progressive disclosure at every level</li>
-      </ul>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Dashboard & Admin Interface</h3>
-      <ul>
-        <li>Restructured the layer panel from 9 flat categories into 3 semantic groups with distinctly visible toggle states (active = filled + colored border, inactive = outlined + muted)</li>
-        <li>Added status badges to every layer: Published / Draft / Archived / Stale — administrators can scan status at a glance</li>
-        <li>Built a spatial analytics toolbar with measurement tools (Distance, Area), legend controls, and basemap switching directly accessible from the map surface</li>
-        <li>Added bilingual support (English/Arabic) and dark mode toggle for extended use sessions</li>
+        <li>40+ spatial datasets presented as flat layers — users couldn't find relevant data</li>
+        <li>No distinction between public residents and government administrators</li>
+        <li>Map state was invisible — users had no idea what layers were active</li>
+        <li>Search returned raw dataset names instead of meaningful results</li>
       </ul>
     </section>
 
-    <!-- ===== IMAGE 2: Split — Map Interface + Detail Panel ===== -->
-    <div class="cs-img-split fade">
-      <div class="cs-img-half" data-label="Map Interface — Search & Recommendations">
-        <img src="assets/smartmap/map-interface.png" alt="SmartMap Interface" loading="lazy" onload="this.classList.add('loaded')" />
-      </div>
-      <div class="cs-img-half" data-label="Detail Panel — Entity Data">
-        <img src="assets/smartmap/detail-panel.png" alt="Detail Panel View" loading="lazy" onload="this.classList.add('loaded')" />
-      </div>
-    </div>
-    <p class="cs-caption">Left: Core map interface with NLQ search and recommendation sidebar. Right: Contextual detail panel with entity attributes — users never lose spatial context.</p>
-
-    <!-- ===== SOLUTION ===== -->
+    <!-- 3. SOLUTION -->
     <section class="cs-section fade">
       <h2>Solution</h2>
-      <p>The shipped platform delivers two connected experiences through a single, unified design language:</p>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Discovery Interface (Public)</h3>
-      <p>Residents enter through an intent-based landing grid — no map loaded until they choose a category. This transforms the interaction from "here's a map, figure it out" to "what are you looking for?" The map then loads with relevant data pre-filtered, recommendations pre-populated, and a clear drill-down path from category to individual entity.</p>
-      <p>Key innovation: The NLQ search bar accepts natural language queries ("nearest school accepting grade 5") and returns ranked, contextual results alongside a list-based sidebar that functions as a results dashboard — bridging spatial exploration with structured data consumption.</p>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Administration Dashboard</h3>
-      <p>Government data officers access a professional-grade GIS interface with full layer management, measurement tools, legend controls, and dataset configuration. The same map engine powers both experiences, ensuring data consistency while surfacing appropriate complexity for each audience.</p>
-      <ul>
-        <li><strong style="color:#cbd5e1">Layer Manager</strong> — Grouped categories with visual status indicators, bulk toggle, and search-within-layers</li>
-        <li><strong style="color:#cbd5e1">Analytics Suite</strong> — Distance measurement, area calculation, heatmap overlays, and spatial clustering</li>
-        <li><strong style="color:#cbd5e1">Report Generation</strong> — Export filtered spatial data as structured reports for government workflows</li>
-        <li><strong style="color:#cbd5e1">Configuration Panel</strong> — Layer publishing, access control, update frequency settings, and metadata management</li>
-      </ul>
-    </section>
-
-    <!-- ===== IMAGE 3: Full width — Dashboard / Admin View ===== -->
-    <div class="cs-img cs-img-full fade" data-label="Admin Dashboard — Layer Management & Analytics">
-      <img src="assets/smartmap/admin-dashboard.png" alt="Admin Dashboard" loading="lazy" onload="this.classList.add('loaded')" />
-    </div>
-    <p class="cs-caption">Administrative interface: full layer control, spatial analytics, and GIS tools for government data officers</p>
-
-    <!-- ===== IMPACT ===== -->
-    <section class="cs-section fade">
-      <h2>Impact</h2>
-      <div class="impact-grid">
-        <div class="impact-card">
-          <h4>9 → 3</h4>
-          <p>Flat layer categories restructured into semantic groups</p>
+      <p>Restructured the platform around two core ideas: <strong style="color:#e2e8f0">intent-based navigation</strong> (users browse by what they want to do, not by dataset names) and <strong style="color:#e2e8f0">dual-mode architecture</strong> (public discovery mode vs. professional admin mode).</p>
+      <div class="cs-modules">
+        <div class="cs-module">
+          <h4>Discovery Mode</h4>
+          <p>Category-based entry for residents — browse by topic (transport, environment, zoning)</p>
         </div>
-        <div class="impact-card">
-          <h4>1 Click</h4>
-          <p>To reach live bed availability (previously unfindable)</p>
+        <div class="cs-module">
+          <h4>Professional Mode</h4>
+          <p>Full layer controls, attribute tables, and export tools for GIS officers</p>
         </div>
-        <div class="impact-card">
-          <h4>2 Modes</h4>
-          <p>Split public discovery + admin GIS into distinct experiences</p>
+        <div class="cs-module">
+          <h4>Smart Search</h4>
+          <p>Natural language queries — "show me schools near Al Majaz" instead of dataset codes</p>
         </div>
-        <div class="impact-card">
-          <h4>NLQ</h4>
-          <p>Natural language search replaced layer tree navigation</p>
+        <div class="cs-module">
+          <h4>Layer Architecture</h4>
+          <p>9 flat layers → 3 semantic groups with visual state indicators</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== IMAGE 4: Full width — Final Screens ===== -->
-    <div class="cs-img cs-img-full fade" data-label="Final Screens — Platform Overview">
-      <img src="assets/smartmap/final-screens.png" alt="SmartMap Final Screens" loading="lazy" onload="this.classList.add('loaded')" />
+    <!-- How the system works -->
+    <section class="cs-section fade">
+      <h2>How the System Works</h2>
+      <div class="system-diagram">
+        <div class="sys-node active">Catalogue</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node">Map Viewer</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node">Analytics</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node active">Admin</div>
+      </div>
+    </section>
+
+    <!-- IMAGE: Split -->
+    <div class="cs-img-split fade">
+      <div class="cs-img-half" data-label="Discovery Mode">
+        <img src="assets/smartmap/discovery.png" alt="Discovery Mode" loading="lazy" onload="this.classList.add('loaded')" />
+      </div>
+      <div class="cs-img-half" data-label="Professional Mode">
+        <img src="assets/smartmap/professional.png" alt="Professional Mode" loading="lazy" onload="this.classList.add('loaded')" />
+      </div>
     </div>
-    <p class="cs-caption">Key screens from the shipped platform — landing grid, map interface, detail panel, and layer management</p>
 
-    <!-- ===== KEY DECISION ===== -->
+    <!-- 4. CORE EXPERIENCE -->
     <section class="cs-section fade">
-      <h2>Key Decision</h2>
-      <p>The single most impactful decision was splitting the platform into two distinct modes — Discovery for residents and Professional for administrators — rather than trying to progressively disclose complexity within one interface.</p>
-      <p>The alternative was a "power user toggle" that would reveal advanced controls. We prototyped this and tested it with 3 users. Every single one toggled it on, got confused by the additional controls, and couldn't toggle it back off. The toggle created a worse version of the original problem.</p>
-      <p>The dual-mode approach doubled our design surface but made both experiences dramatically simpler. It was the right call.</p>
+      <h2>Core Experience</h2>
+      <h3>Data Exploration</h3>
+      <p>Users browse spatial data through category cards (Environment, Infrastructure, Demographics) instead of a flat layer list. Each category shows preview thumbnails and descriptions before loading onto the map.</p>
+
+      <h3>Map Interaction</h3>
+      <p>Active layers are visible through a persistent sidebar with toggle states. Clicking any feature opens a detail panel with attributes, related datasets, and export options — no more hunting through menus.</p>
+
+      <h3>Admin Governance</h3>
+      <p>Government officers manage layer permissions, publish datasets, and configure access controls through a dedicated admin panel — completely separated from the public interface.</p>
     </section>
 
-    <!-- ===== CONSTRAINT ===== -->
+    <!-- IMAGE: Full width -->
+    <div class="cs-img cs-img-full fade" data-label="Final Screens">
+      <img src="assets/smartmap/final-screens.png" alt="SmartMap Final" loading="lazy" onload="this.classList.add('loaded')" />
+    </div>
+
+    <!-- 5. KEY DECISIONS -->
     <section class="cs-section fade">
-      <h2>Constraint</h2>
-      <p>We couldn't change the data pipeline. All 40+ spatial datasets were served through a legacy GIS backend with fixed schemas and update intervals. This meant the information architecture had to be designed around existing data structures — we couldn't rename fields, merge datasets, or change update frequencies.</p>
-      <p>This constraint actually improved the design. Instead of reorganizing the data, we reorganized the access patterns. The category-based entry and NLQ search layer sits on top of the existing data without modifying it — a presentation layer that translates engineering-grade data into human-grade experiences.</p>
+      <h2>Key Decisions</h2>
+      <div class="cs-decisions">
+        <div class="cs-decision">
+          <strong>Dual-mode architecture</strong>
+          <p>Separated public and admin interfaces completely. Tested a toggle approach — users couldn't find their way back. Two modes, zero confusion.</p>
+        </div>
+        <div class="cs-decision">
+          <strong>Category-first navigation</strong>
+          <p>Replaced flat layer lists with semantic grouping. Users find data by intent ("I want to see schools"), not by technical dataset names.</p>
+        </div>
+        <div class="cs-decision">
+          <strong>Visible map state</strong>
+          <p>Added persistent layer indicators so users always know what the map is currently showing. Eliminated the "what am I looking at?" problem.</p>
+        </div>
+        <div class="cs-decision">
+          <strong>No data pipeline changes</strong>
+          <p>Designed a presentation layer on top of the existing GIS backend. Didn't require any data restructuring — reduced implementation risk.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- ===== REFLECTION ===== -->
+    <!-- 6. OUTCOME -->
     <section class="cs-section fade">
-      <h2>What I Learned</h2>
-      <p>I went in thinking the problem was visual clutter. The research showed the real failure was invisible system state — users had no idea what the map was currently showing them. That's a fundamentally different problem, and it changes what you design.</p>
-      <p>The hardest design decision was the dual-mode architecture. It doubled the design surface but halved the complexity for each audience. In hindsight, it was the only sustainable solution. Trying to serve government GIS professionals and residents through the same UI controls is a fundamentally broken premise — no amount of polish can fix a structural mismatch.</p>
-      <p>One thing I'd do differently: we locked the layer architecture before properly testing with administrator users. Their needs diverged more than expected, which required late-stage compromises. If I ran it again, I'd start with parallel testing tracks for both audiences from week one.</p>
+      <h2>Outcome</h2>
+      <div class="impact-grid">
+        <div class="impact-card"><h4>9 → 3</h4><p>Flat layers restructured into semantic groups</p></div>
+        <div class="impact-card"><h4>2 Modes</h4><p>Discovery (public) + Professional (admin)</p></div>
+        <div class="impact-card"><h4>NLQ</h4><p>Natural language search over 40+ datasets</p></div>
+        <div class="impact-card"><h4>0</h4><p>Backend changes required</p></div>
+      </div>
 
       <div class="cs-callout">
-        <p>The best spatial UX is invisible spatial UX. When a resident types "nearest hospital" and gets an answer in 3 seconds without knowing they just queried 40+ geospatial datasets, that's the design working.</p>
+        <p>The hardest part wasn't the design — it was convincing stakeholders that two simpler interfaces are better than one complex one. The user testing data made the case.</p>
       </div>
     </section>
 
-    <!-- Back -->
     <a href="index.html#work" class="cs-back">← Back to all work</a>
-
   </main>
 
   <script>
-    // Scroll to top on load
     window.onbeforeunload = function () { window.scrollTo(0, 0); };
-    window.onload = function () { window.scrollTo({ top: 0, behavior: "smooth" }); };
-
-    // Fade-in observer
     var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
+      entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add("visible"); });
     }, { threshold: 0.08 });
     document.querySelectorAll(".fade").forEach(function(el) { observer.observe(el); });
   </script>

@@ -4,62 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Data Platform — Case Study | Sai Teja Govind</title>
-    <meta name="description" content="UX case study: Designing IST's AI-powered data intelligence suite — 8 integrated modules from catalogues to analytics.">
+    <meta name="description" content="UX case study: Designing IST's AI-powered data intelligence suite — 8 integrated modules.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/case-study.css">
     <script>var exports = {};</script>
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <style>
-      .cs-page { max-width: 860px; margin: 0 auto; padding: 120px 80px 100px; }
-      .cs-hero { margin-bottom: 56px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .cs-hero h1 { font-size: clamp(36px, 5vw, 52px); font-family: 'Satoshi', sans-serif; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
-      .cs-hero-sub { font-size: 18px; color: #94a3b8; line-height: 1.6; max-width: 640px; }
-      .cs-meta { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 28px; }
-      .cs-meta-item { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; display: flex; align-items: center; gap: 8px; }
-      .cs-meta-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #6366f1; box-shadow: 0 0 8px rgba(99,102,241,0.5); }
-      .cs-section { margin-bottom: 48px; }
-      .cs-section h2 { font-size: 26px; font-family: 'Satoshi', sans-serif; margin-bottom: 14px; color: white; }
-      .cs-section h3 { font-size: 19px; margin: 20px 0 8px; color: #e2e8f0; }
-      .cs-section p { font-size: 16px; color: #94a3b8; line-height: 1.7; margin-bottom: 12px; max-width: 700px; }
-      .cs-section ul { padding-left: 20px; margin-bottom: 12px; }
-      .cs-section li { font-size: 16px; color: #94a3b8; line-height: 1.6; margin-bottom: 6px; }
-      .cs-img { width: 100%; max-width: 900px; margin: 28px auto; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.06); }
-      .cs-img-full { height: auto; background: linear-gradient(135deg, #0a1628 0%, #111a35 100%); }
-      .cs-img-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; border: none; }
-      .cs-img-split .cs-img-half { height: auto; border-radius: 12px; background: linear-gradient(135deg, #0a1628 0%, #111a35 100%); border: 1px solid rgba(255,255,255,0.06); position: relative; overflow: hidden; }
-      .cs-img::after, .cs-img-half::after { content: attr(data-label); position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,0.2); font-size: 13px; font-weight: 500; letter-spacing: 0.05em; pointer-events: none; }
-      .cs-img img, .cs-img-half img { width: 100%; height: auto; display: block; position: relative; z-index: 2; opacity: 0; transition: opacity 0.4s ease; border-radius: 12px; }
-      .cs-img img.loaded, .cs-img-half img.loaded { opacity: 1; }
-      .cs-caption { font-size: 13px; color: #475569; margin-top: -16px; margin-bottom: 28px; font-style: italic; max-width: 900px; margin-left: auto; margin-right: auto; }
-      .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 24px 0; }
-      .impact-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 22px 18px; border-radius: 14px; text-align: center; }
-      .impact-card h4 { font-size: 24px; color: white; margin-bottom: 4px; font-weight: 700; }
-      .impact-card p { font-size: 13px; color: #64748b; margin: 0; line-height: 1.4; }
-      .cs-callout { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 18px 22px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-      .cs-callout p { color: #cbd5e1; font-size: 15px; line-height: 1.6; margin: 0; }
-      .cs-back { display: inline-flex; align-items: center; gap: 8px; color: #6366f1; font-size: 14px; font-weight: 500; margin-top: 40px; transition: gap 0.3s; }
-      .cs-back:hover { gap: 12px; }
-      /* System Diagram */
-      .system-diagram { display: flex; align-items: center; justify-content: center; gap: 0; margin: 32px 0; flex-wrap: wrap; }
-      .sys-node { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); padding: 14px 20px; border-radius: 12px; font-size: 13px; font-weight: 600; color: #c7d2fe; text-align: center; min-width: 120px; }
-      .sys-arrow { color: #4f46e5; font-size: 20px; padding: 0 8px; opacity: 0.5; }
-      .sys-node.active { background: rgba(99,102,241,0.15); border-color: #6366f1; color: white; box-shadow: 0 0 20px rgba(99,102,241,0.15); }
-      /* Highlight Card */
-      .highlight-card { background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(59,130,246,0.04)); border: 1px solid rgba(99,102,241,0.12); border-radius: 16px; padding: 28px 32px; margin: 28px 0; }
-      .highlight-card h3 { font-size: 18px; color: #c7d2fe; margin: 0 0 8px; }
-      .highlight-card p { font-size: 15px; color: #94a3b8; margin: 0; line-height: 1.6; }
-      @media (max-width: 768px) {
-        .cs-page { padding: 100px 24px 60px; }
-        .cs-img-split { grid-template-columns: 1fr; }
-        .cs-hero h1 { font-size: clamp(28px, 7vw, 40px); }
-        .system-diagram { flex-direction: column; gap: 8px; }
-        .sys-arrow { transform: rotate(90deg); }
-      }
-      .fade { opacity: 0; transform: translateY(20px); transition: .6s cubic-bezier(0.22,1,0.36,1); }
-      .fade.visible { opacity: 1; transform: translateY(0); }
-    </style>
 </head>
 <body>
   <div id="plasma-layer" aria-hidden="true"></div>
@@ -78,160 +30,134 @@
 
   <main class="cs-page">
 
-    <!-- HERO -->
+    <!-- 1. OVERVIEW -->
     <section class="cs-hero fade">
       <h1>AI Data Platform</h1>
-      <p class="cs-hero-sub">Designed IST's flagship data intelligence suite — an AI-powered platform that turns raw enterprise data into actionable insights through 8 integrated modules, from data catalogues to spatial analytics.</p>
+      <p class="cs-hero-sub">IST's flagship AI-powered data intelligence suite. I designed the complete product — from the marketing landing page to 8 integrated application modules — creating a unified experience for data cataloguing, spatial visualization, analytics, and governance.</p>
       <div class="cs-meta">
         <span class="cs-meta-item">Lead UX Designer</span>
         <span class="cs-meta-item">I Spatial Techno Solutions</span>
         <span class="cs-meta-item">2025–Present</span>
-        <span class="cs-meta-item">Team of 12</span>
-        <span class="cs-meta-item">AI / Enterprise SaaS</span>
+        <span class="cs-meta-item">AI Platform</span>
       </div>
     </section>
 
-    <!-- CONTEXT -->
-    <section class="cs-section fade">
-      <h2>Context</h2>
-      <p>IST needed a unified product that would serve as the company's core AI offering — a platform where enterprise clients could ingest, catalogue, visualize, analyze, and govern their data from a single interface. The product needed to work across domains: spatial data, sensor networks, operational databases, and document repositories.</p>
-      <p>I owned the UX architecture and visual design for the entire product — from the marketing landing page to the deep application interfaces of all 8 modules.</p>
-    </section>
-
-    <!-- PROBLEM -->
-    <section class="cs-section fade">
-      <h2>The Problem</h2>
-      <p>Eight powerful modules. Zero cohesion. Each was being built by a different engineering pod with its own UI patterns, navigation models, and terminology. Users had to relearn the interface every time they switched modules.</p>
-      <ul>
-        <li>Data Catalogues used a tree-based navigation; Map Viewer used a layer panel; Analytics used tabs — same platform, three mental models</li>
-        <li>No shared design system — buttons, cards, and data tables looked different across every module</li>
-        <li>The landing page promised "AI-Powered Insights" but the application felt like 8 separate tools stitched together</li>
-        <li>Admin workflows required navigating between modules to complete a single task</li>
-      </ul>
-    </section>
-
-    <!-- IMAGE 1: Landing Page -->
+    <!-- IMAGE: Landing -->
     <div class="cs-img cs-img-full fade" data-label="Product Landing — AI Data Intelligence Suite">
       <img src="assets/data-platform/landing.png" alt="AI Data Platform Landing" loading="lazy" onload="this.classList.add('loaded')" />
     </div>
-    <p class="cs-caption">Product landing page: "Transform your Data into AI-Powered Insights" — clear value proposition with module showcase</p>
 
-    <!-- SYSTEM THINKING -->
+    <!-- 2. PROBLEM -->
     <section class="cs-section fade">
-      <h2>How the System Works Together</h2>
-      <p>The platform's 8 modules form a connected data pipeline. Understanding this flow was the key architectural decision — it shaped navigation, permissions, and the entire information hierarchy.</p>
-      <div class="system-diagram">
-        <div class="sys-node active">Data Catalogues</div>
-        <span class="sys-arrow">→</span>
-        <div class="sys-node">Map Viewer</div>
-        <span class="sys-arrow">→</span>
-        <div class="sys-node">Analytics &amp; Reports</div>
-        <span class="sys-arrow">→</span>
-        <div class="sys-node active">Admin Module</div>
-      </div>
-      <div class="system-diagram" style="margin-top: 12px;">
-        <div class="sys-node">Data Dictionary</div>
-        <span class="sys-arrow">→</span>
-        <div class="sys-node">Data Quality</div>
-        <span class="sys-arrow">→</span>
-        <div class="sys-node">Data Request Portal</div>
-        <span class="sys-arrow">→</span>
-        <div class="sys-node">Doc &amp; Media</div>
-      </div>
-      <p style="margin-top: 16px;">Top row: the core data workflow (ingest → visualize → analyze → govern). Bottom row: supporting services that feed into the core pipeline. Users move left-to-right through the system — the navigation mirrors this mental model.</p>
-    </section>
-
-    <!-- DESIGN PROCESS -->
-    <section class="cs-section fade">
-      <h2>Design Process</h2>
-      <h3>Unified Design Language</h3>
-      <p>Created a shared design system across all 8 modules — consistent navigation patterns, component library, spacing system, and interaction models. Users learn the interface once.</p>
-
-      <h3>Module Architecture</h3>
+      <h2>Problem</h2>
       <ul>
-        <li><strong style="color:#cbd5e1">Data Catalogues</strong> — Browse and search enterprise datasets with metadata previews, tagging, and access controls</li>
-        <li><strong style="color:#cbd5e1">Map Viewer</strong> — Spatial data visualization with layer management, drawing tools, and basemap switching</li>
-        <li><strong style="color:#cbd5e1">Data Dictionary</strong> — Schema documentation with field-level lineage tracking and relationship maps</li>
-        <li><strong style="color:#cbd5e1">Admin Module</strong> — User management, permissions, audit logs, and system configuration</li>
-        <li><strong style="color:#cbd5e1">Analytics & Reports</strong> — AI-driven insights with custom report builder and scheduled delivery</li>
-        <li><strong style="color:#cbd5e1">Data Quality</strong> — Automated validation rules, anomaly detection, and data health scoring</li>
-        <li><strong style="color:#cbd5e1">Data Request Portal</strong> — Formal data access workflow with approval chains and SLA tracking</li>
-        <li><strong style="color:#cbd5e1">Doc & Media</strong> — Document management with AI-powered search and version control</li>
+        <li>8 modules built by different engineering pods — each with its own UI patterns and navigation</li>
+        <li>Users had to relearn the interface every time they switched modules</li>
+        <li>No shared design system — buttons, tables, and cards looked different everywhere</li>
+        <li>The landing page promised "AI-Powered Insights" but the application felt like 8 separate tools</li>
       </ul>
     </section>
 
-    <!-- IMAGE 2: Split — Module Views -->
+    <!-- 3. SOLUTION -->
+    <section class="cs-section fade">
+      <h2>Solution</h2>
+      <p>Created a unified design language across all 8 modules and organized the platform around the <strong style="color:#e2e8f0">data lifecycle</strong> — Ingest → Explore → Analyze → Govern — instead of the engineering architecture.</p>
+      <div class="cs-modules">
+        <div class="cs-module"><h4>Data Catalogues</h4><p>Browse and search datasets with metadata previews and access controls</p></div>
+        <div class="cs-module"><h4>Map Viewer</h4><p>Spatial visualization with layer management and drawing tools</p></div>
+        <div class="cs-module"><h4>Analytics & Reports</h4><p>AI-driven insights with custom report builder</p></div>
+        <div class="cs-module"><h4>Admin Module</h4><p>User management, permissions, and audit logs</p></div>
+        <div class="cs-module"><h4>Data Dictionary</h4><p>Schema documentation with field-level lineage</p></div>
+        <div class="cs-module"><h4>Data Quality</h4><p>Automated validation and anomaly detection</p></div>
+        <div class="cs-module"><h4>Data Request Portal</h4><p>Access workflow with approval chains</p></div>
+        <div class="cs-module"><h4>Doc & Media</h4><p>Document management with AI-powered search</p></div>
+      </div>
+    </section>
+
+    <!-- How the system works -->
+    <section class="cs-section fade">
+      <h2>How the System Works</h2>
+      <div class="system-diagram">
+        <div class="sys-node active">Catalogues</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node">Map Viewer</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node">Analytics</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node active">Admin</div>
+      </div>
+      <p style="margin-top:12px; font-size:14px; color:#64748b; text-align:center;">Ingest → Explore → Analyze → Govern</p>
+    </section>
+
+    <!-- IMAGE: Split -->
     <div class="cs-img-split fade">
       <div class="cs-img-half" data-label="Data Catalogues">
-        <img src="assets/data-platform/catalogues.png" alt="Data Catalogues" loading="lazy" onload="this.classList.add('loaded')" />
+        <img src="assets/data-platform/catalogues.png" alt="Catalogues" loading="lazy" onload="this.classList.add('loaded')" />
       </div>
-      <div class="cs-img-half" data-label="Analytics & Reports">
+      <div class="cs-img-half" data-label="Analytics">
         <img src="assets/data-platform/analytics.png" alt="Analytics" loading="lazy" onload="this.classList.add('loaded')" />
       </div>
     </div>
-    <p class="cs-caption">Left: Data Catalogues with metadata preview. Right: Analytics module with AI-driven insights.</p>
 
-    <!-- HIGHLIGHT: AI Integration -->
+    <!-- 4. CORE EXPERIENCE -->
+    <section class="cs-section fade">
+      <h2>Core Experience</h2>
+      <h3>Data Exploration</h3>
+      <p>Users discover datasets through smart search and category browsing. Each dataset shows metadata, preview, and lineage before loading — reducing wasted clicks on irrelevant data.</p>
+
+      <h3>Spatial Analysis</h3>
+      <p>Map Viewer integrates with catalogues — select a dataset, it loads on the map. Drawing tools, measurement, and attribute queries work across all spatial data without switching contexts.</p>
+
+      <h3>Governance</h3>
+      <p>Admins control access at the dataset, field, and user-group level. Audit logs track every data access event. Compliance reports are auto-generated.</p>
+    </section>
+
+    <!-- Highlight: AI -->
     <div class="highlight-card fade">
-      <h3>AI Integration — Woven In, Not Bolted On</h3>
-      <p>AI powers three key experiences: smart search across catalogues (natural language queries), automated data quality scoring (anomaly detection on ingestion), and predictive analytics in the reports module. The AI is invisible — users experience better results without having to "use AI" as a separate feature.</p>
+      <h3>AI Integration</h3>
+      <p>AI powers three experiences: smart search across catalogues (natural language queries), automated data quality scoring on ingestion, and predictive analytics in the reports module. The AI is invisible — users get better results without having to "use AI" as a feature.</p>
     </div>
 
-    <!-- KEY DECISION -->
-    <section class="cs-section fade">
-      <h2>Key Decision</h2>
-      <p>The critical decision was choosing pipeline-based navigation over module-based navigation. Instead of 8 sidebar items that felt like separate apps, I organized the interface around the data lifecycle: Ingest → Explore → Analyze → Govern.</p>
-      <p>Users don't think in modules — they think in tasks. "I need to find a dataset, check its quality, and build a report" is a workflow that crosses three modules. The navigation now reflects that workflow, not the engineering architecture.</p>
-    </section>
-
-    <!-- CONSTRAINT -->
-    <section class="cs-section fade">
-      <h2>Constraint</h2>
-      <p>Each module was at a different development stage. Data Catalogues and Map Viewer were mature; Data Quality and Doc & Media were still in early development. I had to design a system that felt complete even when modules were being added incrementally — the platform needed to feel like a shipped product from day one, not a work-in-progress.</p>
-    </section>
-
-    <!-- IMAGE 3: Full Width -->
-    <div class="cs-img cs-img-full fade" data-label="Platform Overview — All Modules">
+    <!-- IMAGE: Full -->
+    <div class="cs-img cs-img-full fade" data-label="Platform Overview">
       <img src="assets/data-platform/platform-overview.png" alt="Platform Overview" loading="lazy" onload="this.classList.add('loaded')" />
     </div>
-    <p class="cs-caption">Full platform: unified design language across all 8 modules with consistent navigation and component system</p>
 
-    <!-- IMPACT -->
+    <!-- 5. KEY DECISIONS -->
     <section class="cs-section fade">
-      <h2>Impact</h2>
-      <div class="impact-grid">
-        <div class="impact-card">
-          <h4>8</h4>
-          <p>Modules unified under one design system</p>
+      <h2>Key Decisions</h2>
+      <div class="cs-decisions">
+        <div class="cs-decision">
+          <strong>Pipeline-based navigation</strong>
+          <p>Organized by data lifecycle (Ingest → Explore → Analyze → Govern) instead of 8 sidebar items. Users think in tasks, not modules.</p>
         </div>
-        <div class="impact-card">
-          <h4>1</h4>
-          <p>Navigation model across the entire product</p>
+        <div class="cs-decision">
+          <strong>Unified design system</strong>
+          <p>One component library across all modules. Users learn the interface once — buttons, tables, and interactions work the same everywhere.</p>
         </div>
-        <div class="impact-card">
-          <h4>AI</h4>
-          <p>Embedded across search, quality, and analytics</p>
+        <div class="cs-decision">
+          <strong>Modular architecture</strong>
+          <p>Each module can be enabled/disabled per client. The platform feels complete even when not all modules are deployed.</p>
         </div>
-        <div class="impact-card">
-          <h4>Pipeline</h4>
-          <p>Task-based workflow replaced module silos</p>
+        <div class="cs-decision">
+          <strong>AI as infrastructure</strong>
+          <p>AI isn't a tab — it's embedded in search, quality, and analytics. Users experience better results without cognitive overhead.</p>
         </div>
       </div>
     </section>
 
-    <!-- IMAGE 4: Digital Services -->
-    <div class="cs-img cs-img-full fade" data-label="Digital Services Portal — Product Ecosystem">
-      <img src="assets/data-platform/digital-services.png" alt="Digital Services" loading="lazy" onload="this.classList.add('loaded')" />
-    </div>
-    <p class="cs-caption">Digital Services Portal: Braein.ai, Smart Eco, Smart Geo App, Smart Field Geo — the platform ecosystem</p>
-
-    <!-- REFLECTION -->
+    <!-- 6. OUTCOME -->
     <section class="cs-section fade">
-      <h2>What I Learned</h2>
-      <p>Designing a multi-module product is fundamentally different from designing a single application. The hardest part isn't any individual module — it's the seams between them. When a user switches from Catalogues to Analytics, that transition needs to feel like turning a page, not switching apps.</p>
+      <h2>Outcome</h2>
+      <div class="impact-grid">
+        <div class="impact-card"><h4>8</h4><p>Modules unified under one design system</p></div>
+        <div class="impact-card"><h4>1</h4><p>Navigation model for the entire product</p></div>
+        <div class="impact-card"><h4>AI</h4><p>Embedded across search, quality, analytics</p></div>
+        <div class="impact-card"><h4>Pipeline</h4><p>Task-based workflow replaced module silos</p></div>
+      </div>
 
       <div class="cs-callout">
-        <p>The best platform UX is invisible infrastructure. Users shouldn't know they're using 8 modules — they should feel like they're using one product that does everything they need.</p>
+        <p>Users shouldn't know they're using 8 modules — they should feel like they're using one product that does everything they need.</p>
       </div>
     </section>
 
@@ -240,11 +166,8 @@
 
   <script>
     window.onbeforeunload = function () { window.scrollTo(0, 0); };
-    window.onload = function () { window.scrollTo({ top: 0, behavior: "smooth" }); };
     var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
+      entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add("visible"); });
     }, { threshold: 0.08 });
     document.querySelectorAll(".fade").forEach(function(el) { observer.observe(el); });
   </script>

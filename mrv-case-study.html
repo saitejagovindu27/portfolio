@@ -4,224 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart MRV — Case Study | Sai Teja Govind</title>
-    <meta name="description" content="UX case study: Designing Smart MRV — a sustainability monitoring platform for carbon tracking, environmental compliance, and emissions reporting.">
+    <meta name="description" content="UX case study: Designing Smart MRV — a sustainability monitoring and emissions tracking platform.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/case-study.css">
     <script>var exports = {};</script>
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <style>
-      /* Case Study Layout */
-      .cs-page { max-width: 860px; margin: 0 auto; padding: 120px 80px 100px; }
-      .cs-hero { margin-bottom: 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .cs-hero h1 {
-        font-size: clamp(36px, 5vw, 52px);
-        font-family: 'Satoshi', sans-serif;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-bottom: 20px;
-      }
-      .cs-hero-sub {
-        font-size: 19px;
-        color: #94a3b8;
-        line-height: 1.6;
-        max-width: 640px;
-      }
-      .cs-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px 28px;
-        margin-top: 36px;
-      }
-      .cs-meta-item {
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: #64748b;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .cs-meta-item::before {
-        content: '';
-        width: 5px; height: 5px;
-        border-radius: 50%;
-        background: #3b82f6;
-        box-shadow: 0 0 8px rgba(59,130,246,0.5);
-      }
-
-      /* Sections */
-      .cs-section { margin-bottom: 72px; }
-      .cs-section h2 {
-        font-size: 28px;
-        font-family: 'Satoshi', sans-serif;
-        margin-bottom: 20px;
-        color: white;
-      }
-      .cs-section p {
-        font-size: 17px;
-        color: #94a3b8;
-        line-height: 1.7;
-        margin-bottom: 16px;
-        max-width: 700px;
-      }
-      .cs-section ul {
-        padding-left: 20px;
-        margin-bottom: 16px;
-      }
-      .cs-section li {
-        font-size: 17px;
-        color: #94a3b8;
-        line-height: 1.7;
-        margin-bottom: 10px;
-      }
-
-      /* Image Placeholders */
-      .cs-img {
-        width: 100%;
-        max-width: 900px;
-        margin: 32px auto;
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-        border: 1px solid rgba(255,255,255,0.06);
-      }
-      .cs-img-full {
-        height: auto;
-        background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
-      }
-      .cs-img-split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        border: none;
-      }
-      .cs-img-split .cs-img-half {
-        height: auto;
-        border-radius: 12px;
-        background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
-        border: 1px solid rgba(255,255,255,0.06);
-        position: relative;
-        overflow: hidden;
-      }
-      .cs-img::after,
-      .cs-img-half::after {
-        content: attr(data-label);
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        color: rgba(255,255,255,0.2);
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 0.05em;
-        pointer-events: none;
-      }
-      .cs-img img,
-      .cs-img-half img {
-        width: 100%;
-        height: auto;
-        display: block;
-        position: relative;
-        z-index: 2;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        border-radius: 12px;
-      }
-      .cs-img img.loaded,
-      .cs-img-half img.loaded {
-        opacity: 1;
-      }
-      .cs-caption {
-        font-size: 13px;
-        color: #475569;
-        margin-top: -20px;
-        margin-bottom: 32px;
-        font-style: italic;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* Impact Grid */
-      .impact-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 16px;
-        margin: 32px 0;
-      }
-      .impact-card {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.06);
-        padding: 28px 24px;
-        border-radius: 16px;
-        text-align: center;
-      }
-      .impact-card h4 {
-        font-size: 28px;
-        color: white;
-        margin-bottom: 6px;
-        font-weight: 700;
-      }
-      .impact-card p {
-        font-size: 14px;
-        color: #64748b;
-        margin: 0;
-        line-height: 1.4;
-      }
-
-      /* Callout */
-      .cs-callout {
-        background: rgba(59,130,246,0.06);
-        border-left: 3px solid #3b82f6;
-        padding: 24px 28px;
-        border-radius: 0 12px 12px 0;
-        margin: 32px 0;
-      }
-      .cs-callout p {
-        color: #cbd5e1;
-        font-size: 16px;
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      /* Back Link */
-      .cs-back {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: #3b82f6;
-        font-size: 14px;
-        font-weight: 500;
-        margin-top: 40px;
-        transition: gap 0.3s;
-      }
-      .cs-back:hover { gap: 12px; }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .cs-page { padding: 100px 24px 60px; }
-        .cs-img-full { height: 260px; }
-        .cs-img-split { grid-template-columns: 1fr; }
-        .cs-img-split .cs-img-half { height: 220px; }
-        .cs-hero h1 { font-size: clamp(28px, 7vw, 40px); }
-      }
-
-      /* Fade */
-      .fade { opacity: 0; transform: translateY(20px); transition: .6s cubic-bezier(0.22,1,0.36,1); }
-      .fade.visible { opacity: 1; transform: translateY(0); }
-    </style>
 </head>
 <body>
-
-  <!-- Background -->
   <div id="plasma-layer" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
   <canvas id="fluid"></canvas>
 
-  <!-- Header -->
   <header class="header">
     <div class="logo"><a href="index.html">Sai Teja Govind</a></div>
     <nav>
@@ -233,198 +30,131 @@
 
   <main class="cs-page">
 
-    <!-- ===== HERO ===== -->
+    <!-- 1. OVERVIEW -->
     <section class="cs-hero fade">
-      <h1>Smart MRV Platform</h1>
-      <p class="cs-hero-sub">Designing a sustainability monitoring platform that transforms complex environmental data — carbon tracking, emissions reporting, and regulatory compliance — into clear, actionable intelligence for government and enterprise stakeholders.</p>
+      <h1>Smart MRV</h1>
+      <p class="cs-hero-sub">Sustainability monitoring platform for emissions tracking. I designed the complete product — from the marketing landing page to the compliance dashboard — turning a 12-step reporting process into a guided 4-step wizard.</p>
       <div class="cs-meta">
         <span class="cs-meta-item">Lead UX Designer</span>
         <span class="cs-meta-item">I Spatial Techno Solutions</span>
-        <span class="cs-meta-item">Jun–Sep 2025</span>
-        <span class="cs-meta-item">Sustainability / GovTech</span>
-        <span class="cs-meta-item">Landing Page + Dashboard</span>
+        <span class="cs-meta-item">2024–2025</span>
+        <span class="cs-meta-item">Data Tool</span>
       </div>
     </section>
 
-    <!-- ===== CONTEXT ===== -->
-    <section class="cs-section fade">
-      <h2>Context</h2>
-      <p>Smart MRV (Measurement, Reporting & Verification) is a platform built for government agencies and enterprises to monitor greenhouse gas emissions, track environmental KPIs, and generate compliance reports aligned with international sustainability frameworks.</p>
-      <p>The platform has two core surfaces: a <strong style="color:#e2e8f0">public-facing landing page</strong> that sells the product to decision-makers, and an <strong style="color:#e2e8f0">internal dashboard application</strong> used by environmental officers, data analysts, and compliance teams on a daily basis.</p>
-      <p>I was brought in to design both — from scratch.</p>
-    </section>
-
-    <!-- ===== PROBLEM ===== -->
-    <section class="cs-section fade">
-      <h2>The Problem</h2>
-      <p>Two distinct problems with one shared root cause: the product had powerful capabilities but no clear way to communicate or surface them.</p>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Landing Page</h3>
-      <ul>
-        <li>Read like a technical specification — listed features without explaining value</li>
-        <li>High bounce rate. Qualified leads weren't converting because they couldn't understand what the product actually did for them</li>
-        <li>Two audiences (technical buyers vs. executive decision-makers) with different motivations, being served identical messaging</li>
-      </ul>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Dashboard Application</h3>
-      <ul>
-        <li>Data was scattered across disconnected views — emissions, energy, compliance each lived in separate silos</li>
-        <li>No clear hierarchy. Users couldn't tell what was urgent vs. informational</li>
-        <li>Reporting workflow required 12+ clicks and navigating between 3 different screens to generate a single compliance report</li>
-        <li>Zero onboarding. New users were dropped into a full-density dashboard with no guidance</li>
-      </ul>
-    </section>
-
-    <!-- ===== IMAGE 1: Full width — Landing Page Overview ===== -->
-    <div class="cs-img cs-img-full fade" data-label="Landing Page — Hero & Value Proposition">
-      <img src="assets/mrv/landing-overview.png" alt="Smart MRV Landing Page" loading="lazy" onload="this.classList.add('loaded')" />
+    <!-- IMAGE: Hero -->
+    <div class="cs-img cs-img-full fade" data-label="Smart MRV — Landing Page">
+      <img src="assets/mrv/screen1.png" alt="Smart MRV Landing" loading="lazy" onload="this.classList.add('loaded')" />
     </div>
-    <p class="cs-caption">Landing page hero section — outcome-first messaging with visual proof</p>
 
-    <!-- ===== RESEARCH ===== -->
+    <!-- 2. PROBLEM -->
     <section class="cs-section fade">
-      <h2>Research & Discovery</h2>
-      <p>Before opening Figma, I spent the first two weeks in research mode:</p>
+      <h2>Problem</h2>
       <ul>
-        <li><strong style="color:#cbd5e1">Competitive audit</strong> — Analyzed 8 sustainability platforms (Persefoni, Watershed, Sphera, Ecoinvent) to map positioning patterns, feature framing, and dashboard architectures</li>
-        <li><strong style="color:#cbd5e1">Stakeholder interviews</strong> — Spoke with 4 environmental officers and 2 compliance managers to understand their daily workflows, pain points, and what "actionable" actually means in their context</li>
-        <li><strong style="color:#cbd5e1">Decision journey mapping</strong> — Documented the buyer journey from awareness to conversion, identifying 5 key decision points and the objections at each stage</li>
-        <li><strong style="color:#cbd5e1">Data audit</strong> — Catalogued every data type the platform tracks (Scope 1/2/3 emissions, energy consumption, waste metrics, water usage, compliance status) to understand the information architecture requirements</li>
-      </ul>
-
-      <div class="cs-callout">
-        <p>Key insight: Environmental officers don't want more data — they want to know "Am I on track?" and "What needs my attention right now?" Every design decision after this was filtered through those two questions.</p>
-      </div>
-    </section>
-
-    <!-- ===== DESIGN PROCESS ===== -->
-    <section class="cs-section fade">
-      <h2>Design Process</h2>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Landing Page Strategy</h3>
-      <p>Restructured the page around a narrative arc: <em>"See the problem → Understand the solution → Trust the proof."</em> Every section answers a specific objection in the buying process.</p>
-      <ul>
-        <li>Hero communicates value, not features — "Track, reduce, and report emissions with confidence"</li>
-        <li>Visual proof sections using real dashboard screenshots instead of abstract illustrations</li>
-        <li>Dual-track CTA hierarchy: primary conversion for executives, secondary path for technical evaluation</li>
-        <li>Social proof integrated naturally — compliance certifications and measurable outcomes</li>
-      </ul>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Dashboard Architecture</h3>
-      <p>The dashboard redesign centered on three principles: progressive disclosure, status-first hierarchy, and workflow continuity.</p>
-      <ul>
-        <li><strong style="color:#cbd5e1">Overview-first</strong> — A single "command center" view showing aggregate emissions status, compliance health, and anomalies requiring attention</li>
-        <li><strong style="color:#cbd5e1">Drill-down pattern</strong> — Click any metric tile to dive into detailed breakdowns by source, facility, or time period — no page navigation required</li>
-        <li><strong style="color:#cbd5e1">Reporting wizard</strong> — Reduced the compliance report flow from 12+ clicks across 3 screens to a guided 4-step wizard within a single modal</li>
-        <li><strong style="color:#cbd5e1">Status indicators</strong> — Color-coded traffic light system for compliance (green/amber/red) visible at every level of the hierarchy</li>
+        <li>Compliance officers spent 8+ minutes per report using free-form data entry with no guidance</li>
+        <li>Emissions data was scattered across spreadsheets — no centralized tracking</li>
+        <li>Reporting required understanding both GHG Protocol and UAE-specific regulations</li>
+        <li>No visual feedback on emissions trends — teams couldn't see impact of initiatives</li>
       </ul>
     </section>
 
-    <!-- ===== IMAGE 2: Split — Dashboard Views ===== -->
-    <div class="cs-img-split fade">
-      <div class="cs-img-half" data-label="Dashboard — Overview">
-        <img src="assets/mrv/dashboard-overview.png" alt="Dashboard Overview" loading="lazy" onload="this.classList.add('loaded')" />
-      </div>
-      <div class="cs-img-half" data-label="Dashboard — Emissions Detail">
-        <img src="assets/mrv/dashboard-detail.png" alt="Dashboard Detail View" loading="lazy" onload="this.classList.add('loaded')" />
-      </div>
-    </div>
-    <p class="cs-caption">Left: Command center overview with compliance health. Right: Drill-down emissions detail by facility.</p>
-
-    <!-- ===== SOLUTION ===== -->
+    <!-- 3. SOLUTION -->
     <section class="cs-section fade">
       <h2>Solution</h2>
-      <p>The final platform ships as two connected experiences that share a unified design language:</p>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Landing Page</h3>
-      <p>A conversion-optimized page that leads with outcomes. The hero immediately answers "What does this do?" with "Track, reduce, and report emissions with confidence." Below: interactive feature previews, data-driven trust sections, and a two-track CTA system that routes executives to a demo and technical buyers to documentation.</p>
-
-      <h3 style="font-size:20px; margin: 28px 0 12px; color:#e2e8f0;">Dashboard Application</h3>
-      <p>A real-time monitoring platform built for daily use by environmental teams. Key surfaces:</p>
-      <ul>
-        <li><strong style="color:#cbd5e1">Overview Dashboard</strong> — Aggregate KPIs (total emissions, energy usage, compliance score) with trend indicators and anomaly alerts</li>
-        <li><strong style="color:#cbd5e1">Emissions Explorer</strong> — Scope 1/2/3 breakdown with filterable charts by facility, time range, and emission source</li>
-        <li><strong style="color:#cbd5e1">Compliance Center</strong> — Status tracker for regulatory requirements with deadline alerts and automated report generation</li>
-        <li><strong style="color:#cbd5e1">Reporting Module</strong> — One-click generation of compliance reports in formats required by UAE regulations and international frameworks</li>
-      </ul>
-    </section>
-
-    <!-- ===== IMAGE 3: Full width — Reporting Flow ===== -->
-    <div class="cs-img cs-img-full fade" data-label="Compliance Reporting — Wizard Flow">
-      <img src="assets/mrv/reporting-flow.png" alt="Reporting Wizard" loading="lazy" onload="this.classList.add('loaded')" />
-    </div>
-    <p class="cs-caption">Guided reporting wizard — from 12+ clicks to 4 clear steps</p>
-
-    <!-- ===== IMPACT ===== -->
-    <section class="cs-section fade">
-      <h2>Impact</h2>
-      <div class="impact-grid">
-        <div class="impact-card">
-          <h4>12 → 4</h4>
-          <p>Clicks reduced to generate a compliance report</p>
+      <p>Built a unified platform that handles the full sustainability workflow — from data collection through analysis to regulatory reporting — with a guided experience that makes compliance officers confident instead of dependent.</p>
+      <div class="cs-modules">
+        <div class="cs-module">
+          <h4>Report Wizard</h4>
+          <p>4-step guided flow replacing free-form entry. Validates data in real-time</p>
         </div>
-        <div class="impact-card">
-          <h4>3 → 1</h4>
-          <p>Screens consolidated for reporting workflow</p>
+        <div class="cs-module">
+          <h4>Emissions Dashboard</h4>
+          <p>Visual tracking of Scope 1, 2, 3 emissions with trend lines and targets</p>
         </div>
-        <div class="impact-card">
-          <h4>2 Surfaces</h4>
-          <p>Designed landing page + full dashboard from scratch</p>
+        <div class="cs-module">
+          <h4>Data Collection</h4>
+          <p>Framework-agnostic input — enter raw data, get reports in any format</p>
         </div>
-        <div class="impact-card">
-          <h4>Wizard</h4>
-          <p>Guided 4-step flow replaced unstructured data entry</p>
+        <div class="cs-module">
+          <h4>Compliance Export</h4>
+          <p>Auto-generate GHG Protocol and UAE regulatory reports from same data</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== IMAGE 4: Full width — Final Screens Collage ===== -->
-    <div class="cs-img cs-img-full fade" data-label="Final Screens — Platform Overview">
-      <img src="assets/mrv/final-screens.png" alt="Smart MRV Final Screens" loading="lazy" onload="this.classList.add('loaded')" />
+    <!-- IMAGE: Split -->
+    <div class="cs-img-split fade">
+      <div class="cs-img-half" data-label="Report Wizard">
+        <img src="assets/mrv/wizard.png" alt="Report Wizard" loading="lazy" onload="this.classList.add('loaded')" />
+      </div>
+      <div class="cs-img-half" data-label="Emissions Dashboard">
+        <img src="assets/mrv/dashboard.png" alt="Dashboard" loading="lazy" onload="this.classList.add('loaded')" />
+      </div>
     </div>
-    <p class="cs-caption">Key screens from the final shipped platform</p>
 
-    <!-- ===== KEY DECISION ===== -->
+    <!-- 4. CORE EXPERIENCE -->
     <section class="cs-section fade">
-      <h2>Key Decision</h2>
-      <p>The most consequential decision was replacing the existing free-form data entry for compliance reports with a guided 4-step wizard. The team initially resisted — they felt a wizard was "too simple" for sophisticated compliance officers.</p>
-      <p>I ran a task completion test with 3 compliance managers using both approaches. With free-form entry, the average completion time was 8+ minutes with 2 errors per report. With the wizard, it dropped to under 3 minutes with zero errors. The data ended the debate.</p>
-      <p>The wizard wasn't a UX opinion — it was a measured response to observed failure patterns.</p>
+      <h2>Core Experience</h2>
+      <h3>Data Entry</h3>
+      <p>Users enter raw operational data — fuel consumption, electricity usage, waste volumes — through a step-by-step wizard with inline validation. No formulas, no frameworks, no confusion.</p>
+
+      <h3>Dashboard & Insights</h3>
+      <p>Live emissions overview with breakdowns by scope, facility, and time period. Progress tracking against reduction targets with visual indicators that show whether initiatives are working.</p>
+
+      <h3>Reporting & Compliance</h3>
+      <p>One-click report generation in multiple formats. The system handles framework translation — users enter data once, get reports in GHG Protocol, IPCC, or UAE regulatory format.</p>
     </section>
 
-    <!-- ===== CONSTRAINT ===== -->
+    <!-- IMAGE: Full width -->
+    <div class="cs-img cs-img-full fade" data-label="Final Screens">
+      <img src="assets/mrv/final-screens.png" alt="Smart MRV Final" loading="lazy" onload="this.classList.add('loaded')" />
+    </div>
+
+    <!-- 5. KEY DECISIONS -->
     <section class="cs-section fade">
-      <h2>Constraint</h2>
-      <p>The platform had to support both international reporting frameworks (GHG Protocol, IPCC guidelines) and UAE-specific regulatory requirements simultaneously. These frameworks use different calculation methodologies, different emission categories, and different reporting formats.</p>
-      <p>Rather than forcing users to choose a framework upfront, I designed the data input to be framework-agnostic — users enter raw operational data (fuel consumption, electricity usage, waste volumes) and the system generates reports in whichever format is required. This meant the UX stays simple while the complexity lives in the backend calculation engine.</p>
+      <h2>Key Decisions</h2>
+      <div class="cs-decisions">
+        <div class="cs-decision">
+          <strong>Wizard over free-form</strong>
+          <p>Tested both approaches — wizard reduced completion time from 8+ min to under 3 min with zero data entry errors.</p>
+        </div>
+        <div class="cs-decision">
+          <strong>Framework-agnostic input</strong>
+          <p>Users enter raw operational data, not framework-specific values. The system translates to any reporting format — keeping UX simple while the backend handles complexity.</p>
+        </div>
+        <div class="cs-decision">
+          <strong>Landing page + application</strong>
+          <p>Designed both the marketing landing page and the application dashboard as one cohesive product experience.</p>
+        </div>
+        <div class="cs-decision">
+          <strong>Progressive complexity</strong>
+          <p>Basic users see summary dashboards. Power users can drill into facility-level data and custom date ranges. Same data, appropriate depth.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- ===== REFLECTION ===== -->
+    <!-- 6. OUTCOME -->
     <section class="cs-section fade">
-      <h2>What I Learned</h2>
-      <p>Sustainability platforms are uniquely challenging because the data is inherently complex, emotionally charged, and regulatory-driven. Simplifying without dumbing down requires deep domain empathy — understanding not just what users do, but what keeps them awake at night.</p>
-      <p>The reporting wizard was the highest-impact design decision. It wasn't flashy or visually impressive — it was a boring, methodical reduction of friction. But it changed how the compliance team felt about the tool. They went from dreading month-end reporting to having confidence in a 4-step process.</p>
+      <h2>Outcome</h2>
+      <div class="impact-grid">
+        <div class="impact-card"><h4>12 → 4</h4><p>Report steps reduced</p></div>
+        <div class="impact-card"><h4>< 3 min</h4><p>Average report completion</p></div>
+        <div class="impact-card"><h4>Dual</h4><p>Landing page + application</p></div>
+        <div class="impact-card"><h4>Multi</h4><p>Framework-agnostic reporting</p></div>
+      </div>
 
       <div class="cs-callout">
-        <p>The best enterprise UX isn't about making things look good — it's about making people feel competent. When a compliance officer generates a report without asking for help, that's the design working.</p>
+        <p>The best enterprise UX makes people feel competent. When a compliance officer generates a report without asking for help — that's the design working.</p>
       </div>
     </section>
 
-    <!-- Back -->
     <a href="index.html#work" class="cs-back">← Back to all work</a>
-
   </main>
 
   <script>
-    // Scroll to top on load
     window.onbeforeunload = function () { window.scrollTo(0, 0); };
-    window.onload = function () { window.scrollTo({ top: 0, behavior: "smooth" }); };
-
-    // Fade-in observer
     var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
+      entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add("visible"); });
     }, { threshold: 0.08 });
     document.querySelectorAll(".fade").forEach(function(el) { observer.observe(el); });
   </script>
