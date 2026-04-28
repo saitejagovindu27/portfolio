@@ -19,28 +19,27 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =========================================
-  //  HERO — Word split entrance
+  //  HERO — Clean entrance (no word-split, preserves gradient)
   // =========================================
   var heroTitle = document.getElementById("hero-title");
   if (heroTitle) {
-    var text = heroTitle.textContent.trim();
-    heroTitle.innerHTML = "";
-    text.split(/\s+/).forEach(function (word) {
-      var span = document.createElement("span");
-      span.className = "word";
-      span.textContent = word;
-      span.style.cssText = "display:inline-block;margin-right:10px;";
-      heroTitle.appendChild(span);
-    });
-    gsap.from(".hero-title .word", {
-      y: 50, opacity: 0, duration: 0.8, stagger: 0.06, ease: "power3.out",
+    heroTitle.style.opacity = "0";
+    heroTitle.style.transform = "translateY(24px)";
+    gsap.to(heroTitle, {
+      opacity: 1, y: 0, duration: 1, delay: 0.4, ease: "power3.out",
+      clearProps: "transform"
     });
   }
 
-  gsap.from(".hero-sub", { y: 20, opacity: 0, duration: 0.8, delay: 0.4, ease: "power3.out", clearProps: "all" });
-  gsap.from(".hero-cta", { y: 15, opacity: 0, duration: 0.6, delay: 0.7, ease: "power3.out", clearProps: "all" });
+  var heroIdentity = document.querySelector(".hero-identity");
+  if (heroIdentity) {
+    gsap.from(heroIdentity, { y: 12, opacity: 0, duration: 0.6, delay: 0.2, ease: "power3.out", clearProps: "all" });
+  }
 
-  // Orbit entrance — NO parallax-out on scroll (keeps it stable)
+  gsap.from(".hero-sub", { y: 16, opacity: 0, duration: 0.7, delay: 0.6, ease: "power3.out", clearProps: "all" });
+  gsap.from(".hero-cta", { y: 12, opacity: 0, duration: 0.6, delay: 0.8, ease: "power3.out", clearProps: "all" });
+
+  // Orbit entrance
   gsap.from(".hero-orbit", { scale: 0.5, opacity: 0, duration: 1.2, delay: 0.3, ease: "back.out(1.2)" });
   gsap.from(".orbit-node", { scale: 0, opacity: 0, duration: 0.5, stagger: 0.08, delay: 0.8, ease: "back.out(2)" });
   gsap.from(".orbit-ring", { scale: 0.3, opacity: 0, duration: 0.8, stagger: 0.15, delay: 0.5 });
@@ -57,12 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // =========================================
-  //  WORK CARDS — Scroll reveal (no scrub)
+  //  WORK CARDS — Scroll reveal with depth
   // =========================================
   gsap.utils.toArray(".work-card").forEach(function (card, i) {
     gsap.from(card, {
-      y: 60, opacity: 0, duration: 0.7,
-      delay: i * 0.1,
+      y: 50, opacity: 0, scale: 0.97, duration: 0.7,
+      delay: i * 0.12,
       ease: "power2.out",
       scrollTrigger: {
         trigger: card,
@@ -72,14 +71,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // =========================================
-  //  SECTION HEADINGS
-  // =========================================
-  gsap.utils.toArray(".section-block h2").forEach(function (h2) {
-    gsap.from(h2, {
-      y: 25, opacity: 0, duration: 0.6, ease: "power2.out",
-      scrollTrigger: { trigger: h2, start: "top 90%", toggleActions: "play none none none" },
+  // Card hover parallax on image
+  document.querySelectorAll(".work-card").forEach(function(card) {
+    var img = card.querySelector(".card-visual img");
+    if (!img) return;
+    card.addEventListener("mousemove", function(e) {
+      var rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
+      var y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(img, { x: x * 8, y: y * 6, duration: 0.4, ease: "power2.out" });
     });
+    card.addEventListener("mouseleave", function() {
+      gsap.to(img, { x: 0, y: 0, duration: 0.5, ease: "power2.out" });
+    });
+  });
+
+  // =========================================
+  //  SECTION HEADINGS — Staggered reveal
+  // =========================================
+  gsap.utils.toArray(".section-block").forEach(function (section) {
+    var h2 = section.querySelector("h2");
+    var rest = section.querySelectorAll("p, .work-grid, .marquee-wrapper, .connect-actions, .connect-sub");
+    if (h2) {
+      gsap.from(h2, {
+        y: 20, opacity: 0, duration: 0.6, ease: "power2.out",
+        scrollTrigger: { trigger: section, start: "top 88%", toggleActions: "play none none none" },
+      });
+    }
+    if (rest.length) {
+      gsap.from(rest, {
+        y: 16, opacity: 0, duration: 0.5, stagger: 0.08, delay: 0.15, ease: "power2.out",
+        scrollTrigger: { trigger: section, start: "top 85%", toggleActions: "play none none none" },
+      });
+    }
   });
 
   // =========================================

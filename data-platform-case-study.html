@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Data Platform — Case Study | Sai Teja Govind</title>
-    <meta name="description" content="UX case study: Designing an AI-powered analytics platform that unified 14 disconnected dashboards into one coherent decision-making system.">
+    <meta name="description" content="UX case study: Designing IST's AI-powered data intelligence suite — 8 integrated modules from catalogues to analytics.">
     <link rel="stylesheet" href="styles.css">
     <script>var exports = {};</script>
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
@@ -12,219 +12,61 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <style>
-      /* Case Study Layout */
       .cs-page { max-width: 860px; margin: 0 auto; padding: 120px 80px 100px; }
       .cs-hero { margin-bottom: 56px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .cs-hero h1 {
-        font-size: clamp(36px, 5vw, 52px);
-        font-family: 'Satoshi', sans-serif;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-bottom: 20px;
-      }
-      .cs-hero-sub {
-        font-size: 19px;
-        color: #94a3b8;
-        line-height: 1.6;
-        max-width: 640px;
-      }
-      .cs-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px 28px;
-        margin-top: 32px;
-      }
-      .cs-meta-item {
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: #64748b;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .cs-meta-item::before {
-        content: '';
-        width: 5px; height: 5px;
-        border-radius: 50%;
-        background: #6366f1;
-        box-shadow: 0 0 8px rgba(99,102,241,0.5);
-      }
-
-      /* Sections */
-      .cs-section { margin-bottom: 56px; }
-      .cs-section h2 {
-        font-size: 28px;
-        font-family: 'Satoshi', sans-serif;
-        margin-bottom: 16px;
-        color: white;
-      }
-      .cs-section h3 {
-        font-size: 20px;
-        margin: 24px 0 10px;
-        color: #e2e8f0;
-      }
-      .cs-section p {
-        font-size: 17px;
-        color: #94a3b8;
-        line-height: 1.7;
-        margin-bottom: 14px;
-        max-width: 700px;
-      }
-      .cs-section ul {
-        padding-left: 20px;
-        margin-bottom: 14px;
-      }
-      .cs-section li {
-        font-size: 17px;
-        color: #94a3b8;
-        line-height: 1.7;
-        margin-bottom: 8px;
-      }
-
-      /* Image Containers */
-      .cs-img {
-        width: 100%;
-        max-width: 900px;
-        margin: 32px auto;
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-        border: 1px solid rgba(255,255,255,0.06);
-      }
-      .cs-img-full {
-        height: auto;
-        background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
-      }
-      .cs-img-split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        border: none;
-      }
-      .cs-img-split .cs-img-half {
-        height: auto;
-        border-radius: 12px;
-        background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
-        border: 1px solid rgba(255,255,255,0.06);
-        position: relative;
-        overflow: hidden;
-      }
-      .cs-img::after,
-      .cs-img-half::after {
-        content: attr(data-label);
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        color: rgba(255,255,255,0.2);
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 0.05em;
-        pointer-events: none;
-      }
-      .cs-img img,
-      .cs-img-half img {
-        width: 100%;
-        height: auto;
-        display: block;
-        position: relative;
-        z-index: 2;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        border-radius: 12px;
-      }
-      .cs-img img.loaded,
-      .cs-img-half img.loaded {
-        opacity: 1;
-      }
-      .cs-caption {
-        font-size: 13px;
-        color: #475569;
-        margin-top: -20px;
-        margin-bottom: 32px;
-        font-style: italic;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* Impact Grid */
-      .impact-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 16px;
-        margin: 28px 0;
-      }
-      .impact-card {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.06);
-        padding: 24px 20px;
-        border-radius: 14px;
-        text-align: center;
-      }
-      .impact-card h4 {
-        font-size: 26px;
-        color: white;
-        margin-bottom: 6px;
-        font-weight: 700;
-      }
-      .impact-card p {
-        font-size: 13px;
-        color: #64748b;
-        margin: 0;
-        line-height: 1.4;
-      }
-
-      /* Callout */
-      .cs-callout {
-        background: rgba(99,102,241,0.06);
-        border-left: 3px solid #6366f1;
-        padding: 20px 24px;
-        border-radius: 0 12px 12px 0;
-        margin: 28px 0;
-      }
-      .cs-callout p {
-        color: #cbd5e1;
-        font-size: 16px;
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      /* Back Link */
-      .cs-back {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: #6366f1;
-        font-size: 14px;
-        font-weight: 500;
-        margin-top: 40px;
-        transition: gap 0.3s;
-      }
+      .cs-hero h1 { font-size: clamp(36px, 5vw, 52px); font-family: 'Satoshi', sans-serif; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+      .cs-hero-sub { font-size: 18px; color: #94a3b8; line-height: 1.6; max-width: 640px; }
+      .cs-meta { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 28px; }
+      .cs-meta-item { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; display: flex; align-items: center; gap: 8px; }
+      .cs-meta-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #6366f1; box-shadow: 0 0 8px rgba(99,102,241,0.5); }
+      .cs-section { margin-bottom: 48px; }
+      .cs-section h2 { font-size: 26px; font-family: 'Satoshi', sans-serif; margin-bottom: 14px; color: white; }
+      .cs-section h3 { font-size: 19px; margin: 20px 0 8px; color: #e2e8f0; }
+      .cs-section p { font-size: 16px; color: #94a3b8; line-height: 1.7; margin-bottom: 12px; max-width: 700px; }
+      .cs-section ul { padding-left: 20px; margin-bottom: 12px; }
+      .cs-section li { font-size: 16px; color: #94a3b8; line-height: 1.6; margin-bottom: 6px; }
+      .cs-img { width: 100%; max-width: 900px; margin: 28px auto; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.06); }
+      .cs-img-full { height: auto; background: linear-gradient(135deg, #0a1628 0%, #111a35 100%); }
+      .cs-img-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; border: none; }
+      .cs-img-split .cs-img-half { height: auto; border-radius: 12px; background: linear-gradient(135deg, #0a1628 0%, #111a35 100%); border: 1px solid rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+      .cs-img::after, .cs-img-half::after { content: attr(data-label); position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,0.2); font-size: 13px; font-weight: 500; letter-spacing: 0.05em; pointer-events: none; }
+      .cs-img img, .cs-img-half img { width: 100%; height: auto; display: block; position: relative; z-index: 2; opacity: 0; transition: opacity 0.4s ease; border-radius: 12px; }
+      .cs-img img.loaded, .cs-img-half img.loaded { opacity: 1; }
+      .cs-caption { font-size: 13px; color: #475569; margin-top: -16px; margin-bottom: 28px; font-style: italic; max-width: 900px; margin-left: auto; margin-right: auto; }
+      .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 24px 0; }
+      .impact-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 22px 18px; border-radius: 14px; text-align: center; }
+      .impact-card h4 { font-size: 24px; color: white; margin-bottom: 4px; font-weight: 700; }
+      .impact-card p { font-size: 13px; color: #64748b; margin: 0; line-height: 1.4; }
+      .cs-callout { background: rgba(99,102,241,0.06); border-left: 3px solid #6366f1; padding: 18px 22px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+      .cs-callout p { color: #cbd5e1; font-size: 15px; line-height: 1.6; margin: 0; }
+      .cs-back { display: inline-flex; align-items: center; gap: 8px; color: #6366f1; font-size: 14px; font-weight: 500; margin-top: 40px; transition: gap 0.3s; }
       .cs-back:hover { gap: 12px; }
-
-      /* Responsive */
+      /* System Diagram */
+      .system-diagram { display: flex; align-items: center; justify-content: center; gap: 0; margin: 32px 0; flex-wrap: wrap; }
+      .sys-node { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); padding: 14px 20px; border-radius: 12px; font-size: 13px; font-weight: 600; color: #c7d2fe; text-align: center; min-width: 120px; }
+      .sys-arrow { color: #4f46e5; font-size: 20px; padding: 0 8px; opacity: 0.5; }
+      .sys-node.active { background: rgba(99,102,241,0.15); border-color: #6366f1; color: white; box-shadow: 0 0 20px rgba(99,102,241,0.15); }
+      /* Highlight Card */
+      .highlight-card { background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(59,130,246,0.04)); border: 1px solid rgba(99,102,241,0.12); border-radius: 16px; padding: 28px 32px; margin: 28px 0; }
+      .highlight-card h3 { font-size: 18px; color: #c7d2fe; margin: 0 0 8px; }
+      .highlight-card p { font-size: 15px; color: #94a3b8; margin: 0; line-height: 1.6; }
       @media (max-width: 768px) {
         .cs-page { padding: 100px 24px 60px; }
         .cs-img-split { grid-template-columns: 1fr; }
         .cs-hero h1 { font-size: clamp(28px, 7vw, 40px); }
+        .system-diagram { flex-direction: column; gap: 8px; }
+        .sys-arrow { transform: rotate(90deg); }
       }
-
-      /* Fade */
       .fade { opacity: 0; transform: translateY(20px); transition: .6s cubic-bezier(0.22,1,0.36,1); }
       .fade.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
-
-  <!-- Background -->
   <div id="plasma-layer" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
   <canvas id="fluid"></canvas>
 
-  <!-- Header -->
   <header class="header">
     <div class="logo"><a href="index.html">Sai Teja Govind</a></div>
     <nav>
@@ -236,168 +78,164 @@
 
   <main class="cs-page">
 
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <section class="cs-hero fade">
       <h1>AI Data Platform</h1>
-      <p class="cs-hero-sub">Fourteen disconnected dashboards. Three different teams. Zero shared context. I designed a unified AI-powered analytics platform that turned fragmented data silos into a single source of truth — with predictive insights that tell you what's about to happen, not just what already did.</p>
+      <p class="cs-hero-sub">Designed IST's flagship data intelligence suite — an AI-powered platform that turns raw enterprise data into actionable insights through 8 integrated modules, from data catalogues to spatial analytics.</p>
       <div class="cs-meta">
         <span class="cs-meta-item">Lead UX Designer</span>
         <span class="cs-meta-item">I Spatial Techno Solutions</span>
-        <span class="cs-meta-item">Jan 2026–Present</span>
-        <span class="cs-meta-item">Team of 8 (2 Designers)</span>
-        <span class="cs-meta-item">AI / Enterprise Analytics</span>
+        <span class="cs-meta-item">2025–Present</span>
+        <span class="cs-meta-item">Team of 12</span>
+        <span class="cs-meta-item">AI / Enterprise SaaS</span>
       </div>
     </section>
 
-    <!-- ===== CONTEXT ===== -->
+    <!-- CONTEXT -->
     <section class="cs-section fade">
       <h2>Context</h2>
-      <p>The organization relied on 14 separate dashboards across three departments — operations, planning, and executive leadership. Each dashboard was built by a different vendor, used a different data model, and told a different version of the truth. Leadership couldn't answer basic questions like "are we on track this quarter?" without pulling data from four systems and reconciling it manually in Excel.</p>
-      <p>I was brought in to design a single, unified analytics platform that would consolidate all 14 data sources into one AI-augmented decision-making environment — with role-based views that serve analysts, managers, and executives without overwhelming any of them.</p>
+      <p>IST needed a unified product that would serve as the company's core AI offering — a platform where enterprise clients could ingest, catalogue, visualize, analyze, and govern their data from a single interface. The product needed to work across domains: spatial data, sensor networks, operational databases, and document repositories.</p>
+      <p>I owned the UX architecture and visual design for the entire product — from the marketing landing page to the deep application interfaces of all 8 modules.</p>
     </section>
 
-    <!-- ===== PROBLEM ===== -->
+    <!-- PROBLEM -->
     <section class="cs-section fade">
       <h2>The Problem</h2>
-      <p>The surface-level problem was obvious: too many dashboards. But the deeper problem was that each dashboard was designed for a different mental model.</p>
+      <p>Eight powerful modules. Zero cohesion. Each was being built by a different engineering pod with its own UI patterns, navigation models, and terminology. Users had to relearn the interface every time they switched modules.</p>
       <ul>
-        <li>Operations dashboards showed real-time metrics — uptime, throughput, error rates — but had no trend lines or forecasting. They answered "what's happening now?" but not "is this normal?"</li>
-        <li>Planning dashboards showed historical trends but were always 2-3 weeks behind. By the time leadership saw a problem, it was already a crisis</li>
-        <li>Executive dashboards were high-level summaries that masked important nuances. A green KPI could hide three failing sub-metrics. Leadership felt informed but wasn't</li>
-        <li>No shared vocabulary. "Active users" meant something different in every dashboard. "Revenue" was calculated three different ways</li>
-        <li>Analysts spent 60% of their time preparing data rather than analyzing it — pulling exports, cleaning formats, reconciling discrepancies</li>
+        <li>Data Catalogues used a tree-based navigation; Map Viewer used a layer panel; Analytics used tabs — same platform, three mental models</li>
+        <li>No shared design system — buttons, cards, and data tables looked different across every module</li>
+        <li>The landing page promised "AI-Powered Insights" but the application felt like 8 separate tools stitched together</li>
+        <li>Admin workflows required navigating between modules to complete a single task</li>
       </ul>
     </section>
 
-    <!-- ===== IMAGE 1: Dashboard Overview ===== -->
-    <div class="cs-img cs-img-full fade" data-label="Unified Dashboard — Executive View">
-      <img src="assets/data-platform/dashboard-overview.png" alt="AI Data Platform Dashboard" loading="lazy" onload="this.classList.add('loaded')" />
+    <!-- IMAGE 1: Landing Page -->
+    <div class="cs-img cs-img-full fade" data-label="Product Landing — AI Data Intelligence Suite">
+      <img src="assets/data-platform/landing.png" alt="AI Data Platform Landing" loading="lazy" onload="this.classList.add('loaded')" />
     </div>
-    <p class="cs-caption">Executive view: unified KPIs, AI-driven anomaly flags, and predictive trend lines — one screen, complete picture</p>
+    <p class="cs-caption">Product landing page: "Transform your Data into AI-Powered Insights" — clear value proposition with module showcase</p>
 
-    <!-- ===== RESEARCH ===== -->
+    <!-- SYSTEM THINKING -->
     <section class="cs-section fade">
-      <h2>Research & Discovery</h2>
-      <ul>
-        <li><strong style="color:#cbd5e1">Dashboard audit</strong> — Catalogued all 14 dashboards: their data sources, update frequencies, user bases, and overlapping metrics. Found that 60% of widgets across dashboards displayed variations of the same 8 core metrics</li>
-        <li><strong style="color:#cbd5e1">User shadowing</strong> — Spent 2 days with analysts, 1 day with operations managers, and 1 day with a VP. Documented their complete data consumption workflow — from opening their first dashboard to making a decision</li>
-        <li><strong style="color:#cbd5e1">Pain point mapping</strong> — Identified 12 distinct friction points. The top 3: "I don't trust this number" (data inconsistency), "I can't find what I need" (scattered across systems), "By the time I see it, it's too late" (no predictive capability)</li>
-        <li><strong style="color:#cbd5e1">Competitive analysis</strong> — Studied Looker, Metabase, Mixpanel, and Amplitude's information architectures to understand how they handle role-based data density</li>
-      </ul>
-
-      <div class="cs-callout">
-        <p>The most revealing finding: when I asked the VP "what decision did your last dashboard help you make?", she paused for 15 seconds and said "I think it confirmed something I already suspected." The dashboards weren't driving decisions — they were confirming biases. That's a fundamentally different design problem.</p>
+      <h2>How the System Works Together</h2>
+      <p>The platform's 8 modules form a connected data pipeline. Understanding this flow was the key architectural decision — it shaped navigation, permissions, and the entire information hierarchy.</p>
+      <div class="system-diagram">
+        <div class="sys-node active">Data Catalogues</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node">Map Viewer</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node">Analytics &amp; Reports</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node active">Admin Module</div>
       </div>
+      <div class="system-diagram" style="margin-top: 12px;">
+        <div class="sys-node">Data Dictionary</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node">Data Quality</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node">Data Request Portal</div>
+        <span class="sys-arrow">→</span>
+        <div class="sys-node">Doc &amp; Media</div>
+      </div>
+      <p style="margin-top: 16px;">Top row: the core data workflow (ingest → visualize → analyze → govern). Bottom row: supporting services that feed into the core pipeline. Users move left-to-right through the system — the navigation mirrors this mental model.</p>
     </section>
 
-    <!-- ===== DESIGN PROCESS ===== -->
+    <!-- DESIGN PROCESS -->
     <section class="cs-section fade">
       <h2>Design Process</h2>
+      <h3>Unified Design Language</h3>
+      <p>Created a shared design system across all 8 modules — consistent navigation patterns, component library, spacing system, and interaction models. Users learn the interface once.</p>
 
-      <h3>Architecture: Three Layers, One Platform</h3>
-      <p>Instead of building one dashboard that tried to serve everyone, I designed three progressive density layers within the same platform — each serving a different cognitive mode:</p>
+      <h3>Module Architecture</h3>
       <ul>
-        <li><strong style="color:#cbd5e1">Pulse View (Executives)</strong> — 6 KPIs maximum. AI-flagged anomalies surface only when something deviates from expected range. Green doesn't mean "good" — it means "within predicted bounds." Red means "this is outside what the model expected." This forces attention on genuine signals, not noise</li>
-        <li><strong style="color:#cbd5e1">Analysis View (Managers)</strong> — Full trend lines, comparison tools, drill-down capabilities. Every metric links to its source data. Hovering on any number shows calculation methodology — building trust through transparency</li>
-        <li><strong style="color:#cbd5e1">Explorer View (Analysts)</strong> — Raw query builder, custom visualization creator, data export pipeline. Analysts can build their own views without engineering support — and share them with managers as saved "lenses"</li>
-      </ul>
-
-      <h3>AI Integration — Not a Gimmick</h3>
-      <p>AI wasn't bolted on as a feature — it was woven into the decision-making fabric:</p>
-      <ul>
-        <li><strong style="color:#cbd5e1">Anomaly Detection</strong> — The system learns baseline patterns per metric and flags deviations before they become visible on charts. A 3% drop that would take a human analyst 2 days to notice gets flagged in real-time</li>
-        <li><strong style="color:#cbd5e1">Predictive Trend Lines</strong> — Every chart shows not just "what happened" but "what's likely to happen in the next 7/14/30 days" based on historical patterns and current trajectory</li>
-        <li><strong style="color:#cbd5e1">Natural Language Summaries</strong> — Each dashboard section generates a plain-English summary: "Revenue is trending 4% below Q3 forecast, primarily driven by a 12% drop in Region B. This is consistent with seasonal patterns from 2024 but 2x the expected magnitude"</li>
+        <li><strong style="color:#cbd5e1">Data Catalogues</strong> — Browse and search enterprise datasets with metadata previews, tagging, and access controls</li>
+        <li><strong style="color:#cbd5e1">Map Viewer</strong> — Spatial data visualization with layer management, drawing tools, and basemap switching</li>
+        <li><strong style="color:#cbd5e1">Data Dictionary</strong> — Schema documentation with field-level lineage tracking and relationship maps</li>
+        <li><strong style="color:#cbd5e1">Admin Module</strong> — User management, permissions, audit logs, and system configuration</li>
+        <li><strong style="color:#cbd5e1">Analytics & Reports</strong> — AI-driven insights with custom report builder and scheduled delivery</li>
+        <li><strong style="color:#cbd5e1">Data Quality</strong> — Automated validation rules, anomaly detection, and data health scoring</li>
+        <li><strong style="color:#cbd5e1">Data Request Portal</strong> — Formal data access workflow with approval chains and SLA tracking</li>
+        <li><strong style="color:#cbd5e1">Doc & Media</strong> — Document management with AI-powered search and version control</li>
       </ul>
     </section>
 
-    <!-- ===== IMAGE 2: Split — Analysis + Explorer Views ===== -->
+    <!-- IMAGE 2: Split — Module Views -->
     <div class="cs-img-split fade">
-      <div class="cs-img-half" data-label="Analysis View — Drill-Down">
-        <img src="assets/data-platform/analysis-view.png" alt="Analysis View" loading="lazy" onload="this.classList.add('loaded')" />
+      <div class="cs-img-half" data-label="Data Catalogues">
+        <img src="assets/data-platform/catalogues.png" alt="Data Catalogues" loading="lazy" onload="this.classList.add('loaded')" />
       </div>
-      <div class="cs-img-half" data-label="Explorer View — Query Builder">
-        <img src="assets/data-platform/explorer-view.png" alt="Explorer View" loading="lazy" onload="this.classList.add('loaded')" />
+      <div class="cs-img-half" data-label="Analytics & Reports">
+        <img src="assets/data-platform/analytics.png" alt="Analytics" loading="lazy" onload="this.classList.add('loaded')" />
       </div>
     </div>
-    <p class="cs-caption">Left: Manager analysis view with comparative trend lines. Right: Analyst explorer with query builder and custom visualizations.</p>
+    <p class="cs-caption">Left: Data Catalogues with metadata preview. Right: Analytics module with AI-driven insights.</p>
 
-    <!-- ===== SOLUTION ===== -->
+    <!-- HIGHLIGHT: AI Integration -->
+    <div class="highlight-card fade">
+      <h3>AI Integration — Woven In, Not Bolted On</h3>
+      <p>AI powers three key experiences: smart search across catalogues (natural language queries), automated data quality scoring (anomaly detection on ingestion), and predictive analytics in the reports module. The AI is invisible — users experience better results without having to "use AI" as a separate feature.</p>
+    </div>
+
+    <!-- KEY DECISION -->
     <section class="cs-section fade">
-      <h2>Solution</h2>
-      <p>The shipped platform delivers a single, unified analytics environment where the same underlying data powers three progressively complex views:</p>
-      <ul>
-        <li><strong style="color:#cbd5e1">Unified Data Model</strong> — All 14 data sources feed into one canonical schema. "Active users" means one thing everywhere. "Revenue" is calculated one way. Trust is built through consistency</li>
-        <li><strong style="color:#cbd5e1">Role-Based Density</strong> — Executives see 6 KPIs with AI annotations. Managers see full dashboards with drill-down. Analysts see raw data with query tools. Same data, different cognitive loads</li>
-        <li><strong style="color:#cbd5e1">AI-First Insights</strong> — Anomaly detection, predictive forecasting, and natural language summaries are not separate features — they're embedded into every chart, every KPI card, every view</li>
-        <li><strong style="color:#cbd5e1">Shared Context</strong> — When an executive flags a KPI for investigation, the analyst gets the exact same view plus the drill-down tools. No more "can you send me that dashboard?" — context travels with the data</li>
-      </ul>
+      <h2>Key Decision</h2>
+      <p>The critical decision was choosing pipeline-based navigation over module-based navigation. Instead of 8 sidebar items that felt like separate apps, I organized the interface around the data lifecycle: Ingest → Explore → Analyze → Govern.</p>
+      <p>Users don't think in modules — they think in tasks. "I need to find a dataset, check its quality, and build a report" is a workflow that crosses three modules. The navigation now reflects that workflow, not the engineering architecture.</p>
     </section>
 
-    <!-- ===== IMAGE 3: Full Width — AI Insights Panel ===== -->
-    <div class="cs-img cs-img-full fade" data-label="AI Insights — Anomaly Detection & Predictions">
-      <img src="assets/data-platform/ai-insights.png" alt="AI Insights Panel" loading="lazy" onload="this.classList.add('loaded')" />
-    </div>
-    <p class="cs-caption">AI insights panel: real-time anomaly detection with predicted trend lines and natural language summaries</p>
+    <!-- CONSTRAINT -->
+    <section class="cs-section fade">
+      <h2>Constraint</h2>
+      <p>Each module was at a different development stage. Data Catalogues and Map Viewer were mature; Data Quality and Doc & Media were still in early development. I had to design a system that felt complete even when modules were being added incrementally — the platform needed to feel like a shipped product from day one, not a work-in-progress.</p>
+    </section>
 
-    <!-- ===== IMPACT ===== -->
+    <!-- IMAGE 3: Full Width -->
+    <div class="cs-img cs-img-full fade" data-label="Platform Overview — All Modules">
+      <img src="assets/data-platform/platform-overview.png" alt="Platform Overview" loading="lazy" onload="this.classList.add('loaded')" />
+    </div>
+    <p class="cs-caption">Full platform: unified design language across all 8 modules with consistent navigation and component system</p>
+
+    <!-- IMPACT -->
     <section class="cs-section fade">
       <h2>Impact</h2>
       <div class="impact-grid">
         <div class="impact-card">
-          <h4>14 → 1</h4>
-          <p>Dashboards consolidated into one platform</p>
+          <h4>8</h4>
+          <p>Modules unified under one design system</p>
         </div>
         <div class="impact-card">
-          <h4>3 Views</h4>
-          <p>Role-based density levels (Pulse / Analysis / Explorer)</p>
+          <h4>1</h4>
+          <p>Navigation model across the entire product</p>
         </div>
         <div class="impact-card">
-          <h4>AI Layer</h4>
-          <p>Anomaly detection + predictive trend lines + NL summaries</p>
+          <h4>AI</h4>
+          <p>Embedded across search, quality, and analytics</p>
         </div>
         <div class="impact-card">
-          <h4>1 Schema</h4>
-          <p>Unified data model — one definition per metric</p>
+          <h4>Pipeline</h4>
+          <p>Task-based workflow replaced module silos</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== KEY DECISION ===== -->
-    <section class="cs-section fade">
-      <h2>Key Decision</h2>
-      <p>The hardest decision was rejecting the "single configurable dashboard" approach. The stakeholders initially wanted one dashboard where users could toggle complexity with filters and settings. We prototyped it.</p>
-      <p>The result was a Frankenstein: executives accidentally enabled analyst-level detail and couldn't find the toggle to go back. Analysts turned off "simple mode" and lost their custom queries. The configurability created more confusion than the 14 separate dashboards had.</p>
-      <p>The three-view architecture was counter-intuitive — it felt like building three dashboards instead of one. But each view was purpose-built for its audience's cognitive mode: scanning (executives), comparing (managers), exploring (analysts). The result was dramatically simpler for everyone.</p>
-    </section>
-
-    <!-- ===== CONSTRAINT ===== -->
-    <section class="cs-section fade">
-      <h2>Constraint</h2>
-      <p>The 14 source dashboards couldn't be decommissioned during the transition. Some had regulatory reporting dependencies — government reports were generated directly from dashboard exports. This meant the new platform had to produce identical exports to the legacy systems while presenting the data completely differently.</p>
-      <p>I designed an "export compatibility layer" that preserved exact legacy formatting while the UI presented the same data in the new unified schema. Users see the improved interface but can still generate legacy-format reports for compliance — no disruption to regulatory workflows.</p>
-    </section>
-
-    <!-- ===== IMAGE 4: Final Screens ===== -->
-    <div class="cs-img cs-img-full fade" data-label="Final Screens — Platform Overview">
-      <img src="assets/data-platform/final-screens.png" alt="AI Data Platform Final Screens" loading="lazy" onload="this.classList.add('loaded')" />
+    <!-- IMAGE 4: Digital Services -->
+    <div class="cs-img cs-img-full fade" data-label="Digital Services Portal — Product Ecosystem">
+      <img src="assets/data-platform/digital-services.png" alt="Digital Services" loading="lazy" onload="this.classList.add('loaded')" />
     </div>
-    <p class="cs-caption">Key screens: executive pulse, manager analysis, analyst explorer, and AI insights panel</p>
+    <p class="cs-caption">Digital Services Portal: Braein.ai, Smart Eco, Smart Geo App, Smart Field Geo — the platform ecosystem</p>
 
-    <!-- ===== REFLECTION ===== -->
+    <!-- REFLECTION -->
     <section class="cs-section fade">
       <h2>What I Learned</h2>
-      <p>The biggest lesson was that dashboard consolidation isn't a visual design problem — it's an epistemological one. Different people need to know different things at different levels of certainty. A VP needs to know "are we on track?" with 80% confidence. An analyst needs to know "why did metric X change on Tuesday?" with 99% certainty. These aren't the same question, and they can't be answered by the same interface.</p>
-      <p>The AI integration taught me that the most powerful AI features are invisible. Users don't think "the AI flagged this anomaly" — they think "the dashboard told me something important." When the technology disappears into the experience, that's when it's working.</p>
+      <p>Designing a multi-module product is fundamentally different from designing a single application. The hardest part isn't any individual module — it's the seams between them. When a user switches from Catalogues to Analytics, that transition needs to feel like turning a page, not switching apps.</p>
 
       <div class="cs-callout">
-        <p>The best analytics platform doesn't give you more data — it gives you fewer, better decisions. When a VP opens the platform, sees one red flag, understands why in 10 seconds, and knows what to do in 30 — that's the design working.</p>
+        <p>The best platform UX is invisible infrastructure. Users shouldn't know they're using 8 modules — they should feel like they're using one product that does everything they need.</p>
       </div>
     </section>
 
-    <!-- Back -->
     <a href="index.html#work" class="cs-back">← Back to all work</a>
-
   </main>
 
   <script>
