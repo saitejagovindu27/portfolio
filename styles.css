@@ -596,6 +596,25 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* =========================================
+   SCROLL REVEAL
+ ========================================= */
+.scroll-reveal {
+  margin: 20px 0;
+  will-change: transform, opacity;
+}
+
+.scroll-reveal-text {
+  font-size: inherit; /* Use heading size */
+  line-height: 1.5;
+  font-weight: inherit;
+}
+
+.word {
+  display: inline-block;
+  white-space: pre; /* Keep spaces between words */
+}
+
+/* =========================================
    CONTACT
 ========================================= */
 .connect-sub {
