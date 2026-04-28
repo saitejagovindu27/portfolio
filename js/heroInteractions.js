@@ -28,12 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const y = (e.clientY / window.innerHeight - 0.5);
 
     if (heroContent) {
-      // 3D Tilt effect
       heroContent.style.transform = `perspective(1000px) rotateX(${y * -4}deg) rotateY(${x * 4}deg) translate(${x * 10}px, ${y * 10}px)`;
     }
 
     if (orbit) {
-      orbit.style.transform = `perspective(1000px) rotateX(${y * -12}deg) rotateY(${x * 12}deg)`;
+      orbit.style.transform = `perspective(1000px) rotateX(${y * -8}deg) rotateY(${x * 8}deg)`;
+      
+      const rings = orbit.querySelectorAll('.orbit-ring');
+      rings.forEach((ring, i) => {
+        const factor = (i + 1) * 4;
+        ring.style.transform = `translate(-50%, -50%) translateZ(${factor * 10}px) rotateX(${y * factor}deg) rotateY(${x * factor}deg)`;
+      });
     }
   });
 
