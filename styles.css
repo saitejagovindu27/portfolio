@@ -33,10 +33,21 @@ a { color: inherit; text-decoration: none; }
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 80px;
+  position: relative;
+  z-index: 1;
 }
 
 .section-block {
   padding: 100px 0;
+}
+
+/* ColorBends bg container */
+#color-bends-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 .section-block h2 {
@@ -366,8 +377,19 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-4px) scale(1.02);
   box-shadow:
     0 20px 60px rgba(0,0,0,0.6),
-    0 0 40px rgba(59,130,246,0.06);
-  border-color: rgba(59,130,246,0.15);
+    0 0 40px rgba(59,130,246,0.08);
+  border-color: rgba(59,130,246,0.2);
+}
+
+/* Per-card accent (differentiation) */
+.work-card:nth-child(1) { border-left: 3px solid rgba(59,130,246,0.3); }
+.work-card:nth-child(2) { border-left: 3px solid rgba(99,102,241,0.3); }
+.work-card:nth-child(3) { border-left: 3px solid rgba(16,185,129,0.3); }
+.work-card:nth-child(4) { border-left: 3px solid rgba(245,158,11,0.3); }
+
+/* Card visual hover glow — standout moment */
+.work-card:hover .card-visual {
+  box-shadow: 0 0 30px rgba(59,130,246,0.08);
 }
 
 .card-tag {

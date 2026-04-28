@@ -9,6 +9,7 @@
     <script>var exports = {};</script>
     <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.32/dist/ogl.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
@@ -62,8 +63,8 @@
 
   <!-- FEATURED WORK -->
   <section id="work" class="section-block" style="position:relative;overflow:hidden;">
-    <div id="color-bends-bg" style="position:absolute;inset:0;z-index:0;opacity:0.4;pointer-events:none;"></div>
-    <div class="container">
+    <div id="color-bends-bg"></div>
+    <div class="container" style="position:relative;z-index:1;">
       <h2>Featured Work</h2>
       <div class="work-grid">
 
@@ -172,7 +173,6 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="js/splashCursor.js"></script>
   <script src="js/heroInteractions.js"></script>
   <script src="js/plasma.js"></script>
