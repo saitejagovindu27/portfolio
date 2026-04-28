@@ -10,8 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================================
   if (typeof Lenis !== "undefined") {
     var lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.5, // Slightly longer for more "luxurious" feel
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      wheelMultiplier: 1.1,
+      touchMultiplier: 2,
     });
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });

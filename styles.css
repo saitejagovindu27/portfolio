@@ -137,7 +137,8 @@ a { color: inherit; text-decoration: none; }
     margin: 0 auto;
   }
   .about-visual {
-    order: -1;
+    order: 0; /* Text first on mobile */
+    margin-top: 24px;
   }
   .section-block h2 { text-align: center; }
 }
@@ -207,9 +208,9 @@ a { color: inherit; text-decoration: none; }
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(2,6,23,0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(2,6,23,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.04);
   display: flex;
   justify-content: space-between;
@@ -260,7 +261,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   position: relative;
   overflow: visible;
-  padding-top: 80px;
+  padding-top: 140px; /* Increased to avoid header overlap */
 }
 .hero::before {
   content: "";
@@ -848,6 +849,9 @@ a { color: inherit; text-decoration: none; }
   .header { padding: 14px 24px; }
   .header nav { gap: 20px; }
   .section-block { padding: 60px 0; }
+  .header { padding: 12px 24px; }
+  .container { padding: 0 24px; }
+  .hero { padding-top: 120px; }
   .hero-title { font-size: clamp(28px, 8vw, 42px); }
   .work-card {
     flex-direction: column;
@@ -859,7 +863,8 @@ a { color: inherit; text-decoration: none; }
     height: 180px;
   }
   .card-content h3 { font-size: 22px; }
-  .hero-orbit { width: 260px; height: 260px; }
+  .hero-orbit { width: 280px; height: 280px; margin: 0 auto; }
+  .about-visual { min-height: 300px; margin-top: 40px; }
   .orbit-node { font-size: 10px; padding: 6px 10px; }
   .orbit-center { font-size: 11px; padding: 10px 18px; }
   .connect-actions { flex-direction: column; }
