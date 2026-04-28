@@ -204,7 +204,12 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
 }
 
-.hero-content { position: relative; z-index: 2; }
+.hero-content { 
+  position: relative; 
+  z-index: 2; 
+  will-change: transform; 
+  transform-style: preserve-3d;
+}
 
 /* Identity Hook */
 .hero-identity {
@@ -224,6 +229,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 24px;
   color: #f1f5f9;
   text-shadow: 0px 2px 12px rgba(79, 140, 255, 0.12); /* Clean premium glow */
+  will-change: transform;
 }
 /* Gradient ONLY on key words */
 .grad-word {
@@ -336,23 +342,8 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 0 30px rgba(59,130,246,0.3);
   z-index: 3;
 }
-/* Nodes with individual positions on rings */
-.n1 { --angle: 0deg;   --dist: 110px; }
-.n2 { --angle: 60deg;  --dist: 110px; }
-.n4 { --angle: 120deg; --dist: 110px; }
-.n5 { --angle: 180deg; --dist: 170px; }
-.n6 { --angle: 240deg; --dist: 170px; }
-.n7 { --angle: 300deg; --dist: 170px; }
-
 .orbit-node {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: 
-    translate(-50%, -50%) 
-    rotate(var(--angle)) 
-    translate(var(--dist)) 
-    rotate(calc(-1 * var(--angle))); /* Counter-rotate to stay upright */
   padding: 8px 14px;
   border-radius: 999px;
   background: rgba(255,255,255,0.05);
@@ -363,38 +354,17 @@ a { color: inherit; text-decoration: none; }
   color: rgba(255,255,255,0.75);
   white-space: nowrap;
   z-index: 2;
-  transition: all 0.3s;
-  animation: node-float 120s linear infinite; /* Main orbit animation */
+  transition: background 0.3s;
 }
+.orbit-node:hover { background: rgba(255,255,255,0.12); }
 
-.orbit-node:hover { 
-  background: rgba(255,255,255,0.12);
-  color: white;
-  transform: 
-    translate(-50%, -50%) 
-    rotate(var(--angle)) 
-    translate(var(--dist)) 
-    rotate(calc(-1 * var(--angle)))
-    scale(1.1);
-}
-
-@keyframes node-float {
-  from { 
-    transform: translate(-50%, -50%) rotate(0deg) translate(var(--dist)) rotate(0deg); 
-  }
-  to { 
-    transform: translate(-50%, -50%) rotate(360deg) translate(var(--dist)) rotate(-360deg); 
-  }
-}
-
-.ring-1, .ring-2 {
-  animation: ring-rotate 80s linear infinite;
-}
-
-@keyframes ring-rotate {
-  from { transform: translate(-50%,-50%) rotate(0deg); }
-  to { transform: translate(-50%,-50%) rotate(360deg); }
-}
+.n1 { top: 5%;  left: 50%; transform: translateX(-50%); }
+.n2 { top: 24%; left: 3%; }
+.n3 { top: 56%; left: 0%; }
+.n4 { bottom: 3%; left: 50%; transform: translateX(-50%); }
+.n5 { top: 56%; right: 0%; }
+.n6 { top: 24%; right: 3%; }
+.n7 { top: 2%;  right: 12%; }
 
 /* =========================================
    FEATURED WORK
@@ -828,4 +798,33 @@ a { color: inherit; text-decoration: none; }
   .hero-cta button, .hero-cta a { width: 100%; justify-content: center; }
   .hero-visual { transform: scale(0.8); }
 }
-@import url('css/effects.css');
+/ *   = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+       S P O T L I G H T   C A R D 
+   = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =   * / 
+ . c a r d - s p o t l i g h t   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     o v e r f l o w :   h i d d e n ; 
+     - - m o u s e - x :   5 0 % ; 
+     - - m o u s e - y :   5 0 % ; 
+     - - s p o t l i g h t - c o l o r :   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 0 5 ) ; 
+ } 
+ 
+ . c a r d - s p o t l i g h t : : b e f o r e   { 
+     c o n t e n t :   ' ' ; 
+     p o s i t i o n :   a b s o l u t e ; 
+     t o p :   0 ; 
+     l e f t :   0 ; 
+     r i g h t :   0 ; 
+     b o t t o m :   0 ; 
+     b a c k g r o u n d :   r a d i a l - g r a d i e n t ( c i r c l e   4 0 0 p x   a t   v a r ( - - m o u s e - x )   v a r ( - - m o u s e - y ) ,   v a r ( - - s p o t l i g h t - c o l o r ) ,   t r a n s p a r e n t   8 0 % ) ; 
+     o p a c i t y :   0 ; 
+     t r a n s i t i o n :   o p a c i t y   0 . 5 s   e a s e ; 
+     p o i n t e r - e v e n t s :   n o n e ; 
+     z - i n d e x :   3 ; 
+ } 
+ 
+ . c a r d - s p o t l i g h t : h o v e r : : b e f o r e , 
+ . c a r d - s p o t l i g h t : f o c u s - w i t h i n : : b e f o r e   { 
+     o p a c i t y :   0 . 6 ; 
+ }  
+ 

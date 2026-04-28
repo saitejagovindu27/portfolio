@@ -16,59 +16,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Hero Orbit — Cursor 3D Parallax
   const orbit = document.getElementById('heroOrbit');
 
-  // 3. Mouse Parallax (Interactive Depth)
+  // 3. 3D Tilt and Multi-layered Scroll Parallax
+  const heroContent = document.querySelector(".hero-content");
+  const heroIdentity = document.querySelector(".hero-identity");
+  const heroTitle = document.querySelector(".hero-title");
+  const heroSub = document.querySelector(".hero-sub");
+  const heroActions = document.querySelector(".hero-cta");
+
   document.addEventListener("mousemove", (e) => {
     const x = (e.clientX / window.innerWidth - 0.5);
     const y = (e.clientY / window.innerHeight - 0.5);
 
-    const heroContent = document.querySelector(".hero-content");
     if (heroContent) {
-      // Very subtle mouse shift
-      heroContent.style.transform = `translate(${x * 12}px, ${y * 12}px)`;
+      // 3D Tilt effect
+      heroContent.style.transform = `perspective(1000px) rotateX(${y * -4}deg) rotateY(${x * 4}deg) translate(${x * 10}px, ${y * 10}px)`;
     }
 
     if (orbit) {
-      orbit.style.transform = `rotateX(${y * -12}deg) rotateY(${x * 12}deg)`;
+      orbit.style.transform = `perspective(1000px) rotateX(${y * -12}deg) rotateY(${x * 12}deg)`;
     }
   });
 
-  // 4. SCROLL PARALLAX (MEMORABLE MOMENT - OPTION A)
-  // Creates a "3D Window" effect: text lifts while background sinks
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.to(".hero-content", {
-      y: -100, // Moves content up faster than scroll
-      opacity: 0.5, // Fades as it exits
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
+  // Scroll Parallax using GSAP
+  if (typeof gsap !== 'undefined') {
+    gsap.to(heroIdentity, {
+      y: -30,
+      opacity: 0.8,
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
     });
-
-    gsap.to("#color-bends-bg", {
-      y: 120, // Background sinks in opposite direction
-      scale: 1.1, // Subtle zoom for immersion
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
+    gsap.to(heroTitle, {
+      y: -60,
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
     });
-    
-    // Also parallax the background grid for extra layering
-    gsap.to(".bg-grid", {
-      y: 60,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
+    gsap.to(heroSub, {
+      y: -20,
+      opacity: 0.5,
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+    });
+    gsap.to(heroActions, {
+      y: -10,
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
     });
   }
 });
