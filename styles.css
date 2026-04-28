@@ -31,25 +31,21 @@ a { color: inherit; text-decoration: none; }
 /* =========================================
    LAYOUT SYSTEM
 ========================================= */
+/* Global ColorBends background */
+#color-bends-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.15; /* Reduced opacity for subtlety */
+  pointer-events: none;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 80px;
   position: relative;
   z-index: 1;
-}
-
-.section-block {
-  padding: 100px 0;
-}
-
-/* ColorBends bg container */
-#color-bends-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.35;
-  pointer-events: none;
 }
 
 .section-block h2 {
@@ -557,13 +553,8 @@ a { color: inherit; text-decoration: none; }
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-/* Tools section depth */
+/* Tools section */
 #tools {
-  background: radial-gradient(
-    circle at top,
-    rgba(79, 140, 255, 0.05),
-    transparent 60%
-  );
   position: relative;
 }
 
