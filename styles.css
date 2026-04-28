@@ -198,10 +198,29 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 60px;
+  gap: 40px;
   width: 100%;
+}
+
+.hero-main-visual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  perspective: 1500px;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 50px rgba(0,0,0,0.5),
+    0 0 80px rgba(79, 140, 255, 0.15);
+  transform: rotateY(-10deg) rotateX(5deg);
+  transition: transform 0.2s ease-out;
 }
 
 .hero-content { 
@@ -299,17 +318,21 @@ a { color: inherit; text-decoration: none; }
 /* =========================================
    HERO ORBITAL SYSTEM
 ========================================= */
-.hero-visual {
-  display: flex;
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
+  gap: 80px;
+}
+.about-visual {
+  display: flex;
   justify-content: center;
-  position: relative;
-  z-index: 2;
+  align-items: center;
 }
 .hero-orbit {
   position: relative;
-  width: 380px;
-  height: 380px;
+  width: 420px;
+  height: 420px;
   transform-style: preserve-3d;
 }
 .orbit-glow {
@@ -344,19 +367,24 @@ a { color: inherit; text-decoration: none; }
 }
 .orbit-node {
   position: absolute;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(8px);
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.75);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
   white-space: nowrap;
-  z-index: 2;
-  transition: background 0.3s;
+  z-index: 5;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-.orbit-node:hover { background: rgba(255,255,255,0.12); }
+.orbit-node:hover { 
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #3b82f6;
+  transform: scale(1.1);
+}
 
 .n1 { top: 5%;  left: 50%; transform: translateX(-50%); }
 .n2 { top: 24%; left: 3%; }

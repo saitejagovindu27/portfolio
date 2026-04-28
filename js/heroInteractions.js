@@ -13,11 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. Hero Orbit — Cursor 3D Parallax
-  const orbit = document.getElementById('heroOrbit');
-
-  // 3. 3D Tilt and Multi-layered Scroll Parallax
+  // 2. Multi-layered Parallax & 3D Tilt
   const heroContent = document.querySelector(".hero-content");
+  const heroImage = document.querySelector(".hero-image");
+  const aboutOrbit = document.getElementById('aboutOrbit');
+
   const heroIdentity = document.querySelector(".hero-identity");
   const heroTitle = document.querySelector(".hero-title");
   const heroSub = document.querySelector(".hero-sub");
@@ -28,12 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const y = (e.clientY / window.innerHeight - 0.5);
 
     if (heroContent) {
-      // 3D Tilt effect
       heroContent.style.transform = `perspective(1000px) rotateX(${y * -4}deg) rotateY(${x * 4}deg) translate(${x * 10}px, ${y * 10}px)`;
     }
 
-    if (orbit) {
-      orbit.style.transform = `perspective(1000px) rotateX(${y * -12}deg) rotateY(${x * 12}deg)`;
+    if (heroImage) {
+      heroImage.style.transform = `perspective(1500px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) translate(${x * 15}px, ${y * 15}px)`;
+    }
+
+    if (aboutOrbit) {
+      aboutOrbit.style.transform = `perspective(1000px) rotateX(${y * -12}deg) rotateY(${x * 12}deg)`;
     }
   });
 
@@ -55,6 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     gsap.to(heroActions, {
       y: -10,
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+    });
+    
+    // Parallax for the main hero image
+    gsap.to(heroImage, {
+      y: 100,
       scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
     });
   }
