@@ -358,13 +358,12 @@ a { color: inherit; text-decoration: none; }
 }
 .orbit-node:hover { background: rgba(255,255,255,0.12); }
 
-.n1 { top: 5%;  left: 50%; transform: translateX(-50%); }
-.n2 { top: 24%; left: 3%; }
-.n3 { top: 56%; left: 0%; }
-.n4 { bottom: 3%; left: 50%; transform: translateX(-50%); }
-.n5 { top: 56%; right: 0%; }
-.n6 { top: 24%; right: 3%; }
-.n7 { top: 2%;  right: 12%; }
+.n1 { top: 0%;  left: 50%; transform: translateX(-50%); }
+.n2 { top: 25%; left: 0%; }
+.n3 { top: 75%; left: 0%; }
+.n4 { bottom: 0%; left: 50%; transform: translateX(-50%); }
+.n5 { top: 75%; right: 0%; }
+.n6 { top: 25%; right: 0%; }
 
 /* =========================================
    FEATURED WORK
