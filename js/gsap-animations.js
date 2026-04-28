@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.from(".hero-sub", { y: 16, opacity: 0, duration: 0.7, delay: 0.6, ease: "power3.out", clearProps: "all" });
   gsap.from(".hero-cta", { y: 12, opacity: 0, duration: 0.6, delay: 0.8, ease: "power3.out", clearProps: "all" });
 
-  // Orbit entrance
+  // Orbit/Visual entrance
+  gsap.from(".hero-img-float", { x: 40, opacity: 0, duration: 1.4, delay: 0.4, ease: "power3.out" });
   gsap.from(".hero-orbit", { scale: 0.5, opacity: 0, duration: 1.2, delay: 0.3, ease: "back.out(1.2)" });
   gsap.from(".orbit-node", { scale: 0, opacity: 0, duration: 0.5, stagger: 0.08, delay: 0.8, ease: "back.out(2)" });
   gsap.from(".orbit-ring", { scale: 0.3, opacity: 0, duration: 0.8, stagger: 0.15, delay: 0.5 });
@@ -149,6 +150,39 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================================
   var bgGrid = document.querySelector(".bg-grid");
   var bgGlow = document.querySelector(".bg-glow");
-  if (bgGrid) gsap.to(bgGrid, { y: 80, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 1 } });
-  if (bgGlow) gsap.to(bgGlow, { y: 40, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 2 } });
+  if (bgGrid) gsap.to(bgGrid, { y: 150, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: true } });
+  if (bgGlow) gsap.to(bgGlow, { y: 80, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: true } });
+
+  // =========================================
+  //  SCROLL PARALLAX — MEMORABLE DEPTH
+  // =========================================
+  // Hero Image Parallax
+  var heroImg = document.querySelector(".hero-img-float");
+  if (heroImg) {
+    gsap.to(heroImg, {
+      y: 120,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  }
+
+  // About Orbit Parallax
+  var aboutOrbit = document.querySelector(".about-visual #heroOrbit");
+  if (aboutOrbit) {
+    gsap.to(aboutOrbit, {
+      y: 140,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".about-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  }
 });

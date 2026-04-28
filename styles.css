@@ -90,6 +90,17 @@ a { color: inherit; text-decoration: none; }
   will-change: transform;
 }
 
+.hero-orbit {
+  position: relative;
+  width: 440px;
+  height: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
 .about-visual {
   position: relative;
   display: flex;
