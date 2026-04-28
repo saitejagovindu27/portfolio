@@ -77,11 +77,25 @@ a { color: inherit; text-decoration: none; }
   max-width: 580px;
 }
 
+.hero-img-float {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 32px;
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.5),
+    0 0 40px rgba(79, 140, 255, 0.15);
+  filter: drop-shadow(0 0 20px rgba(79, 140, 255, 0.2));
+  animation: float-slow 8s ease-in-out infinite;
+  will-change: transform;
+}
+
 .about-visual {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 400px;
 }
 
 .about-img {
