@@ -108,8 +108,8 @@
   var container = document.getElementById('color-bends-bg');
   if (!container) { console.warn('ColorBends: #color-bends-bg not found'); return; }
 
-  // Colors
-  var colorHexes = ['#0a0a1a', '#1e3a5f', '#3b82f6', '#6366f1'];
+  // Colors — user's exact props from React Bits
+  var colorHexes = ['#ff5c7a', '#8a5cff', '#00ffd1'];
   var uColorsArray = [];
   for (var i = 0; i < MAX_COLORS; i++) uColorsArray.push(new THREE.Vector3(0,0,0));
   for (var j = 0; j < colorHexes.length; j++) uColorsArray[j].copy(hexToVec3(colorHexes[j]));
@@ -122,21 +122,21 @@
     uniforms: {
       uCanvas: { value: new THREE.Vector2(1, 1) },
       uTime: { value: 0 },
-      uSpeed: { value: 0.12 },
+      uSpeed: { value: 0.2 },
       uRot: { value: new THREE.Vector2(Math.cos(rad), Math.sin(rad)) },
       uColorCount: { value: colorHexes.length },
       uColors: { value: uColorsArray },
       uTransparent: { value: 1 },
-      uScale: { value: 1.2 },
-      uFrequency: { value: 0.8 },
-      uWarpStrength: { value: 0.6 },
+      uScale: { value: 1 },
+      uFrequency: { value: 1 },
+      uWarpStrength: { value: 1 },
       uPointer: { value: new THREE.Vector2(0, 0) },
-      uMouseInfluence: { value: 0.4 },
-      uParallax: { value: 0.3 },
-      uNoise: { value: 0.08 },
+      uMouseInfluence: { value: 1 },
+      uParallax: { value: 0.5 },
+      uNoise: { value: 0.15 },
       uIterations: { value: 1 },
-      uIntensity: { value: 0.6 },
-      uBandWidth: { value: 5 }
+      uIntensity: { value: 1.5 },
+      uBandWidth: { value: 6 }
     },
     premultipliedAlpha: true,
     transparent: true
