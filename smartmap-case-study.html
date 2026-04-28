@@ -80,15 +80,15 @@
       /* Image Containers */
       .cs-img {
         width: 100%;
-        border-radius: 16px;
-        margin: 40px 0;
+        max-width: 900px;
+        margin: 32px auto;
+        border-radius: 12px;
         overflow: hidden;
         position: relative;
         border: 1px solid rgba(255,255,255,0.06);
       }
       .cs-img-full {
         height: auto;
-        min-height: 360px;
         background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
       }
       .cs-img-split {
@@ -99,8 +99,7 @@
       }
       .cs-img-split .cs-img-half {
         height: auto;
-        min-height: 300px;
-        border-radius: 16px;
+        border-radius: 12px;
         background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
         border: 1px solid rgba(255,255,255,0.06);
         position: relative;
@@ -137,9 +136,12 @@
       .cs-caption {
         font-size: 13px;
         color: #475569;
-        margin-top: -28px;
-        margin-bottom: 40px;
+        margin-top: -20px;
+        margin-bottom: 32px;
         font-style: italic;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       /* Impact Grid */

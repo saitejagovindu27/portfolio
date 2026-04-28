@@ -80,14 +80,15 @@
       /* Image Placeholders */
       .cs-img {
         width: 100%;
-        border-radius: 16px;
-        margin: 40px 0;
+        max-width: 900px;
+        margin: 32px auto;
+        border-radius: 12px;
         overflow: hidden;
         position: relative;
         border: 1px solid rgba(255,255,255,0.06);
       }
       .cs-img-full {
-        height: 420px;
+        height: auto;
         background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
       }
       .cs-img-split {
@@ -97,8 +98,8 @@
         border: none;
       }
       .cs-img-split .cs-img-half {
-        height: 320px;
-        border-radius: 16px;
+        height: auto;
+        border-radius: 12px;
         background: linear-gradient(135deg, #0a1628 0%, #111a35 100%);
         border: 1px solid rgba(255,255,255,0.06);
         position: relative;
@@ -115,16 +116,18 @@
         font-size: 13px;
         font-weight: 500;
         letter-spacing: 0.05em;
+        pointer-events: none;
       }
       .cs-img img,
       .cs-img-half img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        display: block;
         position: relative;
         z-index: 2;
         opacity: 0;
         transition: opacity 0.4s ease;
+        border-radius: 12px;
       }
       .cs-img img.loaded,
       .cs-img-half img.loaded {
@@ -133,9 +136,12 @@
       .cs-caption {
         font-size: 13px;
         color: #475569;
-        margin-top: -28px;
-        margin-bottom: 40px;
+        margin-top: -20px;
+        margin-bottom: 32px;
         font-style: italic;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       /* Impact Grid */
