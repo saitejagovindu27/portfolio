@@ -123,11 +123,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================================
   //  CONTACT
   // =========================================
-  var connectEl = document.querySelector("#contact .container");
-  if (connectEl) {
-    gsap.from(connectEl.children, {
-      y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out",
-      scrollTrigger: { trigger: connectEl, start: "top 90%", toggleActions: "play none none none" },
+  var contactSection = document.querySelector("#contact");
+  if (contactSection) {
+    var contactEls = contactSection.querySelectorAll("h2, .connect-sub, .connect-actions, .connect-secondary");
+    gsap.set(contactEls, { opacity: 1 }); // ensure visible
+    gsap.from(contactEls, {
+      y: 24, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out",
+      scrollTrigger: { trigger: contactSection, start: "top 88%", toggleActions: "play none none none" },
     });
   }
 

@@ -61,7 +61,8 @@
   </section>
 
   <!-- FEATURED WORK -->
-  <section id="work" class="section-block">
+  <section id="work" class="section-block" style="position:relative;overflow:hidden;">
+    <div id="color-bends-bg" style="position:absolute;inset:0;z-index:0;opacity:0.4;pointer-events:none;"></div>
     <div class="container">
       <h2>Featured Work</h2>
       <div class="work-grid">
@@ -171,9 +172,11 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="js/splashCursor.js"></script>
   <script src="js/heroInteractions.js"></script>
   <script src="js/plasma.js"></script>
+  <script src="js/colorBends.js"></script>
   <script src="js/gsap-animations.js"></script>
 </body>
 </html>

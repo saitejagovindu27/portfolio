@@ -51,33 +51,33 @@
     <section class="cs-section fade">
       <h2>Problem</h2>
       <ul>
-        <li>40+ spatial datasets presented as flat layers — users couldn't find relevant data</li>
-        <li>No distinction between public residents and government administrators</li>
-        <li>Map state was invisible — users had no idea what layers were active</li>
-        <li>Search returned raw dataset names instead of meaningful results</li>
+        <li>Residents had no way to find nearest healthcare or education facilities with real-time availability</li>
+        <li>40+ spatial datasets presented as flat layers — no context, no proximity search</li>
+        <li>No natural language search — users had to know exact dataset names to find anything</li>
+        <li>Government officers had no admin tools to manage and publish updated facility data</li>
       </ul>
     </section>
 
     <!-- 3. SOLUTION -->
     <section class="cs-section fade">
       <h2>Solution</h2>
-      <p>Restructured the platform around two core ideas: <strong style="color:#e2e8f0">intent-based navigation</strong> (users browse by what they want to do, not by dataset names) and <strong style="color:#e2e8f0">dual-mode architecture</strong> (public discovery mode vs. professional admin mode).</p>
+      <p>Built a spatial platform that helps UAE residents find what they need — nearest hospitals with available emergency beds, schools with open enrollment, clinics within walking distance — all through <strong style="color:#e2e8f0">natural language search</strong> and <strong style="color:#e2e8f0">radius-based exploration</strong>.</p>
       <div class="cs-modules">
         <div class="cs-module">
-          <h4>Discovery Mode</h4>
-          <p>Category-based entry for residents — browse by topic (transport, environment, zoning)</p>
+          <h4>NL Search</h4>
+          <p>"Find hospitals near me with emergency beds" — plain language, not dataset codes</p>
         </div>
         <div class="cs-module">
-          <h4>Professional Mode</h4>
-          <p>Full layer controls, attribute tables, and export tools for GIS officers</p>
+          <h4>Radius Search</h4>
+          <p>Set a radius (1km, 5km, 10km) to find facilities within walking or driving distance</p>
         </div>
         <div class="cs-module">
-          <h4>Smart Search</h4>
-          <p>Natural language queries — "show me schools near Al Majaz" instead of dataset codes</p>
+          <h4>Real-Time Data</h4>
+          <p>Live availability — emergency bed counts, school capacity, clinic hours — updated continuously</p>
         </div>
         <div class="cs-module">
-          <h4>Layer Architecture</h4>
-          <p>9 flat layers → 3 semantic groups with visual state indicators</p>
+          <h4>Admin Dashboard</h4>
+          <p>Government officers publish and manage facility data, access controls, and layer visibility</p>
         </div>
       </div>
     </section>
@@ -86,37 +86,38 @@
     <section class="cs-section fade">
       <h2>How the System Works</h2>
       <div class="system-diagram">
-        <div class="sys-node active">Catalogue</div>
+        <div class="sys-node active">Search & Discover</div>
         <span class="sys-arrow">→</span>
-        <div class="sys-node">Map Viewer</div>
+        <div class="sys-node">Map Explorer</div>
         <span class="sys-arrow">→</span>
-        <div class="sys-node">Analytics</div>
+        <div class="sys-node">Facility Details</div>
         <span class="sys-arrow">→</span>
-        <div class="sys-node active">Admin</div>
+        <div class="sys-node active">Admin Publish</div>
       </div>
+      <p style="margin-top:12px; font-size:14px; color:#64748b; text-align:center;">Residents discover → Explore on map → View real-time details → Officers manage data</p>
     </section>
 
     <!-- IMAGE: Split -->
     <div class="cs-img-split fade">
-      <div class="cs-img-half" data-label="Discovery Mode">
+      <div class="cs-img-half" data-label="Search & Map View">
         <img src="assets/smartmap/discovery.png" alt="Discovery Mode" loading="lazy" onload="this.classList.add('loaded')" />
       </div>
-      <div class="cs-img-half" data-label="Professional Mode">
-        <img src="assets/smartmap/professional.png" alt="Professional Mode" loading="lazy" onload="this.classList.add('loaded')" />
+      <div class="cs-img-half" data-label="Facility Details">
+        <img src="assets/smartmap/professional.png" alt="Facility Details" loading="lazy" onload="this.classList.add('loaded')" />
       </div>
     </div>
 
     <!-- 4. CORE EXPERIENCE -->
     <section class="cs-section fade">
       <h2>Core Experience</h2>
-      <h3>Data Exploration</h3>
-      <p>Users browse spatial data through category cards (Environment, Infrastructure, Demographics) instead of a flat layer list. Each category shows preview thumbnails and descriptions before loading onto the map.</p>
+      <h3>Finding Nearest Facilities</h3>
+      <p>Residents search in natural language — "hospitals near Al Majaz with available beds" — and the map immediately highlights matching facilities with distance, availability, and contact info.</p>
 
-      <h3>Map Interaction</h3>
-      <p>Active layers are visible through a persistent sidebar with toggle states. Clicking any feature opens a detail panel with attributes, related datasets, and export options — no more hunting through menus.</p>
+      <h3>Real-Time Healthcare Data</h3>
+      <p>Each facility card shows live data: emergency bed availability, current wait times, operating hours. Healthcare workers update this through the admin dashboard — residents see it instantly on the map.</p>
 
-      <h3>Admin Governance</h3>
-      <p>Government officers manage layer permissions, publish datasets, and configure access controls through a dedicated admin panel — completely separated from the public interface.</p>
+      <h3>Education & Services</h3>
+      <p>Beyond healthcare — the platform covers education (schools, enrollment status, ratings), government services, and infrastructure. Each category shows relevant real-time attributes specific to that service type.</p>
     </section>
 
     <!-- IMAGE: Full width -->
