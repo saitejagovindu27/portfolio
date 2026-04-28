@@ -2,6 +2,9 @@
    CASE STUDY — SHARED STYLES
 ========================================= */
 .cs-page { max-width: 860px; margin: 0 auto; padding: 120px 80px 100px; }
+
+/* Subtler background for case studies */
+#color-bends-bg { opacity: 0.2 !important; } /* 20% as requested */
 .cs-hero { margin-bottom: 48px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .cs-hero h1 { font-size: clamp(36px, 5vw, 52px); font-family: 'Satoshi', sans-serif; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 18px; }
 .cs-hero-sub { font-size: 17px; color: #94a3b8; line-height: 1.7; max-width: 640px; }
