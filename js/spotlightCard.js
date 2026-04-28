@@ -1,8 +1,23 @@
 /**
  * SpotlightCard — Vanilla JS implementation of React Bits component
+ * Includes definitive scroll-to-top on refresh
  */
 (function() {
   'use strict';
+
+  // Force scroll to top on refresh
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  // Execute as early as possible
+  scrollToTop();
+
+  window.addEventListener('load', scrollToTop);
 
   function initSpotlightCards() {
     const cards = document.querySelectorAll('.card-spotlight');
@@ -21,14 +36,6 @@
       });
     });
   }
-
-  // Handle scroll to top on refresh
-  window.addEventListener('load', () => {
-    // If there is no hash in the URL, or it's #top, scroll to top
-    if (!window.location.hash || window.location.hash === '#top') {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-  });
 
   // Initialize
   initSpotlightCards();
