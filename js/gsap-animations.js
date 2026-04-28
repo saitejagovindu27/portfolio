@@ -183,14 +183,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =========================================
-  //  SCROLL PARALLAX — MEMORABLE DEPTH
+  //  SCROLL PARALLAX — INTERACTIVE BREAKPOINTS
   // =========================================
-  // Hero Image Parallax (Fast Drift)
+  // Hero Visual (Crystal) — Subtle tilt-drift
   var heroImg = document.querySelector(".hero-img-float");
   if (heroImg) {
     gsap.to(heroImg, {
-      y: 180,
-      rotate: 5,
+      y: 150,
+      rotateX: 10,
       ease: "none",
       scrollTrigger: {
         trigger: ".hero",
@@ -201,36 +201,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // About Orbit Parallax (Slow Drift)
-  var aboutOrbit = document.querySelector(".about-visual #heroOrbit");
-  if (aboutOrbit) {
-    gsap.to(aboutOrbit, {
-      y: 150,
-      scale: 1.1,
-      ease: "none",
+  // Section-to-Section "Slide" Parallax
+  gsap.utils.toArray(".section-block").forEach(function(section, i) {
+    if (i === 0) return; // Skip hero
+    
+    // Elements within section move at different speeds
+    var content = section.querySelector(".container");
+    var headings = section.querySelector("h2");
+    
+    if (content) {
+      gsap.fromTo(content, 
+        { y: 100 },
+        { 
+          y: -100, 
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        }
+      );
+    }
+    
+    // Background layer also shifts slightly differently
+    gsap.to(section, {
+      backgroundColor: (i % 2 === 0) ? "rgba(2, 6, 23, 0.4)" : "transparent",
       scrollTrigger: {
-        trigger: ".about-section",
+        trigger: section,
         start: "top bottom",
         end: "bottom top",
         scrub: true
       }
     });
-  }
-
-  // Section Content Floating Effect
-  gsap.utils.toArray(".section-block").forEach(function(section, i) {
-    var content = section.querySelector(".container");
-    if (content && i > 0) {
-      gsap.to(content, {
-        y: -40,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true
-        }
-      });
-    }
   });
 });

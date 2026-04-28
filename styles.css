@@ -9,11 +9,15 @@
    RESET & BASE
 ========================================= */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
 
 body {
   font-family: 'Inter', sans-serif;
   background: #020617;
-  color: #CBD5E1; /* Increased contrast from A0AEC0 */
+  color: #CBD5E1; 
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -50,8 +54,10 @@ a { color: inherit; text-decoration: none; }
 
 /* Section Spacing — 80px total gap between sections */
 .section-block {
-  padding: 40px 0; 
+  padding: 80px 0;
   position: relative;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 .section-block h2 {
@@ -64,6 +70,8 @@ a { color: inherit; text-decoration: none; }
 /* About Section */
 .about-section {
   position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.2);
 }
 
 .about-grid {
