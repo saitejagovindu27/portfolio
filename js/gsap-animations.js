@@ -1,8 +1,21 @@
-/**
- * GSAP Scroll Animations — Production
- * Smooth, stable, no jitter
- */
+// =========================================
+//  AGGRESSIVE SCROLL-TO-TOP ON REFRESH
+// =========================================
+(function() {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+  window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+  });
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
+  // Second pass for scroll reset
+  window.scrollTo(0, 0);
+  setTimeout(() => window.scrollTo(0, 0), 0);
+  setTimeout(() => window.scrollTo(0, 0), 100);
   gsap.registerPlugin(ScrollTrigger);
 
   // =========================================
