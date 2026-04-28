@@ -6,7 +6,7 @@
 /* Subtler background for case studies */
 #color-bends-bg { opacity: 0.2 !important; } /* 20% as requested */
 .cs-hero { margin-bottom: 48px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-.cs-hero h1 { font-size: clamp(36px, 5vw, 52px); font-family: 'Satoshi', sans-serif; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 18px; }
+.cs-hero h1 { font-size: clamp(36px, 5vw, 52px); font-family: 'Satoshi', sans-serif; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 18px; text-shadow: 0 2px 20px rgba(79, 140, 255, 0.25); }
 .cs-hero-sub { font-size: 17px; color: #94a3b8; line-height: 1.7; max-width: 640px; }
 .cs-meta { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 24px; }
 .cs-meta-item { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; display: flex; align-items: center; gap: 8px; }
@@ -14,8 +14,8 @@
 
 /* Sections */
 .cs-section { margin-bottom: 48px; }
-.cs-section h2 { font-size: 24px; font-family: 'Satoshi', sans-serif; margin-bottom: 14px; color: white; }
-.cs-section h3 { font-size: 18px; margin: 20px 0 8px; color: #e2e8f0; }
+.cs-section h2 { font-size: 24px; font-family: 'Satoshi', sans-serif; margin-bottom: 14px; color: white; text-shadow: 0 2px 12px rgba(79, 140, 255, 0.15); }
+.cs-section h3 { font-size: 18px; margin: 20px 0 8px; color: #e2e8f0; text-shadow: 0 2px 10px rgba(79, 140, 255, 0.1); }
 .cs-section p { font-size: 16px; color: #94a3b8; line-height: 1.7; margin-bottom: 10px; max-width: 700px; }
 .cs-section ul { padding-left: 20px; margin-bottom: 10px; }
 .cs-section li { font-size: 15px; color: #94a3b8; line-height: 1.6; margin-bottom: 6px; }
