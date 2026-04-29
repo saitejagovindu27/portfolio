@@ -85,6 +85,14 @@
 .sys-arrow { color: #3b82f6; font-size: 18px; padding: 0 6px; opacity: 0.4; }
 .sys-node.active { background: rgba(59,130,246,0.1); border-color: #3b82f6; color: white; box-shadow: 0 0 16px rgba(59,130,246,0.12); }
 
+/* User Flows */
+.user-flows { display: flex; flex-direction: column; gap: 32px; margin: 32px 0; }
+.flow-group h3 { font-size: 13px !important; color: #64748b !important; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px !important; text-align: center; font-weight: 600; }
+.flow-diagram { display: flex; align-items: center; justify-content: center; gap: 4px; flex-wrap: wrap; }
+.flow-step { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 10px; font-size: 12px; font-weight: 500; color: #cbd5e1; text-align: center; min-width: 100px; transition: border-color 0.3s; }
+.flow-step:hover { border-color: rgba(59,130,246,0.4); }
+.flow-arrow { color: #3b82f6; font-size: 14px; opacity: 0.5; padding: 0 4px; }
+
 /* Back Link */
 .cs-back { display: inline-flex; align-items: center; gap: 8px; color: #3b82f6; font-size: 14px; font-weight: 500; margin-top: 32px; transition: gap 0.3s; }
 .cs-back:hover { gap: 12px; }
@@ -103,5 +111,7 @@
   .cs-img img, .cs-img-half img { max-height: 320px; }
   .system-diagram { flex-direction: column; gap: 6px; }
   .sys-arrow { transform: rotate(90deg); }
+  .flow-diagram { flex-direction: column; gap: 8px; }
+  .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
   .fade { transform: translateY(8px); transition: .3s ease; }
 }
