@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================================
   //  LENIS SMOOTH SCROLL
   // =========================================
+  var lenis = null;
   if (typeof Lenis !== "undefined") {
-    var lenis = new Lenis({
+    lenis = new Lenis({
       duration: 1.5, 
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
       smoothWheel: true,
@@ -22,6 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
+
+    // Smooth scroll for all anchor links (nav, logo, etc.)
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener("click", function(e) {
+        var target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: 0, duration: 1.2 });
+        }
+      });
+    });
   }
 
   // =========================================
