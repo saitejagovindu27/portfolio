@@ -23,34 +23,19 @@
       };
     </script>
   <style>
-    /* ── Hero Entrance Animations ───────────────────── */
+    /* ── Hero entrance ─────────────────── */
     @keyframes heroFadeUp {
       from { opacity:0; transform:translateY(22px); }
       to   { opacity:1; transform:translateY(0); }
     }
+    .hero-identity { opacity:0; animation: heroFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.15s forwards; }
+    #hero-title    { opacity:0; animation: heroFadeUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.35s forwards;
+                     -webkit-text-fill-color: unset !important; background: none !important; background-clip: unset !important; }
+    .hero-sub      { opacity:0; animation: heroFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.52s forwards; }
+    .hero-cta      { opacity:0; animation: heroFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.68s forwards; }
+    .hero-visual   { opacity:0; animation: heroFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.40s forwards; }
 
-    /* Eyebrow — sentence case, no uppercase */
-    .hero-identity {
-      opacity:0;
-      animation: heroFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
-      text-transform: none !important;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-    }
-
-    /* Headline overrides — fits one viewport */
-    #hero-title {
-      opacity:0;
-      animation: heroFadeUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.35s forwards;
-      /* Use styles.css sizing; just ensure no clip/fill override */
-      -webkit-text-fill-color: unset !important;
-      background: none !important;
-      background-clip: unset !important;
-      overflow: visible !important;
-      white-space: normal !important;
-    }
-
-    /* grad-word stays gradient */
+    /* grad-word gradient */
     #hero-title .grad-word {
       background: linear-gradient(135deg, #4F8CFF 0%, #7A5CFF 100%) !important;
       -webkit-background-clip: text !important;
@@ -58,33 +43,14 @@
       background-clip: text !important;
     }
 
-    /* variable-proximity word spans — allow wrapping */
-    #hero-title > span[style],
-    .hero-title span[style*="inline-block"] {
-      white-space: normal !important;
-    }
-    /* Word wrapper spans inside variable-proximity wrap naturally */
-    .hero-title span span {
-      white-space: nowrap;
-    }
-
-    .hero-sub   { opacity:0; animation: heroFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.52s forwards; }
-    .hero-cta   { opacity:0; animation: heroFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.68s forwards; }
-    .hero-visual{ opacity:0; animation: heroFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.40s forwards; }
-
-    /* ── Orbit containment ────────────────────────── */
-    #orbitWrapper {
-      width:100%; height:420px;
-      position:relative; overflow:hidden;
-      isolation:isolate; z-index:0;
-    }
+    /* ── Orbit containment ─────────────── */
+    #orbitWrapper { width:100%; height:420px; position:relative; overflow:hidden; isolation:isolate; z-index:0; }
     #orbitWrapper canvas { z-index:0; }
-
-    /* About text left-aligned */
     .about-text, .about-text h2, .about-text p { text-align:left !important; }
-
-    /* Sections above canvas */
     #work, #tools, #contact { position:relative; z-index:1; }
+
+    /* ── Smooth scroll for nav ────────── */
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body id="top">
@@ -118,11 +84,11 @@
   <section class="hero" id="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <span class="hero-identity">UX/UI Designer — AI &amp; Data Systems</span>
+        <span class="hero-identity">UX/UI Designer · AI &amp; Data Systems</span>
         <h1 class="hero-title variable-proximity" id="hero-title" data-radius="150" data-falloff="gaussian">
           I design AI and data tools that make <span class="grad-word">complex</span> systems feel <span class="grad-word">simple.</span>
         </h1>
-        <p class="hero-sub">From research to final UI — I help enterprise teams turn dense workflows into clear, intuitive experiences.</p>
+        <p class="hero-sub">From research to final UI, I help enterprise teams turn dense workflows into clear, intuitive experiences.</p>
         <div class="hero-cta">
           <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Work</button>
           <button class="btn-secondary" onclick="window.open('https://drive.google.com/file/d/1it5_UngaR0U59N3cqEpJLd8iF0snCPcd/view?usp=sharing','_blank')">View Resume</button>

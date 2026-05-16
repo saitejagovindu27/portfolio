@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart MRV — Case Study | Sai Teja Govind</title>
-    <meta name="description" content="UX case study: Designing Smart MRV — a sustainability monitoring and emissions tracking platform.">
+    <meta name="description" content="UX case study: Designing Smart MRV — turning a 12-step emissions reporting nightmare into a 4-step guided workflow.">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/case-study.css">
     <script>var exports = {};</script>
@@ -22,6 +22,7 @@
         window.scrollTo(0, 0);
       };
     </script>
+    <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body>
   <div id="plasma-layer" aria-hidden="true"></div>
@@ -41,107 +42,130 @@
 
   <main class="cs-page">
 
-    <!-- 1. OVERVIEW -->
+    <!-- HERO -->
     <section class="cs-hero fade">
       <h1 class="scroll-reveal variable-proximity" data-base-rotation="5" data-blur-strength="10" data-radius="150">Smart MRV</h1>
-      <p class="cs-hero-sub">Sustainability monitoring platform for emissions tracking. I designed the complete product — from the marketing landing page to the compliance dashboard — turning a 12-step reporting process into a guided 4-step wizard.</p>
+      <p class="cs-hero-sub">Compliance officers were spending 8+ minutes per emissions report using spreadsheets and guesswork. I redesigned the entire workflow into a guided 4-step experience that made regulatory reporting feel effortless.</p>
       <div class="cs-meta">
         <span class="cs-meta-item">UI UX Designer</span>
         <span class="cs-meta-item">2025–2026</span>
-        <span class="cs-meta-item">Team Size: 3</span>
+        <span class="cs-meta-item">Platform: Web Application</span>
+        <span class="cs-meta-item">Team: 3</span>
+      </div>
+      <p style="font-size:13px;color:#475569;margin-top:16px;font-style:italic;">Visuals shown are representative of the design direction. Sensitive client data and internal metrics are kept confidential.</p>
+    </section>
+
+    <!-- METRICS — lead with impact -->
+    <section class="cs-section fade">
+      <div class="impact-grid" style="margin-top:0;">
+        <div class="impact-card"><h4>12 → 4</h4><p>Reporting steps reduced</p></div>
+        <div class="impact-card"><h4>< 3 min</h4><p>Average report completion time</p></div>
+        <div class="impact-card"><h4>0</h4><p>Data entry errors in testing</p></div>
+        <div class="impact-card"><h4>Multi-framework</h4><p>GHG Protocol, IPCC, UAE regulatory</p></div>
       </div>
     </section>
 
+    <!-- HERO IMAGE -->
+    <div class="cs-img cs-img-full fade" data-label="Smart MRV — Product Landing">
+      <img src="assets/mrv/screen1.png" alt="Smart MRV Landing" loading="lazy" onload="this.classList.add('loaded')" />
+    </div>
 
-
-    <!-- 2. PROBLEM -->
+    <!-- THE PROBLEM — told as a story -->
     <section class="cs-section fade">
-      <h2>Problem</h2>
+      <h2>The Problem Nobody Wanted to Own</h2>
+      <p>Sustainability reporting is mandatory for UAE organizations. But the tools available felt like they were designed to punish the people using them.</p>
       <ul>
-        <li>Compliance officers spent 8+ minutes per report using free-form data entry with no guidance</li>
-        <li>Emissions data was scattered across spreadsheets — no centralized tracking</li>
-        <li>Reporting required understanding both GHG Protocol and UAE-specific regulations</li>
-        <li>No visual feedback on emissions trends — teams couldn't see impact of initiatives</li>
+        <li><strong style="color:#e2e8f0">8+ minutes per report</strong> using free-form data entry with no guidance, no validation, no feedback</li>
+        <li><strong style="color:#e2e8f0">Scattered data</strong> across spreadsheets, emails, and paper records with no centralized tracking</li>
+        <li><strong style="color:#e2e8f0">Framework confusion</strong> — officers had to understand both GHG Protocol and UAE-specific regulations to file correctly</li>
+        <li><strong style="color:#e2e8f0">Zero visibility</strong> on emissions trends — leadership couldn't see if sustainability initiatives were actually working</li>
       </ul>
+      <div class="cs-callout">
+        <p>The compliance officer I interviewed summed it up: "I spend more time figuring out the form than thinking about the data." That sentence became our north star.</p>
+      </div>
     </section>
 
-    <!-- 3. SOLUTION -->
+    <!-- RESEARCH -->
     <section class="cs-section fade">
-      <h2>Solution</h2>
-      <p>Built a unified platform that handles the full sustainability workflow — from data collection through analysis to regulatory reporting — with a guided experience that makes compliance officers confident instead of dependent.</p>
+      <h2>Understanding the Workflow</h2>
+      <p>Before designing anything, I mapped the existing reporting process step by step.</p>
+      <ul>
+        <li>Shadowed 3 compliance officers through complete reporting cycles</li>
+        <li>Documented every point where they paused, backtracked, or asked for help</li>
+        <li>Identified that 8 of 12 steps were unnecessary — they existed because the old tool lacked validation</li>
+        <li>Benchmarked against carbon accounting tools like Watershed and Persefoni for UX patterns</li>
+      </ul>
+      <p style="margin-top:16px;">Key insight: <strong style="color:#e2e8f0">officers weren't confused about sustainability — they were confused about the tool.</strong> The data they needed to enter was straightforward. The interface made it feel complex.</p>
+    </section>
+
+    <!-- WHAT I DESIGNED -->
+    <section class="cs-section fade">
+      <h2>What I Designed</h2>
+      <p>A unified platform covering the full sustainability workflow — from raw data collection to regulatory-ready reports — with a guided experience that builds confidence instead of anxiety.</p>
       <div class="cs-modules">
         <div class="cs-module">
-          <h4>Report Wizard</h4>
-          <p>4-step guided flow replacing free-form entry. Validates data in real-time</p>
+          <h4>4-Step Report Wizard</h4>
+          <p>Replaced the 12-step freeform process with a guided flow. Each step validates in real-time — officers know immediately if something's wrong, not after submitting.</p>
         </div>
         <div class="cs-module">
           <h4>Emissions Dashboard</h4>
-          <p>Visual tracking of Scope 1, 2, 3 emissions with trend lines and targets</p>
+          <p>Visual tracking of Scope 1, 2, 3 emissions with trend lines and reduction targets. Leadership finally sees the impact of sustainability initiatives at a glance.</p>
         </div>
         <div class="cs-module">
-          <h4>Data Collection</h4>
-          <p>Framework-agnostic input — enter raw data, get reports in any format</p>
+          <h4>Framework-Agnostic Input</h4>
+          <p>Enter raw operational data — fuel, electricity, waste volumes. The system translates to any reporting format: GHG Protocol, IPCC, or UAE regulatory. One input, many outputs.</p>
         </div>
         <div class="cs-module">
-          <h4>Compliance Export</h4>
-          <p>Auto-generate GHG Protocol and UAE regulatory reports from same data</p>
+          <h4>Product Landing Page</h4>
+          <p>Designed the marketing site alongside the app — one cohesive brand experience from first impression to daily use.</p>
         </div>
       </div>
     </section>
 
-
-
-    <!-- 4. CORE EXPERIENCE -->
+    <!-- KEY DECISIONS -->
     <section class="cs-section fade">
-      <h2>Core Experience</h2>
-      <h3>Data Entry</h3>
-      <p>Users enter raw operational data — fuel consumption, electricity usage, waste volumes — through a step-by-step wizard with inline validation. No formulas, no frameworks, no confusion.</p>
-
-      <h3>Dashboard & Insights</h3>
-      <p>Live emissions overview with breakdowns by scope, facility, and time period. Progress tracking against reduction targets with visual indicators that show whether initiatives are working.</p>
-
-      <h3>Reporting & Compliance</h3>
-      <p>One-click report generation in multiple formats. The system handles framework translation — users enter data once, get reports in GHG Protocol, IPCC, or UAE regulatory format.</p>
-    </section>
-
-
-
-    <!-- 5. KEY DECISIONS -->
-    <section class="cs-section fade">
-      <h2>Key Decisions</h2>
+      <h2>Design Decisions That Mattered</h2>
       <div class="cs-decisions">
         <div class="cs-decision">
           <strong>Wizard over free-form</strong>
-          <p>Tested both approaches — wizard reduced completion time from 8+ min to under 3 min with zero data entry errors.</p>
+          <p>Tested both approaches with real officers. The wizard reduced completion time from 8+ minutes to under 3 — with zero data entry errors. The constraint of "one thing at a time" removed paralysis.</p>
         </div>
         <div class="cs-decision">
           <strong>Framework-agnostic input</strong>
-          <p>Users enter raw operational data, not framework-specific values. The system translates to any reporting format — keeping UX simple while the backend handles complexity.</p>
-        </div>
-        <div class="cs-decision">
-          <strong>Landing page + application</strong>
-          <p>Designed both the marketing landing page and the application dashboard as one cohesive product experience.</p>
+          <p>Officers enter operational data, not framework-specific values. The system handles translation. This was the single decision that eliminated the most confusion — people know their fuel consumption, they don't know their Scope 1 categorization.</p>
         </div>
         <div class="cs-decision">
           <strong>Progressive complexity</strong>
-          <p>Basic users see summary dashboards. Power users can drill into facility-level data and custom date ranges. Same data, appropriate depth.</p>
+          <p>Basic users see summary dashboards. Power users drill into facility-level data and custom date ranges. Same data, appropriate depth. Nobody sees more than they need.</p>
+        </div>
+        <div class="cs-decision">
+          <strong>Inline validation over batch errors</strong>
+          <p>The old system showed errors after submission — a wall of red text. The new wizard validates each field as you go. Errors are caught when they're easy to fix, not after 8 minutes of work.</p>
         </div>
       </div>
     </section>
 
-    <!-- 6. OUTCOME -->
+    <!-- CORE EXPERIENCE -->
     <section class="cs-section fade">
-      <h2>Outcome</h2>
-      <div class="impact-grid">
-        <div class="impact-card"><h4>12 → 4</h4><p>Report steps reduced</p></div>
-        <div class="impact-card"><h4>< 3 min</h4><p>Average report completion</p></div>
-        <div class="impact-card"><h4>Dual</h4><p>Landing page + application</p></div>
-        <div class="impact-card"><h4>Multi</h4><p>Framework-agnostic reporting</p></div>
-      </div>
+      <h2>The Core Experience</h2>
+      <h3>Data Entry That Guides You</h3>
+      <p>Users enter raw operational data — fuel consumption, electricity usage, waste volumes — through a step-by-step wizard with inline validation. No formulas, no frameworks. Each step tells you exactly what's needed and why.</p>
 
+      <h3>Dashboard That Tells a Story</h3>
+      <p>Live emissions overview with breakdowns by scope, facility, and time period. Progress tracking against reduction targets with visual indicators that show whether initiatives are actually working — not just whether reports are filed.</p>
+
+      <h3>One-Click Compliance</h3>
+      <p>Report generation in multiple formats from a single data source. Enter data once, export in GHG Protocol, IPCC, or UAE regulatory format. The system handles the framework translation that used to consume hours.</p>
+    </section>
+
+    <!-- REFLECTION -->
+    <section class="cs-section fade">
+      <h2>What I Learned</h2>
+      <p>The biggest takeaway: <strong style="color:#e2e8f0">enterprise UX isn't about simplifying the data — it's about simplifying the decision.</strong> Compliance officers have the knowledge. They don't need the tool to teach them about emissions. They need the tool to stop getting in their way.</p>
       <div class="cs-callout">
-        <p>The best enterprise UX makes people feel competent. When a compliance officer generates a report without asking for help — that's the design working.</p>
+        <p>When a compliance officer generates a report without asking for help, without Googling a framework standard, without calling IT — that's the design working. The best enterprise UX is invisible competence.</p>
       </div>
+      <p>If I could extend this project, I'd add collaborative features — sustainability reporting often involves multiple departments contributing data, and that handoff is the next friction point to solve.</p>
     </section>
 
     <a href="index.html#work" class="cs-back">← Back to all work</a>
