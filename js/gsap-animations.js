@@ -87,32 +87,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =========================================
-  //  HERO — Clean entrance (no word-split, preserves gradient)
+  //  HERO — Simple entrance (preserves HTML for variable-proximity)
   // =========================================
   var heroTitle = document.getElementById("hero-title");
   if (heroTitle) {
-    // Masked Reveal Effect
-    var text = heroTitle.innerText;
-    heroTitle.innerHTML = text.split(" ").map(function(word) {
-      return '<span class="masked-reveal"><span>' + word + '</span></span>';
-    }).join(" ");
-
-    gsap.to(".masked-reveal span", {
-      y: 0,
-      duration: 1.2,
-      stagger: 0.05,
-      ease: "power4.out",
-      delay: 0.4
+    // DO NOT modify innerHTML — variable-proximity needs the original DOM
+    gsap.from(heroTitle, {
+      y: 28, opacity: 0, duration: 0.85, delay: 0.3,
+      ease: "power3.out", clearProps: "transform"
     });
   }
 
   var heroIdentity = document.querySelector(".hero-identity");
   if (heroIdentity) {
-    gsap.from(heroIdentity, { y: 12, opacity: 0, duration: 0.6, delay: 0.2, ease: "power3.out" });
+    gsap.from(heroIdentity, { y: 14, opacity: 0, duration: 0.6, delay: 0.15, ease: "power3.out" });
   }
 
-  gsap.from(".hero-sub", { y: 20, opacity: 0, duration: 0.8, delay: 0.8, ease: "power3.out" });
-  gsap.from(".hero-cta", { y: 20, opacity: 0, duration: 0.8, delay: 1, ease: "power3.out" });
+  gsap.from(".hero-sub", { y: 18, opacity: 0, duration: 0.7, delay: 0.55, ease: "power3.out" });
+  gsap.from(".hero-cta", { y: 14, opacity: 0, duration: 0.6, delay: 0.7, ease: "power3.out" });
 
   // Orbit/Visual entrance
   gsap.from(".hero-img-float", { x: 40, opacity: 0, duration: 1.4, delay: 0.4, ease: "power3.out" });

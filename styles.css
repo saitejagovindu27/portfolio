@@ -352,15 +352,6 @@ a { color: inherit; text-decoration: none; }
   display: block;
   white-space: normal;
 }
-/* Masked Reveal for Text */
-.masked-reveal {
-  display: block;
-  overflow: hidden;
-}
-.masked-reveal span {
-  display: inline-block;
-  transform: translateY(100%);
-}
 /* Gradient ONLY on key words */
 .grad-word {
   background: linear-gradient(135deg, #4F8CFF, #7A5CFF);
