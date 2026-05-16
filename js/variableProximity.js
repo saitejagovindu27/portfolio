@@ -77,12 +77,14 @@
               fragment.appendChild(document.createTextNode(word));
             } else {
               const wordSpan = document.createElement('span');
-              wordSpan.style.display = 'inline-block';
-              wordSpan.style.whiteSpace = 'nowrap';
+              // Use inline (not inline-block) so words wrap naturally across lines
+              wordSpan.style.display = 'inline';
+              wordSpan.style.whiteSpace = 'normal';
               
               word.split('').forEach(letter => {
                 const span = document.createElement('span');
                 span.style.display = 'inline-block';
+                span.style.whiteSpace = 'nowrap';
                 span.innerText = letter;
                 span.style.fontVariationSettings = fromStr;
                 wordSpan.appendChild(span);
