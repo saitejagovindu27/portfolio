@@ -88,9 +88,9 @@ a { color: inherit; text-decoration: none; }
   z-index: 1;
 }
 
-/* Section Spacing — 80px total gap between sections */
+/* Section Spacing */
 .section-block {
-  padding: 40px 0; 
+  padding: 24px 0; 
   position: relative;
 }
 
@@ -110,7 +110,7 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 80px;
+  gap: 48px;
 }
 
 .about-text {
