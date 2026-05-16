@@ -23,17 +23,46 @@
       };
     </script>
   <style>
-    /* Hero entrance animations */
-    @keyframes fadeUp {
-      from { opacity:0; transform:translateY(22px); }
+    /* ── Hero Entrance Animations ───────────────────── */
+    @keyframes heroFadeUp {
+      from { opacity:0; transform:translateY(28px); }
       to   { opacity:1; transform:translateY(0); }
     }
-    /* Hero headline shimmer sweep */
-    @keyframes shimmer {
-      0%   { background-position: 200% center; }
-      100% { background-position:-200% center; }
+
+    /* Eyebrow label */
+    .hero-identity {
+      opacity:0;
+      animation: heroFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
     }
-    /* Orbit canvas containment */
+    /* Headline */
+    #hero-title {
+      opacity:0;
+      animation: heroFadeUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.35s forwards;
+      display:block !important;
+      white-space:normal !important;
+      font-size: clamp(2.4rem, 4.6vw, 4.2rem) !important;
+      font-weight:800 !important;
+      line-height:1.13 !important;
+      color:#f1f5f9 !important;
+      max-width:680px;
+      /* Reset any background-clip that could hide text */
+      -webkit-text-fill-color: unset !important;
+      background: none !important;
+      background-clip: unset !important;
+    }
+    /* Keep grad-word gradient visible */
+    #hero-title .grad-word {
+      background: linear-gradient(135deg, #4F8CFF 0%, #7A5CFF 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+    }
+    /* Subtext + CTA + visual */
+    .hero-sub  { opacity:0; animation: heroFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.55s forwards; }
+    .hero-cta  { opacity:0; animation: heroFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.72s forwards; }
+    .hero-visual { opacity:0; animation: heroFadeUp 0.90s cubic-bezier(0.22,1,0.36,1) 0.40s forwards; }
+
+    /* ── Orbit Canvas Containment ───────────────────── */
     #orbitWrapper {
       width:100%; height:420px;
       position:relative;
@@ -42,48 +71,14 @@
       z-index:0;
     }
     #orbitWrapper canvas { z-index:0; }
-    /* About text always left-aligned */
+
+    /* ── About text pinned left ─────────────────────── */
     .about-text, .about-text h2, .about-text p { text-align:left !important; }
-    /* Hero headline — single block, no word stacking */
-    .hero-title {
-      display:block !important;
-      white-space:normal !important;
-      font-size: clamp(2.6rem,4.8vw,4.4rem) !important;
-      font-weight:900 !important;
-      line-height:1.12 !important;
-      max-width:660px;
-    }
-    /* Shimmer on hero headline */
-    #hero-title {
-      background: linear-gradient(90deg,
-        #fff 0%,#fff 38%,
-        #a8c8ff 50%,
-        #fff 62%,#fff 100%);
-      background-size:200% auto;
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-      animation: shimmer 5s linear 1.4s infinite;
-    }
-    /* Do NOT apply shimmer to .grad-word — they inherit */
-    #hero-title .grad-word {
-      background: linear-gradient(135deg,#4F8CFF,#7A5CFF);
-      background-size:auto;
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-      animation:none;
-    }
-    /* Staggered load animations */
-    .hero-identity  { opacity:0; animation: fadeUp .6s ease .15s forwards; }
-    #hero-title     { opacity:0; animation: fadeUp .7s ease .35s forwards, shimmer 5s linear 1.4s infinite; }
-    .hero-sub       { opacity:0; animation: fadeUp .6s ease .55s forwards; }
-    .hero-cta       { opacity:0; animation: fadeUp .6s ease .75s forwards; }
-    .hero-visual    { opacity:0; animation: fadeUp .9s ease .45s forwards; }
-    /* Contact section above canvas */
-    #contact { position:relative; z-index:1; }
-    #tools   { position:relative; z-index:1; }
+
+    /* ── Section z-index above canvas ──────────────── */
     #work    { position:relative; z-index:1; }
+    #tools   { position:relative; z-index:1; }
+    #contact { position:relative; z-index:1; }
   </style>
 </head>
 <body id="top">
@@ -118,7 +113,9 @@
     <div class="container hero-grid">
       <div class="hero-content">
         <span class="hero-identity">UX/UI Designer — AI &amp; Data Systems</span>
-        <h1 class="hero-title" id="hero-title">I design AI and data tools that make complex systems feel simple.</h1>
+        <h1 class="hero-title variable-proximity" id="hero-title" data-radius="150" data-falloff="gaussian">
+          I design AI and data tools that make <span class="grad-word">complex</span> systems feel <span class="grad-word">simple.</span>
+        </h1>
         <p class="hero-sub">From research to final UI — I help enterprise teams turn dense workflows into clear, intuitive experiences.</p>
         <div class="hero-cta">
           <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Work</button>
