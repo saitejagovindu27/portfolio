@@ -1,290 +1,282 @@
 /**
- * 3D Orbit Canvas — Pure requestAnimationFrame + Canvas 2D
- * No external libraries. Perspective projection, depth blur,
- * mouse-tilt with lerp 0.06, gradient breathe on center.
- * All text horizontal & readable at all times.
+ * 3D Skills Orbit — Canvas 2D only, no external libs
+ * Fixes: centering, tilt clamping, dot artifact removed,
+ * canvas contained, IntersectionObserver pause, relative radii.
  */
 (function () {
-  var container = document.getElementById('heroOrbit');
-  if (!container) return;
+  'use strict';
 
-  // Hide existing DOM children (rings, nodes, center div)
-  container.innerHTML = '';
-  container.style.position = 'relative';
-  container.style.overflow = 'visible';
+  var wrapper = document.getElementById('orbitWrapper');
+  if (!wrapper) return;
 
-  var W = container.offsetWidth  || 440;
-  var H = container.offsetHeight || 440;
-
+  // ── Canvas setup ──────────────────────────────────────────
   var canvas = document.createElement('canvas');
-  canvas.width  = W * window.devicePixelRatio;
-  canvas.height = H * window.devicePixelRatio;
-  canvas.style.width  = W + 'px';
-  canvas.style.height = H + 'px';
-  canvas.style.display = 'block';
-  canvas.style.position = 'absolute';
-  canvas.style.top = '0';
-  canvas.style.left = '0';
-  canvas.style.overflow = 'visible';
-  container.appendChild(canvas);
+  canvas.id = 'skillsOrbit';
+  canvas.style.cssText = 'display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:0;';
+  wrapper.appendChild(canvas);
 
   var ctx = canvas.getContext('2d');
-  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  var dpr = window.devicePixelRatio || 1;
 
-  var cx = W / 2;
-  var cy = H / 2;
-  var FOCAL = 600; // perspective distance
+  // Logical dimensions (CSS pixels)
+  var W = 0, H = 0, cx = 0, cy = 0;
+  var innerR = 0, outerR = 0;
 
-  // Skills to orbit
-  var labels = ['AI', 'Data UX', 'Research', 'IA', 'Design Systems', 'Prototyping', 'Strategy'];
-  var count  = labels.length;
+  function resize() {
+    W  = wrapper.offsetWidth;
+    H  = wrapper.offsetHeight;
+    cx = W / 2;
+    cy = H / 2;
+    // Radii relative to smallest half — pills stay within canvas
+    var minHalf = Math.min(cx, cy);
+    innerR = minHalf * 0.40;
+    outerR = minHalf * 0.72;
+    // Update canvas pixel buffer
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+  }
 
-  // Build 3D points evenly spaced on a circle
-  var R = 145; // orbit radius
-  var nodes = labels.map(function (label, i) {
-    var angle = (i / count) * Math.PI * 2;
-    return {
-      label: label,
-      baseAngle: angle,
-      angle: angle,
-      y3d: 0          // stays on y=0 plane; tilted by camera
-    };
-  });
+  // ── Skill nodes ───────────────────────────────────────────
+  // inner ring: 2 nodes, outer ring: 5 nodes
+  var innerLabels = ['AI', 'IA'];
+  var outerLabels = ['Strategy', 'Data UX', 'Research', 'Design Systems', 'Prototyping'];
 
-  // Camera tilt state (target and current)
-  var tiltX = 0, tiltY = 0;      // current (lerped)
-  var targetTiltX = 0, targetTiltY = 0;
-  var LERP = 0.06;
-  var MAX_TILT = 0.45; // radians
+  function makeNodes(labels, R) {
+    return labels.map(function (label, i) {
+      var angle = (i / labels.length) * Math.PI * 2;
+      return { label: label, angle: angle, R: R };
+    });
+  }
 
-  // Breathe animation for center
-  var breatheT = 0;
+  var innerNodes, outerNodes;
+  // Will be rebuilt after first resize
 
-  // Track mouse relative to container
-  var rect = container.getBoundingClientRect();
+  // ── Tilt state ─────────────────────────────────────────────
+  // Default tilt: slight X so it looks 3D even at rest
+  var tiltX  = 0.32, tiltY  = 0;
+  var txTarget = 0.32, tyTarget = 0;
+  var LERP = 0.05;
+  var FOCAL = 700;
+
+  function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+
+  // ── Mouse tracking — relative to canvas rect ───────────────
   function onMouseMove(e) {
-    rect = container.getBoundingClientRect();
-    var mx = e.clientX - rect.left - cx;
-    var my = e.clientY - rect.top  - cy;
-    var nx = mx / cx; // -1 to 1
-    var ny = my / cy;
-    // Tilt: moving right tilts right, etc.
-    targetTiltY =  nx * MAX_TILT;
-    targetTiltX = -ny * MAX_TILT * 0.6;
+    var rect = canvas.getBoundingClientRect();
+    var nx = (e.clientX - rect.left  - rect.width  / 2) / (rect.width  / 2);
+    var ny = (e.clientY - rect.top   - rect.height / 2) / (rect.height / 2);
+    nx = clamp(nx, -1, 1);
+    ny = clamp(ny, -1, 1);
+    txTarget = clamp(0.32 + ny * 0.10, 0.20, 0.44);
+    tyTarget = clamp(nx * 0.10,       -0.10, 0.10);
   }
   function onMouseLeave() {
-    targetTiltX = 0;
-    targetTiltY = 0;
+    txTarget = 0.32;
+    tyTarget = 0;
   }
 
-  // Use the whole window to track mouse so tilt works even without hovering directly
-  window.addEventListener('mousemove', onMouseMove);
-  container.addEventListener('mouseleave', onMouseLeave);
+  window.addEventListener('mousemove', onMouseMove, { passive: true });
+  wrapper.addEventListener('mouseleave', onMouseLeave);
 
-  // Project a 3D point (rotating in XZ plane, tilted) → 2D
+  // ── 3D Projection ─────────────────────────────────────────
   function project(x3, y3, z3) {
-    // Apply tilt rotations
-    // Tilt around X axis
-    var y2 = y3 * Math.cos(tiltX) - z3 * Math.sin(tiltX);
-    var z2 = y3 * Math.sin(tiltX) + z3 * Math.cos(tiltX);
-    // Tilt around Y axis
-    var x2 = x3 * Math.cos(tiltY) + z2 * Math.sin(tiltY);
-    var z3f = -x3 * Math.sin(tiltY) + z2 * Math.cos(tiltY);
-
-    // Perspective
-    var scale = FOCAL / (FOCAL + z3f + FOCAL * 0.3);
-    return {
-      x: cx + x2 * scale,
-      y: cy + y2 * scale,
-      scale: scale,
-      z: z3f
-    };
+    // Rotate around X
+    var y2  =  y3 * Math.cos(tiltX) - z3 * Math.sin(tiltX);
+    var z2  =  y3 * Math.sin(tiltX) + z3 * Math.cos(tiltX);
+    // Rotate around Y
+    var x2  =  x3 * Math.cos(tiltY) + z2 * Math.sin(tiltY);
+    var zf  = -x3 * Math.sin(tiltY) + z2 * Math.cos(tiltY);
+    // Perspective scale
+    var s = FOCAL / (FOCAL + zf + FOCAL * 0.25);
+    return { x: cx + x2 * s, y: cy + y2 * s, scale: s, z: zf };
   }
 
-  // Orbit rotation speed
-  var orbitSpeed = 0.004;
+  // ── Draw helpers ──────────────────────────────────────────
+  function pillPath(px, py, pw, ph, r) {
+    if (ctx.roundRect) {
+      ctx.roundRect(px, py, pw, ph, r);
+    } else {
+      ctx.moveTo(px + r, py);
+      ctx.lineTo(px + pw - r, py);
+      ctx.quadraticCurveTo(px + pw, py, px + pw, py + r);
+      ctx.lineTo(px + pw, py + ph - r);
+      ctx.quadraticCurveTo(px + pw, py + ph, px + pw - r, py + ph);
+      ctx.lineTo(px + r, py + ph);
+      ctx.quadraticCurveTo(px, py + ph, px, py + ph - r);
+      ctx.lineTo(px, py + r);
+      ctx.quadraticCurveTo(px, py, px + r, py);
+    }
+  }
 
-  function drawRing(tiltX, tiltY, radius, segments) {
+  function drawRing(R, segments) {
     ctx.beginPath();
     for (var i = 0; i <= segments; i++) {
-      var a = (i / segments) * Math.PI * 2;
-      var x3 = Math.cos(a) * radius;
-      var z3 = Math.sin(a) * radius;
-      var p = project(x3, 0, z3);
-      if (i === 0) ctx.moveTo(p.x, p.y);
-      else ctx.lineTo(p.x, p.y);
+      var a  = (i / segments) * Math.PI * 2;
+      var p  = project(Math.cos(a) * R, 0, Math.sin(a) * R);
+      if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
     }
     ctx.closePath();
-    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.strokeStyle = 'rgba(255,255,255,0.07)';
     ctx.lineWidth = 1;
     ctx.stroke();
   }
 
-  function drawNode(node, time) {
-    var x3 = Math.cos(node.angle) * R;
-    var z3 = Math.sin(node.angle) * R;
-    var p = project(x3, 0, z3);
+  function drawNode(node) {
+    var p = project(Math.cos(node.angle) * node.R, 0, Math.sin(node.angle) * node.R);
 
-    // depth 0→1 where 1 = front, 0 = back
-    var depth = (p.scale - 0.55) / (1 - 0.55);
-    depth = Math.max(0, Math.min(1, depth));
-
-    var alpha   = 0.25 + depth * 0.75;
-    var pillH   = 28;
-    var fontSize= Math.round(11 + depth * 2);
+    // Depth: 1 = front, 0 = back
+    var depth = clamp((p.scale - 0.5) / (1 - 0.5), 0, 1);
+    var alpha  = 0.20 + depth * 0.80;
+    var pillH  = 28;
+    var fSize  = Math.round(11 + depth * 2);
 
     ctx.save();
     ctx.globalAlpha = alpha;
-
-    // Measure text to size pill
-    ctx.font = '500 ' + fontSize + 'px Inter, sans-serif';
+    ctx.font = '500 ' + fSize + 'px Inter, sans-serif';
     var tw = ctx.measureText(node.label).width;
     var pw = tw + 28;
-
     var px = p.x - pw / 2;
     var py = p.y - pillH / 2;
 
-    // Depth blur: back nodes get blur
-    var blurAmt = (1 - depth) * 4;
-    if (blurAmt > 0.4) ctx.filter = 'blur(' + blurAmt.toFixed(1) + 'px)';
+    // Blur on back pills only
+    var blur = (1 - depth) * 3.5;
+    if (blur > 0.3) ctx.filter = 'blur(' + blur.toFixed(1) + 'px)';
 
-    // Pill background
-    ctx.beginPath();
-    ctx.roundRect ? ctx.roundRect(px, py, pw, pillH, pillH / 2)
-                  : roundRectFallback(ctx, px, py, pw, pillH, pillH / 2);
-
-    // Front nodes: slightly glowing; back: dark
+    // Pill fill
     var bg = depth > 0.5
-      ? 'rgba(255,255,255,' + (0.04 + depth * 0.06) + ')'
-      : 'rgba(10,15,30,0.7)';
+      ? 'rgba(255,255,255,' + (0.04 + depth * 0.07) + ')'
+      : 'rgba(8,12,28,0.75)';
+    ctx.beginPath();
+    pillPath(px, py, pw, pillH, pillH / 2);
     ctx.fillStyle = bg;
     ctx.fill();
-    ctx.strokeStyle = 'rgba(255,255,255,' + (0.05 + depth * 0.1) + ')';
+    ctx.strokeStyle = 'rgba(255,255,255,' + (0.04 + depth * 0.12) + ')';
     ctx.lineWidth = 1;
     ctx.stroke();
 
     ctx.filter = 'none';
 
-    // Text — always horizontal (no rotation)
+    // Label — always horizontal
     ctx.globalAlpha = alpha;
     ctx.fillStyle = depth > 0.5
-      ? 'rgba(255,255,255,' + (0.6 + depth * 0.4) + ')'
-      : 'rgba(255,255,255,0.3)';
-    ctx.font = '500 ' + fontSize + 'px Inter, sans-serif';
-    ctx.textAlign = 'center';
+      ? 'rgba(255,255,255,' + (0.55 + depth * 0.45) + ')'
+      : 'rgba(255,255,255,0.28)';
+    ctx.font = '500 ' + fSize + 'px Inter, sans-serif';
+    ctx.textAlign    = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(node.label, p.x, p.y);
 
     ctx.restore();
   }
 
-  function roundRectFallback(ctx, x, y, w, h, r) {
-    ctx.moveTo(x + r, y);
-    ctx.lineTo(x + w - r, y);
-    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-    ctx.lineTo(x + w, y + h - r);
-    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-    ctx.lineTo(x + r, y + h);
-    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-    ctx.lineTo(x, y + r);
-    ctx.quadraticCurveTo(x, y, x + r, y);
-  }
+  // ── Center pill with breathe ───────────────────────────────
+  var breatheT = 0;
 
-  function drawCenter(time) {
-    var pulse = Math.sin(breatheT * 0.8) * 0.5 + 0.5; // 0–1
-    var r1 = 52 + pulse * 6;
-
+  function drawCenter() {
+    var pulse = Math.sin(breatheT * 0.7) * 0.5 + 0.5;
     ctx.save();
 
-    // Glow halo
-    var grd = ctx.createRadialGradient(cx, cy, r1 * 0.3, cx, cy, r1 * 2.2);
-    grd.addColorStop(0, 'rgba(59,130,246,' + (0.18 + pulse * 0.1) + ')');
+    // Glow — use arc only, no stray circle artifact
+    var glowR = 90 + pulse * 10;
+    var grd   = ctx.createRadialGradient(cx, cy, 10, cx, cy, glowR);
+    grd.addColorStop(0, 'rgba(59,130,246,' + (0.15 + pulse * 0.08) + ')');
     grd.addColorStop(1, 'rgba(59,130,246,0)');
     ctx.beginPath();
-    ctx.arc(cx, cy, r1 * 2.2, 0, Math.PI * 2);
+    ctx.arc(cx, cy, glowR, 0, Math.PI * 2);
     ctx.fillStyle = grd;
     ctx.fill();
 
-    // Pill background — gradient breathe
-    var grad = ctx.createLinearGradient(cx - r1, cy - 16, cx + r1, cy + 16);
-    var c1 = 'hsl(' + (220 + pulse * 20) + ',90%,' + (50 + pulse * 8) + '%)';
-    var c2 = 'hsl(' + (200 + pulse * 15) + ',85%,42%)';
-    grad.addColorStop(0, c1);
-    grad.addColorStop(1, c2);
+    // Pill
+    var pillW = 172, pillH = 40;
+    var grad  = ctx.createLinearGradient(cx - pillW / 2, cy, cx + pillW / 2, cy);
+    grad.addColorStop(0, 'hsl(' + (218 + pulse * 18) + ',88%,' + (48 + pulse * 9) + '%)');
+    grad.addColorStop(1, 'hsl(' + (200 + pulse * 12) + ',82%,42%)');
 
-    var pillW = 180;
-    var pillH = 40;
     ctx.beginPath();
-    ctx.roundRect
-      ? ctx.roundRect(cx - pillW/2, cy - pillH/2, pillW, pillH, pillH/2)
-      : (function(){
-          roundRectFallback(ctx, cx - pillW/2, cy - pillH/2, pillW, pillH, pillH/2);
-        })();
-    ctx.fillStyle = grad;
-    ctx.shadowColor = 'rgba(59,130,246,0.5)';
-    ctx.shadowBlur = 20 + pulse * 10;
+    pillPath(cx - pillW / 2, cy - pillH / 2, pillW, pillH, pillH / 2);
+    ctx.shadowColor = 'rgba(59,130,246,0.55)';
+    ctx.shadowBlur  = 18 + pulse * 12;
+    ctx.fillStyle   = grad;
     ctx.fill();
-    ctx.shadowBlur = 0;
+    ctx.shadowBlur  = 0;
 
-    // Label
-    ctx.fillStyle = 'white';
-    ctx.font = '600 14px Inter, sans-serif';
-    ctx.textAlign = 'center';
+    // Text
+    ctx.fillStyle    = 'rgba(255,255,255,0.97)';
+    ctx.font         = '600 14px Inter, sans-serif';
+    ctx.textAlign    = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('Systems Thinking', cx, cy);
 
     ctx.restore();
   }
 
-  var raf;
+  // ── Animation loop ────────────────────────────────────────
+  var raf     = null;
+  var running = false;
+  var speed   = 0.0038;
+
   function tick() {
+    if (!running) return;
     ctx.clearRect(0, 0, W, H);
     breatheT += 0.016;
 
-    // Lerp camera tilt
-    tiltX += (targetTiltX - tiltX) * LERP;
-    tiltY += (targetTiltY - tiltY) * LERP;
+    // Lerp tilt
+    tiltX += (txTarget - tiltX) * LERP;
+    tiltY += (tyTarget - tiltY) * LERP;
 
-    // Advance orbit angles
-    nodes.forEach(function (n) {
-      n.angle += orbitSpeed;
-    });
+    // Advance rotation
+    innerNodes.forEach(function (n) { n.angle += speed * 1.35; });
+    outerNodes.forEach(function (n) { n.angle += speed; });
 
-    // Draw rings
-    drawRing(tiltX, tiltY, R * 0.58, 80);
-    drawRing(tiltX, tiltY, R, 80);
+    drawRing(innerR, 72);
+    drawRing(outerR, 72);
 
-    // Sort nodes back-to-front by projected z so front ones paint on top
-    var projected = nodes.map(function (n) {
-      var x3 = Math.cos(n.angle) * R;
-      var z3 = Math.sin(n.angle) * R;
-      var p  = project(x3, 0, z3);
-      return { node: n, z: p.z };
+    // Back-to-front sort across both rings
+    var all = innerNodes.concat(outerNodes);
+    var projected = all.map(function (n) {
+      return { node: n, z: project(Math.cos(n.angle) * n.R, 0, Math.sin(n.angle) * n.R).z };
     });
     projected.sort(function (a, b) { return a.z - b.z; });
+    projected.forEach(function (item) { drawNode(item.node); });
 
-    projected.forEach(function (item) {
-      drawNode(item.node, breatheT);
-    });
-
-    // Center always on top
-    drawCenter(breatheT);
+    drawCenter();
 
     raf = requestAnimationFrame(tick);
   }
 
-  tick();
+  function start() {
+    if (running) return;
+    running = true;
+    tick();
+  }
+  function stop() {
+    running = false;
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+  }
 
-  // Resize handling
-  window.addEventListener('resize', function () {
-    W = container.offsetWidth  || 440;
-    H = container.offsetHeight || 440;
-    canvas.width  = W * window.devicePixelRatio;
-    canvas.height = H * window.devicePixelRatio;
-    canvas.style.width  = W + 'px';
-    canvas.style.height = H + 'px';
-    ctx = canvas.getContext('2d');
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    cx = W / 2; cy = H / 2;
-  });
+  // ── IntersectionObserver — pause when off-screen ──────────
+  var io = new IntersectionObserver(function (entries) {
+    entries[0].isIntersecting ? start() : stop();
+  }, { threshold: 0.1 });
+  io.observe(wrapper);
+
+  // ── ResizeObserver — recalculate on container change ──────
+  function doResize() {
+    resize();
+    // Rebuild nodes with updated radii
+    innerNodes = makeNodes(innerLabels, innerR);
+    outerNodes = makeNodes(outerLabels, outerR);
+  }
+
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(doResize).observe(wrapper);
+  } else {
+    window.addEventListener('resize', doResize);
+  }
+
+  // Initial sizing
+  doResize();
+  start();
 })();

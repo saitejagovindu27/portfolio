@@ -22,6 +22,69 @@
         window.scrollTo(0, 0);
       };
     </script>
+  <style>
+    /* Hero entrance animations */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    /* Hero headline shimmer sweep */
+    @keyframes shimmer {
+      0%   { background-position: 200% center; }
+      100% { background-position:-200% center; }
+    }
+    /* Orbit canvas containment */
+    #orbitWrapper {
+      width:100%; height:420px;
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      z-index:0;
+    }
+    #orbitWrapper canvas { z-index:0; }
+    /* About text always left-aligned */
+    .about-text, .about-text h2, .about-text p { text-align:left !important; }
+    /* Hero headline — single block, no word stacking */
+    .hero-title {
+      display:block !important;
+      white-space:normal !important;
+      font-size: clamp(2.6rem,4.8vw,4.4rem) !important;
+      font-weight:900 !important;
+      line-height:1.12 !important;
+      max-width:660px;
+    }
+    /* Shimmer on hero headline */
+    #hero-title {
+      background: linear-gradient(90deg,
+        #fff 0%,#fff 38%,
+        #a8c8ff 50%,
+        #fff 62%,#fff 100%);
+      background-size:200% auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      animation: shimmer 5s linear 1.4s infinite;
+    }
+    /* Do NOT apply shimmer to .grad-word — they inherit */
+    #hero-title .grad-word {
+      background: linear-gradient(135deg,#4F8CFF,#7A5CFF);
+      background-size:auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      animation:none;
+    }
+    /* Staggered load animations */
+    .hero-identity  { opacity:0; animation: fadeUp .6s ease .15s forwards; }
+    #hero-title     { opacity:0; animation: fadeUp .7s ease .35s forwards, shimmer 5s linear 1.4s infinite; }
+    .hero-sub       { opacity:0; animation: fadeUp .6s ease .55s forwards; }
+    .hero-cta       { opacity:0; animation: fadeUp .6s ease .75s forwards; }
+    .hero-visual    { opacity:0; animation: fadeUp .9s ease .45s forwards; }
+    /* Contact section above canvas */
+    #contact { position:relative; z-index:1; }
+    #tools   { position:relative; z-index:1; }
+    #work    { position:relative; z-index:1; }
+  </style>
 </head>
 <body id="top">
 
@@ -54,8 +117,8 @@
   <section class="hero" id="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <span class="hero-identity">UX/UI Designer — AI & Data Systems</span>
-        <h1 class="hero-title variable-proximity" id="hero-title" data-radius="150" data-falloff="gaussian">I design AI and data tools that make <span class="grad-word">complex</span> systems actually <span class="grad-word">usable.</span></h1>
+        <span class="hero-identity">UX/UI Designer — AI &amp; Data Systems</span>
+        <h1 class="hero-title" id="hero-title">I design AI and data tools that make complex systems feel simple.</h1>
         <p class="hero-sub">From research to final UI — I help enterprise teams turn dense workflows into clear, intuitive experiences.</p>
         <div class="hero-cta">
           <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Work</button>
@@ -77,19 +140,8 @@
         </div>
       </div>
       <div class="about-visual">
-        <div class="hero-orbit" id="heroOrbit">
-          <div class="orbit-glow"></div>
-          <div class="orbit-ring ring-1"></div>
-          <div class="orbit-ring ring-2"></div>
-          <div class="orbit-center">Systems Thinking</div>
-          <div class="orbit-node n1">AI</div>
-          <div class="orbit-node n2">Data UX</div>
-          <div class="orbit-node n3">Research</div>
-          <div class="orbit-node n4">IA</div>
-          <div class="orbit-node n5">Design Systems</div>
-          <div class="orbit-node n6">Prototyping</div>
-          <div class="orbit-node n7">Strategy</div>
-        </div>
+        <!-- Orbit canvas — contained, no overflow -->
+        <div id="orbitWrapper"></div>
       </div>
     </div>
   </section>
