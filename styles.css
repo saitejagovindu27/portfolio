@@ -13,9 +13,49 @@
 body {
   font-family: 'Inter', sans-serif;
   background: #020617;
-  color: #CBD5E1; /* Increased contrast from A0AEC0 */
+  color: #CBD5E1; 
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  cursor: none; /* Hide default cursor for custom one */
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  pointer-events: none;
+  background: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10005;
+  transition: transform 0.1s ease-out, opacity 0.2s ease;
+  mix-blend-mode: difference;
+}
+.cursor-follower {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10004;
+  transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease, background 0.3s ease;
+}
+.cursor-follower.active {
+  transform: scale(2.5);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
 }
 
 h1, h2, h3, h4 {
@@ -304,6 +344,16 @@ a { color: inherit; text-decoration: none; }
   text-shadow: 0px 2px 12px rgba(79, 140, 255, 0.12); /* Clean premium glow */
   will-change: transform, text-shadow;
   transition: text-shadow 0.1s ease-out;
+  overflow: hidden; /* For masked reveal */
+}
+/* Masked Reveal for Text */
+.masked-reveal {
+  display: block;
+  overflow: hidden;
+}
+.masked-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
 }
 /* Gradient ONLY on key words */
 .grad-word {

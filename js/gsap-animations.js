@@ -10,15 +10,80 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================================
   if (typeof Lenis !== "undefined") {
     var lenis = new Lenis({
-      duration: 1.5, // Slightly longer for more "luxurious" feel
+      duration: 1.5, 
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
       smoothWheel: true,
       wheelMultiplier: 1.1,
       touchMultiplier: 2,
     });
-    lenis.on("scroll", ScrollTrigger.update);
+    lenis.on("scroll", function(e) {
+      ScrollTrigger.update();
+      updateScrollSkew(e.velocity);
+    });
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
+  }
+
+  // =========================================
+  //  CUSTOM CURSOR
+  // =========================================
+  var cursor = document.getElementById("custom-cursor");
+  var follower = document.getElementById("cursor-follower");
+  var mouseX = 0, mouseY = 0;
+  var ballX = 0, ballY = 0;
+
+  if (window.innerWidth > 1024) {
+    document.addEventListener("mousemove", function(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0, ease: "none" });
+    });
+
+    gsap.ticker.add(function() {
+      ballX += (mouseX - ballX) * 0.15;
+      ballY += (mouseY - ballY) * 0.15;
+      gsap.set(follower, { x: ballX - 16, y: ballY - 16 });
+    });
+
+    document.querySelectorAll("a, button, .work-card, .tool").forEach(function(el) {
+      el.addEventListener("mouseenter", function() { follower.classList.add("active"); });
+      el.addEventListener("mouseleave", function() { follower.classList.remove("active"); });
+    });
+  } else {
+    if (cursor) cursor.style.display = "none";
+    if (follower) follower.style.display = "none";
+    document.body.style.cursor = "default";
+  }
+
+  // =========================================
+  //  MAGNETIC BUTTONS
+  // =========================================
+  document.querySelectorAll(".btn-primary, .btn-secondary, .logo, .orbit-center").forEach(function(btn) {
+    btn.addEventListener("mousemove", function(e) {
+      var rect = btn.getBoundingClientRect();
+      var x = e.clientX - rect.left - rect.width / 2;
+      var y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.4, ease: "power2.out" });
+    });
+    btn.addEventListener("mouseleave", function() {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: "elastic.out(1, 0.3)" });
+    });
+  });
+
+  // =========================================
+  //  SCROLL SKEW
+  // =========================================
+  var skewSetter = gsap.quickSetter(".work-card", "skewY", "deg");
+  var proxy = { skew: 0 };
+  function updateScrollSkew(velocity) {
+    var skew = velocity * 0.005;
+    if (Math.abs(skew) > Math.abs(proxy.skew)) {
+      proxy.skew = skew;
+      gsap.to(proxy, {
+        skew: 0, duration: 0.8, ease: "power3",
+        onUpdate: function() { skewSetter(proxy.skew); }
+      });
+    }
   }
 
   // =========================================
@@ -26,21 +91,28 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================================
   var heroTitle = document.getElementById("hero-title");
   if (heroTitle) {
-    heroTitle.style.opacity = "0";
-    heroTitle.style.transform = "translateY(24px)";
-    gsap.to(heroTitle, {
-      opacity: 1, y: 0, duration: 1, delay: 0.4, ease: "power3.out",
-      clearProps: "transform"
+    // Masked Reveal Effect
+    var text = heroTitle.innerText;
+    heroTitle.innerHTML = text.split(" ").map(function(word) {
+      return '<span class="masked-reveal"><span>' + word + '</span></span>';
+    }).join(" ");
+
+    gsap.to(".masked-reveal span", {
+      y: 0,
+      duration: 1.2,
+      stagger: 0.05,
+      ease: "power4.out",
+      delay: 0.4
     });
   }
 
   var heroIdentity = document.querySelector(".hero-identity");
   if (heroIdentity) {
-    gsap.from(heroIdentity, { y: 12, opacity: 0, duration: 0.6, delay: 0.2, ease: "power3.out", clearProps: "all" });
+    gsap.from(heroIdentity, { y: 12, opacity: 0, duration: 0.6, delay: 0.2, ease: "power3.out" });
   }
 
-  gsap.from(".hero-sub", { y: 16, opacity: 0, duration: 0.7, delay: 0.6, ease: "power3.out", clearProps: "all" });
-  gsap.from(".hero-cta", { y: 12, opacity: 0, duration: 0.6, delay: 0.8, ease: "power3.out", clearProps: "all" });
+  gsap.from(".hero-sub", { y: 20, opacity: 0, duration: 0.8, delay: 0.8, ease: "power3.out" });
+  gsap.from(".hero-cta", { y: 20, opacity: 0, duration: 0.8, delay: 1, ease: "power3.out" });
 
   // Orbit/Visual entrance
   gsap.from(".hero-img-float", { x: 40, opacity: 0, duration: 1.4, delay: 0.4, ease: "power3.out" });

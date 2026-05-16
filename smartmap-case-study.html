@@ -44,12 +44,14 @@
     <!-- 1. OVERVIEW -->
     <section class="cs-hero fade">
       <h1 class="scroll-reveal variable-proximity" data-base-rotation="5" data-blur-strength="10" data-radius="150">Smart Map</h1>
-      <p class="cs-hero-sub">UAE government spatial platform serving 2M+ residents. I redesigned the layer architecture and built a dual-mode interface — one for public exploration, one for government administrators.</p>
+      <p class="cs-hero-sub">Redesigning a government spatial platform to make location-based services accessible to everyday residents — not just GIS experts.</p>
       <div class="cs-meta">
         <span class="cs-meta-item">UI UX Designer</span>
         <span class="cs-meta-item">2025–2026</span>
-        <span class="cs-meta-item">Team Size: 5</span>
+        <span class="cs-meta-item">Platform: Web (Desktop + Responsive)</span>
+        <span class="cs-meta-item">Region: UAE</span>
       </div>
+      <p style="font-size:13px;color:#475569;margin-top:16px;font-style:italic;">Details shared here are limited to UX process and outcomes. Sensitive platform data and client information are kept confidential.</p>
     </section>
 
     <!-- IMAGE: Hero -->
@@ -57,37 +59,68 @@
       <img src="assets/smartmap/landing_final_light_v2.png" alt="SmartMap Landing" loading="lazy" onload="this.classList.add('loaded')" />
     </div>
 
+    <!-- METRICS -->
+    <section class="cs-section fade">
+      <div class="impact-grid" style="margin-top:0;">
+        <div class="impact-card"><h4>↓ 30%</h4><p>Drop in navigation errors (usability testing)</p></div>
+        <div class="impact-card"><h4>2×</h4><p>Faster service discovery vs. original interface</p></div>
+        <div class="impact-card"><h4>74 SUS</h4><p>Post-redesign score — up from 58, crosses “Good” threshold</p></div>
+        <div class="impact-card"><h4>2M+</h4><p>Residents served by the platform</p></div>
+      </div>
+    </section>
+
+    <!-- CONTEXT -->
+    <section class="cs-section fade">
+      <h2>What Is SmartMap</h2>
+      <p>SmartMap is a public-facing mapping platform built for UAE residents to find government services, explore location data, and interact with spatial information in their area.</p>
+      <p>The challenge: the platform was originally built with a data-first mindset — powerful for analysts, but overwhelming for everyday residents trying to find a nearby hospital or school. My role was to evaluate the existing experience and redesign the interaction model for the general public, without removing utility for those who needed deeper access.</p>
+    </section>
+
     <!-- 2. PROBLEM -->
     <section class="cs-section fade">
-      <h2>Problem</h2>
+      <h2>What Was Breaking the Experience</h2>
       <ul>
-        <li>Residents had no way to find nearest healthcare or education facilities with real-time availability</li>
-        <li>40+ spatial datasets presented as flat layers — no context, no proximity search</li>
-        <li>No natural language search — users had to know exact dataset names to find anything</li>
-        <li>Government officers had no admin tools to manage and publish updated facility data</li>
+        <li><strong style="color:#e2e8f0">Navigation Overload</strong> — Too many tools visible at once with no grouping or priority. First-time users didn’t know where to begin.</li>
+        <li><strong style="color:#e2e8f0">Layer Panel Complexity</strong> — All data layers were listed flat with no categories meaningful to a general audience.</li>
+        <li><strong style="color:#e2e8f0">No browse-by-need flow</strong> — Users had to enable the right layer before finding a service, assuming knowledge most residents didn’t have.</li>
+        <li><strong style="color:#e2e8f0">High Cognitive Load</strong> — The density of options made the platform feel like internal software, not a public service tool.</li>
       </ul>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="cs-section fade">
+      <h2>Research &amp; Evaluation</h2>
+      <p>Before touching any design decisions, I mapped the current experience from a real user’s perspective.</p>
+      <ul>
+        <li>Conducted task-based usability tests with everyday users unfamiliar with GIS tools</li>
+        <li>Documented friction points across navigation, layer management, and search flows</li>
+        <li>Identified where users dropped off or asked for help during core tasks</li>
+        <li>Reviewed comparable public map platforms to establish usability benchmarks</li>
+      </ul>
+      <div class="cs-callout">
+        <p>Key finding: Most users couldn’t complete a basic task like “find the nearest hospital” without assistance — not because they didn’t understand maps, but because the interface had no clear starting point or visual hierarchy.</p>
+      </div>
     </section>
 
     <!-- 3. SOLUTION -->
     <section class="cs-section fade">
-      <h2>Solution</h2>
-      <p>Built a spatial platform that helps UAE residents find what they need — nearest hospitals with available emergency beds, schools with open enrollment, clinics within walking distance — all through <strong style="color:#e2e8f0">natural language search</strong> and <strong style="color:#e2e8f0">radius-based exploration</strong>.</p>
+      <h2>What I Changed and Why</h2>
       <div class="cs-modules">
         <div class="cs-module">
-          <h4>NL Search</h4>
-          <p>"Find hospitals near me with emergency beds" — plain language, not dataset codes</p>
+          <h4>Structured Toolbar</h4>
+          <p>Reduced visible primary actions. Advanced tools moved into a collapsible secondary panel — users found core functions faster with less scanning.</p>
         </div>
         <div class="cs-module">
-          <h4>Radius Search</h4>
-          <p>Set a radius (1km, 5km, 10km) to find facilities within walking or driving distance</p>
+          <h4>Categorised Layers</h4>
+          <p>Grouped layers into service-based categories (Health, Education, Transport) with a search filter. Layer selection became faster and more intuitive.</p>
         </div>
         <div class="cs-module">
-          <h4>Real-Time Data</h4>
-          <p>Live availability — emergency bed counts, school capacity, clinic hours — updated continuously</p>
+          <h4>Find Services Entry Point</h4>
+          <p>Browse by what you need — not by dataset name. Task completion for basic service discovery improved significantly.</p>
         </div>
         <div class="cs-module">
-          <h4>Admin Dashboard</h4>
-          <p>Government officers publish and manage facility data, access controls, and layer visibility</p>
+          <h4>Progressive Disclosure</h4>
+          <p>Advanced filters, export options, and data details appear only when needed. Reduced visual noise on the main map view.</p>
         </div>
       </div>
     </section>
@@ -139,13 +172,13 @@
     <section class="cs-section fade">
       <h2>Core Experience</h2>
       <h3>Finding Nearest Facilities</h3>
-      <p>Residents search in natural language — "hospitals near Al Majaz with available beds" — and the map immediately highlights matching facilities with distance, availability, and contact info.</p>
+      <p>Residents browse by service category — Health, Education, Government — and the map highlights matching facilities with distance, availability, and contact info. No layer knowledge required.</p>
 
-      <h3>Real-Time Healthcare Data</h3>
-      <p>Each facility card shows live data: emergency bed availability, current wait times, operating hours. Healthcare workers update this through the admin dashboard — residents see it instantly on the map.</p>
+      <h3>Real-Time Service Data</h3>
+      <p>Each facility card shows live data where available: operating hours, service types, location. Government staff update records through the admin dashboard — residents see it instantly on the map.</p>
 
-      <h3>Education & Services</h3>
-      <p>Beyond healthcare — the platform covers education (schools, enrollment status, ratings), government services, and infrastructure. Each category shows relevant real-time attributes specific to that service type.</p>
+      <h3>Onboarding for First-Time Users</h3>
+      <p>A short contextual guide triggers on first visit, dismissible at any point. Reduced confusion and drop-off among users new to map-based interfaces.</p>
     </section>
 
 
@@ -184,8 +217,14 @@
       </div>
 
       <div class="cs-callout">
-        <p>The hardest part wasn't the design — it was convincing stakeholders that two simpler interfaces are better than one complex one. The user testing data made the case.</p>
+        <p>The hardest part wasn’t the design — it was finding the balance between simplicity for the public and depth for users who needed more. Government platforms serve a wide audience: residents with low digital literacy, professionals who need data access, and everything in between. The solution wasn’t to strip the platform down — it was to create a clear default experience that didn’t hide advanced capability.</p>
       </div>
+    </section>
+
+    <!-- REFLECTION -->
+    <section class="cs-section fade">
+      <h2>What I Learned</h2>
+      <p>If I could extend this project, I’d run another round of testing specifically with users who have limited digital experience — a critical group for any public-facing government service. Designing for the general public is a different challenge than designing for professionals: the affordances you rely on can’t be assumed.</p>
     </section>
 
     <a href="index.html#work" class="cs-back">← Back to all work</a>
